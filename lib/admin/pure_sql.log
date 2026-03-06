@@ -1,0 +1,70 @@
+[2025-06-26 14:27:16] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 14:27:16] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 14:27:16] [INFO] Executing SQL file: C:\xampp\htdocs\tl-uat\lib\admin/SQL scripts/CRITICAL_ATM_20250626123002.sql
+[2025-06-26 14:27:16] [INFO] Executing SQL with multi_query
+[2025-06-26 14:27:16] [INFO] SQL executed successfully using multi_query
+[2025-06-26 14:27:47] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 14:27:47] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 14:55:55] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 14:55:55] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 14:57:03] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 14:57:03] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 14:57:18] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 14:57:18] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 14:57:18] [INFO] Executing SQL file: C:\xampp\htdocs\tl-uat\lib\admin/SQL scripts/CRITICAL_ATM_20250626145648.sql
+[2025-06-26 14:57:18] [INFO] Executing SQL with multi_query
+[2025-06-26 14:57:18] [INFO] SQL executed successfully using multi_query
+[2025-06-26 14:59:21] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 14:59:21] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 15:00:39] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 15:00:39] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 15:00:56] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 15:00:56] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 15:03:05] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 15:03:05] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 15:09:28] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 15:09:28] [INFO] Connected to database: tl_uat on localhost
+[2025-06-26 15:09:42] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-26 15:09:42] [INFO] Connected to database: tl_uat on localhost
+[2025-06-30 10:41:33] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-30 10:41:33] [INFO] Connected to database: tl_uat on localhost
+[2025-06-30 10:42:04] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-30 10:42:04] [INFO] Connected to database: tl_uat on localhost
+[2025-06-30 10:42:27] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-30 10:42:27] [INFO] Connected to database: tl_uat on localhost
+[2025-06-30 10:42:27] [INFO] Executing SQL file: C:\xampp\htdocs\tl-uat\lib\admin/SQL scripts/C2B1_CCL_CLEARING_20250630104104.sql
+[2025-06-30 10:42:27] [INFO] Executing SQL with multi_query
+[2025-06-30 10:42:27] [INFO] SQL executed successfully using multi_query
+[2025-06-30 10:52:21] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-30 10:52:21] [INFO] Connected to database: tl_uat on localhost
+[2025-06-30 10:52:31] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-06-30 10:52:31] [INFO] Connected to database: tl_uat on localhost
+[2025-07-17 11:36:11] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-07-17 11:36:11] [INFO] Connected to database: tl_uat on localhost
+[2025-07-17 11:36:22] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-07-17 11:36:22] [INFO] Connected to database: tl_uat on localhost
+[2025-08-13 18:01:39] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-08-13 18:01:39] [INFO] Connected to database: tl_uat on localhost
+[2025-08-13 18:01:41] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-08-13 18:01:41] [INFO] Connected to database: tl_uat on localhost
+[2025-12-11 09:33:16] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-12-11 09:33:16] [INFO] Connected to database: tl_uat on localhost
+[2025-12-11 09:33:46] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-12-11 09:33:46] [INFO] Connected to database: tl_uat on localhost
+[2025-12-11 09:33:46] [INFO] Executing SQL file: C:\xampp\htdocs\tl-uat\lib\admin/SQL scripts/FIN_BAL_ENQ_20251211093310.sql
+[2025-12-11 09:33:46] [INFO] Executing SQL with multi_query
+[2025-12-11 09:33:46] [ERROR] SQL execution failed: Access denied for user 'tl_uat'@'localhost' to database 'testlink_db'
+[2025-12-11 09:33:54] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-12-11 09:33:54] [INFO] Connected to database: tl_uat on localhost
+[2025-12-11 09:34:16] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2025-12-11 09:34:16] [INFO] Connected to database: tl_uat on localhost
+[2025-12-11 09:34:16] [INFO] Executing SQL file: C:\xampp\htdocs\tl-uat\lib\admin/SQL scripts/FIN_BAL_ENQ_20251211093310.sql
+[2025-12-11 09:34:16] [INFO] Executing SQL with multi_query
+[2025-12-11 09:34:16] [ERROR] SQL execution failed: Access denied for user 'tl_uat'@'localhost' to database 'testlink_db'
+[2026-01-03 11:13:09] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2026-01-03 11:13:09] [INFO] Connected to database: tl_uat on localhost
+[2026-01-03 11:13:17] [INFO] Loaded database config: host=localhost, db=tl_uat, user=tl_uat
+[2026-01-03 11:13:17] [INFO] Connected to database: tl_uat on localhost
+[2026-01-03 11:13:17] [INFO] Executing SQL file: C:\xampp\htdocs\tl-uat\lib\admin/SQL scripts/EOD_PAY CARD_20260103111300.sql
+[2026-01-03 11:13:17] [INFO] Executing SQL with multi_query
+[2026-01-03 11:13:17] [INFO] SQL executed successfully using multi_query

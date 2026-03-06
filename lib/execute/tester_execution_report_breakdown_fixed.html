@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fixed Tooltip and Datalabels</title>
+</head>
+<body>
+    <h2>Fixed Code Sections for Manual Replacement</h2>
+    
+    <h3>1. Replace the entire tooltip label function (lines ~1817-1858):</h3>
+    <pre><code>
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    var value = context.parsed.y;
+                                    return label + ': ' + value;
+                                }
+    </code></pre>
+    
+    <h3>2. Add datalabels plugin before scales (lines ~1859-1868):</h3>
+    <pre><code>
+                    },
+                    datalabels: {
+                        display: true,
+                        color: '#333',
+                        font: {
+                            size: 10,
+                            weight: 'bold'
+                        },
+                        formatter: function(value, context) {
+                            return value;
+                        },
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 4
+                    },
+                    scales: {
+    </code></pre>
+    
+    <h3>Instructions:</h3>
+    <ol>
+        <li>Find the tooltip label function in renderCumulativeProgressChart</li>
+        <li>Replace the entire complex tooltip logic with simple return</li>
+        <li>Find the scales section in options</li>
+        <li>Add datalabels plugin before scales</li>
+        <li>Save and test</li>
+    </ol>
+    
+    <p><strong>This will show numbers on each point and clean tooltips!</strong></p>
+</body>
+</html>

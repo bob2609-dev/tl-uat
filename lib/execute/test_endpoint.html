@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test AJAX Endpoint</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Test AJAX Report Endpoint</h2>
+    
+    <div>
+        <label>Project ID:</label>
+        <input type="text" id="project_id" value="1">
+    </div>
+    
+    <div>
+        <label>Test Plan ID:</label>
+        <input type="text" id="testplan_id" value="">
+    </div>
+    
+    <div>
+        <label>Build ID:</label>
+        <input type="text" id="build_id" value="">
+    </div>
+    
+    <div>
+        <label>Status:</label>
+        <select id="status">
+            <option value="">All</option>
+            <option value="p">Passed</option>
+            <option value="f">Failed</option>
+            <option value="b">Blocked</option>
+            <option value="n">Not Run</option>
+        </select>
+    </div>
+    
+    <div>
+        <label>Execution Path:</label>
+        <input type="text" id="execution_path" value="">
+    </div>
+    
+    <div>
+        <label>Start Date:</label>
+        <input type="date" id="start_date" value="">
+    </div>
+    
+    <div>
+        <label>End Date:</label>
+        <input type="date" id="end_date" value="">
+    </div>
+    
+    <br>
+    <button onclick="testEndpoint()">Test AJAX Endpoint</button>
+    <button onclick="clearResults()">Clear Results</button>
+    
+    <hr>
+    
+    <h3>Results:</h3>
+    <div id="results" style="background: #f5f5f5; padding: 10px; border: 1px solid #ccc; min-height: 200px; white-space: pre-wrap; font-family: monospace;"></div>
+    
+    <script>
+    function testEndpoint() {
+        const data = {
+            project_id: $('#project_id').val(),
+            testplan_id: $('#testplan_id').val(),
+            build_id: $('#build_id').val(),
+            status: $('#status').val(),
+            execution_path: $('#execution_path').val(),
+            start_date: $('#start_date').val(),
+            end_date: $('#end_date').val()
+        };
+        
+        $('#results').text('Loading...');
+        
+        $.ajax({
+            url: 'test_ajax_report.php',
+            type: 'POST',
+            data: data,
+            dataType: 'json',
+            success: function(response) {
+                $('#results').text('SUCCESS:\n\n' + JSON.stringify(response, null, 2));
+            },
+            error: function(xhr, status, error) {
+                $('#results').text('ERROR:\n\nStatus: ' + status + '\nError: ' + error + '\n\nResponse Text:\n' + xhr.responseText);
+            }
+        });
+    }
+    
+    function clearResults() {
+        $('#results').text('');
+    }
+    </script>
+</body>
+</html>

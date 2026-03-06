@@ -1,0 +1,57 @@
+=== Debug Session Started: 2026-02-16 14:14:19 ===
+[14:14:19.308] Starting debug process...
+[14:14:19.309] Step 1: Including config.inc.php
+[14:14:19.321] ✓ config.inc.php loaded successfully
+[14:14:19.322] Step 2: Including common.php
+[14:14:19.373] ✓ common.php loaded successfully
+[14:14:19.374] Step 3: Including users.inc.php
+[14:14:19.375] ✓ users.inc.php loaded successfully
+[14:14:19.376] Step 4: Including treeMenu.inc.php
+[14:14:19.377] ✓ treeMenu.inc.php loaded successfully
+[14:14:19.377] Step 5: Including exec.inc.php
+[14:14:19.388] ✓ exec.inc.php loaded successfully
+[14:14:19.389] Step 6: Calling testlinkInitPage()
+[14:14:20.006] ✓ build_tree_menu() completed in 6.5278241634369s
+[14:14:20.007] Step 13: Creating smarty object
+[14:14:20.016] ✓ smarty object created
+[14:14:20.017] Step 14: Checking execAccess
+[14:14:20.018] ✓ execAccess is true
+[14:14:20.019] ✓ Template assigned: execute/debug_exec.tpl
+[14:14:20.020] Step 15: Displaying template
+[14:14:20.022] ❌ ERROR: Unable to load template 'file:execute/debug_exec.tpl'
+[14:14:20.023] ❌ ERROR in file: C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_template.php line 195
+[14:14:20.023] ❌ Stack trace: #0 C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatebase.php(232): Smarty_Internal_Template->render(false, 1)
+#1 C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatebase.php(134): Smarty_Internal_TemplateBase->_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#2 C:\xampp\htdocs\tl-uat\lib\execute\debug_exec.php(92): Smarty_Internal_TemplateBase->display('execute/debug_e...')
+#3 {main}
+[14:14:20.024] === Debug Session Ended ===
+[14:14:20.133] ✓ testlinkInitPage() completed successfully
+[14:14:20.133] Step 7: Creating templateCfg
+[14:14:20.136] ✓ templateCfg created successfully
+[14:14:20.137] Step 8: Starting timer
+[14:14:20.137] ✓ Timer started
+[14:14:20.139] Step 9: Creating tlTestCaseFilterControl
+[14:14:21.161] ✓ tlTestCaseFilterControl created successfully
+[14:14:21.162] Step 10: Setting formAction
+[14:14:21.162] ✓ formAction set successfully
+[14:14:21.163] Step 11: Calling initializeGui()
+[14:14:21.163] initializeGui() called
+[14:14:21.165] checkAccessToExec() called
+[14:14:21.186] checkAccessToExec() completed successfully
+[14:14:21.187] initializeGui() completed successfully
+[14:14:21.188] ✓ initializeGui() completed successfully
+[14:14:21.189] Step 12: Calling build_tree_menu()
+[14:14:27.849] ✓ build_tree_menu() completed in 6.6586849689484s
+[14:14:27.850] Step 13: Creating smarty object
+[14:14:27.857] ✓ smarty object created
+[14:14:27.857] Step 14: Checking execAccess
+[14:14:27.858] ✓ execAccess is true
+[14:14:27.859] ✓ Template assigned: execute/debug_exec.tpl
+[14:14:27.859] Step 15: Displaying template
+[14:14:27.861] ❌ ERROR: Unable to load template 'file:execute/debug_exec.tpl'
+[14:14:27.862] ❌ ERROR in file: C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_template.php line 195
+[14:14:27.862] ❌ Stack trace: #0 C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatebase.php(232): Smarty_Internal_Template->render(false, 1)
+#1 C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatebase.php(134): Smarty_Internal_TemplateBase->_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#2 C:\xampp\htdocs\tl-uat\lib\execute\debug_exec.php(92): Smarty_Internal_TemplateBase->display('execute/debug_e...')
+#3 {main}
+[14:14:27.863] === Debug Session Ended ===

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Bug Tracking Integration Management</title>
+    <link href="../../gui/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Disable Font Awesome font loading to prevent 404 errors */
+        @font-face {
+            font-family: "Font Awesome 5 Free" !important;
+            src: none !important;
+        }
+        @font-face {
+            font-family: "Font Awesome 6 Free" !important;
+            src: none !important;
+        }
+        .fa, .fas, .far, .fab, .fal, .fad, .fass, .fasr, .fasl {
+            font-family: inherit !important;
+            -webkit-font-smoothing: inherit !important;
+            -moz-osx-font-smoothing: inherit !important;
+        }
+        
+        .integration-card {
+            border-left: 4px solid #007bff;
+            transition: all 0.3s ease;
+        }
+        .integration-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .integration-card.inactive {
+            border-left-color: #dc3545;
+            opacity: 0.7;
+        }
+        .integration-card.active {
+            border-left-color: #28a745;
+        }
+        .status-badge {
+            font-size: 0.8em;
+        }
+        .test-result {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .test-success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .test-error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .mapping-item {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .form-floating label {
+            color: #6c757d;
+        }
+        .btn-group-actions .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+        }
+        .integration-type-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .tab-content {
+            margin-top: 20px;
+        }
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+        }
+        .alert-debug {
+            font-family: monospace;
+            font-size: 0.875em;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">
+                    <span class="text-primary">🔗</span>
+                    Custom Bug Tracking Integration Management
+                </h1>
+                
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="integrations-tab" data-bs-toggle="tab" data-bs-target="#integrations" type="button" role="tab">
+                            <span>⚙️</span> Integrations
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="mappings-tab" data-bs-toggle="tab" data-bs-target="#mappings" type="button" role="tab">
+                            <span>🔗</span> Project Mappings
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="logs-tab" data-bs-toggle="tab" data-bs-target="#logs" type="button" role="tab">
+                            <span>📋</span> Activity Logs
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="mainTabContent">
+                    <!-- Integrations Tab -->
+                    <div class="tab-pane fade show active" id="integrations" role="tabpanel">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3>Bug Tracker Integrations</h3>
+                            <button class="btn btn-primary" onclick="showAddIntegrationModal()">
+                                <span>➕</span> Add Integration
+                            </button>
+                        </div>
+
+                        <div id="integrationsLoader" class="loader">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading integrations...</p>
+                        </div>
+
+                        <div id="integrationsList" class="row">
+                            <!-- Integrations will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Mappings Tab -->
+                    <div class="tab-pane fade" id="mappings" role="tabpanel">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3>Project to Integration Mappings</h3>
+                            <button class="btn btn-success" onclick="showAddMappingModal()">
+                                <span>➕</span> Add Mapping
+                            </button>
+                        </div>
+
+                        <div id="mappingsLoader" class="loader">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading mappings...</span>
+                            </div>
+                            <p class="mt-2">Loading mappings...</p>
+                        </div>
+
+                        <div id="mappingsList">
+                            <!-- Mappings will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Logs Tab -->
+                    <div class="tab-pane fade" id="logs" role="tabpanel">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3>Integration Activity Logs</h3>
+                            <button class="btn btn-secondary" onclick="refreshLogs()">
+                                <span>🔄</span> Refresh
+                            </button>
+                        </div>
+
+                        <div id="logsLoader" class="loader">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading logs...</span>
+                            </div>
+                            <p class="mt-2">Loading logs...</p>
+                        </div>
+
+                        <div id="logsList">
+                            <!-- Logs will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Integration Modal -->
+    <div class="modal fade" id="integrationModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="integrationModalTitle">Add Integration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="integrationForm">
+                        <input type="hidden" id="integrationId">
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="integrationName" placeholder="Integration Name" required>
+                                    <label for="integrationName">Integration Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="integrationType" required>
+                                        <option value="REDMINE">Redmine</option>
+                                        <option value="JIRA">Jira</option>
+                                        <option value="BUGZILLA">Bugzilla</option>
+                                    </select>
+                                    <label for="integrationType">Integration Type</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="url" class="form-control" id="integrationUrl" placeholder="Base URL" required>
+                            <label for="integrationUrl">Base URL</label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="integrationApiKey" placeholder="API Key">
+                                    <label for="integrationApiKey">API Key / Token</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="integrationProjectKey" placeholder="Project Key">
+                                    <label for="integrationProjectKey">Project Key/Identifier</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="integrationUsername" placeholder="Username">
+                                    <label for="integrationUsername">Username (if required)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="integrationPassword" placeholder="Password">
+                                    <label for="integrationPassword">Password (if required)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="integrationPriority">
+                                <option value="Low">Low</option>
+                                <option value="Normal" selected>Normal</option>
+                                <option value="High">High</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Immediate">Immediate</option>
+                            </select>
+                            <label for="integrationPriority">Default Priority</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveIntegration()">Save Integration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Mapping Modal -->
+    <div class="modal fade" id="mappingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Project Mapping</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="mappingForm">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="mappingProject" required>
+                                <option value="">Select TestLink Project</option>
+                            </select>
+                            <label for="mappingProject">TestLink Project</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="mappingIntegration" required>
+                                <option value="">Select Integration</option>
+                            </select>
+                            <label for="mappingIntegration">Bug Tracking Integration</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" onclick="saveMapping()">Save Mapping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Debug Modal -->
+    <div class="modal fade" id="debugModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Debug Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="debugContent" class="alert-debug"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../gui/javascript/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple logging for important actions only - GLOBAL SCOPE
+        window.logAction = function(action, details = '') {
+            console.log('[INTEGRATION]', action, details);
+        };
+        
+        window.logError = function(action, error = '') {
+            console.error('[INTEGRATION ERROR]', action, error);
+        };
+
+        // Modal close handler for fallback
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-close') || e.target.classList.contains('modal-backdrop')) {
+                const modal = document.querySelector('.modal.show');
+                if (modal) {
+                    modal.style.display = 'none';
+                    modal.classList.remove('show');
+                    document.body.classList.remove('modal-open');
+                    
+                    // Remove backdrop
+                    const backdrop = document.getElementById('modal-backdrop');
+                    if (backdrop) {
+                        backdrop.remove();
+                    }
+                }
+            }
+        });
+        
+        // Global variables
+        let currentEditId = null;
+        let currentMappingEditId = null;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM LOADED - editIntegration function exists:', typeof editIntegration);
+            console.log('DOM LOADED - window.editIntegration exists:', typeof window.editIntegration);
+            
+            // Test function directly
+            if (typeof editIntegration === 'function') {
+                console.log('editIntegration is properly defined');
+            } else {
+                console.error('editIntegration is NOT defined');
+            }
+            
+            loadIntegrations();
+            loadMappings();
+        });
+
+        // Helper function to get correct API URL with cache busting
+        function getApiUrl(action) {
+            // Use the correct base URL for API calls - get the root path
+            const pathname = window.location.pathname;
+            let baseUrl = window.location.origin;
+            
+            // If we're in lib/execute, go up two levels to root
+            if (pathname.includes('/lib/execute/')) {
+                baseUrl = window.location.origin + pathname.substring(0, pathname.lastIndexOf('/lib/execute/'));
+            }
+            
+            // Add cache busting timestamp for list operations
+            const timestamp = action.includes('list_') ? `&_t=${new Date().getTime()}` : '';
+            
+            return `${baseUrl}/lib/execute/custom_bugtrack_integrator.php?action=${action}${timestamp}`;
+        }
+
+        // Load integrations
+        function loadIntegrations() {
+            logAction('loadIntegrations', 'called');
+            document.getElementById('integrationsLoader').style.display = 'block';
+            
+            const apiUrl = getApiUrl('list_integrations');
+            logAction('loadIntegrations', 'calling API: ' + apiUrl);
+            
+            fetch(apiUrl, {
+                credentials: 'include'
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('HTTP ' + response.status + ' ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('integrationsLoader').style.display = 'none';
+                    
+                    if (data.success) {
+                        displayIntegrations(data.data);
+                        logAction('loadIntegrations', 'loaded ' + data.data.length + ' integrations');
+                    } else {
+                        logError('loadIntegrations', data.message);
+                        showError('Failed to load integrations: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('integrationsLoader').style.display = 'none';
+                    logError('loadIntegrations', error.message);
+                    showError('Error loading integrations: ' + error.message);
+                });
+        }
+
+        // Display integrations
+        function displayIntegrations(integrations) {
+            const container = document.getElementById('integrationsList');
+            
+            if (integrations.length === 0) {
+                container.innerHTML = '<div class="col-12"><div class="alert alert-info">No integrations configured yet. Click "Add Integration" to get started.</div></div>';
+                return;
+            }
+
+            container.innerHTML = integrations.map(integration => `
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card integration-card ${integration.is_active === '1' || integration.is_active === 1 ? 'active' : 'inactive'}">
+                        <div class="card-body position-relative">
+                            <span class="integration-type-badge">
+                                <span class="badge bg-${getTypeColor(integration.type)}">${integration.type}</span>
+                            </span>
+                            
+                            <h5 class="card-title">${integration.name}</h5>
+                            <p class="card-text">
+                                <small class="text-muted">${integration.url}</small><br>
+                                <strong>Project:</strong> ${integration.project_key || 'Not set'}<br>
+                                <strong>Priority:</strong> ${integration.default_priority}<br>
+                                <strong>Status:</strong> 
+                                <span class="badge ${integration.is_active === '1' || integration.is_active === 1 ? 'bg-success' : 'bg-danger'} status-badge">
+                                    ${integration.is_active === '1' || integration.is_active === 1 ? 'Active' : 'Inactive'}
+                                </span>
+                            </p>
+                            
+                            <div class="btn-group-actions" role="group">
+                                <button class="btn btn-outline-primary btn-sm" onclick="testConnection(${integration.id})" title="Test Connection">
+                                    <span>🔌</span>
+                                </button>
+                                <button class="btn btn-outline-warning btn-sm" onclick="editIntegration(${integration.id})" title="Edit">
+                                    <span>✏️</span>
+                                </button>
+                                <button class="btn btn-outline-${integration.is_active === '1' || integration.is_active === 1 ? 'warning' : 'success'} btn-sm" 
+                                        onclick="toggleIntegration(${integration.id})" title="${integration.is_active === '1' || integration.is_active === 1 ? 'Disable' : 'Enable'}">
+                                    <span class="${integration.is_active === '1' || integration.is_active === 1 ? '⏸️' : '▶️'}"></span>
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm" onclick="deleteIntegration(${integration.id})" title="Delete">
+                                    <span>🗑️</span>
+                                </button>
+                            </div>
+                            
+                            <div id="testResult_${integration.id}"></div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>Created: ${new Date(integration.created_on).toLocaleDateString()}</small>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Get type color
+        function getTypeColor(type) {
+            const colors = {
+                'REDMINE': 'danger',
+                'JIRA': 'primary',
+                'BUGZILLA': 'success'
+            };
+            return colors[type] || 'secondary';
+        }
+
+        // Show add integration modal
+        function showAddIntegrationModal() {
+            logAction('showAddIntegrationModal', 'called');
+            currentEditId = null;
+            
+            const modalTitle = document.getElementById('integrationModalTitle');
+            const modal = document.getElementById('integrationModal');
+            const form = document.getElementById('integrationForm');
+            
+            if (modalTitle && modal && form) {
+                modalTitle.textContent = 'Add Integration';
+                form.reset();
+                
+                try {
+                    // Try Bootstrap modal first
+                    if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                        const bsModal = new bootstrap.Modal(modal);
+                        bsModal.show();
+                        logAction('showAddIntegrationModal', 'Bootstrap modal displayed successfully');
+                    } else {
+                        // Fallback: Show modal manually
+                        modal.style.display = 'block';
+                        modal.classList.add('show');
+                        document.body.classList.add('modal-open');
+                        
+                        // Create backdrop
+                        const backdrop = document.createElement('div');
+                        backdrop.className = 'modal-backdrop fade show';
+                        backdrop.id = 'modal-backdrop';
+                        document.body.appendChild(backdrop);
+                        
+                        logAction('showAddIntegrationModal', 'Manual modal displayed successfully');
+                    }
+                } catch (e) {
+                    logError('showAddIntegrationModal', e.message);
+                }
+            } else {
+                logError('showAddIntegrationModal', 'Required DOM elements not found');
+            }
+        }
+
+        // Edit integration
+        function editIntegration(id) {
+            logAction('editIntegration', 'called with id: ' + id);
+            console.log('EDIT INTEGRATION CALLED with id:', id);
+            alert('editIntegration called with id: ' + id); // Temporary debug alert
+            
+            currentEditId = id;
+            document.getElementById('integrationModalTitle').textContent = 'Edit Integration';
+            
+            // Load integration data
+            fetch(getApiUrl('list_integrations'), {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                logAction('editIntegration', 'fetch response status: ' + response.status);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(result => {
+                logAction('editIntegration', 'fetch result: ' + JSON.stringify(result));
+                if (result.success && (result.integrations || result.data)) {
+                    // Handle both response formats
+                    const integrations = result.integrations || result.data;
+                    const integration = integrations.find(i => i.id == id);
+                    if (integration) {
+                        logAction('editIntegration', 'found integration: ' + JSON.stringify(integration));
+                        document.getElementById('integrationId').value = integration.id;
+                        document.getElementById('integrationName').value = integration.name;
+                        document.getElementById('integrationType').value = integration.type;
+                        document.getElementById('integrationUrl').value = integration.url;
+                        document.getElementById('integrationApiKey').value = integration.api_key;
+                        document.getElementById('integrationUsername').value = integration.username || '';
+                        document.getElementById('integrationPassword').value = integration.password || '';
+                        document.getElementById('integrationProjectKey').value = integration.project_key || '';
+                        document.getElementById('integrationPriority').value = integration.default_priority;
+                        
+                        // Show modal with fallback
+                        const modal = document.getElementById('integrationModal');
+                        if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                            logAction('editIntegration', 'using Bootstrap modal');
+                            new bootstrap.Modal(modal).show();
+                        } else {
+                            logAction('editIntegration', 'using fallback modal');
+                            modal.style.display = 'block';
+                            modal.classList.add('show');
+                            document.body.classList.add('modal-open');
+                            
+                            // Create backdrop
+                            const backdrop = document.createElement('div');
+                            backdrop.className = 'modal-backdrop fade show';
+                            backdrop.id = 'modal-backdrop';
+                            document.body.appendChild(backdrop);
+                        }
+                    } else {
+                        logError('editIntegration', 'Integration not found with id: ' + id);
+                    }
+                } else {
+                    logError('editIntegration', 'Invalid result: ' + JSON.stringify(result));
+                }
+            })
+            .catch(error => {
+                logError('editIntegration', 'Fetch error: ' + error.message);
+                // Show modal anyway for editing
+                const modal = document.getElementById('integrationModal');
+                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                    new bootstrap.Modal(modal).show();
+                } else {
+                    modal.style.display = 'block';
+                    modal.classList.add('show');
+                    document.body.classList.add('modal-open');
+                    
+                    const backdrop = document.createElement('div');
+                    backdrop.className = 'modal-backdrop fade show';
+                    backdrop.id = 'modal-backdrop';
+                    document.body.appendChild(backdrop);
+                }
+            });
+        }
+
+        // Save integration
+        function saveIntegration() {
+            logAction('saveIntegration', 'called');
+            
+            const form = document.getElementById('integrationForm');
+            if (!form.checkValidity()) {
+                logError('saveIntegration', 'Form validation failed');
+                form.reportValidity();
+                return;
+            }
+
+            const formData = new FormData(form);
+            const data = {
+                id: document.getElementById('integrationId').value,
+                name: document.getElementById('integrationName').value,
+                type: document.getElementById('integrationType').value,
+                url: document.getElementById('integrationUrl').value,
+                api_key: document.getElementById('integrationApiKey').value,
+                username: document.getElementById('integrationUsername').value,
+                password: document.getElementById('integrationPassword').value,
+                project_key: document.getElementById('integrationProjectKey').value,
+                default_priority: document.getElementById('integrationPriority').value
+            };
+
+            const action = data.id ? 'update_integration' : 'add_integration';
+            logAction('saveIntegration', 'Action: ' + action + ', ID: ' + data.id);
+            
+            fetch(getApiUrl(action), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                credentials: 'include',
+                body: new URLSearchParams(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status + ' ' + response.statusText);
+                }
+                
+                return response.json();
+            })
+            .then(result => {
+                if (result.success) {
+                    bootstrap.Modal.getInstance(document.getElementById('integrationModal')).hide();
+                    showSuccess(result.message);
+                    // Refresh both integrations and mappings lists
+                    loadIntegrations();
+                    loadIntegrationsForMapping(); // Refresh mapping dropdown
+                } else {
+                    showError(result.message);
+                    if (result.debug && result.debug.length > 0) {
+                        showDebug(result.debug);
+                    }
+                }
+            })
+            .catch(error => {
+                logError('saveIntegration', error.message);
+                showError('Error saving integration: ' + error.message);
+            });
+        }
+
+        // Test connection
+        function testConnection(id) {
+            const resultDiv = document.getElementById(`testResult_${id}`);
+            resultDiv.innerHTML = '<div class="test-result"><span>⏳</span> Testing connection...</div>';
+
+            fetch(getApiUrl('test_connection'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                credentials: 'include',
+                body: `id=${id}`
+            })
+            .then(response => response.json())
+            .then(result => {
+                const successClass = result.success ? 'test-success' : 'test-error';
+                const icon = result.success ? 'fa-check-circle' : 'fa-exclamation-circle';
+                const execTime = result.execution_time ? ` (${result.execution_time}ms)` : '';
+                
+                resultDiv.innerHTML = `
+                    <div class="test-result ${successClass}">
+                        <i class="fas ${icon}"></i> ${result.message}${execTime}
+                    </div>
+                `;
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    resultDiv.innerHTML = '';
+                }, 5000);
+            })
+            .catch(error => {
+                resultDiv.innerHTML = `
+                    <div class="test-result test-error">
+                        <span>⏸️</span> Error testing connection: ${error.message}
+                    </div>
+                `;
+            });
+        }
+
+        // Toggle integration
+        function toggleIntegration(id) {
+            fetch(getApiUrl('toggle_integration'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                credentials: 'include',
+                body: `id=${id}`
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showSuccess(result.message);
+                    loadIntegrations();
+                } else {
+                    showError(result.message);
+                }
+            })
+            .catch(error => {
+                showError('Error toggling integration: ' + error.message);
+            });
+        }
+
+        // Delete integration
+        function deleteIntegration(id) {
+            if (!confirm('Are you sure you want to delete this integration? This action cannot be undone.')) {
+                return;
+            }
+
+            fetch(getApiUrl('delete_integration'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                credentials: 'include',
+                body: `id=${id}`
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showSuccess(result.message);
+                    // Refresh both integrations and mappings lists
+                    loadIntegrations();
+                    loadIntegrationsForMapping(); // Refresh mapping dropdown
+                } else {
+                    showError(result.message);
+                }
+            })
+            .catch(error => {
+                showError('Error deleting integration: ' + error.message);
+            });
+        }
+
+        // Load mappings
+        function loadMappings() {
+            document.getElementById('mappingsLoader').style.display = 'block';
+            
+            const apiUrl = getApiUrl('list_project_mappings');
+            
+            fetch(apiUrl, {
+                credentials: 'include'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('mappingsLoader').style.display = 'none';
+                    if (data.success) {
+                        displayMappings(data.data);
+                    } else {
+                        showError('Failed to load mappings: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('mappingsLoader').style.display = 'none';
+                    showError('Error loading mappings: ' + error.message);
+                });
+        }
+
+        // Display mappings
+        function displayMappings(mappings) {
+            const container = document.getElementById('mappingsList');
+            
+            if (mappings.length === 0) {
+                container.innerHTML = '<div class="alert alert-info">No project mappings configured yet. Click "Add Mapping" to get started.</div>';
+                return;
+            }
+
+            container.innerHTML = mappings.map(mapping => `
+                <div class="mapping-item">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>${mapping.project_name}</strong> → 
+                            <span class="badge bg-${getTypeColor(mapping.type)}">${mapping.integration_name}</span>
+                            <span class="badge ${mapping.is_active === '1' || mapping.is_active === 1 ? 'bg-success' : 'bg-danger'} status-badge">
+                                ${mapping.is_active === '1' || mapping.is_active === 1 ? 'Active' : 'Inactive'}
+                            </span>
+                        </div>
+                        <button class="btn btn-outline-danger btn-sm" onclick="removeMapping(${mapping.id})" title="Remove Mapping">
+                            <span>🔗</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Show add mapping modal
+        function showAddMappingModal() {
+            loadProjectsForMapping();
+            loadIntegrationsForMapping();
+            new bootstrap.Modal(document.getElementById('mappingModal')).show();
+        }
+
+        // Load projects for mapping
+        function loadProjectsForMapping() {
+            logAction('loadProjectsForMapping', 'called');
+            const projectSelect = document.getElementById('mappingProject');
+            projectSelect.innerHTML = '<option value="">Loading projects...</option>';
+            
+            const apiUrl = 'custom_bugtrack_integrator.php?action=list_projects';
+            logAction('loadProjectsForMapping', 'calling API: ' + apiUrl);
+            
+            fetch(apiUrl, {
+                credentials: 'include'
+            })
+                .then(response => {
+                    logAction('loadProjectsForMapping', 'response received, status: ' + response.status);
+                    return response.text(); // Get raw text first
+                })
+                .then(text => {
+                    logAction('loadProjectsForMapping', 'raw response text: ' + text.substring(0, 200));
+                    try {
+                        const data = JSON.parse(text);
+                        logAction('loadProjectsForMapping', 'JSON parsed successfully, projects count: ' + (data.data ? Object.keys(data.data).length : 0));
+                        console.log(data)
+                        if (data.success && data.data) {
+                            let options = '<option value="">Select TestLink Project</option>';
+                            
+                            // Handle object structure (project IDs as keys)
+                            const projects = Object.values(data.data);
+                            projects.forEach(project => {
+                                const projectName = project.name || project.prefix || 'Project ' + project.id;
+                                const projectNotes = project.notes || '';
+                                logAction('loadProjectsForMapping', 'processing project: ' + projectName + ', notes: ' + projectNotes);
+                                options += `<option value="${project.id}">${projectName}</option>`;
+                            });
+                            projectSelect.innerHTML = options;
+                            logAction('loadProjectsForMapping', 'projects loaded successfully');
+                        } else {
+                            projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+                            logError('loadProjectsForMapping', data.message || 'Invalid data structure');
+                        }
+                    } catch (e) {
+                        projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+                        logError('loadProjectsForMapping', 'JSON parse error: ' + e.message);
+                        logError('loadProjectsForMapping', 'text that failed: ' + text);
+                    }
+                })
+                .catch(error => {
+                    projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+                    logError('loadProjectsForMapping', error.message);
+                });
+        }
+
+        // Load integrations for mapping
+        function loadIntegrationsForMapping() {
+            const apiUrl = getApiUrl('list_integrations');
+            
+            fetch(apiUrl, {
+                credentials: 'include'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const integrationSelect = document.getElementById('mappingIntegration');
+                        integrationSelect.innerHTML = '<option value="">Select Integration</option>';
+                        data.data.forEach(integration => {
+                            if (integration.is_active) {
+                                integrationSelect.innerHTML += `<option value="${integration.id}">${integration.name} (${integration.type})</option>`;
+                            }
+                        });
+                    }
+                });
+        }
+
+        // Save mapping
+        function saveMapping() {
+            const projectId = document.getElementById('mappingProject').value;
+            const integrationId = document.getElementById('mappingIntegration').value;
+
+            if (!projectId || !integrationId) {
+                showError('Please select both project and integration');
+                return;
+            }
+
+            fetch(getApiUrl('add_project_mapping'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                credentials: 'include',
+                body: `tproject_id=${projectId}&integration_id=${integrationId}`
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    bootstrap.Modal.getInstance(document.getElementById('mappingModal')).hide();
+                    showSuccess(result.message);
+                    loadMappings();
+                } else {
+                    showError(result.message);
+                }
+            })
+            .catch(error => {
+                showError('Error saving mapping: ' + error.message);
+            });
+        }
+
+        // Remove mapping
+        function removeMapping(id) {
+            if (!confirm('Are you sure you want to remove this project mapping?')) {
+                return;
+            }
+
+            fetch(getApiUrl('remove_project_mapping'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                credentials: 'include',
+                body: `id=${id}`
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showSuccess(result.message);
+                    loadMappings();
+                    loadProjectsForMapping(); // Refresh projects dropdown
+                } else {
+                    showError(result.message);
+                }
+            })
+            .catch(error => {
+                showError('Error removing mapping: ' + error.message);
+            });
+        }
+
+        // Show success message
+        function showSuccess(message) {
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success alert-dismissible fade show';
+            alert.innerHTML = `
+                <span>✅</span> ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.container-fluid').insertBefore(alert, document.querySelector('.container-fluid').firstChild);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        // Show error message
+        function showError(message) {
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-danger alert-dismissible fade show';
+            alert.innerHTML = `
+                <span>❌</span> ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.container-fluid').insertBefore(alert, document.querySelector('.container-fluid').firstChild);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        // Show debug information
+        function showDebug(debugInfo) {
+            document.getElementById('debugContent').textContent = JSON.stringify(debugInfo, null, 2);
+            new bootstrap.Modal(document.getElementById('debugModal')).show();
+        }
+
+        // Refresh logs (placeholder)
+        function refreshLogs() {
+            showInfo('Activity logs feature coming soon...');
+        }
+
+        // Show info message
+        function showInfo(message) {
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-info alert-dismissible fade show';
+            alert.innerHTML = `
+                <span>ℹ️</span> ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.container-fluid').insertBefore(alert, document.querySelector('.container-fluid').firstChild);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

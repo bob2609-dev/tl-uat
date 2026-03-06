@@ -1,0 +1,6 @@
+2025-07-12 15:01:00 - INFO - Starting TestLink Export Tool
+2025-07-12 15:01:00 - INFO - Log level: INFO
+2025-07-12 15:01:00 - INFO - Log file: C:\260986\Mwaimu - Projects\2025\CBS Test Management\TestLink\Dev\tl-uat\lib\execute\excel_export\logs\testlink_export_20250712_150100.log
+2025-07-12 15:01:00 - INFO - Loading database configuration from: db_config.json
+2025-07-12 15:01:00 - INFO - Connecting to database...
+2025-07-12 15:01:04 - CRITICAL - Failed to connect to database

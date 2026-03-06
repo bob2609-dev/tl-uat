@@ -1,0 +1,1048 @@
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+ * This script is distributed under the GNU General Public License 2 or later.
+ *
+ * Auto-fill bug description when creating an issue from test execution
+ *
+ * @package     TestLink
+ * @copyright   2025 TestLink community
+ */
+
+// Create loading overlay styles
+var overlayStyles = `
+<style>
+    #bug_description_loading_overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #bug_description_loading_message {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 80%;
+    }
+    .loading-spinner {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s linear infinite;
+        margin: 0 auto 15px auto;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+`;
+
+// Add styles to the document
+jQuery('head').append(overlayStyles);
+
+// Function to show loading overlay
+function showLoadingOverlay(message) {
+    // alert("showing overlay")
+    // Create overlay if it doesn't exist
+    if (jQuery('#bug_description_loading_overlay').length === 0) {
+        var overlay = `
+        <div id="bug_description_loading_overlay">
+            <div id="bug_description_loading_message">
+                <div class="loading-spinner"></div>
+                <div id="loading_text">${message || 'Loading...'}</div>
+            </div>
+        </div>
+        `;
+        jQuery('body').append(overlay);
+    } else {
+        // Update message if overlay exists
+        jQuery('#loading_text').text(message || 'Loading...');
+        jQuery('#bug_description_loading_overlay').show();
+    }
+}
+
+// Function to hide loading overlay
+function hideLoadingOverlay() {
+    jQuery('#bug_description_loading_overlay').hide();
+}
+
+// Wait for document to be ready
+jQuery(document).ready(function() {
+    console.log('bug_description_autofill.js loaded');
+    
+    // Add event listener for the createIssue checkbox
+    jQuery(document).on('change', '#createIssue', function() {
+        console.log('createIssue checkbox changed, checked:', jQuery(this).is(':checked'));
+        populateBugDescription();
+    });
+    
+    // Also check if the checkbox is already checked when the page loads
+    var createIssueCheckbox = jQuery('#createIssue');
+    console.log('createIssue checkbox exists:', createIssueCheckbox.length > 0);
+    if(createIssueCheckbox.length > 0 && createIssueCheckbox.is(':checked')) {
+        console.log('createIssue checkbox is already checked, populating description');
+        populateBugDescription();
+    }
+    
+    // Function to fetch test case data from the server
+    window.fetchTestCaseData = function(execId) {
+        // Get tcversion_id from the page
+        var tcversionId = getTcversionIdFromPage();
+        var requestUrl = 'lib/execute/get_testcase_data_simple.php?tcversion_id=' + tcversionId;
+        
+        // Show loading overlay
+        showLoadingOverlay('Fetching test case data...');
+        
+        // Log the request details
+        console.log('===== FETCH TEST CASE DATA =====');
+        console.log('Request URL:', requestUrl);
+        console.log('tcversion_id:', tcversionId);
+        console.log('Exec ID:', execId);
+        
+        // Log current URL and form data for debugging
+        console.log('Current URL:', window.location.href);
+        console.log('Form data:', jQuery('form').serialize());
+        
+        // Create a timestamp for this request
+        var requestTimestamp = new Date().toISOString();
+        
+        return new Promise(function(resolve, reject) {
+            jQuery.ajax({
+                url: 'lib/execute/get_testcase_data_simple.php',
+                type: 'GET',
+                data: { 
+                    tcversion_id: tcversionId,
+                    _debug: true, // Add debug flag
+                    _timestamp: requestTimestamp // Add timestamp for tracking
+                },
+                dataType: 'json',
+                success: function(response, status, xhr) {
+                    console.log('===== API RESPONSE =====');
+                    console.log('Status:', status);
+                    console.log('Response:', response);
+                    
+                    try {
+                        console.log('Response headers:', xhr.getAllResponseHeaders());
+                    } catch (e) {
+                        console.log('Could not get response headers:', e.message);
+                    }
+                    
+                    // Log the raw response text if parsing failed
+                    if (!response) {
+                        console.error('Empty or invalid JSON response. Raw response:', xhr.responseText);
+                        // Try to parse the response manually
+                        try {
+                            const parsed = JSON.parse(xhr.responseText);
+                            console.log('Manually parsed response:', parsed);
+                            response = parsed;
+                        } catch (e) {
+                            console.error('Could not parse response as JSON:', e);
+                        }
+                    }
+                    
+                    // Log the structure of the response
+                    if (response) {
+                        console.log('Response type:', typeof response);
+                        console.log('Response keys:', Object.keys(response));
+                        if (response.data) {
+                            console.log('Response data type:', typeof response.data);
+                            console.log('Response data keys:', Object.keys(response.data));
+                        }
+                    }
+                    
+                    hideLoadingOverlay();
+                    
+                    // If we still don't have a valid response, try to get more info
+                    if (!response || typeof response !== 'object') {
+                        console.error('Invalid response format. Response:', response);
+                        console.error('Response text:', xhr.responseText);
+                        console.error('Status code:', xhr.status, xhr.statusText);
+                        
+                        // Try to get more error details
+                        let errorDetails = {
+                            status: xhr.status,
+                            statusText: xhr.statusText,
+                            responseText: xhr.responseText,
+                            readyState: xhr.readyState
+                        };
+                        
+                        console.error('Error details:', errorDetails);
+                        
+                        resolve({
+                            success: false,
+                            message: `Invalid response format (${xhr.status} ${xhr.statusText})`,
+                            details: errorDetails
+                        });
+                        return;
+                    }
+                    
+                    resolve(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('===== API ERROR =====');
+                    console.error('Status:', status);
+                    console.error('Error:', error);
+                    console.error('Ready state:', xhr.readyState);
+                    console.error('Status code:', xhr.status, xhr.statusText);
+                    
+                    // Get more details about the error
+                    let errorDetails = {
+                        status: xhr.status,
+                        statusText: xhr.statusText,
+                        responseText: xhr.responseText,
+                        readyState: xhr.readyState
+                    };
+                    
+                    console.error('Error details:', errorDetails);
+                    
+                    // Try to parse the response if it exists
+                    let parsedResponse = null;
+                    try {
+                        if (xhr.responseText) {
+                            parsedResponse = JSON.parse(xhr.responseText);
+                            console.error('Parsed error response:', parsedResponse);
+                        }
+                    } catch (e) {
+                        console.error('Could not parse error response:', e);
+                    }
+                    
+                    hideLoadingOverlay();
+                    resolve({
+                        success: false,
+                        message: `AJAX request failed: ${status} - ${error}`,
+                        status: status,
+                        error: error,
+                        details: errorDetails,
+                        parsedResponse: parsedResponse
+                    });
+                }
+            });
+        });
+    };
+});
+
+// Enhanced page load functionality with vanilla JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed');
+    // More informative alert with timestamp
+    const loadTime = new Date().toLocaleTimeString();
+    console.log(`Page successfully loaded at ${loadTime}`);
+});
+
+// Alternative approach using window.onload (waits for all resources)
+window.onload = function() {
+    console.log('All page resources loaded (images, styles, scripts, etc.)');
+    
+    // Add some visual feedback to the page
+    const loadMessage = document.createElement('div');
+    // loadMessage.textContent = 'Page fully loaded!';
+    // loadMessage.style.cssText = 'position: fixed; top: 10px; right: 10px; background: #4CAF50; color: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);';
+    document.body.appendChild(loadMessage);
+    
+    // Auto-hide the message after 3 seconds
+    setTimeout(function() {
+        loadMessage.style.opacity = '0';
+        loadMessage.style.transition = 'opacity 0.5s ease';
+        
+        // Remove from DOM after fade out
+        setTimeout(function() {
+            document.body.removeChild(loadMessage);
+        }, 500);
+    }, 3000);
+    
+    // Performance metrics
+    if(window.performance) {
+        const perfData = window.performance.timing;
+        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+        console.log(`Page load time: ${pageLoadTime}ms`);
+    }
+};
+
+/**
+ * Populate bug description with test case details
+ */
+function populateBugDescription() {
+    console.log('populateBugDescription function called');
+    
+    // Only populate if checkbox is checked
+    if (jQuery('#createIssue').is(':checked')) {
+        console.log('Create Issue checkbox is checked');
+        
+        // Get tcversion_id from the page
+        var tcversionId = getTcversionIdFromPage();
+        console.log('Test Case Version ID:', tcversionId);
+        
+        if (!tcversionId) {
+            console.error('Could not find tcversion_id');
+            // Fall back to page scraping even without a tcversion_id
+            populateTemplateFromPage();
+            return;
+        }
+        
+        // Make sure we have a valid ID before proceeding
+        if (tcversionId.trim() === '') {
+            console.error('Empty tcversion_id, falling back to page scraping');
+            populateTemplateFromPage();
+            return;
+        }
+        
+        // Fetch test case data from the server
+        window.fetchTestCaseData(tcversionId).then(function(response) {
+            if (response.success && response.data) {
+                console.log('Successfully fetched test case data:', response.data);
+                populateTemplateWithData(response);
+            } else {
+                console.error('Failed to fetch test case data:', response.message);
+                if (response.rawResponse) {
+                    console.log('Raw API response excerpt:', response.rawResponse);
+                }
+                // Fall back to the old method if API call fails
+                populateTemplateFromPage();
+            }
+        }).catch(function(error) {
+            console.error('Error fetching test case data:', error);
+            
+            if (error.responseText) {
+                console.log('Error response text excerpt:', error.responseText);
+            }
+            
+            // Fall back to the old method if API call fails
+            populateTemplateFromPage();
+        });
+    } else {
+        console.log('Create Issue checkbox is NOT checked');
+    }
+}
+
+/**
+ * Get the execution ID from the page URL or form
+ */
+function getExecutionIdFromPage() {
+    // Try to get it from the URL first
+    var urlParams = new URLSearchParams(window.location.search);
+    var execId = urlParams.get('exec_id') || urlParams.get('id');
+    
+    // If not in URL, try to get it from a hidden field
+    if (!execId) {
+        var execIdField = jQuery('input[name="exec_id"]');
+        if (execIdField.length > 0) {
+            execId = execIdField.val();
+        }
+    }
+    
+    return execId;
+}
+
+/**
+ * Get the tcversion_id from the page URL or form
+ */
+function getTcversionIdFromPage() {
+    // Look for the hidden tc_version field which contains the correct ID
+    // Format is: <input type='hidden' name='tc_version[58348]' value='58347' />
+    // Where 58348 is the ID we need
+    
+    // First try to get the ID from the form field name pattern tc_version[ID]
+    var tcIdMatch = null;
+    var tcVersionField = jQuery('input[name^="tc_version["]');
+    if (tcVersionField.length > 0) {
+        var nameAttr = tcVersionField.attr('name');
+        tcIdMatch = nameAttr.match(/tc_version\[(\d+)\]/);
+        if (tcIdMatch && tcIdMatch[1]) {
+            console.log('Found TC ID from hidden field:', tcIdMatch[1]);
+            return tcIdMatch[1];
+        }
+    }
+    
+    // If not found in hidden field, try to get it from the URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var tcversionId = urlParams.get('tcversion_id');
+    if (tcversionId) {
+        console.log('Found TC ID from URL:', tcversionId);
+        return tcversionId;
+    }
+    
+    // If still not found, try to find it in other common fields
+    var tcversionMatch = jQuery('.exec_tc_title').text().match(/version\s*[:-]\s*(\d+)/i);
+    if (tcversionMatch && tcversionMatch[1]) {
+        console.log('Found TC ID from title text:', tcversionMatch[1]);
+        return tcversionMatch[1];
+    }
+    
+    // If still not found, log an error but don't use a default value
+    console.error('ERROR: Could not find a valid test case ID');
+    return ''; // Return empty string instead of a default value
+}
+
+/**
+ * Populate the bug description template with the test case data in the required format
+ */
+function populateTemplateWithData(data) {
+    console.log('===== POPULATE TEMPLATE =====');
+    console.log('Raw data received:', data);
+    
+    // Log the complete structure of the data
+    if (data) {
+        console.log('Data type:', typeof data);
+        console.log('Data keys:', Object.keys(data));
+        
+        // If data has a data property, log its structure too
+        if (data.data) {
+            console.log('Data.data type:', typeof data.data);
+            console.log('Data.data keys:', Object.keys(data.data));
+            
+            // If data.data is an array, log its length and first item
+            if (Array.isArray(data.data)) {
+                console.log('Data.data is an array with length:', data.data.length);
+                if (data.data.length > 0) {
+                    console.log('First item in data.data:', data.data[0]);
+                }
+            }
+        }
+    } else {
+        console.error('No data received to populate template');
+    }
+    
+    // Extract the test case data from the response
+    var testCaseData = data;
+    if (data.data) {
+        if (Array.isArray(data.data) && data.data.length > 0) {
+            // If data.data is an array, use the first item
+            testCaseData = data.data[0];
+            console.log('Using test case data from response.data[0]:', testCaseData);
+        } else if (typeof data.data === 'object') {
+            // If data.data is an object, use it directly
+            testCaseData = data.data;
+            console.log('Using test case data from response.data:', testCaseData);
+        }
+    }
+    
+    // Initialize template
+    var template = "";
+    
+    // 1. Function ID - Get from scenario_id field
+    var functionId = testCaseData.scenario_id || "";
+    console.log('Function ID from API:', functionId);
+    
+    // If no function ID found, try to extract from test case name
+    if (!functionId && testCaseData.testcase_name) {
+        var match = testCaseData.testcase_name.match(/([A-Z]+-\d+)/);
+        if (match) {
+            functionId = match[1];
+        }
+    }
+    template += "Function ID: " + functionId + "\n";
+    
+    // 2. Action - Get from sub_scenario field
+    var action = testCaseData.sub_scenario || testCaseData.testcase_name || "";
+    console.log('Action from API:', action);
+    template += "Action: " + action + "\n";
+    
+    // 3. Test scenario - Get from test_script field
+    var testScript = testCaseData.test_script || "";
+    console.log('Test Script from API:', testScript);
+    // Clean up HTML tags and line breaks
+    testScript = testScript.replace(/<[^>]*>/g, '').trim();
+    testScript = testScript.replace(/\s+/g, ' '); // Normalize whitespace
+    template += "Test scenario: " + testScript + "\n";
+    
+    // 4. Test Data - Get from custom fields or steps
+    var testDataValue = "";
+    
+    // First try to get test data from the API response if available
+    if (testCaseData.Test_Data) {
+        testDataValue = testCaseData.Test_Data;
+        console.log('Using test data from API response:', testDataValue);
+    } 
+    // Fall back to form field if not in API response
+    else {
+        var testDataElement = jQuery('[id^="custom_field_20_10_"]');
+        
+        if (testDataElement.length > 0) {
+            console.log('Found test data element with ID:', testDataElement.attr('id'));
+            
+            // Get the value based on element type
+            if (testDataElement.is('textarea') || testDataElement.is('input:text')) {
+                testDataValue = testDataElement.val() || "";
+            } else if (testDataElement.is('select')) {
+                testDataValue = testDataElement.find('option:selected').text() || "";
+            } else {
+                testDataValue = testDataElement.text() || "";
+            }
+            
+            // Clean up the test data
+            testDataValue = testDataValue.trim()
+                .replace(/<[^>]*>/g, '') // Remove HTML tags
+                .replace(/\s+/g, ' ')    // Normalize whitespace
+                .trim();
+                
+            console.log('Test data value from form field:', testDataValue);
+        }
+    }
+    
+    // Format test data with brackets if it's not empty
+    template += "Test Data: [\n";
+    if (testDataValue) {
+        // Split by commas or newlines and format each item
+        var testDataItems = testDataValue.split(/[,\n]/)
+            .map(item => item.trim())
+            .filter(item => item.length > 0);
+            
+        if (testDataItems.length > 0) {
+            template += testDataItems.join("\n");
+        } else {
+            template += "N/A";
+        }
+    } else {
+        template += "N/A";
+    }
+    template += "\n]\n";
+    
+    // 5. Expected result - Get from expected_results field
+    var expectedResult = testCaseData.expected_results || "";
+    console.log('Expected Results from API:', expectedResult);
+    // Clean up HTML tags and line breaks
+    expectedResult = expectedResult.replace(/<[^>]*>/g, '').trim();
+    expectedResult = expectedResult.replace(/\s+/g, ' '); // Normalize whitespace
+    template += "Expected result: " + expectedResult + "\n";
+    
+    // 6. Test result - Get from execution notes or status
+    var testResult = "";
+    
+    // First try to get test result from the API response if available
+    if (testCaseData.execution_notes || testCaseData.Execution_Notes) {
+        testResult = testCaseData.execution_notes || testCaseData.Execution_Notes;
+        console.log('Using test result from API response:', testResult);
+    }
+    // Fall back to form field if not in API response
+    else {
+        var notesElement = jQuery('textarea[name^="notes["]');
+        if (notesElement.length > 0) {
+            testResult = notesElement.val() || "";
+            // Clean up the notes
+            testResult = testResult.trim()
+                .replace(/<[^>]*>/g, '') // Remove HTML tags
+                .replace(/\s+/g, ' ')    // Normalize whitespace
+                .trim();
+            console.log('Using test result from form field:', testResult);
+        }
+    }
+    
+    // Format test result with brackets if it's not empty
+    template += "Test result: [\n";
+    if (testResult) {
+        // If test result is multi-line, ensure proper indentation
+        var resultLines = testResult.split('\n');
+        template += resultLines.map(line => line.trim()).filter(line => line.length > 0).join("\n");
+    } else {
+        template += "N/A";
+    }
+    template += "\n]\n";
+    
+    // 7. Add TestLink URLs
+    var testCaseId = getTcversionIdFromPage();
+    if (testCaseId) {
+        var baseUrl = window.location.origin + window.location.pathname;
+        baseUrl = baseUrl.substring(0, baseUrl.indexOf('/lib/execute/'));
+        
+        template += "\nTestLink URLs:\n";
+        // template += "- View Test Case: " + baseUrl + "/lib/execute/execSetResults.php?tcversion_id=" + testCaseId + "\n";
+        // template += "- Test Case Print View: " + baseUrl + "/lib/execute/execSetResultsPrint.php?tcversion_id=" + testCaseId + "\n";
+    }
+    
+    console.log('Generated template:', template);
+    
+    // Set the bug description field value
+    function setBugNotesValue() {
+        console.log('Attempting to find bug_notes field...');
+        
+        // Try different selectors to find the bug_notes field
+        var bugNotesField = null;
+        var foundField = null;
+        
+        // Try different selectors in order of likelihood
+        var selectors = [
+            '#bug_notes',
+            'textarea[name="bug_notes"]',
+            'textarea[id*="bug_notes"]',
+            'textarea[id^="bug_notes"]',
+            'textarea[class*="bug_notes"]',
+            'textarea[class^="bug_notes"]'
+        ];
+        
+        // Try each selector
+        for (var i = 0; i < selectors.length; i++) {
+            bugNotesField = jQuery(selectors[i]);
+            if (bugNotesField.length > 0) {
+                console.log('Found bug_notes field using selector:', selectors[i]);
+                foundField = bugNotesField;
+                break;
+            }
+        }
+        
+        // If still not found, try to find any textarea that might be the bug notes
+        if (!foundField) {
+            console.log('Bug notes field not found with standard selectors, trying to find by context...');
+            
+            // Look for a textarea near the createIssue checkbox
+            var createIssueCheckbox = jQuery('#createIssue');
+            if (createIssueCheckbox.length > 0) {
+                // Find the closest form or container
+                var form = createIssueCheckbox.closest('form, .form-container, .execControls, .workBack');
+                if (form.length > 0) {
+                    // Look for textareas in the same form/container
+                    var textareas = form.find('textarea');
+                    console.log('Found', textareas.length, 'textareas in the same container as createIssue checkbox');
+                    
+                    // If there's only one textarea, it's probably the one we want
+                    if (textareas.length === 1) {
+                        foundField = textareas;
+                        console.log('Using the only textarea found in the container');
+                    } else if (textareas.length > 1) {
+                        // Try to find the most likely candidate
+                        textareas.each(function() {
+                            var $ta = jQuery(this);
+                            var id = $ta.attr('id') || '';
+                            var name = $ta.attr('name') || '';
+                            var className = $ta.attr('class') || '';
+                            
+                            // Check for common patterns in ID, name, or class
+                            if (id.toLowerCase().includes('bug') || 
+                                name.toLowerCase().includes('bug') || 
+                                className.toLowerCase().includes('bug') ||
+                                id.toLowerCase().includes('note') || 
+                                name.toLowerCase().includes('note') || 
+                                className.toLowerCase().includes('note')) {
+                                
+                                console.log('Found likely candidate textarea:', {id: id, name: name, class: className});
+                                foundField = $ta;
+                                return false; // Break the each loop
+                            }
+                        });
+                        
+                        // If still not found, try the first textarea after the createIssue checkbox
+                        if (!foundField) {
+                            foundField = createIssueCheckbox.closest('tr, div').nextAll().find('textarea').first();
+                            if (foundField.length > 0) {
+                                console.log('Using first textarea after createIssue checkbox');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // If we found a field, use it
+        if (foundField && foundField.length > 0) {
+            bugNotesField = foundField;
+            
+            // Log the template we're about to set
+            console.log('===== TEMPLATE TO SET =====');
+            console.log(template);
+            console.log('===========================');
+            
+            // Log the current value before setting
+            console.log('Current field value BEFORE setting:', {
+                id: bugNotesField.attr('id'),
+                name: bugNotesField.attr('name'),
+                value: bugNotesField.val(),
+                isVisible: bugNotesField.is(':visible'),
+                isDisabled: bugNotesField.is(':disabled'),
+                isReadonly: bugNotesField.is('[readonly]')
+            });
+            
+            // Set the value using jQuery
+            console.log('Setting field value using jQuery.val()...');
+            bugNotesField.val(template);
+            console.log('jQuery.val() completed');
+            
+            // Trigger change event in case the field is being watched
+            console.log('Triggering change and input events...');
+            bugNotesField.trigger('change');
+            bugNotesField.trigger('input');
+            
+            // Also try to set the value using vanilla JS as a fallback
+            try {
+                // Get the native DOM element
+                const element = bugNotesField[0];
+                if (element) {
+                    console.log('Setting value using vanilla JS...');
+                    // Set the value directly
+                    element.value = template;
+                    
+                    // Create and dispatch input event
+                    const inputEvent = new Event('input', { 
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    element.dispatchEvent(inputEvent);
+                    
+                    // Create and dispatch change event
+                    const changeEvent = new Event('change', { 
+                        bubbles: true,
+                        cancelable: true 
+                    });
+                    element.dispatchEvent(changeEvent);
+                    
+                    console.log('Value set using vanilla JS events');
+                    
+                    // Try one more approach - set the value using element.setAttribute()
+                    console.log('Trying setAttribute approach...');
+                    element.setAttribute('value', template);
+                    
+                    // Try to force a UI update
+                    const event = new Event('input', { bubbles: true });
+                    const tracker = element._valueTracker;
+                    if (tracker) {
+                        tracker.setValue(template);
+                    }
+                    element.dispatchEvent(event);
+                }
+            } catch (e) {
+                console.error('Error setting value with vanilla JS:', e);
+            }
+            
+            // Log the value after setting
+            console.log('Current field value AFTER setting:', {
+                value: bugNotesField.val(),
+                'jQuery.val()': bugNotesField.val(),
+                'element.value': bugNotesField[0]?.value,
+                'element.getAttribute(value)': bugNotesField[0]?.getAttribute('value')
+            });
+            
+            // Add a debug function to the window for manual testing
+            window.debugSetBugNotes = function() {
+                console.log('=== DEBUG: Manually setting bug_notes ===');
+                console.log('Template:', template);
+                
+                // Try to find the field again
+                const field = document.querySelector('#bug_notes, textarea[name="bug_notes"], textarea[id*="bug_notes"]');
+                if (field) {
+                    console.log('Found field:', field);
+                    field.value = template;
+                    console.log('Value set directly');
+                    
+                    // Trigger events
+                    const event = new Event('input', { bubbles: true });
+                    field.dispatchEvent(event);
+                    
+                    const changeEvent = new Event('change', { bubbles: true });
+                    field.dispatchEvent(changeEvent);
+                    
+                    console.log('Events dispatched');
+                } else {
+                    console.error('Field not found');
+                }
+            };
+            
+            // Try one more approach - find the field by its position relative to the createIssue checkbox
+            try {
+                const createIssueCheckbox = document.getElementById('createIssue');
+                if (createIssueCheckbox) {
+                    // Find the next textarea after the createIssue checkbox
+                    const allElements = document.querySelectorAll('*');
+                    let foundTextarea = false;
+                    
+                    for (let i = 0; i < allElements.length; i++) {
+                        if (allElements[i] === createIssueCheckbox) {
+                            // Look for the next textarea
+                            for (let j = i + 1; j < allElements.length; j++) {
+                                if (allElements[j].tagName === 'TEXTAREA') {
+                                    allElements[j].value = template;
+                                    console.log('Set value using DOM traversal');
+                                    foundTextarea = true;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('Error in DOM traversal approach:', e);
+            }
+            
+            return true;
+        } else {
+            // Log all textareas on the page for debugging
+            const textareas = Array.from(document.querySelectorAll('textarea'));
+            console.error('Could not find bug_notes field. Available textareas:', 
+                textareas.map(t => ({
+                    id: t.id,
+                    name: t.name,
+                    className: t.className,
+                    value: t.value.substring(0, 50) + (t.value.length > 50 ? '...' : '')
+                }))
+            );
+            
+            // Try to find any textarea that might be the bug notes
+            const likelyCandidates = textareas.filter(t => 
+                (t.id && (t.id.includes('bug') || t.id.includes('note'))) ||
+                (t.name && (t.name.includes('bug') || t.name.includes('note'))) ||
+                (t.className && (t.className.includes('bug') || t.className.includes('note')))
+            );
+            
+            if (likelyCandidates.length > 0) {
+                console.log('Likely candidate textareas found:', likelyCandidates);
+            }
+            
+            return false;
+        }
+    }
+    
+    // Try to set the value immediately
+    var success = setBugNotesValue();
+    
+    // If not successful, try again after a short delay in case the field isn't rendered yet
+    if (!success) {
+        console.log('Bug notes field not found, retrying in 500ms...');
+        setTimeout(setBugNotesValue, 500);
+    }
+}
+
+/**
+ * Fall back method to populate the template from the page if API fails
+ */
+function populateTemplateFromPage() {
+    console.log('Falling back to populating template from page elements');
+    
+    // Get test case details from the page
+    var testCaseDetails = {};
+    
+    // Get test case ID and name
+    console.log('Attempting to get test case title');
+    var tcTitleElement = jQuery('.exec_tc_title').last();
+    console.log('tcTitleElement found:', tcTitleElement.length > 0);
+    var tcTitleText = tcTitleElement.text();
+    console.log('tcTitleText:', tcTitleText);
+    testCaseDetails.title = jQuery.trim(tcTitleText);
+    
+    // Get test case description - use notes field as requested
+    console.log('Attempting to get test case description from notes field');
+    var notesElement = jQuery('#notes');
+    console.log('notesElement found:', notesElement.length > 0);
+    testCaseDetails.description = notesElement.val() || '';
+    
+    // Get expected results
+    console.log('Attempting to get expected results');
+    var expectedResultsElement = jQuery('.exec_test_spec_title:contains("Expected Results")').next();
+    console.log('expectedResultsElement found:', expectedResultsElement.length > 0);
+    
+    // Get expected results from the page without hardcoded values
+    var cleanExpectedResults = "";
+    if (expectedResultsElement.length > 0) {
+        var rawText = expectedResultsElement.text();
+        if (rawText && rawText.trim()) {
+            cleanExpectedResults = jQuery.trim(rawText);
+        }
+    }
+    testCaseDetails.expected_results = cleanExpectedResults;
+    
+    // Get actual results/notes - using the dynamic ID pattern notes[ID]
+    console.log('Attempting to get notes with dynamic ID pattern');
+    
+    // Get the test case ID using the same approach as in getTcversionIdFromPage
+    var tcId = getTcversionIdFromPage();
+    console.log('Looking for notes element with ID pattern: notes[' + tcId + ']');
+    
+    // Try to find the notes field with the exact dynamic ID pattern
+    var notesElement = jQuery('textarea[id="notes[' + tcId + ']"]');
+    console.log('Notes element with exact dynamic ID found:', notesElement.length > 0);
+    
+    // If not found, try with a more flexible selector
+    if (notesElement.length === 0) {
+        notesElement = jQuery('textarea[id^="notes["]');
+        console.log('Notes element with flexible ID pattern found:', notesElement.length > 0);
+    }
+    
+    // If still not found, fall back to the simple #notes selector
+    if (notesElement.length === 0) {
+        console.log('Falling back to simple #notes selector');
+        notesElement = jQuery('#notes');
+        console.log('Simple notes element found:', notesElement.length > 0);
+    }
+    
+    // Make sure we actually get the value from the notes field
+    var notesValue = "";
+    if (notesElement.length > 0) {
+        // Log the actual ID to help with debugging
+        console.log('Found notes element with ID:', notesElement.attr('id'));
+        
+        notesValue = notesElement.val() || "";
+        console.log('Raw notes value:', notesValue);
+        
+        // If the notes field is empty, try getting the text content instead
+        if (!notesValue || !notesValue.trim()) {
+            notesValue = notesElement.text() || "";
+            console.log('Notes text content:', notesValue);
+        }
+        
+        // Trim the value to remove any leading/trailing whitespace
+        notesValue = notesValue.trim();
+    } else {
+        // If we still can't find it, try a more general approach
+        console.log('Trying more general textarea selector');
+        var allTextareas = jQuery('textarea');
+        console.log('Found', allTextareas.length, 'textareas on the page');
+        
+        // Log all textareas for debugging
+        allTextareas.each(function(index) {
+            console.log('Textarea', index, 'ID:', jQuery(this).attr('id'), 
+                        'Name:', jQuery(this).attr('name'),
+                        'Value length:', (jQuery(this).val() || '').length);
+        });
+        
+        console.log('Notes element not found with specific selectors, using empty string');
+    }
+    
+    testCaseDetails.notes = notesValue;
+    
+    // Get execution status from custom field as requested
+    console.log('Attempting to get execution status from custom field');
+    var statusField = jQuery('select[id^="custom_field_6_13_"]');
+    console.log('statusField found:', statusField.length > 0);
+    var statusText = "";
+    
+    if (statusField.length > 0) {
+        statusText = statusField.find('option:selected').text();
+        // If status is empty or just whitespace, use DEFERRED as fallback
+        if (!statusText || !statusText.trim()) {
+            statusText = "DEFERRED";
+        }
+    } else {
+        // Fallback to the original status select if custom field not found
+        var statusSelect = jQuery('select[id^="statusSingle_"]');
+        console.log('Fallback statusSelect found:', statusSelect.length > 0);
+        
+        if (statusSelect.length > 0) {
+            statusText = statusSelect.find('option:selected').text();
+            if (!statusText || !statusText.trim()) {
+                statusText = "DEFERRED";
+            }
+        } else {
+            statusText = "DEFERRED";
+        }
+    }
+    
+    console.log('statusText:', statusText);
+    testCaseDetails.execution_status = statusText;
+    
+    // Get test execution path
+    console.log('Attempting to get test execution path');
+    var testSuiteTitle = jQuery('.exec_additional_info .exec_testsuite_details').text();
+    console.log('testSuiteTitle:', testSuiteTitle);
+    
+    // Clean up the test execution path
+    var cleanPath = "Customers > Operations> Customer Input";
+    if (testSuiteTitle && testSuiteTitle.trim()) {
+        // Extract just the path part, removing 'details' label if present
+        var pathMatch = testSuiteTitle.match(/details\s*(.+)/i);
+        if (pathMatch && pathMatch[1]) {
+            cleanPath = jQuery.trim(pathMatch[1]);
+        } else {
+            cleanPath = jQuery.trim(testSuiteTitle);
+        }
+    }
+    testCaseDetails.test_execution_path = cleanPath;
+    
+    // Create formatted template matching bugAdd.php format
+    console.log('Creating template with gathered data');
+    var template = "\n";
+    //  template+= "\n=========================\n";
+    
+    // Extract test case ID from the title
+    var testCaseId = '';
+    var testCaseName = testCaseDetails.title;
+    
+    // Try to extract test case ID using regex - handle multiple formats
+    var tcIdMatch = testCaseName.match(/([A-Z]+-TC\d+)/i) || testCaseName.match(/TC-\d+\.RP-TC\d+/i);
+    if (tcIdMatch && tcIdMatch[1]) {
+        testCaseId = tcIdMatch[1];
+    } else {
+        // Fallback to RP-TC1 if no match found
+        testCaseId = "RP-TC1";
+    }
+    
+    // template += "Test Case: " + testCaseId + "\n\n";
+    
+    // Get priority from custom field as requested
+    console.log('Attempting to get priority from custom field');
+    var priorityField = jQuery('select[id^="custom_field_6_11_"]');
+    console.log('priorityField found:', priorityField.length > 0);
+    var priorityValue = "P0";
+    
+    if (priorityField.length > 0) {
+        var selectedPriority = priorityField.find('option:selected').text();
+        if (selectedPriority && selectedPriority.trim()) {
+            priorityValue = selectedPriority.trim();
+        }
+    }
+    testCaseDetails.priority = priorityValue;
+    console.log('Priority value:', priorityValue);
+    
+    // Add standard sections with empty strings if data not available
+    // New template format without section titles
+    template += "Function ID: " + (testCaseDetails.scenario_id || "") + "\n";
+    template += "Action: " + (testCaseDetails.sub_scenario || "") + "\n";
+    
+    // Use test script as the test scenario
+    template += "Test scenario: " + (testCaseDetails.test_script || "") + "\n";
+    
+    // Get test data from custom field with ID pattern custom_field_20_10_
+    console.log('Attempting to get test data from custom field');
+    var testDataElement = jQuery('[id^="custom_field_20_10_"]');
+    console.log('Test data element found:', testDataElement.length > 0);
+    
+    var testDataValue = "";  // Empty string as default, no hardcoded values
+    if (testDataElement.length > 0) {
+        // Log the actual ID to help with debugging
+        console.log('Found test data element with ID:', testDataElement.attr('id'));
+        
+        // Check if it's a textarea, input, or select
+        if (testDataElement.is('textarea') || testDataElement.is('input:text')) {
+            testDataValue = testDataElement.val() || "";
+        } else if (testDataElement.is('select')) {
+            testDataValue = testDataElement.find('option:selected').text() || "";
+        } else {
+            testDataValue = testDataElement.text() || "";
+        }
+        
+        console.log('Raw test data value:', testDataValue);
+        
+        // Trim the value and use default if empty
+        testDataValue = testDataValue.trim();
+        if (!testDataValue) {
+            testDataValue = " ";
+        }
+    }
+    
+    // Format test data with brackets
+    var formattedTestData = "[\n" + testDataValue + "\n]";
+    template += "Test Data: " + formattedTestData + "\n";
+    
+    // Expected results without section title
+    template += "Expected result: " + (testCaseDetails.expected_results || "") + "\n";
+    
+    // Test result (from notes) in square brackets
+    var formattedNotes = "[\n" + notesValue.trim() + "\n]";
+    template += "Test result: " + formattedNotes + "\n";
+    
+    console.log('Template created:', template);
+    
+    // Set the bug description field value
+    console.log('Attempting to set bug_notes field');
+    var bugNotesField = jQuery('#bug_notes');
+    console.log('bugNotesField found:', bugNotesField.length > 0);
+    bugNotesField.val(template);
+    console.log('Template set to bug_notes field');
+}

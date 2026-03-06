@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester Execution Report - Breakdown</title>
+    
+    <script src="../../gui/javascript/jquery-3.6.0.min.js"></script>
+    <script src="../../gui/javascript/select2.min.js"></script>
+    <script src="../../gui/javascript/chart.umd.min.js"></script>
+    <script src="../../gui/javascript/chartjs-plugin-datalabels.js"></script>
+    <script>
+        // Debug Chart.js loading
+        console.log('Checking Chart.js availability...');
+        console.log('typeof Chart:', typeof Chart);
+        console.log('window.Chart:', window.Chart);
+        
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js failed to load from local file');
+            console.log('Attempting to debug loading issues...');
+            
+            // Check if file path is correct
+            fetch('../../gui/javascript/chart.umd.min.js')
+                .then(response => {
+                    console.log('Chart.js file response:', response.status, response.statusText);
+                    if (!response.ok) {
+                        console.error('Chart.js file not accessible');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching Chart.js file:', error);
+                });
+        } else {
+            console.log('Chart.js loaded successfully!');
+            console.log('Chart version:', Chart.version);
+        }
+    </script>
+    <link href="../../gui/css/select2.min.css" rel="stylesheet" />
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #FEFCF6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #F25B16 0%, #1D55A8 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+
+        .filters {
+            padding: 30px;
+            background: #FBFDFD;
+            border-bottom: 1px solid #4C6F9D;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 280px;
+            margin: 5px 0;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1D55A8;
+            font-size: 14px;
+        }
+
+        .filter-group select,
+        .filter-group input[type="date"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #4C6F9D;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .filter-group select:focus,
+        .filter-group input[type="date"]:focus {
+            outline: none;
+            border-color: #F25B16;
+            box-shadow: 0 0 0 3px rgba(242, 91, 22, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .button-group {
+            padding: 20px 30px;
+            text-align: center;
+            background: white;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .btn-primary {
+            background: #1D55A8;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #F25B16;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #4C6F9D;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #1D55A8;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #4C6F9D;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #1D55A8;
+            transform: translateY(-2px);
+        }
+
+        .results {
+            padding: 30px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: #1D55A8;
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #4C6F9D;
+            vertical-align: middle;
+        }
+
+        tr:hover {
+            background: #FBFDFD;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .badge-passed {
+            background: #4C6F9D;
+            color: white;
+        }
+
+        .badge-failed {
+            background: #F25B16;
+            color: white;
+        }
+
+        .badge-blocked {
+            background: #1D55A8;
+            color: white;
+        }
+
+        .badge-not-run {
+            background: #4C6F9D;
+            color: white;
+        }
+
+        .badge-executed {
+            background: #778DA9;
+            color: white;
+            padding: 3px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #6c757d;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #415A77;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+        /* Summary Cards Styles */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #415A77;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .summary-card.total {
+            background: #1B263B;
+            color: white;
+        }
+
+        .summary-card.assigned {
+            background: #415A77;
+            color: white;
+        }
+
+        .summary-card.executed {
+            background: #778DA9;
+            color: white;
+        }
+
+        .summary-card.passed {
+            background: #2D6A4F;
+            color: white;
+        }
+
+        .summary-card.failed {
+            background: #9B2226;
+            color: white;
+        }
+
+        .summary-card.blocked {
+            background: #E09F3E;
+            color: #212529;
+        }
+
+        .summary-card.pass-rate {
+            background: #003566;
+            color: white;
+        }
+
+        .summary-card-title {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-card-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .summary-card-subtitle {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Override for blocked card text color */
+        .summary-card.blocked .summary-card-title,
+        .summary-card.blocked .summary-card-value,
+        .summary-card.blocked .summary-card-subtitle {
+            color: #212529;
+        }
+
+        /* Status badges for table */
+        
+
+        .badge-executed {
+            background: #778DA9;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-passed {
+            background: #2D6A4F;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-failed {
+            background: #9B2226;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-blocked {
+            background: #E09F3E;
+            color: #212529;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-not-run {
+            background: #E0E1DD;
+            color: #495057;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-pass-rate {
+            background: #003566;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 60px;
+            color: #6c757d;
+            font-size: 18px;
+        }
+
+        /* Chart Container Styles */
+        .chart-section {
+            background: white;
+            margin: 20px 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #4C6F9D;
+        }
+
+        .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1D55A8;
+            margin: 0;
+        }
+
+        .chart-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .chart-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-toggle input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .chart-toggle label {
+            font-weight: 600;
+            color: #495057;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .chart-container {
+            background: #FBFDFD;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #4C6F9D;
+        }
+
+        .chart-container canvas {
+            max-height: 400px;
+        }
+
+        .chart-subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #1D55A8;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .chart-loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .cumulative-progress-chart {
+            display: block !important;
+        }
+
+        .show-cumulative-progress-chart {
+            display: block !important;
+        }
+
+        .chart-error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        /* Chart Toggles Styles */
+        .chart-toggles-section {
+            background: #FBFDFD;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #4C6F9D;
+        }
+
+        .chart-toggles-header {
+            margin-bottom: 15px;
+            color: #1D55A8;
+            font-size: 16px;
+        }
+
+        .chart-toggles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .chart-toggles-grid .checkbox-group {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid #4C6F9D;
+            margin: 0;
+        }
+
+        .chart-toggles-grid .checkbox-group:hover {
+            background: #FEFCF6;
+            border-color: #F25B16;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Tester Execution Report - Breakdown</h1>
+        </div>
+
+        <div class="filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="project_id">Project</label>
+                    <select id="project_id" name="project_id">
+                        <option value="">All Projects</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="user_id">Tester</label>
+                    <select id="user_id" name="user_id">
+                        <option value="">All Testers</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date">
+                </div>
+
+                <div class="filter-group">
+                    <label for="end_date">End Date</label>
+                    <input type="date" id="end_date" name="end_date">
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="include_non_assigned" name="include_non_assigned" checked>
+                <label for="include_non_assigned">Include users with zero assignments</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="show_charts" name="show_charts">
+                <label for="show_charts">Show trend graphs</label>
+            </div>
+            
+            <div class="chart-toggles-section" id="chart_toggles_section" style="display: none;">
+                <div class="chart-toggles-header">
+                    <strong>Chart Display Options:</strong>
+                </div>
+                <div class="chart-toggles-grid">
+                    <div class="checkbox-group show-cumulative-progress-chart">
+                        <input type="checkbox" id="show_cumulative_progress_chart" name="show_cumulative_progress_chart" checked>
+                        <label for="show_cumulative_progress_chart">Cumulative Progress</label>
+                    </div>
+                    <!-- <div class="checkbox-group show-assigned-line">
+                        <input type="checkbox" id="show_assigned_line" name="show_assigned_line" checked>
+                        <label for="show_assigned_line">Show Assigned Line</label>
+                    </div> -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="show_executed_passed_chart" name="show_executed_passed_chart" checked>
+                        <label for="show_executed_passed_chart">Executed vs Passed Trend</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="show_execution_trend_chart" name="show_execution_trend_chart" checked>
+                        <label for="show_execution_trend_chart">Executed vs Not Run</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="show_pass_rate_chart" name="show_pass_rate_chart" checked>
+                        <label for="show_pass_rate_chart">Pass Rate Trend</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="show_status_distribution_chart" name="show_status_distribution_chart" checked>
+                        <label for="show_status_distribution_chart">Status Distribution</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" id="generate_report" class="btn btn-primary">📃 Generate Report</button>
+            <button type="button" id="clear_filters" class="btn btn-secondary">🔄 Clear Filters</button>
+            <button type="button" id="export_csv" class="btn btn-success" style="display: none;">📊 Export to CSV</button>
+        </div>
+
+        <div class="results">
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading execution details...</p>
+            </div>
+            
+            <div id="error_message" class="error" style="display: none;"></div>
+            <div id="success_message" class="success" style="display: none;"></div>
+            
+            <!-- Chart Section -->
+            <div id="chart_section" class="chart-section">
+                <div class="chart-header">
+                    <h2 class="chart-title">📈 Execution Trend Analysis</h2>
+                    <div class="chart-controls">
+                        <div class="chart-toggle">
+                            <input type="checkbox" id="auto_refresh_charts" name="auto_refresh_charts">
+                            <label for="auto_refresh_charts">Auto refresh</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-grid cumulative-progress-chart" style="margin-top: 20px;">
+                    <div class="chart-container">
+                        <canvas id="cumulative_progress_chart"></canvas>
+                        <div class="chart-subtitle">Cumulative Execution Progress</div>
+                    </div>
+                </div>
+                
+                <div class="chart-grid">
+                    <div class="chart-container">
+                        <canvas id="executed_passed_trend_chart"></canvas>
+                        <div class="chart-subtitle">Executed vs Passed Test Cases Trend</div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="execution_trend_chart"></canvas>
+                        <div class="chart-subtitle">Executed vs Not Run Test Cases Over Time</div>
+                    </div>
+                </div>
+                
+                <div class="chart-grid" style="margin-top: 20px;">
+                    <div class="chart-container">
+                        <canvas id="pass_rate_trend_chart"></canvas>
+                        <div class="chart-subtitle">Pass Rate Trend Analysis</div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="status_distribution_chart"></canvas>
+                        <div class="chart-subtitle">Daily Status Distribution</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Summary Cards -->
+            <div id="summary_cards" class="summary-cards" style="display: none;">
+                <div class="summary-card total">
+                    <div class="summary-card-title">Total Testers</div>
+                    <div class="summary-card-value" id="total_testers">0</div>
+                    <div class="summary-card-subtitle">Active testers</div>
+                </div>
+                
+                <div class="summary-card assigned">
+                    <div class="summary-card-title">Total Assigned</div>
+                    <div class="summary-card-value" id="total_assigned">0</div>
+                    <div class="summary-card-subtitle">Test cases assigned</div>
+                </div>
+                
+                <div class="summary-card executed">
+                    <div class="summary-card-title">Total Executed</div>
+                    <div class="summary-card-value" id="total_executed">0</div>
+                    <div class="summary-card-subtitle">Test cases executed</div>
+                </div>
+                
+                <div class="summary-card passed">
+                    <div class="summary-card-title">Total Passed</div>
+                    <div class="summary-card-value" id="total_passed">0</div>
+                    <div class="summary-card-subtitle">Test cases passed</div>
+                </div>
+                
+                <div class="summary-card failed">
+                    <div class="summary-card-title">Total Failed</div>
+                    <div class="summary-card-value" id="total_failed">0</div>
+                    <div class="summary-card-subtitle">Test cases failed</div>
+                </div>
+                
+                <div class="summary-card blocked">
+                    <div class="summary-card-title">Total Blocked</div>
+                    <div class="summary-card-value" id="total_blocked">0</div>
+                    <div class="summary-card-subtitle">Test cases blocked</div>
+                </div>
+                
+                <div class="summary-card pass-rate">
+                    <div class="summary-card-title">Overall Pass Rate</div>
+                    <div class="summary-card-value" id="overall_pass_rate">0%</div>
+                    <div class="summary-card-subtitle">Pass / (Pass + Fail)</div>
+                </div>
+            </div>
+            
+            <div id="results_table" class="table-container" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tester ID</th>
+                            <th>Tester Name</th>
+                            <th>Execution Date</th>
+                            <th>Assigned</th>
+                            <th>Executed</th>
+                            <th>Passed</th>
+                            <th>Failed</th>
+                            <th>Blocked</th>
+                            <th>Assigned Not Run</th>
+                            <th>Pass %</th>
+                            <th>Last Execution</th>
+                            <th>Test Plan</th>
+                            <th>Build</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2 for dropdowns
+            $('#project_id, #user_id').select2({
+                width: '100%',
+                placeholder: 'Select an option'
+            });
+
+            // Load initial data
+            loadProjects();
+            loadUsers();
+
+            // Event handlers
+            $('#generate_report').click(generateReport);
+            $('#clear_filters').click(clearFilters);
+            $('#export_csv').click(exportToCSV);
+            
+            // Chart toggle handler
+            $('#show_charts').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#chart_section').show();
+                    $('#chart_toggles_section').show();
+                    if (window.currentChartData) {
+                        renderCharts(window.currentChartData);
+                    }
+                } else {
+                    $('#chart_section').hide();
+                    $('#chart_toggles_section').hide();
+                }
+            });
+            
+            // Individual chart toggle handlers
+            $('.chart-toggles-grid input[type="checkbox"]').change(function() {
+                updateChartVisibility();
+            });
+            
+            // Auto refresh charts handler
+            $('#auto_refresh_charts').change(function() {
+                window.autoRefreshCharts = $(this).is(':checked');
+            });
+            
+            // Initialize chart variables
+            window.executedPassedTrendChart = null;
+            window.executionTrendChart = null;
+            window.passRateTrendChart = null;
+            window.statusDistributionChart = null;
+            window.cumulativeProgressChart = null;
+            window.currentChartData = null;
+            window.autoRefreshCharts = false;
+        });
+
+        function loadProjects() {
+            $.ajax({
+                url: 'tester_execution_report_breakdown_new.php',
+                type: 'GET',
+                data: { ajax: '1', action: 'get_initial_data' },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        var $projectSelect = $('#project_id');
+                        $projectSelect.empty().append('<option value="">All Projects</option>');
+                        
+                        $.each(response.data.projects, function(index, project) {
+                            $projectSelect.append('<option value="' + project.id + '">' + project.name + '</option>');
+                        });
+                        
+                        $projectSelect.trigger('change');
+                    } else {
+                        showError('Failed to load projects: ' + (response.error || 'Unknown error'));
+                    }
+                },
+                error: function(xhr, status, error) {
+                    showError('Failed to load projects: ' + error);
+                }
+            });
+        }
+
+        function loadUsers() {
+            $.ajax({
+                url: 'tester_execution_report_breakdown_new.php',
+                type: 'GET',
+                data: { ajax: '1', action: 'get_initial_data' },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        var $userSelect = $('#user_id');
+                        $userSelect.empty().append('<option value="">All Testers</option>');
+                        
+                        $.each(response.data.testers, function(index, user) {
+                            $userSelect.append('<option value="' + user.id + '">' + user.first + ' ' + user.last + '</option>');
+                        });
+                        
+                        $userSelect.trigger('change');
+                    } else {
+                        showError('Failed to load users: ' + (response.error || 'Unknown error'));
+                    }
+                },
+                error: function(xhr, status, error) {
+                    showError('Failed to load users: ' + error);
+                }
+            });
+        }
+
+        function generateReport() {
+            var params = {
+                ajax: '1',
+                action: 'run_report',
+                project_id: $('#project_id').val(),
+                user_id: $('#user_id').val(),
+                start_date: $('#start_date').val(),
+                end_date: $('#end_date').val(),
+                include_non_assigned: $('#include_non_assigned').is(':checked'),
+                _: new Date().getTime() // Cache buster
+            };
+
+            showLoading();
+            hideMessages();
+
+            $.ajax({
+                url: 'tester_execution_report_breakdown_new.php',
+                type: 'POST',
+                data: params,
+                dataType: 'json',
+                success: function(response) {
+                    hideLoading();
+                    
+                    if (response.success) {
+                        displayResults(response.data);
+                        showSuccess('Execution breakdown loaded successfully');
+                    } else {
+                        showError('Failed to generate report: ' + (response.error || 'Unknown error'));
+                    }
+                },
+                error: function(xhr, status, error) {
+                    hideLoading();
+                    // Try to extract error message from response if it's HTML
+                    var responseText = xhr.responseText;
+                    if (responseText && responseText.includes('<pre>')) {
+                        var match = responseText.match(/<pre[^>]*>([\s\S]*?)<\/pre>/);
+                        if (match) {
+                            showError('Server error: ' + match[1].trim());
+                            return;
+                        }
+                    }
+                    showError('Failed to generate report: ' + error);
+                }
+            });
+        }
+
+        function displayResults(response) {
+            console.log('displayResults called with:', response); // Debug log
+            var data = response.data || response; // Handle both old and new format
+            var summary = response.summary || null;
+            
+            console.log('Data:', data.length, 'rows'); // Debug log
+            console.log('Summary:', summary); // Debug log
+            
+            // Store data for charts
+            window.currentChartData = { data: data, summary: summary };
+            
+            // Render charts if enabled
+            if ($('#show_charts').is(':checked') && data.length > 0) {
+                renderCharts(window.currentChartData);
+            }
+            
+            var $tbody = $('#table_body');
+            $tbody.empty();
+
+            if (data.length === 0) {
+                $tbody.append('<tr><td colspan="14" class="no-data">No execution data found for selected criteria.</td></tr>');
+                $('#results_table').show();
+                return;
+            }
+
+            // Display summary cards if available
+            if (summary) {
+                console.log('Displaying summary cards'); // Debug log
+                displaySummaryCards(summary);
+            } else {
+                console.log('No summary data available'); // Debug log
+            }
+
+            $.each(data, function(index, row) {
+                var $tr = $('<tr>');
+                
+                $tr.append('<td>' + (row.tester_id || '') + '</td>');
+                $tr.append('<td>' + row.tester_name + '</td>');
+                $tr.append('<td>' + row.execution_date_formatted + '</td>');
+                $tr.append('<td>' + row.assigned_testcases + '</td>');
+                $tr.append('<td><span class="badge-executed">' + row.executed_testcases + '</span></td>');
+                $tr.append('<td><span class="badge-passed">' + row.passed_testcases + '</span></td>');
+                $tr.append('<td><span class="badge-failed">' + row.failed_testcases + '</span></td>');
+                $tr.append('<td><span class="badge-blocked">' + row.blocked_testcases + '</span></td>');
+                $tr.append('<td><span class="badge-not-run">' + row.assigned_not_run + '</span></td>');
+                $tr.append('<td><span class="badge-pass-rate">' + row.pass_rate_percent + '%</span></td>');
+                $tr.append('<td>' + row.last_execution_time_formatted + '</td>');
+                $tr.append('<td>' + (row.testplan_name || '') + '</td>');
+                $tr.append('<td>' + (row.build_name || '') + '</td>');
+                $tr.append('<td>' + (row.platform_name || '') + '</td>');
+                
+                $tbody.append($tr);
+            });
+
+            $('#results_table').show();
+            $('#export_csv').show();
+        }
+
+        function displaySummaryCards(summary) {
+            console.log('displaySummaryCards called with:', summary); // Debug log
+            $('#total_testers').text(summary.total_testers);
+            $('#total_assigned').text(summary.total_assigned);
+            $('#total_executed').text(summary.total_executed);
+            $('#total_passed').text(summary.total_passed);
+            $('#total_failed').text(summary.total_failed);
+            $('#total_blocked').text(summary.total_blocked);
+            $('#overall_pass_rate').text(summary.overall_pass_rate + '%');
+            
+            $('#summary_cards').show();
+            console.log('Summary cards displayed'); // Debug log
+        }
+
+        function clearFilters() {
+            $('#project_id').val('').trigger('change');
+            $('#user_id').val('').trigger('change');
+            $('#start_date').val('');
+            $('#end_date').val('');
+            $('#include_non_assigned').prop('checked', true);
+            $('#show_charts').prop('checked', false);
+            $('#auto_refresh_charts').prop('checked', false);
+            $('#results_table').hide();
+            $('#summary_cards').hide();
+            $('#chart_section').hide();
+            $('#export_csv').hide();
+            hideMessages();
+            
+            // Destroy charts
+            destroyCharts();
+        }
+
+        function exportToCSV() {
+            // Get current table data
+            var tableData = [];
+            $('#table_body tr').each(function() {
+                var row = [];
+                $(this).find('td').each(function() {
+                    row.push($(this).text());
+                });
+                tableData.push(row);
+            });
+
+            if (tableData.length === 0) {
+                showError('No data to export');
+                return;
+            }
+
+            // Create CSV content
+            var headers = ['Tester ID', 'Tester Name', 'Execution Date', 'Assigned', 'Executed', 'Passed', 'Failed', 'Blocked', 'Assigned Not Run', 'Pass %', 'Last Execution', 'Test Plan', 'Build', 'Platform'];
+            var csvContent = headers.join(',') + '\n';
+
+            tableData.forEach(function(row) {
+                // Escape commas and quotes in data
+                var escapedRow = row.map(function(cell) {
+                    cell = cell.toString().replace(/"/g, '""'); // Escape quotes
+                    if (cell.includes(',') || cell.includes('"')) {
+                        cell = '"' + cell + '"'; // Wrap in quotes if contains comma or quote
+                    }
+                    return cell;
+                });
+                csvContent += escapedRow.join(',') + '\n';
+            });
+
+            // Create download
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement('a');
+            var url = URL.createObjectURL(blob);
+            
+            // Generate filename with current date
+            var today = new Date();
+            var filename = 'Tester_Execution_Breakdown_' + today.getFullYear() + '-' + 
+                          String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                          String(today.getDate()).padStart(2, '0') + '.csv';
+            
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function showLoading() {
+            $('#loading').show();
+        }
+
+        function hideLoading() {
+            $('#loading').hide();
+        }
+
+        function showError(message) {
+            $('#error_message').text(message).show();
+            $('#success_message').hide();
+        }
+
+        function showSuccess(message) {
+            $('#success_message').text(message).show();
+            $('#error_message').hide();
+        }
+
+        function hideMessages() {
+            $('#error_message').hide();
+            $('#success_message').hide();
+        }
+        
+        // Chart Functions
+        function updateChartVisibility() {
+            var showExecutedPassed = $('#show_executed_passed_chart').is(':checked');
+            var showExecutionTrend = $('#show_execution_trend_chart').is(':checked');
+            var showPassRate = $('#show_pass_rate_chart').is(':checked');
+            var showStatusDistribution = $('#show_status_distribution_chart').is(':checked');
+            var showCumulativeProgress = $('#show_cumulative_progress_chart').is(':checked');
+            
+            // Hide/show chart containers
+            $('#executed_passed_trend_chart').closest('.chart-container').toggle(showExecutedPassed);
+            $('#execution_trend_chart').closest('.chart-container').toggle(showExecutionTrend);
+            $('#pass_rate_trend_chart').closest('.chart-container').toggle(showPassRate);
+            $('#status_distribution_chart').closest('.chart-container').toggle(showStatusDistribution);
+            $('#cumulative_progress_chart').closest('.chart-container').toggle(showCumulativeProgress);
+        }
+        
+        function renderCharts(chartData) {
+            if (!chartData || !chartData.data || chartData.data.length === 0) {
+                console.log('No data available for charts');
+                return;
+            }
+            
+            console.log('Rendering charts with data:', chartData.data.length, 'rows');
+            
+            try {
+                // Check which charts should be rendered
+                if ($('#show_executed_passed_chart').is(':checked')) {
+                    renderExecutedPassedTrendChart(chartData.data);
+                }
+                if ($('#show_execution_trend_chart').is(':checked')) {
+                    renderExecutionTrendChart(chartData.data);
+                }
+                if ($('#show_pass_rate_chart').is(':checked')) {
+                    renderPassRateTrendChart(chartData.data);
+                }
+                if ($('#show_status_distribution_chart').is(':checked')) {
+                    renderStatusDistributionChart(chartData.data);
+                }
+                if ($('#show_cumulative_progress_chart').is(':checked')) {
+                    // For now, use existing data structure until ajax_assigned_data.php is created
+                    // Calculate assigned data from existing data to avoid deeps
+                    var assignedDataByDate = {};
+                    var userAssignments = {};
+                    
+                    // First, get total assigned per user (from any row)
+                    chartData.data.forEach(function(row) {
+                        if (row.assigned_testcases && !userAssignments[row.tester_id]) {
+                            userAssignments[row.tester_id] = parseInt(row.assigned_testcases) || 0;
+                        }
+                    });
+                    
+                    // Then, for each date, sum up all user assignments
+                    chartData.data.forEach(function(row) {
+                        var date = row.execution_date_formatted;
+                        if (!assignedDataByDate[date]) {
+                            assignedDataByDate[date] = 0;
+                        }
+                        // Add user's assigned count if not already counted for this date
+                        if (!assignedDataByDate[row.tester_id + '_' + date]) {
+                            assignedDataByDate[date] += userAssignments[row.tester_id] || 0;
+                            assignedDataByDate[row.tester_id + '_' + date] = true; // Mark as counted
+                        }
+                    });
+                    
+                    renderCumulativeProgressChart(chartData.data, assignedDataByDate);
+                }
+                
+                // Update visibility
+                updateChartVisibility();
+            } catch (error) {
+                console.error('Error rendering charts:', error);
+                showChartError('Error rendering charts: ' + error.message);
+            }
+        }
+        
+        function renderExecutedPassedTrendChart(data) {
+            var ctx = document.getElementById('executed_passed_trend_chart').getContext('2d');
+            
+            // Aggregate data by date
+            var dateGroups = {};
+            data.forEach(function(row) {
+                var date = row.execution_date_formatted;
+                if (!dateGroups[date]) {
+                    dateGroups[date] = {
+                        executed: 0,
+                        passed: 0
+                    };
+                }
+                dateGroups[date].executed += parseInt(row.executed_testcases) || 0;
+                dateGroups[date].passed += parseInt(row.passed_testcases) || 0;
+            });
+            
+            var sortedDates = Object.keys(dateGroups).sort();
+            var executedData = sortedDates.map(date => dateGroups[date].executed);
+            var passedData = sortedDates.map(date => dateGroups[date].passed);
+            
+            // Destroy existing chart
+            if (window.executedPassedTrendChart) {
+                window.executedPassedTrendChart.destroy();
+            }
+            
+            window.executedPassedTrendChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sortedDates,
+                    datasets: [{
+                        label: 'Executed Test Cases',
+                        data: executedData,
+                        borderColor: '#F25B16ff',
+                        backgroundColor: 'rgba(76, 111, 157, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        fill: true
+                    }, {
+                        label: 'Passed Test Cases',
+                        data: passedData,
+                        borderColor: '#1D55A8',
+                        backgroundColor: 'rgba(29, 85, 168, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 12
+                            },
+                            callbacks: {
+                                title: function(context) {
+                                    return 'Date: ' + context[0].label;
+                                },
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    var value = context.parsed.y;
+                                    var deltaIndex = context.dataIndex;
+                                    
+                                    // Get both values for calculation
+                                    var executed = executedData[deltaIndex];
+                                    var passed = passedData[deltaIndex];
+                                    
+                                    // Calculate delta percentage correctly
+                                    var deltaValue = executed - passed;
+                                    var deltaPercentage = ((deltaValue) / executed * 100).toFixed(1);
+                                    
+                                    if (label.includes('Executed')) {
+                                        return [
+                                            'Executed: ' + executed,
+                                            'Passed: ' + passed,
+                                            'Delta: ' + deltaValue,
+                                            'Delta %: ' + deltaPercentage + '%'
+                                        ];
+                                    } else if (label.includes('Passed')) {
+                                        return [
+                                            'Passed: ' + passed,
+                                            'Executed: ' + executed,
+                                            'Delta: ' + deltaValue,
+                                            'Delta %: ' + deltaPercentage + '%'
+                                        ];
+                                    }
+                                    return label + ': ' + value;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function renderExecutionTrendChart(data) {
+            var ctx = document.getElementById('execution_trend_chart').getContext('2d');
+            
+            // Aggregate data by date
+            var dateGroups = {};
+            data.forEach(function(row) {
+                var date = row.execution_date_formatted;
+                if (!dateGroups[date]) {
+                    dateGroups[date] = {
+                        executed: 0,
+                        notRun: 0,
+                        assigned: 0
+                    };
+                }
+                dateGroups[date].executed += parseInt(row.executed_testcases) || 0;
+                dateGroups[date].notRun += parseInt(row.assigned_not_run) || 0;
+                dateGroups[date].assigned += parseInt(row.assigned_testcases) || 0;
+            });
+            
+            var sortedDates = Object.keys(dateGroups).sort();
+            var executedData = sortedDates.map(date => dateGroups[date].executed);
+            var notRunData = sortedDates.map(date => dateGroups[date].notRun);
+            
+            // Destroy existing chart
+            if (window.executionTrendChart) {
+                window.executionTrendChart.destroy();
+            }
+            
+            window.executionTrendChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sortedDates,
+                    datasets: [{
+                        label: 'Executed Test Cases',
+                        data: executedData,
+                        borderColor: '#4C6F9D',
+                        backgroundColor: 'rgba(76, 111, 157, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        fill: true
+                    }, {
+                        label: 'Not Run Test Cases',
+                        data: notRunData,
+                        borderColor: '#F25B16',
+                        backgroundColor: 'rgba(242, 91, 22, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 12
+                            },
+                            callbacks: {
+                                title: function(context) {
+                                    return 'Date: ' + context[0].label;
+                                },
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    var value = context.parsed.y;
+                                    var deltaIndex = context.dataIndex;
+                                    
+                                    // Get both values for calculation
+                                    var executed = executedData[deltaIndex];
+                                    var notRun = notRunData[deltaIndex];
+                                    
+                                    // Calculate delta percentage correctly
+                                    var deltaValue = executed - notRun;
+                                    var deltaPercentage = ((deltaValue) / executed * 100).toFixed(1);
+                                    
+                                    if (label.includes('Executed')) {
+                                        return [
+                                            'Executed: ' + executed,
+                                            'Not Run: ' + notRun,
+                                            'Delta: ' + deltaValue,
+                                            'Delta %: ' + deltaPercentage + '%'
+                                        ];
+                                    } else if (label.includes('Not Run')) {
+                                        return [
+                                            'Not Run: ' + notRun,
+                                            'Executed: ' + executed,
+                                            'Delta: ' + deltaValue,
+                                            'Delta %: ' + deltaPercentage + '%'
+                                        ];
+                                    }
+                                    return label + ': ' + value;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function renderPassRateTrendChart(data) {
+            var ctx = document.getElementById('pass_rate_trend_chart').getContext('2d');
+            
+            // Aggregate pass rates by date
+            var dateGroups = {};
+            data.forEach(function(row) {
+                var date = row.execution_date_formatted;
+                if (!dateGroups[date]) {
+                    dateGroups[date] = {
+                        totalPass: 0,
+                        totalFail: 0,
+                        passRates: []
+                    };
+                }
+                dateGroups[date].totalPass += parseInt(row.passed_testcases) || 0;
+                dateGroups[date].totalFail += parseInt(row.failed_testcases) || 0;
+                if (row.pass_rate_percent) {
+                    dateGroups[date].passRates.push(parseFloat(row.pass_rate_percent));
+                }
+            });
+            
+            var sortedDates = Object.keys(dateGroups).sort();
+            var passRateData = sortedDates.map(date => {
+                var group = dateGroups[date];
+                var totalExecuted = group.totalPass + group.totalFail;
+                return totalExecuted > 0 ? ((group.totalPass / totalExecuted) * 100).toFixed(1) : 0;
+            });
+            
+            // Destroy existing chart
+            if (window.passRateTrendChart) {
+                window.passRateTrendChart.destroy();
+            }
+            
+            window.passRateTrendChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sortedDates,
+                    datasets: [{
+                        label: 'Pass Rate %',
+                        data: passRateData,
+                        borderColor: '#1D55A8',
+                        backgroundColor: 'rgba(29, 85, 168, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Pass Rate: ' + context.parsed.y + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                },
+                                font: {
+                                    size: 11
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function renderStatusDistributionChart(data) {
+            var ctx = document.getElementById('status_distribution_chart').getContext('2d');
+            
+            // Aggregate status counts by date
+            var dateGroups = {};
+            data.forEach(function(row) {
+                var date = row.execution_date_formatted;
+                if (!dateGroups[date]) {
+                    dateGroups[date] = {
+                        passed: 0,
+                        failed: 0,
+                        blocked: 0,
+                        notRun: 0
+                    };
+                }
+                dateGroups[date].passed += parseInt(row.passed_testcases) || 0;
+                dateGroups[date].failed += parseInt(row.failed_testcases) || 0;
+                dateGroups[date].blocked += parseInt(row.blocked_testcases) || 0;
+                dateGroups[date].notRun += parseInt(row.assigned_not_run) || 0;
+            });
+            
+            var sortedDates = Object.keys(dateGroups).sort();
+            
+            // Destroy existing chart
+            if (window.statusDistributionChart) {
+                window.statusDistributionChart.destroy();
+            }
+            
+            window.statusDistributionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sortedDates,
+                    datasets: [{
+                        label: 'Passed',
+                        data: sortedDates.map(date => dateGroups[date].passed),
+                        backgroundColor: '#4C6F9D'
+                    }, {
+                        label: 'Failed',
+                        data: sortedDates.map(date => dateGroups[date].failed),
+                        backgroundColor: '#F25B16'
+                    }, {
+                        label: 'Blocked',
+                        data: sortedDates.map(date => dateGroups[date].blocked),
+                        backgroundColor: '#1D55A8'
+                    }, {
+                        label: 'Not Run',
+                        data: sortedDates.map(date => dateGroups[date].notRun),
+                        backgroundColor: '#B0B0B0'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Function to fetch assigned test cases per date separately
+        function fetchAssignedDataByDate(projectId, startDate, endDate) {
+            return $.ajax({
+                url: 'ajax_assigned_data.php',
+                type: 'POST',
+                data: {
+                    project_id: projectId,
+                    start_date: startDate,
+                    end_date: endDate
+                },
+                dataType: 'json'
+            });
+        }
+        
+        function renderCumulativeProgressChart(data, assignedDataByDate) {
+            var ctx = document.getElementById('cumulative_progress_chart').getContext('2d');
+            
+            var dateGroups = {};
+            data.forEach(function(row) {
+                var date = row.execution_date_formatted;
+                if (!dateGroups[date]) {
+                    dateGroups[date] = {
+                        executed: 0,
+                        passed: 0
+                    };
+                }
+                dateGroups[date].executed += parseInt(row.executed_testcases) || 0;
+                dateGroups[date].passed += parseInt(row.passed_testcases) || 0;
+            });
+            
+            var sortedDates = Object.keys(dateGroups).sort();
+            var cumulativeExecuted = [];
+            var cumulativePassed = [];
+            var assignedData = []; // Will use separate assigned data
+            var passRateData = [];
+            var deltaData = [];
+            var currentDateData = [];
+            var totalExecuted = 0;
+            var totalPassed = 0;
+            
+            // Get current date for highlighting
+            var today = new Date().toISOString().split('T')[0];
+            
+            sortedDates.forEach(date => {
+                totalExecuted += dateGroups[date].executed;
+                totalPassed += dateGroups[date].passed;
+                
+                // Use daily incremental values (each day added on top of previous)
+                cumulativeExecuted.push(totalExecuted);
+                cumulativePassed.push(totalPassed);
+                // No assigned data for now (line was disabled)
+                assignedData.push(0);
+                // Calculate pass rate percentage
+                var passRate = totalExecuted > 0 ? ((totalPassed / totalExecuted) * 100).toFixed(1) : 0;
+                passRateData.push(parseFloat(passRate));
+                // Calculate delta (difference between executed and passed)
+                deltaData.push(totalExecuted - totalPassed);
+                // Check if this is current date
+                currentDateData.push(date === today);
+            });
+            
+            // Destroy existing chart
+            if (window.cumulativeProgressChart) {
+                window.cumulativeProgressChart.destroy();
+            }
+            
+            // Store data globally for tooltip access
+            window.currentCumulativeExecuted = cumulativeExecuted;
+            window.currentCumulativePassed = cumulativePassed;
+            window.currentAssignedData = assignedData; // Use assignedData (no accumulation)
+            window.currentDateData = currentDateData;
+            
+            // Register delta lines plugin with different approach
+            Chart.register({
+                id: 'deltaLines',
+                afterDraw: function(chart) {
+                    var ctx = chart.ctx;
+                    var xAxis = chart.scales.x;
+                    var yAxis = chart.scales.y;
+                    
+                    // Only draw for cumulative progress chart
+                    if (chart.canvas.id === 'cumulative_progress_chart') {
+                        chart.data.datasets.forEach(function(dataset, datasetIndex) {
+                            if (datasetIndex === 0) { // Executed dataset
+                                var meta = chart.getDatasetMeta(datasetIndex);
+                                meta.data.forEach(function(point, index) {
+                                    if (index < chart.data.datasets[1].data.length) {
+                                        var passedMeta = chart.getDatasetMeta(1);
+                                        var passedPoint = passedMeta.data[index];
+                                        
+                                        if (point && passedPoint) {
+                                            ctx.save();
+                                            ctx.beginPath();
+                                            ctx.moveTo(point.x, point.y);
+                                            ctx.lineTo(passedPoint.x, passedPoint.y);
+                                            ctx.strokeStyle = window.currentDateData[index] ? '#FF0000' : '#CCCCCC';
+                                            ctx.lineWidth = window.currentDateData[index] ? 3 : 2;
+                                            ctx.setLineDash([5, 5]);
+                                            ctx.stroke();
+                                            ctx.restore();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }
+            });
+            
+            window.cumulativeProgressChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sortedDates,
+                    datasets: [{
+                        label: 'Cumulative Executed',
+                        data: cumulativeExecuted,
+                        borderColor: '#F25B16',
+                        backgroundColor: 'rgba(242, 91, 22, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        fill: true,
+                        pointBackgroundColor: function(context) {
+                            return currentDateData[context.dataIndex] ? '#FF0000' : '#F25B16';
+                        },
+                        pointBorderColor: function(context) {
+                            return currentDateData[context.dataIndex] ? '#FF0000' : '#F25B16';
+                        },
+                        pointRadius: function(context) {
+                            return currentDateData[context.dataIndex] ? 6 : 4;
+                        },
+                        pointHoverRadius: function(context) {
+                            return currentDateData[context.dataIndex] ? 8 : 6;
+                        }
+                    }, {
+                        label: 'Cumulative Passed',
+                        data: cumulativePassed,
+                        borderColor: '#1D55A8',
+                        backgroundColor: 'rgba(29, 85, 168, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        fill: true,
+                        pointBackgroundColor: function(context) {
+                            return currentDateData[context.dataIndex] ? '#FF0000' : '#1D55A8';
+                        },
+                        pointBorderColor: function(context) {
+                            return currentDateData[context.dataIndex] ? '#FF0000' : '#1D55A8';
+                        },
+                        pointRadius: function(context) {
+                            return currentDateData[context.dataIndex] ? 6 : 4;
+                        },
+                        pointHoverRadius: function(context) {
+                            return currentDateData[context.dataIndex] ? 8 : 6;
+                        }
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 12
+                            },
+                            callbacks: {
+                                title: function(context) {
+                                    return 'Date: ' + context[0].label;
+                                },
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    var value = context.parsed.y;
+                                    var deltaIndex = context.dataIndex;
+                                    
+                                    // Get both values for calculation
+                                    var executed = window.currentCumulativeExecuted[deltaIndex];
+                                    var passed = window.currentCumulativePassed[deltaIndex];
+                                    
+                                    // Calculate delta percentage correctly
+                                    var deltaValue = executed - passed;
+                                    var deltaPercentage = ((deltaValue) / executed * 100).toFixed(1);
+                                    
+                                    return [
+                                        'Executed: ' + executed,
+                                        'Passed: ' + passed,
+                                        'Delta: ' + deltaValue,
+                                        'Delta %: ' + deltaPercentage + '%'
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function destroyCharts() {
+            if (window.executedPassedTrendChart) {
+                window.executedPassedTrendChart.destroy();
+                window.executedPassedTrendChart = null;
+            }
+            if (window.executionTrendChart) {
+                window.executionTrendChart.destroy();
+                window.executionTrendChart = null;
+            }
+            if (window.passRateTrendChart) {
+                window.passRateTrendChart.destroy();
+                window.passRateTrendChart = null;
+            }
+            if (window.statusDistributionChart) {
+                window.statusDistributionChart.destroy();
+                window.statusDistributionChart = null;
+            }
+            if (window.cumulativeProgressChart) {
+                window.cumulativeProgressChart.destroy();
+                window.cumulativeProgressChart = null;
+            }
+        }
+        
+        function showChartError(message) {
+            var errorHtml = '<div class="chart-error">' + message + '</div>';
+            $('.chart-container').prepend(errorHtml);
+        }
+    </script>
+</body>
+</html>
+

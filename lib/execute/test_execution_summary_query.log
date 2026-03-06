@@ -1,0 +1,2613 @@
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:07:21] ===
+
+=== SQL EXECUTION [2025-07-03 13:07:21] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:07:21] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:07:21] ===
+Last refresh was 25 hours ago
+
+=== SQL EXECUTION [2025-07-03 13:07:21] ===
+Verifying table structure
+DESCRIBE node_hierarchy_paths
+Table columns found: node_id, level1_id, level1_name, level2_id, level2_name, level3_id, level3_name, level4_id, level4_name, level5_id, level5_name, full_path, last_refresh
+
+=== SQL EXECUTION [2025-07-03 13:07:21] ===
+Selecting root nodes
+SELECT id, name, parent_id FROM node_hierarchy WHERE parent_id IS NULL OR parent_id = 0
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:19:11] ===
+
+=== SQL EXECUTION [2025-07-03 13:19:11] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:19:11] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:19:11] ===
+Last refresh was 25 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:21:17] ===
+
+=== SQL EXECUTION [2025-07-03 13:21:17] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:21:17] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:21:17] ===
+Last refresh was -0.97 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:23:56] ===
+
+=== SQL EXECUTION [2025-07-03 13:23:56] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:23:56] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:23:56] ===
+Last refresh was -0.96 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:23:57] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e USE INDEX (idx_executions_status_tp)
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: USE INDEX (idx_executions_status_tp)
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:31:36] ===
+
+=== SQL EXECUTION [2025-07-03 13:31:36] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:31:36] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:31:36] ===
+Last refresh was -0.87 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:31:36] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e USE INDEX (idx_executions_status_tp)
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: USE INDEX (idx_executions_status_tp)
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:34:51] ===
+
+=== SQL EXECUTION [2025-07-03 13:34:51] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:34:51] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:34:51] ===
+Last refresh was -0.95 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:34:51] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:06] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:06] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:06] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:06] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:06] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:08] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:08] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:08] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:08] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:08] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:12] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:12] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:12] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:12] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:13] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 67, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:16] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:16] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:16] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:16] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:16] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 67, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:23] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:23] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:23] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:23] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:23] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:30] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:30] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:30] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:30] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:30] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:41] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:41] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:41] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:41] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:41] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:35:48] ===
+
+=== SQL EXECUTION [2025-07-03 13:35:48] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:35:48] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:35:48] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:35:48] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:25] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:25] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:25] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:25] ===
+Last refresh was -0.99 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:25] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:27] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:27] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:27] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:27] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:27] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:32] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:32] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:32] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:32] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:32] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 10916, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:34] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:34] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:34] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:34] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:35] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 22549 OR
+        e.level1_id = 22549 OR
+        e.level2_id = 22549 OR
+        e.level3_id = 22549 OR
+        e.level4_id = 22549 OR
+        e.level5_id = 22549
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 0, Total pages: NAN
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:38] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:38] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:38] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:38] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:38] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 67, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:41] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:41] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:41] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:41] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:41] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 6246 OR
+        e.level1_id = 6246 OR
+        e.level2_id = 6246 OR
+        e.level3_id = 6246 OR
+        e.level4_id = 6246 OR
+        e.level5_id = 6246
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 67, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:43] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:43] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:43] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:43] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:43] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 51251 OR
+        e.level1_id = 51251 OR
+        e.level2_id = 51251 OR
+        e.level3_id = 51251 OR
+        e.level4_id = 51251 OR
+        e.level5_id = 51251
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 0, Total pages: NAN
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:36:49] ===
+
+=== SQL EXECUTION [2025-07-03 13:36:49] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:36:49] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:36:49] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:36:49] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 51332 OR
+        e.level1_id = 51332 OR
+        e.level2_id = 51332 OR
+        e.level3_id = 51332 OR
+        e.level4_id = 51332 OR
+        e.level5_id = 51332
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 0, Total pages: NAN
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:56:08] ===
+
+=== SQL EXECUTION [2025-07-03 13:56:08] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:56:08] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:56:08] ===
+Last refresh was -0.68 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:56:08] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:58:44] ===
+
+=== SQL EXECUTION [2025-07-03 13:58:44] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:58:44] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:58:44] ===
+Last refresh was -0.96 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:58:44] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:58:48] ===
+
+=== SQL EXECUTION [2025-07-03 13:58:48] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:58:48] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:58:48] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:58:48] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 50, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 2, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 13:59:51] ===
+
+=== SQL EXECUTION [2025-07-03 13:59:51] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 13:59:51] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 13:59:51] ===
+Last refresh was -0.98 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 13:59:51] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 100, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 3, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:00:09] ===
+
+=== SQL EXECUTION [2025-07-03 14:00:09] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:00:09] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:00:09] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:00:09] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 100, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 3, Items per page: 50
+Total records: 67, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:00:13] ===
+
+=== SQL EXECUTION [2025-07-03 14:00:13] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:00:13] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:00:13] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:00:13] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1 AND (
+        e.suite_id = 6246 OR
+        e.level1_id = 6246 OR
+        e.level2_id = 6246 OR
+        e.level3_id = 6246 OR
+        e.level4_id = 6246 OR
+        e.level5_id = 6246
+    )
+        ORDER BY e.execution_date DESC
+        LIMIT 100, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 3, Items per page: 50
+Total records: 67, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:00:19] ===
+
+=== SQL EXECUTION [2025-07-03 14:00:19] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:00:19] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:00:19] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:00:19] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 100, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 3, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:24] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:24] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:24] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:24] ===
+Last refresh was -0.98 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:24] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 100, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 3, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:30] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:30] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:30] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:30] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:30] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 150, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 4, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:32] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:32] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:32] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:32] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:33] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 250, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 6, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:36] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:36] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:36] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:36] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:37] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 300, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 7, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:39] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:39] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:39] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:39] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:39] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 350, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 8, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:43] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:43] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:43] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:43] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:43] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:47] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:47] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:47] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:47] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:47] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 50, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 2, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:49] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:49] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:49] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:49] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:49] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 100, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 3, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:52] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:52] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:52] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:52] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:52] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 200, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 5, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:54] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:54] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:54] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:54] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:54] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 300, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 7, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:56] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:56] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:56] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:56] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:56] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 400, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 9, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-03 14:01:58] ===
+
+=== SQL EXECUTION [2025-07-03 14:01:58] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 96 tables.
+
+=== SQL EXECUTION [2025-07-03 14:01:58] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-03 14:01:58] ===
+Last refresh was -1 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-03 14:01:59] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 500, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 11, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+
+
+=== VALIDATING DATABASE CONNECTION [2025-07-04 11:25:21] ===
+
+=== SQL EXECUTION [2025-07-04 11:25:21] ===
+Testing database connection
+SHOW TABLES
+Database connection successful. Found 98 tables.
+
+=== SQL EXECUTION [2025-07-04 11:25:21] ===
+Checking if table exists
+SHOW TABLES LIKE 'node_hierarchy_paths'
+=== REFRESHING MATERIALIZED PATH TABLE [2025-07-04 11:25:21] ===
+Last refresh was 20.39 hours ago
+Level 2 nodes inserted successfully
+Level 3 nodes inserted successfully
+Level 4 nodes inserted successfully
+Level 5 nodes inserted successfully
+Materialized path table refreshed successfully.
+
+=== SQL QUERY [2025-07-04 11:25:21] ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_optimized e 
+         WHERE 1=1
+        ORDER BY e.execution_date DESC
+        LIMIT 0, 50
+=== OPTIMIZATION INFO ===
+Using optimized view: test_execution_hierarchy_summary_optimized
+Index hint: 
+Pagination: Page 1, Items per page: 50
+Total records: 11035, Total pages: INF
+
+
+=== QUERY RESULT ===
+Success: true
+

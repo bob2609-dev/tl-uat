@@ -1,0 +1,110 @@
+[
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "enhanced-import-script",
+        "description": "enhanced-import-script",
+        "peekOfCode": "def main():\n    # Parse command line arguments\n    parser = argparse.ArgumentParser(description='Import test cases from Excel to TestLink')\n    parser.add_argument('--excel', required=False, default='Template_WIP.xlsx',\n                        help='Path to Excel file with test cases')\n    parser.add_argument('--output', required=False, default='testlink_import.sql',\n                        help='Output SQL file path')\n    parser.add_argument('--suite', required=False, type=int, default=2,\n                        help='TestLink test suite ID (default: 2)')\n    parser.add_argument('--author', required=False, type=int, default=1,",
+        "detail": "enhanced-import-script",
+        "documentation": {}
+    },
+    {
+        "label": "escape_sql_string",
+        "kind": 2,
+        "importPath": "enhanced-import-script",
+        "description": "enhanced-import-script",
+        "peekOfCode": "def escape_sql_string(text):\n    \"\"\"Escape single quotes for SQL.\"\"\"\n    if pd.isna(text):\n        return ''\n    return str(text).replace(\"'\", \"''\")\ndef test_case_exists(sql_file, test_case_number):\n    \"\"\"Add a check in SQL to skip if test case already exists.\"\"\"\n    sql_file.write(f\"\"\"\n-- Check if test case already exists\nSELECT @exists := COUNT(*) FROM nodes_hierarchy WHERE name = '{test_case_number}' AND node_type_id = 3;",
+        "detail": "enhanced-import-script",
+        "documentation": {}
+    },
+    {
+        "label": "test_case_exists",
+        "kind": 2,
+        "importPath": "enhanced-import-script",
+        "description": "enhanced-import-script",
+        "peekOfCode": "def test_case_exists(sql_file, test_case_number):\n    \"\"\"Add a check in SQL to skip if test case already exists.\"\"\"\n    sql_file.write(f\"\"\"\n-- Check if test case already exists\nSELECT @exists := COUNT(*) FROM nodes_hierarchy WHERE name = '{test_case_number}' AND node_type_id = 3;\nSET @skip_operation = @exists > 0;\n-- Only proceed if test case doesn't exist\nSET @continue = IF(@skip_operation = 0, 1, NULL);\nDROP TEMPORARY TABLE IF EXISTS tmp_continue;\nCREATE TEMPORARY TABLE tmp_continue (id INT) ENGINE=MEMORY;",
+        "detail": "enhanced-import-script",
+        "documentation": {}
+    },
+    {
+        "label": "escape_sql_string",
+        "kind": 2,
+        "importPath": "query_maker",
+        "description": "query_maker",
+        "peekOfCode": "def escape_sql_string(text):\n    \"\"\"Escape single quotes for SQL.\"\"\"\n    if pd.isna(text):\n        return ''\n    return str(text).replace(\"'\", \"''\")\ndef main():\n    print(f\"Reading Excel file: {config['excel_file']}\")\n    # Read the Excel file\n    try:\n        df = pd.read_excel(config['excel_file'], sheet_name=config['sheet_name'])",
+        "detail": "query_maker",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "query_maker",
+        "description": "query_maker",
+        "peekOfCode": "def main():\n    print(f\"Reading Excel file: {config['excel_file']}\")\n    # Read the Excel file\n    try:\n        df = pd.read_excel(config['excel_file'], sheet_name=config['sheet_name'])\n        print(f\"Found {len(df)} rows in the Excel file.\")\n    except Exception as e:\n        print(f\"Error reading Excel file: {e}\")\n        return\n    # Map the columns",
+        "detail": "query_maker",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "query_maker",
+        "description": "query_maker",
+        "peekOfCode": "config = {\n    'excel_file': 'Template_WIP.xlsx',\n    'output_sql': 'testlink_import_corrected.sql',\n    'author_id': 1,        # Default author ID in TestLink\n    'test_suite_id': 2,    # Your TestLink test suite ID (Test Suite 1)\n    'importance': 2,       # Medium importance (1=Low, 2=Medium, 3=High)\n    'execution_type': 1,   # Manual (1=Manual, 2=Automated)\n    'status': 1,           # Valid (1=Valid)\n    'active': 1,           # Active\n    'is_open': 1,          # Open",
+        "detail": "query_maker",
+        "documentation": {}
+    },
+    {
+        "label": "custom_field_map",
+        "kind": 5,
+        "importPath": "query_maker",
+        "description": "query_maker",
+        "peekOfCode": "custom_field_map = {\n    'scenario_id': 1,     # \"Scenario ID\"\n    'primary_module': 2,  # \"Primary Module\"\n    'sub_scenario': 3,    # \"Sub-Scenario / Action\"\n    'test_case_description': 4, # \"Test Case Description\"\n    'test_type': 5,       # \"Test Type\"\n    'test_script': 6,     # \"Test Script\"\n    'test_execution_path': 7, # \"Test Execution Path\"\n    'expected_results': 8, # \"Expected Results (Functional)\"\n    'er_process': 9,      # \"Expected Results (Process & Business Rules)\"",
+        "detail": "query_maker",
+        "documentation": {}
+    }
+]

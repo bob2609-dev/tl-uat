@@ -1,0 +1,22 @@
+[2025-08-04 09:31:42] === Suite Execution Summary Debug Session Started ===
+[2025-08-04 09:31:42] PHP Version: 7.2.34
+[2025-08-04 09:31:42] Current User ID: 8
+[2025-08-04 09:31:42] Database object type: object
+[2025-08-04 09:31:42] Database class: database
+[2025-08-04 09:31:42] User permissions OK - proceeding with page logic
+[2025-08-04 09:31:42] Getting test project list...
+[2025-08-04 09:31:42] Successfully got 1 accessible projects
+[2025-08-04 09:31:42] Filter parameters: Project=0, Plan=0, Build=0, Status=, Path=
+[2025-08-04 09:31:42] No project selected, skipping testplan query
+[2025-08-04 09:31:46] === Suite Execution Summary Debug Session Started ===
+[2025-08-04 09:31:46] PHP Version: 7.2.34
+[2025-08-04 09:31:46] Current User ID: 8
+[2025-08-04 09:31:46] Database object type: object
+[2025-08-04 09:31:46] Database class: database
+[2025-08-04 09:31:46] User permissions OK - proceeding with page logic
+[2025-08-04 09:31:46] Getting test project list...
+[2025-08-04 09:31:46] Successfully got 1 accessible projects
+[2025-08-04 09:31:46] Filter parameters: Project=1, Plan=0, Build=0, Status=, Path=
+[2025-08-04 09:31:46] Getting testplans for project ID: 1
+[2025-08-04 09:31:46] Testplan SQL: SELECT id, name FROM testplans WHERE testproject_id = 1 AND active = 1 ORDER BY name
+[2025-08-04 09:31:46] About to execute testplan query...

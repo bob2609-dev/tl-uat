@@ -1,0 +1,127 @@
+<?php
+// Include PHP 8 compatibility layer
+require_once('custom/inc/php8_init.php');
+/**
+ * TestLink PHP 8 - Deprecation Warning Suppressor
+ * This script configures PHP to hide deprecation warnings
+ */
+
+echo "<!DOCTYPE html>\n<html>\n<head>\n";
+echo "<title>TestLink PHP 8 Warning Suppressor</title>\n";
+echo "<style>\n";
+echo "body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }\n";
+echo "h1, h2, h3 { color: #333; }\n";
+echo ".success { color: green; }\n";
+echo ".error { color: red; }\n";
+echo ".warning { color: orange; }\n";
+echo "pre { background: #f5f5f5; padding: 10px; overflow: auto; }\n";
+echo "code { background: #f5f5f5; padding: 2px 4px; }\n";
+echo "</style>\n";
+echo "</head>\n<body>\n";
+
+echo "<h1>TestLink PHP 8 Warning Suppressor</h1>\n";
+
+// Function to log and display messages
+function log_message($message, $type = 'info') {
+    $class = '';
+    switch ($type) {
+        case 'success': $class = 'class="success"'; break;
+        case 'error': $class = 'class="error"'; break;
+        case 'warning': $class = 'class="warning"'; break;
+    }
+    echo "<p $class>$message</p>\n";
+}
+
+// 1. Update .htaccess file
+log_message("Step 1: Updating .htaccess file...");
+$htaccess_file = __DIR__ . '/.htaccess';
+$htaccess_content = "# Proper MIME type for images\nAddType image/png .png\nAddType image/jpeg .jpg .jpeg .jpe\nAddType image/gif .gif\nAddType image/svg+xml .svg\nAddType image/bmp .bmp\n\n# PHP 8 Compatibility Settings\n<IfModule mod_php.c>\n  php_flag display_errors off\n  php_value error_reporting 0\n</IfModule>\n";
+
+file_put_contents($htaccess_file, $htaccess_content);
+log_message("Updated .htaccess file to suppress all warnings and notices", 'success');
+
+// 2. Update php8_compatibility.php to suppress warnings
+log_message("Step 2: Updating PHP 8 compatibility layer...");
+$compatibility_file = __DIR__ . '/custom/inc/php8_compatibility.php';
+
+if (file_exists($compatibility_file)) {
+    $content = file_get_contents($compatibility_file);
+    
+    // Check if error_reporting line is commented
+    if (strpos($content, '// error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);') !== false) {
+        // Uncomment the line
+        $content = str_replace(
+            '// error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);',
+            'error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);',
+            $content
+        );
+        file_put_contents($compatibility_file, $content);
+        log_message("Uncommented error_reporting line in php8_compatibility.php", 'success');
+    } else if (strpos($content, 'error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);') === false) {
+        // Add the line if it doesn't exist
+        $content = str_replace(
+            "// Disable deprecation warnings if not in development mode\n",
+            "// Disable deprecation warnings if not in development mode\nerror_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);\n",
+            $content
+        );
+        file_put_contents($compatibility_file, $content);
+        log_message("Added error_reporting line to php8_compatibility.php", 'success');
+    } else {
+        log_message("Error reporting is already configured in php8_compatibility.php", 'success');
+    }
+} else {
+    log_message("Could not find php8_compatibility.php", 'error');
+}
+
+// 3. Create a local php.ini file
+log_message("Step 3: Creating a local php.ini file...");
+$php_ini_file = __DIR__ . '/php.ini';
+$php_ini_content = ";PHP 8 Settings\ndisplay_errors = Off\nerror_reporting = 0\n";
+
+file_put_contents($php_ini_file, $php_ini_content);
+log_message("Created php.ini file with error suppression settings", 'success');
+
+// 4. Update index.php to add error suppression
+log_message("Step 4: Updating index.php to suppress errors at runtime...");
+$index_file = __DIR__ . '/index.php';
+
+if (file_exists($index_file)) {
+    $content = file_get_contents($index_file);
+    
+    // Check if error suppression is already added
+    if (strpos($content, 'error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);') === false) {
+        // Add error suppression at the beginning after PHP tag
+        $content = str_replace(
+            "<?php",
+            "<?php\n// Suppress deprecation warnings\nerror_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);\ndisplay_errors(0);",
+            $content
+        );
+        file_put_contents($index_file, $content);
+        log_message("Added error suppression to index.php", 'success');
+    } else {
+        log_message("Error suppression already exists in index.php", 'success');
+    }
+} else {
+    log_message("Could not find index.php", 'error');
+}
+
+echo "<h2>Warning Suppression Complete</h2>\n";
+echo "<p>All deprecation warnings should now be hidden when you access TestLink.</p>\n";
+echo "<p>These changes affect:</p>\n";
+echo "<ul>\n";
+echo "<li>.htaccess file (server-level configuration)</li>\n";
+echo "<li>php8_compatibility.php (application-level configuration)</li>\n";
+echo "<li>php.ini (PHP configuration)</li>\n";
+echo "<li>index.php (entry point configuration)</li>\n";
+echo "</ul>\n";
+
+echo "<p>After applying these changes:</p>\n";
+echo "<ol>\n";
+echo "<li>Restart your web server</li>\n";
+echo "<li>Clear your browser cache</li>\n";
+echo "<li>Try accessing TestLink again</li>\n";
+echo "</ol>\n";
+
+echo "<p class='warning'>Note: Suppressing warnings doesn't fix the underlying issues, it just hides them. TestLink will continue to work, but you may want to consider fixing these issues in a future update.</p>\n";
+
+echo "</body>\n</html>";

@@ -1,0 +1,28 @@
+[2026-02-24 18:22:11] === API Request Started ===
+[2026-02-24 18:22:11] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-02-24 18:22:11] Request method: POST
+[2026-02-24 18:22:11] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431184","execution_id":0,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-02-24CET18:21","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nN\/A\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTING INTEGRATION\r\n]\r\n\r\nTestLink URLs:\r\n- View Test Case: https:\/\/test-management.nmbtz.com:9443\/lib\/execute\/execSetResults.php?tcversion_id=431185\r\n- Test Case Print View: https:\/\/test-management.nmbtz.com:9443\/lib\/execute\/execSetResultsPrint.php?tcversion_id=431185","priority":"Normal"}
+[2026-02-24 18:22:11] GET data: {"action":"create_issue"}
+[2026-02-24 18:22:11] Loading config.inc.php...
+[2026-02-24 18:22:11] Config loaded successfully
+[2026-02-24 18:22:11] Attempting database connection to tl_uat on localhost
+[2026-02-24 18:22:11] Database connection successful
+[2026-02-24 18:22:11] Action: create_issue
+[2026-02-24 18:22:11] Creating issue for project: 448287
+[2026-02-24 18:22:11] Original summary: 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-02-24CET18:21'
+[2026-02-24 18:22:11] Original description length: 425
+[2026-02-24 18:22:11] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[2026-02-24 18:22:11] Found integration: Redmine1
+[2026-02-24 18:22:11] Integration type: REDMINE
+[2026-02-24 18:22:11] Integration URL: https://support.profinch.com
+[2026-02-24 18:22:11] Creating real Redmine issue...
+[2026-02-24 18:22:11] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-02-24CET18:21","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nN\/A\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTING INTEGRATION\r\n]\r\n\r\nTestLink URLs:\r\n- View Test Case: https:\/\/test-management.nmbtz.com:9443\/lib\/execute\/execSetResults.php?tcversion_id=431185\r\n- Test Case Print View: https:\/\/test-management.nmbtz.com:9443\/lib\/execute\/execSetResultsPrint.php?tcversion_id=431185","priority_id":2}}
+[2026-02-24 18:22:11] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-02-24 18:22:14] Redmine API HTTP Code: 201
+[2026-02-24 18:22:14] Redmine API Response: {"issue":{"id":86463,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":2366,"name":"Berry Nsanya"},"subject":"Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-02-24CET18:21","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nN/A\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master\r\nTest result: [\r\nTESTING INTEGRATION\r\n]\r\n\r\nTestLink URLs:\r\n- View Test Case: https://test-management.nmbtz.com:9443/lib/execute/execSetResults.php?tcversion_id=431185\r\n- Test Case Print View: https://test-management.nmbtz.com:9443/lib/execute/execSetResultsPrint.php?tcversion_id=431185","start_date":"2026-02-24","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-02-24T17:22:09Z","updated_on":"2026-02-24T17:22:09Z"}}
+[2026-02-24 18:22:14] Redmine issue created successfully: ID 86463
+[2026-02-24 18:22:14] Real Redmine issue created: 86463

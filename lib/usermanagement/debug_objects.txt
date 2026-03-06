@@ -1,0 +1,124 @@
+Debug of all GUI variables:
+highlight: Type=array, Class=not an object
+user_feedback: Type=string, Class=not an object
+no_features: Type=string, Class=not an object
+roles_updated: Type=string, Class=not an object
+tproject_name: Type=string, Class=not an object
+featureType: Type=string, Class=not an object
+optRights: Type=array, Class=not an object
+  - p: Object of class tlRole
+  - t: Object of class tlRole
+  - R: Object of class tlRole
+  - i: Object of class tlRole
+  - g: Object of class tlRole
+  - h: Object of class tlRole
+  - t: Object of class tlRole
+  - s: Object of class tlRole
+  - : Object of class tlRole
+  - o: Object of class tlRole
+features: Type=NULL, Class=not an object
+featureID: Type=NULL, Class=not an object
+role_colour: Type=NULL, Class=not an object
+tprojectAccessTypeImg: Type=string, Class=not an object
+not_for_you: Type=string, Class=not an object
+main_title: Type=string, Class=not an object
+users: Type=array, Class=not an object
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - s: Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - e: Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - s: Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - r: Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+  - : Object of class tlUser
+userFeatureRoles: Type=NULL, Class=not an object
+grants: Type=object, Class=stdClass
+  ^ Potential problem: No __toString() method
+  ^ Fixed: Converted grants to array
+accessTypeImg: Type=string, Class=not an object
+hintImg: Type=string, Class=not an object
+
+
+Specific checks for known problematic variables:
+accessTypeImg: string
+tprojectAccessTypeImg: string
+After fixes:
+accessTypeImg: string
+tprojectAccessTypeImg: string

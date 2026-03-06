@@ -1,0 +1,76 @@
+status
+Starting performance test...
+tester_id	tester_name	login	total_assigned	total_executions	passed	failed	blocked	not_run	skipped	warning	last_execution	testproject_id	testplan_id	build_id
+91	Abdulhamid Umiro	abdulhamid.umiro	1	0	0	0	0	1	0	0	NULL	1	2	2
+111	Abdulrahman Mfundo	abdulrahman.mfundo	311	0	0	0	0	311	0	0	NULL	1	2	2
+52	Abeid Ngwanakilala	Abeid.Ngwanakilala	345	0	0	0	0	345	0	0	NULL	1	2	2
+47	Abella Tarimo	Abella.Tarimo	1	0	0	0	0	1	0	0	NULL	1	2	1
+56	Adelimu Mrosso	Adelimu.Mrosso	14	0	0	0	0	14	0	0	NULL	1	2	0
+53	Ahmed Ubwa	Ahmed.Ubwa	7	0	0	0	0	7	0	0	NULL	1	2	2
+116	Alexander Samwel	alexander.samwel	169	0	0	0	0	169	0	0	NULL	1	2	2
+88	Anthony Kanjagaire	Anthony.Mubeezi	24	0	0	0	0	24	0	0	NULL	1	2	2
+117	Asha Nyaraka	asha.nyaraka	270	0	0	0	0	270	0	0	NULL	1	2	2
+45	Baby Njella	Baby.Njella	798	0	0	0	0	798	0	0	NULL	1	2	2
+81	Banza Thimothy	banza.timothy	1	0	0	0	0	1	0	0	NULL	1	2	1
+33	Bosco Mtiga	Bosco.Mtiga	69	0	0	0	0	69	0	0	NULL	1	2	1
+107	CHANDE KAMTANDE	CHANDE.KAMTANDE	1189	0	0	0	0	1189	0	0	NULL	1	2	2
+39	Charity Mwakalonge	Charity.Mwakalonge	432	0	0	0	0	432	0	0	NULL	1	2	2
+30	Charles Nyamboha	Charles.Nyamboha	28	0	0	0	0	28	0	0	NULL	1	2	2
+66	Daniel Mwangi	Daniel.Mwangi	774	0	0	0	0	774	0	0	NULL	1	2	2
+71	Darius Elias	Darius.Elias	1268	0	0	0	0	1268	0	0	NULL	1	2	2
+18	Elvida Kapya	Elvida.Kapya	66	0	0	0	0	66	0	0	NULL	1	2	1
+123	Emmanuel Mbwambo	Emmanuel.Mbwambo	138	0	0	0	0	138	0	0	NULL	1	2	2
+46	Eric Moye	Eric.Moye	1300	0	0	0	0	1300	0	0	NULL	1	2	2
+106	Franael Mungure	franael.mungure	507	0	0	0	0	507	0	0	NULL	1	2	2
+78	Fred Samwel	fred.samwel	137	0	0	0	0	137	0	0	NULL	1	2	1
+90	Gabriel Kalikwenda	gabriel.kalikwenda	314	0	0	0	0	314	0	0	NULL	1	2	2
+102	Geofrey Kakuru	geofrey.kakuru	836	0	0	0	0	836	0	0	NULL	1	2	2
+118	Getrudah Mataro	getrudah.mataro	257	0	0	0	0	257	0	0	NULL	1	2	2
+105	Godbles Lema	godbles.lema	1324	0	0	0	0	1324	0	0	NULL	1	2	2
+101	Goodluck Makori	goodluck.makori	648	0	0	0	0	648	0	0	NULL	1	2	2
+100	Happy Chimile	happy.chimile	853	0	0	0	0	853	0	0	NULL	1	2	2
+40	Hassan Omary	Hassan.Omary	43	0	0	0	0	43	0	0	NULL	1	2	2
+114	Helga Loth	Helga.Loth	384	0	0	0	0	384	0	0	NULL	1	2	2
+31	Hellen Allan	Hellen.Allan	528	0	0	0	0	528	0	0	NULL	1	2	2
+34	Huruma Stewart	Huruma.Stewart	5	0	0	0	0	5	0	0	NULL	1	2	2
+41	Irene Lyimo	Irene.Lyimo	1	0	0	0	0	1	0	0	NULL	1	2	1
+112	Janestella Nyaluli	nyaluli.janestella	864	0	0	0	0	864	0	0	NULL	1	2	2
+21	Janet Rwegasila	Janet.Rwegasila	565	0	0	0	0	565	0	0	NULL	1	2	2
+22	Janeth Buretta	Janeth.Buretta	559	0	0	0	0	559	0	0	NULL	1	2	1
+109	Japhet Walubela	japhet.walubela	286	0	0	0	0	286	0	0	NULL	1	2	2
+67	Johanitha Ishemoi	Johanitha.Ishemoi	1008	0	0	0	0	1008	0	0	NULL	1	2	2
+44	Julieth Makalwe	Julieth.Makalwe	322	0	0	0	0	322	0	0	NULL	1	2	2
+108	Julius Keneth	julius.keneth	872	0	0	0	0	872	0	0	NULL	1	2	2
+59	Kiyao Mwihava	Kiyao.Mwihava	273	0	0	0	0	273	0	0	NULL	1	2	2
+63	Kizito Kyando	Kizito.Kyando	22	0	0	0	0	22	0	0	NULL	1	2	2
+69	Leonard Makungu	Leonard.Makungu	896	0	0	0	0	896	0	0	NULL	1	2	2
+16	Lupia Matta	Lupia.Matta	50	0	0	0	0	50	0	0	NULL	1	2	2
+82	Mgayo Athuman	mgayo.athuman	330	0	0	0	0	330	0	0	NULL	1	2	2
+99	Msafiri Ally	msafiri.ally	843	0	0	0	0	843	0	0	NULL	1	2	2
+80	Muumini Mohamed	muumini.mohamed	174	0	0	0	0	174	0	0	NULL	1	2	2
+20	Nancy Filipo	Nancy.Filipo	101	0	0	0	0	101	0	0	NULL	1	2	1
+29	Neema Kassim	Neema.Kassim	98	0	0	0	0	98	0	0	NULL	1	2	1
+113	Omary Mwekilinga	omary.mwekilinga	225	0	0	0	0	225	0	0	NULL	1	2	2
+72	Pauline Mohele	Pauline.Mohele	79	0	0	0	0	79	0	0	NULL	1	2	2
+95	Peace Ndaula	peace.ndaula	371	0	0	0	0	371	0	0	NULL	1	2	2
+48	Rachel Tsingay	Rachel.Tsingay	882	0	0	0	0	882	0	0	NULL	1	2	0
+97	Richard Barnaba	richard.barnaba	1044	0	0	0	0	1044	0	0	NULL	1	2	2
+70	Rita Lyamuya	Rita.Lyamuya	866	0	0	0	0	866	0	0	NULL	1	2	2
+68	Rukia Reli	Rukia.Reli	800	0	0	0	0	800	0	0	NULL	1	2	2
+110	Said Mzelela	said.mzelela	742	0	0	0	0	742	0	0	NULL	1	2	2
+58	Sebastian Kavishe	Sebastian.Kavishe	87	0	0	0	0	87	0	0	NULL	1	2	2
+124	Shaabani Kassali	shaabani.kassali	8	0	0	0	0	8	0	0	NULL	1	2	2
+79	Shabani Rajabu	shabani.rajabu	78	0	0	0	0	78	0	0	NULL	1	2	2
+86	Sophia Mwamwitwa	sophia.mwamwitwa	547	0	0	0	0	547	0	0	NULL	1	2	2
+115	Thomas Benjamin	thomas.benjamin	240	0	0	0	0	240	0	0	NULL	1	2	1
+49	Upendo Mbajo	Upendo.Mbajo	481	0	0	0	0	481	0	0	NULL	1	2	2
+119	Upendo Samiji	upendo.samiji	227	0	0	0	0	227	0	0	NULL	1	2	2
+25	Victor Lema	Victor.Lema	12	0	0	0	0	12	0	0	NULL	1	2	1
+35	Victor Mpendazoe	Victor.Mpendazoe	79	0	0	0	0	79	0	0	NULL	1	2	2
+96	Zaharia Kilakala	zaharia.kilakala	363	0	0	0	0	363	0	0	NULL	1	2	2
+performance_result
+Optimized procedure execution time: 260.0000 ms
+performance_result
+Optimized procedure with hide zero executions execution time: 293.0000 ms
+performance_result
+Optimized procedure for specific tester execution time: 152.0000 ms

@@ -1,0 +1,691 @@
+[2026-02-06 12:26:15.3.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 12:26:15.715] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 12:26:15.5.9] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 12:26:15.6.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414556","tproject_id":"242099","tplan_id":"242100","exec_id":"79149","tcstep_id":"0"}
+[2026-02-06 12:26:15.9.2] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 12:26:15.9.9] [INFO] [BUGADD] Exec ID: 79149
+[2026-02-06 12:26:15.0.5] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 12:26:15.1.1] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 12:26:15.742] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 12:26:15.2.7] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 12:26:15.3.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 12:26:15.4.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 12:26:15.785] [INFO] [BUGADD] Template displayed
+[2026-02-06 12:26:24.2.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 12:26:24.3.6] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 12:26:24.4.8] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1159200868","CSRFToken":"9b9645aae0c30920e667351a365fd8601b05ff73524535a4e43d031d25177919620faa556e78d567c309b7bdae23a8a3531b906b0fbd573cbf129d3291a50694","tproject_id":"242099","tplan_id":"242100","tcversion_id":"414556","user_action":"link","tcstep_id":"0","bug_id":"83513","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 12:26:24.5.9] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 12:26:24.3.2] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 12:26:24.714] [INFO] [BUGADD] Exec ID: 79149
+[2026-02-06 12:26:24.4.7] [INFO] [BUGADD] Bug ID: 83513
+[2026-02-06 12:26:24.5.4] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 12:26:24.6.1] [INFO] [BUGADD] Bug ID provided: 83513
+[2026-02-06 12:26:24.6.8] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 12:26:24.7.5] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 12:26:25.8.7] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 12:26:25.0.6] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79149, bug_id: 83513, tcstep_id: 0
+[2026-02-06 12:26:25.9.6] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 12:26:25.2.5] [INFO] [BUGADD] Audit event logged
+[2026-02-06 12:26:25.3.3] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 12:26:25.844] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 12:26:27.1.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 12:26:27.3.9] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 12:26:27.5.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 12:26:27.8.1] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 12:26:27.7.8] [INFO] [BUGADD] Template displayed
+[2026-02-06 12:29:46.4.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 12:29:46.5.5] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 12:29:46.6.6] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 12:29:46.7.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414556","tproject_id":"242099","tplan_id":"242100","exec_id":"79149","tcstep_id":"0"}
+[2026-02-06 12:29:46.1.4] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 12:29:46.2.2] [INFO] [BUGADD] Exec ID: 79149
+[2026-02-06 12:29:46.783] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 12:29:46.3.8] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 12:29:46.4.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 12:29:46.5.3] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 12:29:46.6.1] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 12:29:46.7.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 12:29:46.798] [INFO] [BUGADD] Template displayed
+[2026-02-06 12:30:25.9.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 12:30:25.2.1] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 12:30:25.4.4] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1259694172","CSRFToken":"22a3f5a0af9eaf508e106505d9ef7c81519565096023ea948ec6784b0c89ed1dc40ef5190741212b4296eca4d31bef99672c9035956831b3351badaf70f38dbb","tproject_id":"242099","tplan_id":"242100","tcversion_id":"414556","user_action":"link","tcstep_id":"0","bug_id":"84055","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 12:30:25.6.6] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 12:30:25.7.8] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 12:30:25.0.1] [INFO] [BUGADD] Exec ID: 79149
+[2026-02-06 12:30:25.2.3] [INFO] [BUGADD] Bug ID: 84055
+[2026-02-06 12:30:25.3.9] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 12:30:25.5.3] [INFO] [BUGADD] Bug ID provided: 84055
+[2026-02-06 12:30:25.6.7] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 12:30:25.8.1] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 12:30:26.9.2] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 12:30:26.1.6] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79149, bug_id: 84055, tcstep_id: 0
+[2026-02-06 12:30:26.9.4] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 12:30:26.2.8] [INFO] [BUGADD] Audit event logged
+[2026-02-06 12:30:26.3.8] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 12:30:26.4.6] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 12:30:28.9.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 12:30:28.1.9] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 12:30:28.3.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 12:30:28.7.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 12:30:28.6.8] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:18:20.2.2] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:18:20.4.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:18:20.5.7] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:18:20.7.4] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414550","tproject_id":"242099","tplan_id":"242100","exec_id":"79164","tcstep_id":"0"}
+[2026-02-06 13:18:20.3.3] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:18:20.4.2] [INFO] [BUGADD] Exec ID: 79164
+[2026-02-06 13:18:20.5.2] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:18:20.6.1] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:18:20.737] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:18:20.7.9] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:18:20.8.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:18:20.0.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:18:20.9.7] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:18:29.1.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:18:29.2.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:18:29.3.9] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:18:29.5.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414550","tproject_id":"242099","tplan_id":"242100","exec_id":"79164","tcstep_id":"0"}
+[2026-02-06 13:18:29.3.8] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:18:29.5.7] [INFO] [BUGADD] Exec ID: 79164
+[2026-02-06 13:18:29.7.5] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:18:29.8.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:18:29.9.7] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:18:29.0.6] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:18:29.1.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:18:29.3.5] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:18:29.1.1] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:18:33.3.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:18:33.4.8] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:18:33.5.9] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1642205189","CSRFToken":"ef7506875b317762360b2738632743a2bab18516a5edbef44a4a9fef0287722304ae85568f8cdc62336ef96f87b6b650596e1bdb5451ee4d5d733d5b0b336a74","tproject_id":"242099","tplan_id":"242100","tcversion_id":"414550","user_action":"link","tcstep_id":"0","bug_id":"76242","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:18:33.207] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:18:33.8.4] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:18:33.0.2] [INFO] [BUGADD] Exec ID: 79164
+[2026-02-06 13:18:33.1.5] [INFO] [BUGADD] Bug ID: 76242
+[2026-02-06 13:18:33.2.5] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:18:33.3.6] [INFO] [BUGADD] Bug ID provided: 76242
+[2026-02-06 13:18:33.4.6] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:18:33.5.6] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:18:34.2.4] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:18:34.5.2] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79164, bug_id: 76242, tcstep_id: 0
+[2026-02-06 13:18:34.2.5] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:18:34.5.5] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:18:34.6.6] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:18:34.7.6] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:18:35.0.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:18:35.1.2] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:18:35.2.2] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:18:35.4.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:18:35.2.4] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:24:13.7.2] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:24:13.8.7] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:24:13.9.7] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:24:13.0.8] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431173","tproject_id":"242099","tplan_id":"242100","exec_id":"79169","tcstep_id":"0"}
+[2026-02-06 13:24:13.6.6] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:24:13.7.7] [INFO] [BUGADD] Exec ID: 79169
+[2026-02-06 13:24:13.8.7] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:24:13.9.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:24:13.0.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:24:13.1.8] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:24:13.2.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:24:13.745] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:24:13.4.3] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:24:34.6.5] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:24:34.8.2] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:24:34.9.7] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1076349940","CSRFToken":"08f38cb0afdc569768eaec9c7f975eaf8ca0480795a8aac962334d66d8abf34838438a9f95fde4879377920dab86cd173d7b19d21e564b21dcfb88272df5c9f0","tproject_id":"242099","tplan_id":"242100","tcversion_id":"431173","user_action":"link","tcstep_id":"0","bug_id":"83513","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:24:34.1.3] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:24:34.3.9] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:24:34.5.1] [INFO] [BUGADD] Exec ID: 79169
+[2026-02-06 13:24:34.6.2] [INFO] [BUGADD] Bug ID: 83513
+[2026-02-06 13:24:34.7.2] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:24:34.8.3] [INFO] [BUGADD] Bug ID provided: 83513
+[2026-02-06 13:24:34.9.4] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:24:34.0.5] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:24:35.9.1] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:24:35.2.1] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79169, bug_id: 83513, tcstep_id: 0
+[2026-02-06 13:24:35.1.7] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:24:35.6.3] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:24:35.7.8] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:24:35.8.9] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:24:36.4.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:24:36.7.5] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:24:36.9.2] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:24:36.2.5] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:24:36.2.4] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:50:56.5.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:50:56.7.2] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:50:56.8.8] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:50:56.9.9] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431173","tproject_id":"242099","tplan_id":"242100","exec_id":"79169","tcstep_id":"0"}
+[2026-02-06 13:50:56.2.3] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:50:56.3.5] [INFO] [BUGADD] Exec ID: 79169
+[2026-02-06 13:50:56.4.7] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:50:56.5.8] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:50:56.837] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:50:56.8.1] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:50:56.9.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:50:56.1.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:50:56.849] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:51:01.6.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:51:01.0.7] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:51:01.4.3] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:51:01.7.5] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431173","tproject_id":"242099","tplan_id":"242100","exec_id":"79169","tcstep_id":"0"}
+[2026-02-06 13:51:02.1.3] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:51:02.2.6] [INFO] [BUGADD] Exec ID: 79169
+[2026-02-06 13:51:02.3.8] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:51:02.015] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:51:02.6.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:51:02.7.5] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:51:02.8.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:51:02.0.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:51:02.8.5] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:51:31.8.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:51:31.9.7] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:51:31.1.4] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_2061484512","CSRFToken":"2f0bcce44c2da86542d0a359414c28f5dba3eda2f600777201120521d689c8a7ecc93f9dfa97bf5b4c2fc585e004b22bf51594d117e8bbc3c23a493fb6f64bf5","tproject_id":"242099","tplan_id":"242100","tcversion_id":"431173","user_action":"link","tcstep_id":"0","bug_id":"83513","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:51:31.3.1] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:51:31.9.3] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:51:31.2.6] [INFO] [BUGADD] Exec ID: 79169
+[2026-02-06 13:51:31.5.7] [INFO] [BUGADD] Bug ID: 83513
+[2026-02-06 13:51:31.8.8] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:51:31.0.9] [INFO] [BUGADD] Bug ID provided: 83513
+[2026-02-06 13:51:31.2.7] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:51:31.4.3] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:51:33.6.2] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:51:33.8.5] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79169, bug_id: 83513, tcstep_id: 0
+[2026-02-06 13:51:33.7.4] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:51:33.0.8] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:51:33.2.1] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:51:33.3.4] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:51:34.9.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:51:34.2.7] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:51:34.5.5] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:51:34.288] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:51:34.6.6] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:52:37.7.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:52:37.1.8] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:52:37.4.1] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:52:37.5.8] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320160","tproject_id":"242099","tplan_id":"242100","exec_id":"79099","tcstep_id":"0"}
+[2026-02-06 13:52:37.9.9] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:52:37.1.8] [INFO] [BUGADD] Exec ID: 79099
+[2026-02-06 13:52:37.3.1] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:52:37.4.3] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:52:37.5.6] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:52:37.6.9] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:52:37.8.2] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:52:37.0.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:52:37.8.3] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:52:41.7.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:52:41.650] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:52:41.2.1] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1757394687","CSRFToken":"9a59e6d2dcda4dc796f7616033bd554b07c31f66e0c603e71c0cb624cf475b2cc847cda1fc5abe5b5ddbb6cdfdf7e13d9a5de8ae80f9b035a6a3117d40cb10bb","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320160","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:52:41.4.1] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:52:41.2.3] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:52:41.3.8] [INFO] [BUGADD] Exec ID: 79099
+[2026-02-06 13:52:41.5.2] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:52:41.6.5] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:52:41.7.9] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:52:41.9.4] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:52:41.0.8] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:52:42.799] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:52:42.3.1] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79099, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:52:42.3.9] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:52:42.7.5] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:52:42.8.9] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:52:42.0.3] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:52:43.998] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:52:44.2.2] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:52:44.5.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:52:44.8.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:52:44.017] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:52:50.9.5] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:52:50.3.4] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:52:50.617] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:52:50.9.2] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320162","tproject_id":"242099","tplan_id":"242100","exec_id":"79115","tcstep_id":"0"}
+[2026-02-06 13:52:50.3.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:52:50.5.1] [INFO] [BUGADD] Exec ID: 79115
+[2026-02-06 13:52:50.6.6] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:52:50.648] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:52:50.9.4] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:52:50.0.9] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:52:50.4.8] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:52:50.9.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:52:50.1.2] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:52:54.7.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:52:54.699] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:52:54.701] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1637928232","CSRFToken":"9644ed7d6d255ff9d41985fb9af3568856a447de351b7023f492dfa6b1b721f8c795e988de7e7c86909855ee50e8563fce6f47761a597483384bdf96092a33c1","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320162","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:52:54.703] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:52:54.6.2] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:52:54.7.7] [INFO] [BUGADD] Exec ID: 79115
+[2026-02-06 13:52:54.9.2] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:52:54.0.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:52:54.2.1] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:52:54.3.6] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:52:54.5.1] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:52:55.6.3] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:52:55.2.1] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79115, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:52:55.9.7] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:52:55.4.1] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:52:55.5.6] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:52:55.7.1] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:52:57.1.7] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:52:57.5.1] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:52:57.7.5] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:52:57.1.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:52:57.0.6] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:08.5.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:08.7.5] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:53:08.9.1] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:53:08.0.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320164","tproject_id":"242099","tplan_id":"242100","exec_id":"79127","tcstep_id":"0"}
+[2026-02-06 13:53:08.2.8] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:08.4.4] [INFO] [BUGADD] Exec ID: 79127
+[2026-02-06 13:53:08.5.9] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:53:08.7.4] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:08.8.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:08.0.4] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:53:08.1.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:08.4.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:08.2.6] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:11.1.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:11.5.8] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:53:11.8.3] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_736022552","CSRFToken":"32df8223d42b55a9854d974523e2f05986ad0ce94271033da6dec72acbe93e12fdd6cad81563e5277925a98708309af189fccde7a5a70f0d65d60d0647ef2126","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320164","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:53:11.0.7] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:53:11.3.2] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:11.4.8] [INFO] [BUGADD] Exec ID: 79127
+[2026-02-06 13:53:11.6.4] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:53:11.7.9] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:11.9.5] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:53:11.741] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:53:11.2.7] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:53:12.1.8] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:53:12.3.6] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79127, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:53:12.2.9] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:53:12.6.7] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:53:12.8.4] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:53:12.840] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:53:14.1.4] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:14.3.3] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:53:14.5.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:14.8.6] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:14.8.7] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:21.5.2] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:21.7.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:53:21.8.8] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:53:21.0.4] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320166","tproject_id":"242099","tplan_id":"242100","exec_id":"79136","tcstep_id":"0"}
+[2026-02-06 13:53:21.2.9] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:21.4.7] [INFO] [BUGADD] Exec ID: 79136
+[2026-02-06 13:53:21.6.4] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:53:21.8.1] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:21.9.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:21.1.4] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:53:21.3.1] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:21.5.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:21.3.7] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:25.3.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:25.6.2] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:53:25.8.5] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1017949023","CSRFToken":"7c4615a53630fab43b9cbd3ad3d8c1f5d1ea83d8f81fa928f3aeda53d210fad523eaa9555cf6a6873ecdc9658cf425a56bd3eb265849b5d5cb6ef375b6c7c64a","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320166","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:53:25.0.6] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:53:25.2.1] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:25.4.4] [INFO] [BUGADD] Exec ID: 79136
+[2026-02-06 13:53:25.6.2] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:53:25.7.9] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:25.9.7] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:53:25.3.6] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:53:25.8.6] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:53:26.4.8] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:53:26.9.1] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79136, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:53:26.9.4] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:53:26.3.3] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:53:26.5.1] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:53:26.6.8] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:53:27.9.7] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:28.4.9] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:53:28.7.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:28.4.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:28.6.9] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:36.3.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:36.5.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:53:36.7.4] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:53:36.9.2] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320168","tproject_id":"242099","tplan_id":"242100","exec_id":"79155","tcstep_id":"0"}
+[2026-02-06 13:53:36.1.9] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:36.3.8] [INFO] [BUGADD] Exec ID: 79155
+[2026-02-06 13:53:36.5.7] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:53:36.7.5] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:36.9.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:36.3.6] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:53:36.5.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:36.8.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:36.7.3] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:40.0.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:40.243] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:53:40.5.8] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1364596872","CSRFToken":"1b79c0c686cba41a7b4ec009160d3a6ca3f12df6c4a278e0d1c398991b60fc9cfc75ba5d77bb70794cd0c115f389f1ce38f21edd2b99ce54f5c9ea3136a27792","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320168","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:53:40.9.1] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:53:40.6.8] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:40.8.8] [INFO] [BUGADD] Exec ID: 79155
+[2026-02-06 13:53:40.0.7] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:53:40.3.1] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:40.8.6] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:53:40.3.9] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:53:40.6.1] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:53:41.8.8] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:53:41.3.1] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79155, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:53:41.1.1] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:53:41.425] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:53:41.427] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:53:41.8.9] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:53:42.0.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:42.4.1] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:53:42.7.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:42.2.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:42.1.3] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:51.2.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:51.308] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:53:51.3.6] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:53:51.5.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320170","tproject_id":"242099","tplan_id":"242100","exec_id":"79158","tcstep_id":"0"}
+[2026-02-06 13:53:51.3.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:51.5.6] [INFO] [BUGADD] Exec ID: 79158
+[2026-02-06 13:53:51.7.5] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:53:51.9.4] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:51.1.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:51.3.3] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:53:51.5.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:51.8.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:51.6.7] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:53:54.2.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:53:54.5.5] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:53:54.8.1] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1523432009","CSRFToken":"7ab40f6110bfa24e6ac2f686984a53adf7575a6156166852ac9e0babe6e29904fc47e32b2fe0ef0a4e3543ef1562c75504291dce40803984f701c80b05380052","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320170","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:53:54.0.7] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:53:55.7.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:53:55.3.1] [INFO] [BUGADD] Exec ID: 79158
+[2026-02-06 13:53:55.5.7] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:53:55.8.4] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:53:55.1.1] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:53:55.6.7] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:53:55.2.4] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:53:56.122] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:53:56.123] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79158, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:53:56.1.8] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:53:56.4.5] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:53:56.135] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:53:56.5.5] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:53:57.248] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:53:57.9.2] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:53:57.0.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:53:57.3.6] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:53:57.4.2] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:13.9.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:13.0.2] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:54:13.1.3] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:54:13.2.4] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320172","tproject_id":"242099","tplan_id":"242100","exec_id":"79159","tcstep_id":"0"}
+[2026-02-06 13:54:13.0.1] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:13.0.7] [INFO] [BUGADD] Exec ID: 79159
+[2026-02-06 13:54:13.1.2] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:54:13.1.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:13.2.2] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:13.2.7] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:54:13.3.1] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:13.4.5] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:13.1.8] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:17.4.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:17.5.2] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:54:17.5.7] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_408323035","CSRFToken":"dd30739f3be30a5718bef007e9d27261818705c3397856b50b91704f7b96289475abb019c984163fe79b435aafcf6da629c30c92b7829a3d378fab0014c4f225","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320172","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:54:17.6.2] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:54:17.6.4] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:17.197] [INFO] [BUGADD] Exec ID: 79159
+[2026-02-06 13:54:17.7.5] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:54:17.7.9] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:17.8.4] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:54:17.8.8] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:54:17.9.3] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:54:18.7.7] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:54:18.8.2] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79159, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:54:18.3.6] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:54:18.5.7] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:54:18.6.2] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:54:18.6.6] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:54:19.7.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:19.8.6] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:54:19.9.5] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:19.2.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:19.2.5] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:26.2.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:26.4.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:54:26.5.4] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:54:26.6.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320174","tproject_id":"242099","tplan_id":"242100","exec_id":"79163","tcstep_id":"0"}
+[2026-02-06 13:54:26.6.4] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:26.7.8] [INFO] [BUGADD] Exec ID: 79163
+[2026-02-06 13:54:26.9.1] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:54:26.0.5] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:26.1.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:26.2.3] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:54:26.3.1] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:26.5.5] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:26.4.8] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:30.252] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:30.2.8] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:54:30.3.5] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_798515698","CSRFToken":"9880264aef72c394e5dcde53de30e88012f14e7c36336692480cfa823faeaf9ff9782a9e45d69a359e475b2dcb2dbbf089fb27e2b88ade9d588e6fa471dbb9eb","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320174","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:54:30.4.2] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:54:30.9.2] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:30.9.8] [INFO] [BUGADD] Exec ID: 79163
+[2026-02-06 13:54:30.0.3] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:54:30.0.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:30.1.2] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:54:30.1.6] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:54:30.2.1] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:54:31.3.2] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:54:31.3.9] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79163, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:54:31.2.3] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:54:31.5.4] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:54:31.6.1] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:54:31.6.8] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:54:32.9.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:32.9.8] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:54:32.0.2] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:32.1.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:32.9.4] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:38.5.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:38.6.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:54:38.7.1] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:54:38.7.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320176","tproject_id":"242099","tplan_id":"242100","exec_id":"79162","tcstep_id":"0"}
+[2026-02-06 13:54:38.0.1] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:38.0.7] [INFO] [BUGADD] Exec ID: 79162
+[2026-02-06 13:54:38.1.1] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:54:38.1.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:38.2.2] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:38.2.6] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:54:38.3.1] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:38.4.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:38.1.9] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:41.804] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:41.5.4] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:54:41.6.8] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1107844909","CSRFToken":"a4c375b0679f31294f671133c1a082b42cbab7ec47688380f9caf208198e1cd91c7950a5089c752c863be52422298d8fe7fcd248e0c692b711ea00d880025294","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320176","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:54:41.8.1] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:54:41.9.2] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:41.0.7] [INFO] [BUGADD] Exec ID: 79162
+[2026-02-06 13:54:41.842] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:54:41.3.2] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:41.4.4] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:54:41.5.2] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:54:41.846] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:54:42.5.7] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:54:42.937] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79162, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:54:42.6.5] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:54:42.8.9] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:54:42.9.4] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:54:42.9.8] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:54:44.1.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:44.3.3] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:54:44.4.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:44.8.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:44.7.5] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:50.475] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:50.6.3] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:54:50.7.4] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:54:50.8.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320178","tproject_id":"242099","tplan_id":"242100","exec_id":"79171","tcstep_id":"0"}
+[2026-02-06 13:54:50.9.7] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:50.1.2] [INFO] [BUGADD] Exec ID: 79171
+[2026-02-06 13:54:50.2.5] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:54:50.3.8] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:50.5.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:50.6.7] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:54:50.8.1] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:50.1.9] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:50.9.3] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:54:54.8.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:54:54.119] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:54:54.9.6] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1525358969","CSRFToken":"343a0404aadc040162bbc11269eb35deb07630b02684e396534231ac5b7bf77abd1825338fefa4182b3e079685135a546006aa52201450fc40fa3a37f1307e99","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320178","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:54:54.0.2] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:54:54.3.8] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:54:54.4.7] [INFO] [BUGADD] Exec ID: 79171
+[2026-02-06 13:54:54.5.6] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:54:54.6.4] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:54:54.7.2] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:54:54.8.1] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:54:54.149] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:54:55.6.7] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:54:55.318] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79171, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:54:55.326] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:54:55.8.4] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:54:55.329] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:54:55.9.5] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:54:56.9.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:54:56.1.2] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:54:56.2.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:54:56.4.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:54:56.6.7] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:08.4.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:08.5.8] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:55:08.6.9] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:55:08.8.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320180","tproject_id":"242099","tplan_id":"242100","exec_id":"79172","tcstep_id":"0"}
+[2026-02-06 13:55:08.0.9] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:08.1.6] [INFO] [BUGADD] Exec ID: 79172
+[2026-02-06 13:55:08.2.2] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:55:08.2.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:08.3.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:08.4.1] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:55:08.5.2] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:08.8.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:08.5.7] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:11.6.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:11.7.8] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:55:11.9.1] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1920821840","CSRFToken":"4258a73fdacbb6d7e6e08f6910f214e566710476a81fb8d43a70e46f4dc632477d9c93ecf56669e04c3fba4f6cb78757901fcdeba423b53a5eb44629a5476838","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320180","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:55:11.0.3] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:55:11.0.1] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:11.1.7] [INFO] [BUGADD] Exec ID: 79172
+[2026-02-06 13:55:11.3.3] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:55:11.4.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:11.6.1] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:55:11.7.1] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:55:11.998] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:55:13.7.8] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:55:13.9.2] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79172, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:55:13.7.7] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:55:13.0.2] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:55:13.0.7] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:55:13.1.2] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:55:14.9.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:14.1.4] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:55:14.2.8] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:14.5.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:14.2.9] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:24.6.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:24.7.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:55:24.8.2] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:55:24.8.8] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320182","tproject_id":"242099","tplan_id":"242100","exec_id":"79176","tcstep_id":"0"}
+[2026-02-06 13:55:24.3.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:24.654] [INFO] [BUGADD] Exec ID: 79176
+[2026-02-06 13:55:24.4.5] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:55:24.655] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:24.5.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:24.5.9] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:55:24.6.4] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:24.7.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:24.4.5] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:27.9.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:27.0.6] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:55:27.1.5] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1236565955","CSRFToken":"c8120c46c7dc79800b7a11b2c956fdeab2854ad9e70307e89e467f8b5fa21d14cb235d2cda998530a4e5b793dc89d06ace9a47282fe9a97bdee26020973a0bf9","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320182","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:55:27.2.3] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:55:28.5.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:28.6.1] [INFO] [BUGADD] Exec ID: 79176
+[2026-02-06 13:55:28.6.7] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:55:28.7.3] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:28.028] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:55:28.8.6] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:55:28.9.3] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:55:29.8.4] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:55:29.9.8] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79176, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:55:29.8.9] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:55:29.1.5] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:55:29.2.2] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:55:29.2.8] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:55:30.3.2] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:30.4.9] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:55:30.5.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:30.328] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:30.7.4] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:36.6.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:36.7.2] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:55:36.8.2] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:55:36.9.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320184","tproject_id":"242099","tplan_id":"242100","exec_id":"79173","tcstep_id":"0"}
+[2026-02-06 13:55:36.4.4] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:36.805] [INFO] [BUGADD] Exec ID: 79173
+[2026-02-06 13:55:36.5.5] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:55:36.806] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:36.6.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:36.7.1] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:55:36.7.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:36.809] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:36.5.9] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:39.0.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:39.1.6] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:55:39.933] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_240322740","CSRFToken":"e683e64064b660b6c1e93bc1c0d9b00c46fc3b740e6e222e120dcac7e16479039ef56845bf77375798b60f73703a436e077c16b92d6534110f1ffde0a95c6200","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320184","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:55:39.4.4] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:55:39.962] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:39.2.8] [INFO] [BUGADD] Exec ID: 79173
+[2026-02-06 13:55:39.3.5] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:55:39.4.2] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:39.4.9] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:55:39.5.6] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:55:39.6.2] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:55:41.7.2] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:55:41.8.4] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79173, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:55:41.7.7] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:55:41.0.3] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:55:41.0.9] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:55:41.1.4] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:55:42.238] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:42.9.3] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:55:42.0.5] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:42.3.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:42.253] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:48.9.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:49.0.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-02-06 13:55:49.0.8] [INFO] [BUGADD] POST DATA: []
+[2026-02-06 13:55:49.1.5] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"320186","tproject_id":"242099","tplan_id":"242100","exec_id":"79175","tcstep_id":"0"}
+[2026-02-06 13:55:49.1.7] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:49.2.2] [INFO] [BUGADD] Exec ID: 79175
+[2026-02-06 13:55:49.2.8] [INFO] [BUGADD] Bug ID: 
+[2026-02-06 13:55:49.3.3] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:49.3.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:49.4.3] [INFO] [BUGADD] Final GUI message: 
+[2026-02-06 13:55:49.4.8] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:49.6.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:49.5.1] [INFO] [BUGADD] Template displayed
+[2026-02-06 13:55:52.7.5] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-02-06 13:55:52.8.4] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-02-06 13:55:52.469] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_1969890410","CSRFToken":"cad4f5fcb0bb004574da3ccddafb8427b37d9db4fdc17f4109a9f173a1d1c6c4b3b96d153c643fd86b04b1717fa40f85060094783d54ed10be7f7587e6cf3494","tproject_id":"242099","tplan_id":"242100","tcversion_id":"320186","user_action":"link","tcstep_id":"0","bug_id":"84517","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-06 13:55:52.9.6] [INFO] [BUGADD] GET DATA: []
+[2026-02-06 13:55:52.2.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-02-06 13:55:52.493] [INFO] [BUGADD] Exec ID: 79175
+[2026-02-06 13:55:52.3.5] [INFO] [BUGADD] Bug ID: 84517
+[2026-02-06 13:55:52.3.9] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-02-06 13:55:52.4.4] [INFO] [BUGADD] Bug ID provided: 84517
+[2026-02-06 13:55:52.4.8] [INFO] [BUGADD] PROCESSING LINK ACTION
+[2026-02-06 13:55:52.5.3] [INFO] [BUGADD] Bug ID syntax check passed
+[2026-02-06 13:55:53.8.8] [INFO] [BUGADD] Bug ID exists - calling write_execution_bug
+[2026-02-06 13:55:53.590] [INFO] [BUGADD] BEFORE write_execution_bug - exec_id: 79175, bug_id: 84517, tcstep_id: 0
+[2026-02-06 13:55:53.2.2] [INFO] [BUGADD] write_execution_bug SUCCESS
+[2026-02-06 13:55:53.5.7] [INFO] [BUGADD] Audit event logged
+[2026-02-06 13:55:53.6.5] [INFO] [BUGADD] Has notes: NO
+[2026-02-06 13:55:53.7.3] [INFO] [BUGADD] Adding link to TL - addLinkToTL: YES, addLinkToTLPrintView: YES
+[2026-02-06 13:55:54.8.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-02-06 13:55:54.9.5] [INFO] [BUGADD] Final GUI message: Bug added
+[2026-02-06 13:55:54.0.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-02-06 13:55:54.4.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-02-06 13:55:54.3.7] [INFO] [BUGADD] Template displayed

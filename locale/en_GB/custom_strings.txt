@@ -1,0 +1,66 @@
+<?php
+/**
+ * ♔ TestLink Open Source Project - http://testlink.sourceforge.net/
+ * This script is distributed under the GNU General Public License 2 or later.
+ *
+ * Define your custom strings for this locale here.
+ * Custom strings need to be defined for each locale you plan to use
+ * Remove ".example" from filename to use this file
+ *
+ * @filesource	locale/en_GB/custom_strings.txt
+ * @package 	TestLink
+ * @author 		Julian Krien
+ * @copyright 	2003, TestLink community
+ * @link 		http://www.teamst.org/index.php
+ *
+ **/
+
+$TLS_test_status_my_status = "This is my custom result";
+
+$TLS_dl2tl = 'View Test Case: ';
+$TLS_dl2tlpv = 'Preview Test Case: ';
+$TLS_issue_subject_execon = " ";
+$TLS_end_date = 'End Date';
+$TLS_reset_filters = 'RESET FILTERS';
+$TLS_all_testplans = 'All Test Plans';
+$TLS_all_builds = 'All Builds';
+$TLS_test_project = 'Test Project';
+$TLS_select_project = 'Select Project';
+$TLS_total_executions= 'Total Executions';
+$TLS_failed= 'Failed';
+$TLS_blocked= 'Blocked';
+$TLS_pass_rate= 'Pass Rate';
+$TLS_execution_overview= 'Execution Overview';
+$TLS_top_testers= 'Top Testers';
+$TLS_test_suite_progress= 'Test Suite Progress';
+$TLS_executions= 'Executions';
+$TLS_execution_ts= 'Execution Time Stamp';
+$TLS_all_statuses= 'All Statuses';
+$TLS_not_run= 'Not Run';
+$TLS_passed= 'Passed';
+$TLS_inventory_msg_invalid_input = 'Invalid input detected. The input contains potentially dangerous content and was rejected.';
+$TLS_href_excel_import = 'Testcase Excel Import';
+$TLS_pass_rate= 'Pass Rate';
+$TLS_execution_overview= 'Execution Overview';
+$TLS_path_hierarchy_metrics = 'Test Suite Execution Summary';
+$TLS_test_path = 'Test Path';
+$TLS_testcase_count = 'Test Case Count';
+$TLS_fail_rate = 'Fail Rate';
+$TLS_pass_rate = 'Pass Rate';
+$TLS_block_rate = 'Block Rate';
+$TLS_pending_rate = 'Pending Rate';
+$TLS_suite_path = 'Suite Path';
+$TLS_execution_summary = 'Execution Summary';
+$TLS_all_testprojects = 'All Test Projects';
+$TLS_all_testplans = 'All Test Plans';
+$TLS_inventory_invalid_owner = 'Invalid owner detected. The owner is not an active user and was rejected.';
+$TLS_report_types = 'Report Types';
+$TLS_traceability_dump = 'Traceability Dump';
+$TLS_export_to_csv = 'Export to CSV';
+$TLS_export_to_excel = 'Export to Excel';
+$TLS_other_custom_reports = 'Custom Reports (other)'
+
+ 
+
+
+?>

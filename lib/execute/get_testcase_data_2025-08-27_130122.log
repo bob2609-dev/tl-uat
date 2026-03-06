@@ -1,0 +1,104 @@
+
+-------- SCRIPT START: 2025-08-27 13:01:22 --------
+Script: C:\xampp\htdocs\tl-uat\lib\execute\get_testcase_data_simple.php
+Log file: C:\xampp\htdocs\tl-uat\lib\execute/get_testcase_data_2025-08-27_130122.log
+Received tcversion_id: 200015
+Request method: GET
+Request parameters: Array
+(
+    [tcversion_id] => 200015
+    [_debug] => true
+    [_timestamp] => 2025-08-27T11:01:22.508Z
+)
+
+
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+[DEBUG] Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 200015
+    
+[INFO] Query prepared successfully
+[DEBUG] Parameter bound: tcversion_id = 200015
+[DEBUG] Complete query to execute:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = '200015'
+    
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: Cheque Book Maintainance
+sub_scenario: New 
+test_script: Issue a Cheque Book for CA29 in USD
+expected_results: Failed to save with the correct error message
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC1041
+primary_module: CADCHBOO
+test_type: Negative
+test_execution_path: Teller > Common Maintenance  > Cheque Book Detail
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-27 13:01:34 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => Cheque Book Maintainance
+            [sub_scenario] => New 
+            [test_script] => Issue a Cheque Book for CA29 in USD
+            [expected_results] => Failed to save with the correct error message
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC1041
+            [primary_module] => CADCHBOO
+            [test_type] => Negative
+            [test_execution_path] => Teller > Common Maintenance  > Cheque Book Detail
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 200015
+            [timestamp] => 2025-08-27 13:01:34
+        )
+
+)
+
+JSON Response: {"success":true,"data":{"scenario_id":"Cheque Book Maintainance","sub_scenario":"New ","test_script":"Issue a Cheque Book for CA29 in USD","expected_results":"Failed to save with the correct error message","er_process":"TEMPLATE_EMPTY","testcase_name":"CASA-TC1041","primary_module":"CADCHBOO","test_type":"Negative","test_execution_path":"Teller > Common Maintenance  > Cheque Book Detail","test_data":"","priority":"","execution_status":"","notes":""},"message":"","debug":{"received_id":200015,"timestamp":"2025-08-27 13:01:34"}}
+JSON Response Length: 532 bytes
+-------- END OF REQUEST --------
+

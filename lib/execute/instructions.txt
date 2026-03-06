@@ -1,0 +1,3 @@
+@tester_execution_report_professional.php @tester_execution_report_professional.html 
+i want us to look at this and reconsider "not run" column calculation,
+if i select a certain date for filtering the the calculation should consider those that were run before the start date and subract them from the the number from assigned cases but not consider those executed without assignment, do you think we can achieve this? this is for the professional report not the breakdown report

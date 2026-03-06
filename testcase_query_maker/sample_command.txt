@@ -1,0 +1,3 @@
+python interactive-import-script.py -f "Cycle2\C2B1_CARDS.xlsx" -o "Cycle2\C2B1_CARDS.sql" -a 1 -e 2  -s 139387 -i 2 -n 1020  -t 7 --preprocess
+
+TestLink_Excel_Import_Tool_V3.exe -f "Cycle2\C1B1_RVPT_ATM.xlsx" -o "Cycle2\C1B1_RVPT_ATM.sql" -a 1 -e 2  -s 126167 -i 2 -n 1020  -t 7 --preprocess

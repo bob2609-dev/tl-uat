@@ -1,0 +1,323 @@
+<?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+ * This script is distributed under the GNU General Public License 2 or later.
+ *
+ * Minimal Redmine Interface with SSL fix and no complex dependencies
+ *
+ * @package     TestLink
+ * @author      Based on work by Matteo Bisi with SSL fixes and simplifications
+ * @copyright   2025
+ */
+
+// Don't try to include complex dependencies
+require_once('issueTrackerInterface.class.php');
+
+/**
+ * Simplified Redmine API Interface
+ * This class uses simple cURL requests instead of the complex Redmine API library
+ * with SSL verification disabled to work with self-signed certificates
+ */
+class redmineminimal extends issueTrackerInterface
+{
+  // Configuration
+  private $apiKey = null;
+  private $baseUrl = null;
+  private $projectId = null;
+  
+  // Resolved status configuration
+  public $resolvedStatus;
+  private $defaultResolvedStatus = array(3 => 'resolved', 5 => 'closed');
+  
+  /**
+   * Constructor
+   */
+  function __construct($type, $config, $name)
+  {
+    $this->interfaceViaDB = false;
+    $this->methodOpt = array('buildViewBugLink' => array('addSummary' => true, 'colorByStatus' => false));
+    parent::__construct($type, $config, $name);
+    
+    // Will be initialized in the setCfg() method
+    $this->resolvedStatus = null;
+    $this->defaultResolvedStatus = array(3 => 'resolved', 5 => 'closed');
+  }
+  
+  /**
+   * Parse configuration from XML string
+   */
+  function setCfg($xmlString)
+  {
+    $msg = null;
+    $signature = 'Source:' . __METHOD__;
+    
+    // Check for empty string
+    if(strlen(trim($xmlString)) == 0) {
+      $msg = " - Issue tracker:$this->name - XML Configuration seems to be empty - please check";
+      tLog(__METHOD__ . $msg, 'ERROR');  
+      return false;
+    }
+    
+    $this->xmlCfg = "<?xml version='1.0'?> " . $xmlString;
+    libxml_use_internal_errors(true);
+    try {
+      $this->cfg = simplexml_load_string($this->xmlCfg);
+      if (!$this->cfg) {
+        $msg = $signature . " - Failure loading XML STRING\n";
+        foreach(libxml_get_errors() as $error) {
+          $msg .= "\t" . $error->message;
+        }
+      }
+    }
+    catch(Exception $e) {
+      $msg = $signature . " - Exception loading XML STRING\n";
+      $msg .= 'Message: ' . $e->getMessage();
+    }
+
+    if (!($retval = is_null($msg))) {
+      tLog(__METHOD__ . $msg, 'ERROR');  
+    }
+    
+    // Extract configuration values
+    if($retval) {
+      // Store key data
+      $this->apiKey = (string)$this->cfg->apikey;
+      $this->baseUrl = rtrim((string)$this->cfg->uribase, '/');
+      $this->projectId = (string)$this->cfg->projectidentifier;
+      
+      // Set resolved status
+      $this->setResolvedStatusCfg();
+    }
+    
+    return $retval;
+  }
+
+  /**
+   * Sets the status configuration used for marking issues as resolved
+   */
+  public function setResolvedStatusCfg()
+  {
+    if (property_exists($this->cfg, 'resolvedstatus')) {
+      $statusCfg = (array)$this->cfg->resolvedstatus;
+    } else {
+      $statusCfg['status'] = $this->defaultResolvedStatus;
+    }
+    
+    $this->resolvedStatus = new stdClass();
+    $this->resolvedStatus->byCode = array();
+    
+    foreach ($statusCfg['status'] as $cfx) {
+      $e = (array)$cfx;
+      $this->resolvedStatus->byCode[$e['code']] = $e['verbose'];
+    }
+    $this->resolvedStatus->byName = array_flip($this->resolvedStatus->byCode);
+  }
+  
+  /**
+   * Returns the resolved status configuration
+   */
+  public function getResolvedStatusCfg()
+  {
+    return $this->resolvedStatus;
+  }
+  
+  /**
+   * Perform an API request to Redmine with SSL verification disabled
+   * @param string $endpoint The API endpoint to call (without base URL)
+   * @return array Response data
+   */
+  public function apiRequest($endpoint, $method = 'GET', $data = null)
+  {
+    // Build the full URL
+    $url = $this->baseUrl . '/' . ltrim($endpoint, '/');
+    
+    // Initialize curl
+    $ch = curl_init($url);
+    
+    // CRITICAL: Disable SSL verification for self-signed certificates
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    
+    // Set up the request
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+      'X-Redmine-API-Key: ' . $this->apiKey,
+      'Content-Type: application/json'
+    ));
+    
+    // Execute the request
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    
+    curl_close($ch);
+    
+    // Handle response
+    $result = array(
+      'success' => ($httpCode >= 200 && $httpCode < 300),
+      'httpCode' => $httpCode,
+      'error' => $error,
+      'data' => null
+    );
+    
+    if ($result['success']) {
+      $result['data'] = json_decode($response, true);
+    }
+    
+    return $result;
+  }
+  
+  /**
+   * Check if connected to the bugtracking system
+   */
+  function connect()
+  {
+    try {
+      // Test connection by requesting projects
+      $response = $this->apiRequest('projects.json?limit=1');
+      $this->connected = $response['success'];
+    } catch (Exception $e) {
+      $this->connected = false;
+      tLog(__METHOD__ . " Connection failed: " . $e->getMessage(), 'ERROR');
+    }
+  }
+  
+  /**
+   * Check if connected
+   */
+  function isConnected()
+  {
+    return $this->connected;
+  }
+  
+  /**
+   * Check bug ID format
+   */
+  function checkBugIDSyntax($issueID)
+  {
+    return $this->checkBugIDSyntaxNumeric($issueID);
+  }
+  
+  /**
+   * Get issue information from Redmine
+   */
+  function getIssue($issueID)
+  {
+    try {
+      $response = $this->apiRequest('issues/' . $issueID . '.json');
+      
+      if ($response['success'] && isset($response['data']['issue'])) {
+        $issue = $response['data']['issue'];
+        
+        // Create a proper object as expected by TestLink
+        $ret = new stdClass();
+        $ret->id = $issue['id'];
+        $ret->summary = $issue['subject'];
+        $ret->statusCode = $issue['status']['id'];
+        $ret->statusVerbose = $issue['status']['name'];
+        
+        // Add additional required fields following TestLink's format
+        $ret->IDHTMLString = "<a href='{$this->baseUrl}/issues/{$ret->id}' target='_blank'>{$ret->id}</a>";
+        $ret->summaryHTMLString = $ret->summary;
+        
+        return $ret;
+      }
+    } catch (Exception $e) {
+      // Just return null if any error occurs
+    }
+    
+    return null;
+  }
+  
+  /**
+   * Build a direct link to the issue in Redmine
+   */
+  function buildViewBugLink($issueID, $summary = null)
+  {
+    return $this->baseUrl . '/issues/' . $issueID;
+  }
+  
+  /**
+   * Returns the URL to create a new bug
+   */
+  function getEnterBugURL()
+  {
+    return $this->baseUrl . '/projects/' . $this->projectId . '/issues/new';
+  }
+  
+  /**
+   * Check whether the bug system supports bug creation
+   */
+  function canCreateViaAPI()
+  {
+    return true;
+  }
+  
+  /**
+   * Create a new Redmine issue
+   */
+  public function addIssue($summary, $description)
+  {
+    $issueData = array(
+      'issue' => array(
+        'project_id' => $this->projectId,
+        'subject' => $summary,
+        'description' => $description
+      )
+    );
+    
+    // Use our API request method with POST
+    $response = $this->apiRequest('issues.json', 'POST', $issueData);
+    
+    // Handle the response
+    if ($response['success']) {
+      $data = $response['data'];
+      if (isset($data['issue']['id'])) {
+        return array(
+          'status_ok' => true,
+          'id' => $data['issue']['id'],
+          'msg' => 'Issue created successfully'
+        );
+      }
+    }
+    
+    // Creation failed
+    return array(
+      'status_ok' => false,
+      'id' => null,
+      'msg' => 'Failed to create issue: HTTP ' . $response['httpCode'] . ' - ' . ($response['error'] ?: 'Unknown error')
+    );
+  }
+  
+  /**
+   * Check environment for required extensions
+   */
+  public static function checkEnv()
+  {
+    $status_ok = true;
+    $msg = 'OK';
+    
+    // Check for required PHP extensions
+    if (!extension_loaded('curl')) {
+      $status_ok = false;
+      $msg = "Missing required PHP extension: curl";
+    }
+    
+    return array('status' => $status_ok, 'msg' => $msg);
+  }
+  
+  /**
+   * Template for configuration
+   */
+  public static function getCfgTemplate()
+  {
+    $tpl = "<!-- Template redmineminimal -->\n" .
+           "<issuetracker>\n" .
+           "<apikey>REDMINE API KEY</apikey>\n" .
+           "<uribase>https://support.profinch.com</uribase>\n" .
+           "<projectidentifier>nmb-fcubs-14-7-uat1</projectidentifier>\n" .
+           "</issuetracker>\n";
+           
+    return $tpl;
+  }
+}

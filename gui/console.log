@@ -1,0 +1,277 @@
+execSetResults.js:21 === DEBUG MODAL STATE ===
+execSetResults.js:22 Modal visibility: undefined
+execSetResults.js:23 Modal exists: false
+execSetResults.js:24 Create issue checked: false
+execSetResults.js:25 Selected integration: undefined
+execSetResults.js:28 CreateIssue checkbox exists: false
+execSetResults.js:31 Trying different selectors:
+execSetResults.js:32   #integrationModal: 0
+execSetResults.js:33   div[id="integrationModal"]: 0
+execSetResults.js:34   [id="integrationModal"]: 0
+execSetResults.js:37 All divs with integration in ID: 0
+execSetResults.js:42 === END DEBUG MODAL STATE ===
+execSetResults.js:43 === END DEBUG ===
+execSetResults.js:17 execSetResults.js: LOADING VERSION WITH PROJECT TESTING - 202603021016
+execSetResults.js:185 execSetResults.js: Test functions loaded
+execSetResults.js:186 execSetResults.js: testModal available: true
+execSetResults.js:187 execSetResults.js: simpleTest available: true
+execSetResults.js:188 execSetResults.js: testProjectIntegrations available: true
+execSetResults.js:748 execSetResults.js loaded - integration picker functions available
+execSetResults.js:751 saveExecStatus function exists: function
+execNavigator.php?setting_testplan=:229 DEBUG: updateTestCaseNodeInTree function is now available: function
+execNavigator.php?setting_testplan=:233 DEBUG: Function is ready for iframe calls
+execNavigator.php?setting_testplan=:246 DEBUG: execNavigator.tpl setup complete
+execSetResults.js:52 === EXECUTION BUTTON DEBUG ===
+execSetResults.js:53 Looking for execution buttons...
+execSetResults.js:54 save_results buttons: 0
+execSetResults.js:55 save_and_next buttons: 0
+execSetResults.js:56 move2next buttons: 0
+execSetResults.js:57 All execution buttons: 0
+execSetResults.js:58 === END EXECUTION BUTTON DEBUG ===
+bug_description_autofill.js:82 bug_description_autofill.js loaded
+bug_description_autofill.js:92 createIssue checkbox exists: false
+redmine_hook.js:35 Redmine hook loaded
+bug_description_autofill.js:182 DOM fully loaded and parsed
+bug_description_autofill.js:185 Page successfully loaded at 8:37:57 AM
+redmine_hook.js:19 Redmine hook loaded
+redmine_hook.js:26 Window loaded - adding Redmine buttons
+redmine_hook.js:61 Adding Redmine buttons
+VM19681 execSetResults.js:17 execSetResults.js: LOADING VERSION WITH PROJECT TESTING - 202603021016
+VM19681 execSetResults.js:185 execSetResults.js: Test functions loaded
+VM19681 execSetResults.js:186 execSetResults.js: testModal available: true
+VM19681 execSetResults.js:187 execSetResults.js: simpleTest available: true
+VM19681 execSetResults.js:188 execSetResults.js: testProjectIntegrations available: true
+VM19681 execSetResults.js:748 execSetResults.js loaded - integration picker functions available
+VM19681 execSetResults.js:751 saveExecStatus function exists: function
+VM19681 execSetResults.js:52 === EXECUTION BUTTON DEBUG ===
+VM19681 execSetResults.js:53 Looking for execution buttons...
+VM19681 execSetResults.js:54 save_results buttons: 0
+VM19681 execSetResults.js:55 save_and_next buttons: 0
+VM19681 execSetResults.js:56 move2next buttons: 0
+VM19681 execSetResults.js:57 All execution buttons: 0
+VM19681 execSetResults.js:58 === END EXECUTION BUTTON DEBUG ===
+VM19685 bug_description_autofill.js:82 bug_description_autofill.js loaded
+VM19685 bug_description_autofill.js:92 createIssue checkbox exists: false
+VM19683 redmine_hook.js:35 Redmine hook loaded
+VM19685 bug_description_autofill.js:182 DOM fully loaded and parsed
+VM19685 bug_description_autofill.js:185 Page successfully loaded at 8:37:57 AM
+VM19683 redmine_hook.js:19 Redmine hook loaded
+VM19685 bug_description_autofill.js:190 All page resources loaded (images, styles, scripts, etc.)
+VM19685 bug_description_autofill.js:213 Page load time: -1772516277575ms
+VM19683 redmine_hook.js:26 Window loaded - adding Redmine buttons
+VM19683 redmine_hook.js:61 Adding Redmine buttons
+redmine_hook.js:61 Adding Redmine buttons
+VM19683 redmine_hook.js:61 Adding Redmine buttons
+execSetResults.js:21 === DEBUG MODAL STATE ===
+execSetResults.js:22 Modal visibility: undefined
+execSetResults.js:23 Modal exists: false
+execSetResults.js:24 Create issue checked: false
+execSetResults.js:25 Selected integration: undefined
+execSetResults.js:28 CreateIssue checkbox exists: false
+execSetResults.js:31 Trying different selectors:
+execSetResults.js:32   #integrationModal: 0
+execSetResults.js:33   div[id="integrationModal"]: 0
+execSetResults.js:34   [id="integrationModal"]: 0
+execSetResults.js:37 All divs with integration in ID: 0
+execSetResults.js:42 === END DEBUG MODAL STATE ===
+execSetResults.js:43 === END DEBUG ===
+VM19681 execSetResults.js:21 === DEBUG MODAL STATE ===
+VM19681 execSetResults.js:22 Modal visibility: undefined
+VM19681 execSetResults.js:23 Modal exists: false
+VM19681 execSetResults.js:24 Create issue checked: false
+VM19681 execSetResults.js:25 Selected integration: undefined
+VM19681 execSetResults.js:28 CreateIssue checkbox exists: false
+VM19681 execSetResults.js:31 Trying different selectors:
+VM19681 execSetResults.js:32   #integrationModal: 0
+VM19681 execSetResults.js:33   div[id="integrationModal"]: 0
+VM19681 execSetResults.js:34   [id="integrationModal"]: 0
+VM19681 execSetResults.js:37 All divs with integration in ID: 0
+VM19681 execSetResults.js:42 === END DEBUG MODAL STATE ===
+VM19681 execSetResults.js:43 === END DEBUG ===
+execSetResults.js:17 execSetResults.js: LOADING VERSION WITH PROJECT TESTING - 202603021016
+execSetResults.js:185 execSetResults.js: Test functions loaded
+execSetResults.js:186 execSetResults.js: testModal available: true
+execSetResults.js:187 execSetResults.js: simpleTest available: true
+execSetResults.js:188 execSetResults.js: testProjectIntegrations available: true
+execSetResults.js:748 execSetResults.js loaded - integration picker functions available
+execSetResults.js:751 saveExecStatus function exists: function
+execSetResults.js?v=1772516285&cachebust=20260303:17 execSetResults.js: LOADING VERSION WITH PROJECT TESTING - 202603021016
+execSetResults.js?v=1772516285&cachebust=20260303:185 execSetResults.js: Test functions loaded
+execSetResults.js?v=1772516285&cachebust=20260303:186 execSetResults.js: testModal available: true
+execSetResults.js?v=1772516285&cachebust=20260303:187 execSetResults.js: simpleTest available: true
+execSetResults.js?v=1772516285&cachebust=20260303:188 execSetResults.js: testProjectIntegrations available: true
+execSetResults.js?v=1772516285&cachebust=20260303:748 execSetResults.js loaded - integration picker functions available
+execSetResults.js?v=1772516285&cachebust=20260303:751 saveExecStatus function exists: function
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:114 Nifty library status: LOADED
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:116 Nifty version: unknown
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:551 === SINGLE EXECUTION TEMPLATE DEBUG ===
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:552 inc_exec_show_tc_exec.tpl is being rendered!
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:553 Current time: Tue Mar 03 2026 08:38:05 GMT+0300 (East Africa Time)
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:554 jQuery available: true
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:555 tlCanCreateIssue: 1
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:556 === END SINGLE EXECUTION TEMPLATE DEBUG ===
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:665 DEBUG: Processing execution in loop - exec_id: 81633
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:742 Loading bugs for execution ID: 81633
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:1020 === TEMPLATE INTEGRATION DEBUG ===
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:1021 Integration dropdown HTML is being added to template
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:1022 tlCanCreateIssue value: 1
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:1023 === END TEMPLATE INTEGRATION DEBUG ===
+execSetResults.js:52 === EXECUTION BUTTON DEBUG ===
+execSetResults.js:53 Looking for execution buttons...
+execSetResults.js:54 save_results buttons: 1
+execSetResults.js:55 save_and_next buttons: 1
+execSetResults.js:56 move2next buttons: 0
+execSetResults.js:57 All execution buttons: 2
+execSetResults.js:58 === END EXECUTION BUTTON DEBUG ===
+bug_description_autofill.js:82 bug_description_autofill.js loaded
+bug_description_autofill.js:92 createIssue checkbox exists: true
+execSetResults.js?v=1772516285&cachebust=20260303:52 === EXECUTION BUTTON DEBUG ===
+execSetResults.js?v=1772516285&cachebust=20260303:53 Looking for execution buttons...
+execSetResults.js?v=1772516285&cachebust=20260303:54 save_results buttons: 1
+execSetResults.js?v=1772516285&cachebust=20260303:55 save_and_next buttons: 1
+execSetResults.js?v=1772516285&cachebust=20260303:56 move2next buttons: 0
+execSetResults.js?v=1772516285&cachebust=20260303:57 All execution buttons: 2
+execSetResults.js?v=1772516285&cachebust=20260303:58 === END EXECUTION BUTTON DEBUG ===
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:419 Applying Nifty corners...
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:424 Applied Nifty to exec_test_spec
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:431 Applied Nifty to exec_history
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:438 Applied Nifty to exec_tc_title
+redmine_hook.js:35 Redmine hook loaded
+bug_description_autofill.js:182 DOM fully loaded and parsed
+bug_description_autofill.js:185 Page successfully loaded at 8:38:05 AM
+redmine_hook.js:19 Redmine hook loaded
+redmine_hook.js:26 Window loaded - adding Redmine buttons
+redmine_hook.js:61 Adding Redmine buttons
+redmine_hook.js:71 Execution page detected
+redmine_hook.js:75 Found 0 status selects
+redmine_hook.js:165 No status selects found, trying general approach
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:748 Bug data for exec 81633: {success: true, execution_id: 81633, bugs: Array(0), count: 0, debug: 'Fetched 0 bugs from database and Redmine', …}
+redmine_hook.js:61 Adding Redmine buttons
+redmine_hook.js:71 Execution page detected
+redmine_hook.js:75 Found 0 status selects
+redmine_hook.js:165 No status selects found, trying general approach
+execSetResults.js?v=1772516285&cachebust=20260303:21 === DEBUG MODAL STATE ===
+execSetResults.js?v=1772516285&cachebust=20260303:22 Modal visibility: none
+execSetResults.js?v=1772516285&cachebust=20260303:23 Modal exists: true
+execSetResults.js?v=1772516285&cachebust=20260303:24 Create issue checked: false
+execSetResults.js?v=1772516285&cachebust=20260303:25 Selected integration: undefined
+execSetResults.js?v=1772516285&cachebust=20260303:28 CreateIssue checkbox exists: true
+execSetResults.js?v=1772516285&cachebust=20260303:31 Trying different selectors:
+execSetResults.js?v=1772516285&cachebust=20260303:32   #integrationModal: 1
+execSetResults.js?v=1772516285&cachebust=20260303:33   div[id="integrationModal"]: 1
+execSetResults.js?v=1772516285&cachebust=20260303:34   [id="integrationModal"]: 1
+execSetResults.js?v=1772516285&cachebust=20260303:37 All divs with integration in ID: 1
+execSetResults.js?v=1772516285&cachebust=20260303:39   Found: integrationModal visibility: none
+execSetResults.js?v=1772516285&cachebust=20260303:42 === END DEBUG MODAL STATE ===
+execSetResults.js?v=1772516285&cachebust=20260303:43 === END DEBUG ===
+execSetResults.js?v=1772516285&cachebust=20260303:21 === DEBUG MODAL STATE ===
+execSetResults.js?v=1772516285&cachebust=20260303:22 Modal visibility: none
+execSetResults.js?v=1772516285&cachebust=20260303:23 Modal exists: true
+execSetResults.js?v=1772516285&cachebust=20260303:24 Create issue checked: false
+execSetResults.js?v=1772516285&cachebust=20260303:25 Selected integration: undefined
+execSetResults.js?v=1772516285&cachebust=20260303:28 CreateIssue checkbox exists: true
+execSetResults.js?v=1772516285&cachebust=20260303:31 Trying different selectors:
+execSetResults.js?v=1772516285&cachebust=20260303:32   #integrationModal: 1
+execSetResults.js?v=1772516285&cachebust=20260303:33   div[id="integrationModal"]: 1
+execSetResults.js?v=1772516285&cachebust=20260303:34   [id="integrationModal"]: 1
+execSetResults.js?v=1772516285&cachebust=20260303:37 All divs with integration in ID: 1
+execSetResults.js?v=1772516285&cachebust=20260303:39   Found: integrationModal visibility: none
+execSetResults.js?v=1772516285&cachebust=20260303:42 === END DEBUG MODAL STATE ===
+execSetResults.js?v=1772516285&cachebust=20260303:43 === END DEBUG ===
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:1021 Create Issue checkbox clicked, current state: true
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:1023 Checkbox checked - checking for integration dropdown
+execSetResults.js:62 Checkbox clicked, current state: true
+execSetResults.js:63 Modal visibility after checkbox click: none
+execSetResults.js:64 Modal exists after click: true
+execSetResults.js?v=1772516285&cachebust=20260303:62 Checkbox clicked, current state: true
+execSetResults.js?v=1772516285&cachebust=20260303:63 Modal visibility after checkbox click: none
+execSetResults.js?v=1772516285&cachebust=20260303:64 Modal exists after click: true
+bug_description_autofill.js:86 createIssue checkbox changed, checked: true
+bug_description_autofill.js:221 populateBugDescription function called
+bug_description_autofill.js:225 Create Issue checkbox is checked
+bug_description_autofill.js:299 Found TC ID from hidden field: 431185
+bug_description_autofill.js:229 Test Case Version ID: 431185
+bug_description_autofill.js:299 Found TC ID from hidden field: 431185
+bug_description_autofill.js:108 ===== FETCH TEST CASE DATA =====
+bug_description_autofill.js:109 Request URL: lib/execute/get_testcase_data_simple.php?tcversion_id=431185
+bug_description_autofill.js:110 tcversion_id: 431185
+bug_description_autofill.js:111 Exec ID: 431185
+bug_description_autofill.js:114 Current URL: https://test-management.nmbtz.com:9443/lib/execute/execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7
+bug_description_autofill.js:115 Form data: CSRFName=CSRFGuard_1748079905&CSRFToken=0a1606542f914d65f127ee1315908eb54d9d2d5f1a21402560c80d5a63363b9b52ba75b53331bc8c2861c864238b838a7a0e4f01ba18c57a21d7a53b6ffcbb3f&save_button_clicked=0&do_delete=0&exec_to_delete=0&form_token=1401598401&refresh_tree=0&btn_history_on=1&history_on=&tpn_view_status=0&bn_view_status=0&tc_version%5B431185%5D=431184&version_number%5B431185%5D=1&tsdetails_view_status_431184=0&custom_field_20_10_431184=&custom_field_6_11_431184=NORMAL&custom_field_6_13_431184=&notes%5B431185%5D=&execution_duration=&createIssue=on&statusSingle%5B431185%5D=&save_results=0&save_and_next=0&bug_summary=Test+Case%3A+%2FARCHIVE%2FWORKING+D%2FTESTING%2FARC-994%3AATM-TC110+-+++2026-03-03CET06%3A38+&bug_notes=&addLinkToTL=on&addLinkToTLPrintView=on
+execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1401598401&setting_build=7:1282 Bug creation checkbox checked
+bug_description_autofill.js:132 ===== API RESPONSE =====
+bug_description_autofill.js:133 Status: success
+bug_description_autofill.js:134 Raw response text: {"success":true,"data":{"scenario_id":"STDCRDMS","sub_scenario":"New","test_script":"Negative test","expected_results":"Cards >  Maintenance > Card Master ","er_process":"Card request should not be saved","testcase_name":"","primary_module":"Card Master Maintenance","test_type":"Verify If card request can be saved without selecting card status","test_execution_path":"1. Select account type: to any allowed account type\r\n\r\n2. Select its appropriate Card Type .\r\n\r\n3. Attempt  to save without selecting card status","test_data":"","priority":"","execution_status":"","notes":""},"message":"","debug":{"received_id":431185,"timestamp":"2026-03-03 06:38:10"}}
+bug_description_autofill.js:141 Parsed response: {success: true, data: {…}, message: '', debug: {…}}
+bug_description_autofill.js:248 Successfully fetched test case data: {scenario_id: 'STDCRDMS', sub_scenario: 'New', test_script: 'Negative test', expected_results: 'Cards >  Maintenance > Card Master ', er_process: 'Card request should not be saved', …}
+bug_description_autofill.js:328 ===== POPULATE TEMPLATE =====
+bug_description_autofill.js:329 Raw data received: {success: true, data: {…}, message: '', debug: {…}}
+bug_description_autofill.js:333 Data type: object
+bug_description_autofill.js:334 Data keys: (4) ['success', 'data', 'message', 'debug']
+bug_description_autofill.js:338 Data.data type: object
+bug_description_autofill.js:339 Data.data keys: (13) ['scenario_id', 'sub_scenario', 'test_script', 'expected_results', 'er_process', 'testcase_name', 'primary_module', 'test_type', 'test_execution_path', 'test_data', 'priority', 'execution_status', 'notes']
+bug_description_autofill.js:363 Using test case data from response.data: {scenario_id: 'STDCRDMS', sub_scenario: 'New', test_script: 'Negative test', expected_results: 'Cards >  Maintenance > Card Master ', er_process: 'Card request should not be saved', …}
+bug_description_autofill.js:372 Function ID from API: STDCRDMS
+bug_description_autofill.js:385 Action from API: New
+bug_description_autofill.js:390 Test Script from API: Negative test
+bug_description_autofill.js:409 Found test data element with ID: custom_field_20_10_431184
+bug_description_autofill.js:426 Test data value from form field: 
+bug_description_autofill.js:450 Expected Results from API: Cards >  Maintenance > Card Master 
+bug_description_autofill.js:474 Using test result from form field: 
+bug_description_autofill.js:299 Found TC ID from hidden field: 431185
+bug_description_autofill.js:491 Test case ID for URLs: 431185
+bug_description_autofill.js:496 Base URL for TestLink: https://test-management.nmbtz.com:9443
+bug_description_autofill.js:501 TestLink URLs added to template
+bug_description_autofill.js:506 Generated template: Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+N/A
+]
+
+TestLink URLs:
+
+bug_description_autofill.js:510 Attempting to find bug_notes field...
+bug_description_autofill.js:530 Found bug_notes field using selector: #bug_notes
+bug_description_autofill.js:593 ===== TEMPLATE TO SET =====
+bug_description_autofill.js:594 Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+N/A
+]
+
+TestLink URLs:
+
+bug_description_autofill.js:595 ===========================
+bug_description_autofill.js:598 Current field value BEFORE setting: {id: 'bug_notes', name: 'bug_notes', value: '', isVisible: true, isDisabled: false, …}
+bug_description_autofill.js:608 Setting field value using jQuery.val()...
+bug_description_autofill.js:610 jQuery.val() completed
+bug_description_autofill.js:613 Triggering change and input events...
+bug_description_autofill.js:622 Setting value using vanilla JS...
+bug_description_autofill.js:640 Value set using vanilla JS events
+bug_description_autofill.js:643 Trying setAttribute approach...
+bug_description_autofill.js:659 Current field value AFTER setting: {value: 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…Card Master\nTest result: [\nN/A\n]\n\nTestLink URLs:\n', jQuery.val(): 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…Card Master\nTest result: [\nN/A\n]\n\nTestLink URLs:\n', element.value: 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…Card Master\nTest result: [\nN/A\n]\n\nTestLink URLs:\n', element.getAttribute(value): 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…Card Master\nTest result: [\nN/A\n]\n\nTestLink URLs:\n'}
+bug_description_autofill.js:705 Set value using DOM traversal
+execSetResults.js?v=1772516285&cachebust=20260303:931 saveExecStatus called with tcvID: 431185 status: b msg: undefined goNext: undefined
+execSetResults.js?v=1772516285&cachebust=20260303:947 No integration selected, showing modal
+execSetResults.js?v=1772516285&cachebust=20260303:230 Showing integration modal...
+execSetResults.js?v=1772516285&cachebust=20260303:267 Populating integration modal dropdown...
+execSetResults.js?v=1772516285&cachebust=20260303:317 Found tproject_id from URL: 431185
+execSetResults.js?v=1772516285&cachebust=20260303:321 Using tproject_id: 431185
+execSetResults.js?v=1772516285&cachebust=20260303:322 Expected project: 448287 (has 3 integrations)
+execSetResults.js?v=1772516285&cachebust=20260303:323 Current project: 431185 has ? integrations
+execSetResults.js?v=1772516285&cachebust=20260303:340 Integrations fetched: {success: true, message: 'Integrations retrieved successfully', data: null, debug: Array(0), status: 'ok', …}count: 0data: nulldebug: Array(0)length: 0[[Prototype]]: Array(0)integrations: Array(0)length: 0[[Prototype]]: Array(0)message: "Integrations retrieved successfully"status: "ok"success: truetimestamp: "2026-03-03 06:38:14"tproject_id: 431185[[Prototype]]: Object
+execSetResults.js?v=1772516285&cachebust=20260303:341 Number of integrations: 0
+execSetResults.js?v=1772516285&cachebust=20260303:342 Integration details: []length: 0[[Prototype]]: Array(0)remove: ƒ (b)at: ƒ at()concat: ƒ concat()constructor: ƒ Array()copyWithin: ƒ copyWithin()entries: ƒ entries()every: ƒ every()fill: ƒ fill()filter: ƒ filter()find: ƒ find()findIndex: ƒ findIndex()findLast: ƒ findLast()findLastIndex: ƒ findLastIndex()flat: ƒ flat()flatMap: ƒ flatMap()forEach: ƒ forEach()includes: ƒ includes()indexOf: ƒ indexOf()join: ƒ join()keys: ƒ keys()lastIndexOf: ƒ lastIndexOf()length: 0map: ƒ map()pop: ƒ pop()push: ƒ push()reduce: ƒ reduce()reduceRight: ƒ reduceRight()reverse: ƒ reverse()shift: ƒ shift()slice: ƒ slice()some: ƒ some()sort: ƒ sort()splice: ƒ splice()toLocaleString: ƒ toLocaleString()toReversed: ƒ toReversed()toSorted: ƒ toSorted()toSpliced: ƒ toSpliced()toString: ƒ toString()unshift: ƒ unshift()values: ƒ values()with: ƒ with()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.unscopables): {at: true, copyWithin: true, entries: true, fill: true, find: true, …}[[Prototype]]: Object
+execSetResults.js?v=1772516285&cachebust=20260303:355 Multiple integrations found, showing dropdown for user selection
+redmine_hook.js:48 Content changed - re-adding Redmine buttons
+redmine_hook.js:61 Adding Redmine buttons

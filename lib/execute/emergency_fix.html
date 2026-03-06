@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emergency Fix for Blank Page</title>
+</head>
+<body>
+    <h1>🚨 Emergency Fix for Blank Page</h1>
+    
+    <h2>❌ Issue: Page is completely blank</h2>
+    <p>This usually means a JavaScript syntax error is preventing page load.</p>
+    
+    <h2>🔧 Quick Fix Steps:</h2>
+    
+    <h3>1. Check Browser Console</h3>
+    <p>Open browser developer tools (F12) and check Console tab for JavaScript errors.</p>
+    
+    <h3>2. Common Datalabels Issues</h3>
+    <p>The datalabels plugin might have syntax issues. Try this simpler configuration:</p>
+    
+    <pre><code>
+// Replace the entire datalabels section with this:
+datalabels: {
+    display: true,
+    color: '#333',
+    font: {
+        size: 10,
+        weight: 'bold'
+    },
+    anchor: 'end',
+    align: 'top',
+    offset: 8
+}
+    </code></pre>
+    
+    <h3>3. Alternative: Remove Datalabels Temporarily</h3>
+    <p>If page still blank, temporarily remove the entire datalabels section to isolate the issue:</p>
+    
+    <pre><code>
+// Find this section:
+                    datalabels: {
+                        display: function(context) {
+                            return context.datasetIndex === 0;
+                        },
+                        color: '#333',
+                        font: {
+                            size: 10,
+                            weight: 'bold'
+                        },
+                        formatter: function(value, context) {
+                            return value;
+                        },
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 8
+                    },
+
+// Replace with:
+                    },
+    </code></pre>
+    
+    <h3>4. Restore from Backup</h3>
+    <p>If all else fails, restore from backup and reapply changes more carefully.</p>
+    
+    <h2>🎯 Goal: Get page working first, then add numbers</h2>
+    <p>Priority is making the page functional before adding features.</p>
+</body>
+</html>

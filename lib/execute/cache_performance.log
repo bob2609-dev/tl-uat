@@ -1,0 +1,11 @@
+[14:19:51.653] Cached execNavigator started
+[14:19:52.734] Cache MISS - building new tree
+[14:19:59.131] Tree built from scratch - 6.3765890598297s
+[14:19:59.641] Tree cached for future use
+[14:28:54.002] Cached execNavigator started
+[14:28:55.294] Cache MISS - building new tree
+[14:29:01.176] Tree built from scratch - 5.8525199890137s
+[14:29:01.587] Tree cached for future use
+[14:29:12.615] Cached execNavigator started
+[14:29:13.805] Cache HIT - using cached tree
+[14:29:13.833] Cache age: 12 seconds

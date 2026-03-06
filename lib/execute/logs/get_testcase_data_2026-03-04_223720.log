@@ -1,0 +1,118 @@
+
+-------- SCRIPT START: 2026-03-04 22:37:20 --------
+Script: C:\xampp\htdocs\tl-uat\lib\execute\get_testcase_data_simple.php
+Log file: C:\xampp\htdocs\tl-uat\lib\execute/logs/get_testcase_data_2026-03-04_223720.log
+Received tcversion_id: 431185
+Request method: GET
+Request parameters: Array
+(
+    [tcversion_id] => 431185
+    [_timestamp] => 2026-03-04T21:37:20.060Z
+)
+
+
+Logs dir exists: yes
+Logs dir writable: yes
+Log file path in use: C:\xampp\htdocs\tl-uat\lib\execute/logs/get_testcase_data_2026-03-04_223720.log
+PHP version: 7.2.34
+mysqli client info: mysqlnd 5.0.12-dev - 20150407 - $Id: 3591daad22de08524295e1bd073aceeff11e6579 $
+mysqlnd loaded: yes
+
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+[DEBUG] Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 431185
+    
+[INFO] Query prepared successfully
+[DEBUG] Parameter bound: tcversion_id = 431185
+[DEBUG] Complete query to execute:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = '431185'
+    
+Query executed successfully
+Got result set (mysqlnd)
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDCRDMS
+sub_scenario: New
+test_script: Negative test
+expected_results: Cards >  Maintenance > Card Master 
+er_process: Card request should not be saved
+testcase_name: 
+primary_module: Card Master Maintenance
+test_type: Verify If card request can be saved without selecting card status
+test_execution_path: 1. Select account type: to any allowed account type
+
+2. Select its appropriate Card Type .
+
+3. Attempt  to save without selecting card status
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2026-03-04 22:37:54 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDCRDMS
+            [sub_scenario] => New
+            [test_script] => Negative test
+            [expected_results] => Cards >  Maintenance > Card Master 
+            [er_process] => Card request should not be saved
+            [testcase_name] => 
+            [primary_module] => Card Master Maintenance
+            [test_type] => Verify If card request can be saved without selecting card status
+            [test_execution_path] => 1. Select account type: to any allowed account type
+
+2. Select its appropriate Card Type .
+
+3. Attempt  to save without selecting card status
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 431185
+            [timestamp] => 2026-03-04 22:37:54
+        )
+
+)
+
+JSON Response: {"success":true,"data":{"scenario_id":"STDCRDMS","sub_scenario":"New","test_script":"Negative test","expected_results":"Cards >  Maintenance > Card Master ","er_process":"Card request should not be saved","testcase_name":"","primary_module":"Card Master Maintenance","test_type":"Verify If card request can be saved without selecting card status","test_execution_path":"1. Select account type: to any allowed account type\r\n\r\n2. Select its appropriate Card Type .\r\n\r\n3. Attempt  to save without selecting card status","test_data":"","priority":"","execution_status":"","notes":""},"message":"","debug":{"received_id":431185,"timestamp":"2026-03-04 22:37:54"}}
+JSON Response Length: 666 bytes
+-------- END OF REQUEST --------
+

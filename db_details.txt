@@ -1,0 +1,76 @@
+# Database Connection Details in TestLink Codebase
+
+## Alternative Database Configuration File
+File: db_config.php
+```php
+$db_host = 'localhost';  // Database host
+$db_user = 'root';  // Database username
+$db_pass = 'tl_nmb25';  // Database password
+$db_name = 'tl_uat';  // Database name
+```
+
+## Main Database Configuration File
+File: config_db.inc.php
+```php
+define('DB_TYPE', 'mysql');
+define('DB_USER', 'tl_uat');
+define('DB_PASS', 'tl_uat269');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'tl_uat');
+define('DB_TABLE_PREFIX', '');
+```
+
+## Additional Database Connection Details
+
+### lib/admin/pure_sql_executor.php
+Hardcoded database credentials:
+```php
+$DB_HOST = 'localhost';
+$DB_NAME = 'tl_uat';  
+$DB_USER = 'tl_uat';  
+$DB_PASS = 'tl_uat269';
+```
+
+### lib/api/xmlrpc/v1/api.const.inc.php
+Test database credentials:
+```php
+define('TEST_DB_USER', 'tl_uat');
+define('TEST_DB_PASS', 'tl_uat269');
+define('TEST_DB_HOST', 'localhost');
+define('TEST_DB_NAME', 'tl_uat');
+```
+
+### lib/admin/standalone_sql_executor.php
+Empty credential placeholders (requiring manual input):
+```php
+$DB_HOST = 'localhost'; // Database host
+$DB_NAME = 'tl_uat'; // Database name
+$DB_USER = ''; // Set your database username here
+$DB_PASS = ''; // Set your database password here
+```
+
+### Database Connection Usage
+The following files use the database connection constants to establish connections:
+
+1. direct_image.php
+```php
+$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+```
+
+2. image_proxy.php
+```php
+$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+```
+
+3. lib/functions/common.php (doDBConnect function)
+```php
+$result = $db->connect(DSN, DB_HOST, DB_USER, DB_PASS, DB_NAME);
+```
+
+4. lib/api/xmlrpc/v1/xmlrpc.class.php (TestlinkXMLRPCServer._connectToDB function)
+```php
+$this->dbObj->connect(DSN, DB_HOST, DB_USER, DB_PASS, DB_NAME);
+```
+
+### Configuration Generation
+install/installNewDB.php is responsible for generating the config_db.inc.php file during installation.

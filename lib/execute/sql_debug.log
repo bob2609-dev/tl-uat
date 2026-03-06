@@ -1,0 +1,511 @@
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_path_based e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT RESULT ===
+Total: 11035
+
+=== SQL QUERY ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_path_based e
+         WHERE 1=1
+        ORDER BY e.execution_id DESC
+        LIMIT 100000
+
+=== QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_path_based e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT RESULT ===
+Total: 11035
+
+=== SQL QUERY ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_path_based e
+         WHERE 1=1
+        ORDER BY e.execution_id DESC
+        LIMIT 100000
+
+=== QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_path_based e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT RESULT ===
+Total: 11035
+
+=== SQL QUERY ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_path_based e
+         WHERE 1=1
+        ORDER BY e.execution_id DESC
+        LIMIT 100000
+
+=== QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_path_based e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT RESULT ===
+Total: 11035
+
+=== SQL QUERY ===
+SELECT 
+            e.execution_id,
+            e.execution_status,
+            e.execution_status_name,
+            e.testplan_id,
+            e.testplan_name,
+            e.build_id,
+            e.build_name,
+            e.build_name,
+            e.tc_version,
+            e.execution_date AS execution_ts,
+            e.execution_notes,
+            e.tc_id,
+            e.tc_name,
+            e.suite_id AS parent_suite_id,
+            e.suite_name AS parent_suite_name,
+            e.tc_version,
+            e.tc_summary,
+            e.project_id AS testproject_id,
+            e.project_name,
+            e.tester_id,
+            e.tester_login,
+            e.tester_name,
+            e.platform_id,
+            e.platform_name,
+            e.suite_path,
+            e.level1_name,
+            e.level2_name,
+            e.level3_name,
+            e.level4_name,
+            e.level5_name
+        FROM test_execution_hierarchy_summary_path_based e
+         WHERE 1=1
+        ORDER BY e.execution_id DESC
+        LIMIT 100000
+
+=== QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 22549 OR
+        e.level1_id = 22549 OR
+        e.level2_id = 22549 OR
+        e.level3_id = 22549 OR
+        e.level4_id = 22549 OR
+        e.level5_id = 22549
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 6246 OR
+        e.level1_id = 6246 OR
+        e.level2_id = 6246 OR
+        e.level3_id = 6246 OR
+        e.level4_id = 6246 OR
+        e.level5_id = 6246
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 51251 OR
+        e.level1_id = 51251 OR
+        e.level2_id = 51251 OR
+        e.level3_id = 51251 OR
+        e.level4_id = 51251 OR
+        e.level5_id = 51251
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND e.project_id = 1 AND e.testplan_id = 2 AND e.build_id = 2 AND (
+        e.suite_id = 51332 OR
+        e.level1_id = 51332 OR
+        e.level2_id = 51332 OR
+        e.level3_id = 51332 OR
+        e.level4_id = 51332 OR
+        e.level5_id = 51332
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND (
+        e.suite_id = 6247 OR
+        e.level1_id = 6247 OR
+        e.level2_id = 6247 OR
+        e.level3_id = 6247 OR
+        e.level4_id = 6247 OR
+        e.level5_id = 6247
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1 AND (
+        e.suite_id = 6246 OR
+        e.level1_id = 6246 OR
+        e.level2_id = 6246 OR
+        e.level3_id = 6246 OR
+        e.level4_id = 6246 OR
+        e.level5_id = 6246
+    )
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+
+=== COUNT SQL QUERY ===
+SELECT COUNT(*) as total_count FROM test_execution_hierarchy_summary_optimized e WHERE 1=1
+
+=== COUNT QUERY RESULT ===
+Success: true
+

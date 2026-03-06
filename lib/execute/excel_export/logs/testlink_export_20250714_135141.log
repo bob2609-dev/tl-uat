@@ -1,0 +1,12 @@
+2025-07-14 13:51:41 - INFO - ======= TestLink Test Execution Export ========
+2025-07-14 13:51:41 - INFO - Started at: 2025-07-14 13:51:41
+2025-07-14 13:51:41 - INFO - Arguments: Namespace(config='db_config.json', project=0, testplan=0, build=0, status='', start_date='', end_date='', output='', output_dir='', debug=False, log_level='INFO', list=False)
+2025-07-14 13:51:41 - INFO - Loading database configuration from: db_config.json
+2025-07-14 13:51:41 - INFO - Database configuration loaded successfully
+2025-07-14 13:51:41 - INFO - Connecting to database...
+2025-07-14 13:51:41 - INFO - Successfully connected to database
+2025-07-14 13:51:41 - INFO - Using filters: {'project_id': 0, 'testplan_id': 0, 'build_id': 0, 'status': '', 'start_date': '', 'end_date': ''}
+2025-07-14 13:51:41 - INFO - Initializing data processor...
+2025-07-14 13:51:41 - INFO - Data processor initialized successfully
+2025-07-14 13:51:41 - INFO - Processing test execution data...
+2025-07-14 13:51:43 - CRITICAL - KeyError during data processing: 'count'

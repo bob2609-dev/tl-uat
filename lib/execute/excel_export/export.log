@@ -1,0 +1,1029 @@
+>test_execution_export.exe -c db_config.json
+2025-07-14 14:09:07 - INFO - ======= TestLink Test Execution Export ========
+2025-07-14 14:09:07 - INFO - Started at: 2025-07-14 14:09:07
+2025-07-14 14:09:07 - INFO - Arguments: Namespace(config='db_config.json', project=0, testplan=0, build=0, status='', start_date='', end_date='', output='', output_dir='', debug=False, log_level='INFO', list=False)
+2025-07-14 14:09:07 - INFO - Loading database configuration from: db_config.json
+2025-07-14 14:09:07 - INFO - Database configuration loaded successfully
+2025-07-14 14:09:07 - INFO - Connecting to database...
+Connected to the database successfully.
+2025-07-14 14:09:07 - INFO - Successfully connected to database
+2025-07-14 14:09:07 - INFO - Using filters: {'project_id': 0, 'testplan_id': 0, 'build_id': 0, 'status': '', 'start_date': '', 'end_date': ''}
+2025-07-14 14:09:07 - INFO - Initializing data processor...
+2025-07-14 14:09:07 - INFO - Data processor initialized successfully
+2025-07-14 14:09:07 - INFO - Processing test execution data...
+Successfully refreshed node hierarchy paths
+
+Executing main SQL query:
+
+        SELECT
+            e.id AS execution_id,
+            e.status AS execution_status,
+            e.testplan_id,
+            tp.notes AS testplan_notes,
+            e.build_id,
+            b.name AS build_name,
+            b.notes AS build_notes,
+            e.platform_id,
+            p.name AS platform_name,
+            p.notes AS platform_notes,
+            e.tcversion_id,
+            tcv.version AS tc_version,
+            tcv.summary AS tc_summary,
+            nh_tc.id AS tc_id,
+            nh_tc.name AS tc_name,
+            parent_nh.id AS parent_suite_id,
+            parent_nh.name AS parent_suite_name,
+            -- Use the full_path column directly from node_hierarchy_paths_v2 table
+            -- Do NOT include the test case name in the path - only include suite hierarchy
+            (SELECT full_path FROM node_hierarchy_paths_v2 WHERE node_id = nh_tc.parent_id) AS full_path,
+            e.execution_ts AS execution_timestamp,
+            e.tester_id,
+            u.login AS tester_login,
+            u.first AS tester_firstname,
+            u.last AS tester_lastname,
+            tp.testproject_id AS project_id,
+            tproj.notes AS project_notes
+        FROM
+            executions e
+            JOIN (SELECT tcversion_id, build_id, testplan_id, MAX(execution_ts) AS latest_exec_ts
+                  FROM executions
+                  GROUP BY tcversion_id, build_id, testplan_id) latest_e
+                ON e.tcversion_id = latest_e.tcversion_id
+                AND e.build_id = latest_e.build_id
+                AND e.testplan_id = latest_e.testplan_id
+                AND e.execution_ts = latest_e.latest_exec_ts
+            JOIN tcversions tcv ON e.tcversion_id = tcv.id
+            JOIN nodes_hierarchy nh_tcv ON tcv.id = nh_tcv.id
+            JOIN nodes_hierarchy nh_tc ON nh_tcv.parent_id = nh_tc.id
+            JOIN testplans tp ON e.testplan_id = tp.id
+            JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms p ON e.platform_id = p.id
+            LEFT JOIN users u ON e.tester_id = u.id
+            LEFT JOIN nodes_hierarchy parent_nh ON nh_tc.parent_id = parent_nh.id
+            JOIN testprojects tproj ON tp.testproject_id = tproj.id
+        WHERE 1=1
+         ORDER BY tproj.notes, tp.notes, parent_nh.name, nh_tc.name, e.execution_ts DESC
+
+Executing metrics SQL query:
+
+        WITH all_testcase_versions AS (
+            -- Get all test case versions from the nodes_hierarchy and tcversions tables
+            SELECT
+                tcv.id AS tcversion_id,
+                tc.id AS tc_id,
+                tc.parent_id AS suite_id,
+                tcversion.version,
+                tcversion.tc_external_id
+            FROM
+                nodes_hierarchy tcv
+                JOIN nodes_hierarchy tc ON tc.id = tcv.parent_id
+                JOIN tcversions tcversion ON tcversion.id = tcv.id
+            WHERE
+                tcv.node_type_id = 4  -- Test case versions
+                AND tc.node_type_id = 3  -- Test cases
+                AND tcversion.active = 1
+        ),
+
+        -- Get the latest execution for each test case version if it exists
+        latest_executions AS (
+            SELECT
+                atcv.tcversion_id,
+                atcv.tc_id,
+                atcv.suite_id,
+                e.status,
+                e.testplan_id,
+                tp.testproject_id,
+                tp.notes AS testplan_notes,
+                tproj.notes AS project_notes,
+                parent_nh.name AS suite_name
+            FROM
+                all_testcase_versions atcv
+            LEFT JOIN (
+                -- Get the latest execution for each test case version
+                SELECT
+                    e.tcversion_id,
+                    e.status,
+                    e.testplan_id,
+                    e.build_id
+                FROM
+                    executions e
+                JOIN (
+                    SELECT
+                        tcversion_id,
+                        build_id,
+                        testplan_id,
+                        MAX(execution_ts) AS latest_exec_ts
+                    FROM
+                        executions
+                    GROUP BY
+                        tcversion_id, build_id, testplan_id
+                ) latest ON e.tcversion_id = latest.tcversion_id
+                  AND e.build_id = latest.build_id
+                  AND e.testplan_id = latest.testplan_id
+                  AND e.execution_ts = latest.latest_exec_ts
+                WHERE 1=1
+
+            ) e ON atcv.tcversion_id = e.tcversion_id
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN testprojects tproj ON tp.testproject_id = tproj.id
+            LEFT JOIN nodes_hierarchy parent_nh ON atcv.suite_id = parent_nh.id
+        )
+
+        -- Main query to aggregate metrics by suite
+        SELECT
+            suite_id,
+            suite_name,
+            testplan_id,
+            testplan_notes,
+            testproject_id,
+            project_notes,
+            COUNT(DISTINCT tc_id) as testcase_count,
+            SUM(CASE WHEN status = 'p' THEN 1 ELSE 0 END) as passed_count,
+            SUM(CASE WHEN status = 'f' THEN 1 ELSE 0 END) as failed_count,
+            SUM(CASE WHEN status = 'b' THEN 1 ELSE 0 END) as blocked_count,
+            SUM(CASE WHEN status IS NULL OR status = 'n' THEN 1 ELSE 0 END) as not_run_count
+        FROM
+            latest_executions
+        GROUP BY
+            suite_id, suite_name, testplan_id, testplan_notes, testproject_id, project_notes
+        ORDER BY
+            project_notes, testplan_notes, suite_name
+
+Updated metrics_by_suite[54302] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > Additional ATM
+Updated metrics_by_suite[54708] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > Additional_CB
+Updated metrics_by_suite[54753] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > Additional_DHV
+Updated metrics_by_suite[55294] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > Additional_PIC
+Updated metrics_by_suite[58309] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Trade & Treasury > Additional_TF
+Updated metrics_by_suite[144008] with path: FUCTIONAL TESTING > CYCLE 2 > RELEASED CUSTOMIZATION > CUST_LENDING > ADVANCE LOAN
+Updated metrics_by_suite[52905] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > ATM
+Updated metrics_by_suite[83392] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > BASE CHARGES
+Updated metrics_by_suite[77146] with path: FUCTIONAL TESTING > TBD > CORE MANAGEMENT > BASE Others
+Updated metrics_by_suite[55299] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > BFH
+Updated metrics_by_suite[124865] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > BOOK TRANSFER
+Updated metrics_by_suite[126166] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > BOOK TRANSFER
+Updated metrics_by_suite[51273] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > BT
+Updated metrics_by_suite[95227] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > CARD FEES
+Updated metrics_by_suite[112789] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > CASA
+Updated metrics_by_suite[54377] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > CB
+Updated metrics_by_suite[51252] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > CBPMP
+Updated metrics_by_suite[126165] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > CBPMP
+Updated metrics_by_suite[125461] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > CHANNEL
+Updated metrics_by_suite[99483] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > CHEQUE
+Updated metrics_by_suite[125460] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > CLEARING
+Updated metrics_by_suite[126170] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > CLEARING
+Updated metrics_by_suite[124866] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > CROSS BOARDER (CBPMP)
+Updated metrics_by_suite[126168] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > CROSS BORDER
+Updated metrics_by_suite[147580] with path: FUCTIONAL TESTING > CYCLE 2 > CUSTOMER EXPERIENCE > PAYMENT & CHANNEL > CX_ATM
+Updated metrics_by_suite[146978] with path: FUCTIONAL TESTING > CYCLE 2 > CUSTOMER EXPERIENCE > PAYMENT & CHANNEL > CX_MKONONI
+Updated metrics_by_suite[146977] with path: FUCTIONAL TESTING > CYCLE 2 > CUSTOMER EXPERIENCE > BRANCH & COPs MGT > CX_OBBRN
+Updated metrics_by_suite[146980] with path: FUCTIONAL TESTING > CYCLE 2 > CUSTOMER EXPERIENCE > PAYMENT & CHANNEL > CX_POS
+Updated metrics_by_suite[146976] with path: FUCTIONAL TESTING > CYCLE 2 > CUSTOMER EXPERIENCE > BRANCH & COPs MGT > CX_SI
+Updated metrics_by_suite[147579] with path: FUCTIONAL TESTING > CYCLE 2 > CUSTOMER EXPERIENCE > CASA > CX_TD
+Updated metrics_by_suite[146979] with path: FUCTIONAL TESTING > CYCLE 2 > CUSTOMER EXPERIENCE > PAYMENT & CHANNEL > CX_WAKALA
+Updated metrics_by_suite[55985] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > DDC
+Updated metrics_by_suite[54772] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > DHV
+Updated metrics_by_suite[124871] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > DIRECT DEBIT
+Updated metrics_by_suite[55400] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > DLV
+Updated metrics_by_suite[126172] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > DLV
+Updated metrics_by_suite[48910] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Lending > EC
+Updated metrics_by_suite[120612] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > ECM
+Updated metrics_by_suite[126164] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > LENDING > ECM
+Updated metrics_by_suite[49826] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Lending > ELM
+Updated metrics_by_suite[126159] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > LENDING > ELM
+Updated metrics_by_suite[126161] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > LENDING > ENTERPRISE COLLECTION (EC)
+Updated metrics_by_suite[126162] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > LENDING > ENTERPRISE RECOVERY (ER)
+Updated metrics_by_suite[143793] with path: FUCTIONAL TESTING > CYCLE 2 > RELEASED CUSTOMIZATION > CUST_BRANCH & COPs MGT > FX CHARGES
+Updated metrics_by_suite[99484] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > GOV. LEVY
+Updated metrics_by_suite[124868] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > HIGH VALUE TRXN
+Updated metrics_by_suite[93859] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > IC CHARGES
+Updated metrics_by_suite[6247] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Lending > LBL
+Updated metrics_by_suite[126163] with path: FUCTIONAL TESTING > TBD > LENDING > LBL
+Updated metrics_by_suite[120611] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > LIMITS MGT - ELM
+Updated metrics_by_suite[73242] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > Branch & COPs Mgt > OBBRN
+Updated metrics_by_suite[106613] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > OBBRN
+Updated metrics_by_suite[95228] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > OBBRN CHARGES
+Updated metrics_by_suite[99481] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > OBPM CHARGES
+Updated metrics_by_suite[141712] with path: FUCTIONAL TESTING > CYCLE 2 > TRADE & TREASURY > OBSCF
+Updated metrics_by_suite[126174] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > TRADE AND TREASURY > OBTF
+Updated metrics_by_suite[95226] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > OBTF CHARGES
+Updated metrics_by_suite[118859] with path: FUCTIONAL TESTING > CYCLE 2 > LENDING > OD
+Updated metrics_by_suite[81612] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > Lending > Overdraft
+Updated metrics_by_suite[54901] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > PIC
+Updated metrics_by_suite[145409] with path: FUCTIONAL TESTING > CYCLE 2 > REPORTS & NOTIFICATIONS > RN_BRANCH & COPs MGT
+Updated metrics_by_suite[22549] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Lending > RSME
+Updated metrics_by_suite[126160] with path: FUCTIONAL TESTING > TBD > LENDING > RSME_1
+Updated metrics_by_suite[139000] with path: FUCTIONAL TESTING > TBD > LENDING > RSME_2
+Updated metrics_by_suite[125459] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > SI
+Updated metrics_by_suite[99482] with path: FUCTIONAL TESTING > CYCLE 3 > Financial > SI CHARGES
+Updated metrics_by_suite[81611] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > Lending > Syndication
+Updated metrics_by_suite[106606] with path: FUCTIONAL TESTING > CYCLE 2 > LENDING > SYNDICATION
+Updated metrics_by_suite[143236] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > CASA > TD
+Updated metrics_by_suite[51332] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Payment & Transactions > TestExcTool_BT
+Updated metrics_by_suite[56029] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Trade & Treasury > TF
+Updated metrics_by_suite[71425] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > Trade and Treasury > TFPM
+Updated metrics_by_suite[143794] with path: FUCTIONAL TESTING > CYCLE 2 > RELEASED CUSTOMIZATION > CUST_BRANCH & COPs MGT > TXN LIMITS
+Updated metrics_by_suite[124872] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > ATM
+Updated metrics_by_suite[126167] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > ATM
+Updated metrics_by_suite[106603] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > CORE MANAGEMENT > BASE OTHERS
+Updated metrics_by_suite[126171] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > BFH
+Updated metrics_by_suite[126154] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > BRANCH & COPS MGT
+Updated metrics_by_suite[59734] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > CASA & TD > CASA
+Updated metrics_by_suite[106598] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > CASA & TD > CASA
+Updated metrics_by_suite[141713] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > CASA > CASA
+Updated metrics_by_suite[77512] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > CASA & TD > CASA_1
+Updated metrics_by_suite[77513] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > CASA & TD > CASA_2
+Updated metrics_by_suite[124869] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > CLEARING TRXN
+Updated metrics_by_suite[124870] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > CROSS BOARDER (CB)
+Updated metrics_by_suite[126169] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > DHV
+Updated metrics_by_suite[126173] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B1 RETEST & VERIFICATION > PAYMENT & TRXN > DIRECT DEBIT
+Updated metrics_by_suite[49373] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 1 > Lending > ER
+Updated metrics_by_suite[106608] with path: FUCTIONAL TESTING > CYCLE 2 > LENDING > INTERMODULAR
+Updated metrics_by_suite[124867] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > PAYMENT & CHANNEL > LOW VALUE TRXN
+Updated metrics_by_suite[70481] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > CASA & TD > LQM
+Updated metrics_by_suite[106599] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > CASA & TD > LQM
+Updated metrics_by_suite[141658] with path: FUCTIONAL TESTING > CYCLE 2 > CRITICAL TEST CASES > CASA > LQM
+Updated metrics_by_suite[106602] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > CORE MANAGEMENT > NOSTRO RECONCILIATION
+Updated metrics_by_suite[106597] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > BRANCH & COPs MGT > OBBRN
+Updated metrics_by_suite[120698] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > OBPM
+Updated metrics_by_suite[106601] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > CORE MANAGEMENT > RELATIONSHIP PRICING
+Updated metrics_by_suite[71007] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > Core Management > Relationship Pricing (RP)
+Updated metrics_by_suite[108714] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > RSME
+Updated metrics_by_suite[59042] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > Branch & COPs Mgt > SI
+Updated metrics_by_suite[106596] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > BRANCH & COPs MGT > SI
+Updated metrics_by_suite[75101] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > CASA & TD > TD
+Updated metrics_by_suite[106600] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > CASA & TD > TD
+Updated metrics_by_suite[112790] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > TD
+Updated metrics_by_suite[77514] with path: FUCTIONAL TESTING > CYCLE 1 > BATCH 2 > CASA & TD > TD_2
+Updated metrics_by_suite[106604] with path: FUCTIONAL TESTING > CYCLE 2 > C1/B2 RETEST & VERIFICATION > TRADE & TREASURY > TFPM
+Updated metrics_by_suite[108717] with path: FUCTIONAL TESTING > CYCLE 2 > COMPLIANCE CONTROL & LIMIT > TRADE
+2025-07-14 14:09:08 - WARNING - Suite 54302 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (37) for count in suite 54302
+2025-07-14 14:09:08 - WARNING - Suite 54708 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (22) for count in suite 54708
+2025-07-14 14:09:08 - WARNING - Suite 54753 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (9) for count in suite 54753
+2025-07-14 14:09:08 - WARNING - Suite 55294 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (2) for count in suite 55294
+2025-07-14 14:09:08 - WARNING - Suite 58309 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (18) for count in suite 58309
+2025-07-14 14:09:08 - WARNING - Suite 144008 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (30) for count in suite 144008
+2025-07-14 14:09:08 - WARNING - Suite 52905 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (698) for count in suite 52905
+2025-07-14 14:09:08 - WARNING - Suite 83392 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (5233) for count in suite 83392
+2025-07-14 14:09:08 - WARNING - Suite 77146 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (48) for count in suite 77146
+2025-07-14 14:09:08 - WARNING - Suite 55299 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (50) for count in suite 55299
+2025-07-14 14:09:08 - WARNING - Suite 124865 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (55) for count in suite 124865
+2025-07-14 14:09:08 - WARNING - Suite 126166 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (258) for count in suite 126166
+2025-07-14 14:09:08 - WARNING - Suite 51273 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (29) for count in suite 51273
+2025-07-14 14:09:08 - WARNING - Suite 95227 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (48) for count in suite 95227
+2025-07-14 14:09:08 - WARNING - Suite 112789 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (2337) for count in suite 112789
+2025-07-14 14:09:08 - WARNING - Suite 54377 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (165) for count in suite 54377
+2025-07-14 14:09:08 - WARNING - Suite 51252 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (10) for count in suite 51252
+2025-07-14 14:09:08 - WARNING - Suite 126165 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (7) for count in suite 126165
+2025-07-14 14:09:08 - WARNING - Suite 125461 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (253) for count in suite 125461
+2025-07-14 14:09:08 - WARNING - Suite 99483 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (4) for count in suite 99483
+2025-07-14 14:09:08 - WARNING - Suite 125460 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (37) for count in suite 125460
+2025-07-14 14:09:08 - WARNING - Suite 126170 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (36) for count in suite 126170
+2025-07-14 14:09:08 - WARNING - Suite 124866 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (48) for count in suite 124866
+2025-07-14 14:09:08 - WARNING - Suite 126168 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (62) for count in suite 126168
+2025-07-14 14:09:08 - WARNING - Suite 147580 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (38) for count in suite 147580
+2025-07-14 14:09:08 - WARNING - Suite 146978 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (78) for count in suite 146978
+2025-07-14 14:09:08 - WARNING - Suite 146977 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (67) for count in suite 146977
+2025-07-14 14:09:08 - WARNING - Suite 146980 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (67) for count in suite 146980
+2025-07-14 14:09:08 - WARNING - Suite 146976 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (27) for count in suite 146976
+2025-07-14 14:09:08 - WARNING - Suite 147579 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (58) for count in suite 147579
+2025-07-14 14:09:08 - WARNING - Suite 146979 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (59) for count in suite 146979
+2025-07-14 14:09:08 - WARNING - Suite 55985 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (21) for count in suite 55985
+2025-07-14 14:09:08 - WARNING - Suite 54772 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (64) for count in suite 54772
+2025-07-14 14:09:08 - WARNING - Suite 124871 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (14) for count in suite 124871
+2025-07-14 14:09:08 - WARNING - Suite 55400 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (292) for count in suite 55400
+2025-07-14 14:09:08 - WARNING - Suite 126172 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (80) for count in suite 126172
+2025-07-14 14:09:08 - WARNING - Suite 48910 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (218) for count in suite 48910
+2025-07-14 14:09:08 - WARNING - Suite 120612 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (5) for count in suite 120612
+2025-07-14 14:09:08 - WARNING - Suite 126164 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (359) for count in suite 126164
+2025-07-14 14:09:08 - WARNING - Suite 49826 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (712) for count in suite 49826
+2025-07-14 14:09:08 - WARNING - Suite 126159 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (107) for count in suite 126159
+2025-07-14 14:09:08 - WARNING - Suite 126161 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (231) for count in suite 126161
+2025-07-14 14:09:08 - WARNING - Suite 126162 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (226) for count in suite 126162
+2025-07-14 14:09:08 - WARNING - Suite 143793 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (53) for count in suite 143793
+2025-07-14 14:09:08 - WARNING - Suite 99484 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (2221) for count in suite 99484
+2025-07-14 14:09:08 - WARNING - Suite 124868 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (9) for count in suite 124868
+2025-07-14 14:09:08 - WARNING - Suite 93859 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (64) for count in suite 93859
+2025-07-14 14:09:08 - WARNING - Suite 6247 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (10) for count in suite 6247
+2025-07-14 14:09:08 - WARNING - Suite 126163 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (627) for count in suite 126163
+2025-07-14 14:09:08 - WARNING - Suite 120611 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (37) for count in suite 120611
+2025-07-14 14:09:08 - WARNING - Suite 73242 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (340) for count in suite 73242
+2025-07-14 14:09:08 - WARNING - Suite 106613 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (387) for count in suite 106613
+2025-07-14 14:09:08 - WARNING - Suite 95228 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (40) for count in suite 95228
+2025-07-14 14:09:08 - WARNING - Suite 99481 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (61) for count in suite 99481
+2025-07-14 14:09:08 - WARNING - Suite 141712 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (36) for count in suite 141712
+2025-07-14 14:09:08 - WARNING - Suite 126174 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (380) for count in suite 126174
+2025-07-14 14:09:08 - WARNING - Suite 95226 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (666) for count in suite 95226
+2025-07-14 14:09:08 - WARNING - Suite 118859 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (434) for count in suite 118859
+2025-07-14 14:09:08 - WARNING - Suite 81612 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (435) for count in suite 81612
+2025-07-14 14:09:08 - WARNING - Suite 54901 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (196) for count in suite 54901
+2025-07-14 14:09:08 - WARNING - Suite 145409 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (582) for count in suite 145409
+2025-07-14 14:09:08 - WARNING - Suite 22549 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (6590) for count in suite 22549
+2025-07-14 14:09:08 - WARNING - Suite 126160 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (1899) for count in suite 126160
+2025-07-14 14:09:08 - WARNING - Suite 139000 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (1670) for count in suite 139000
+2025-07-14 14:09:08 - WARNING - Suite 125459 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (24) for count in suite 125459
+2025-07-14 14:09:08 - WARNING - Suite 99482 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (313) for count in suite 99482
+2025-07-14 14:09:08 - WARNING - Suite 81611 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (452) for count in suite 81611
+2025-07-14 14:09:08 - WARNING - Suite 106606 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (446) for count in suite 106606
+2025-07-14 14:09:08 - WARNING - Suite 143236 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (270) for count in suite 143236
+2025-07-14 14:09:08 - WARNING - Suite 51332 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (786) for count in suite 51332
+2025-07-14 14:09:08 - WARNING - Suite 56029 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (1121) for count in suite 56029
+2025-07-14 14:09:08 - WARNING - Suite 71425 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (564) for count in suite 71425
+2025-07-14 14:09:08 - WARNING - Suite 143794 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (53) for count in suite 143794
+2025-07-14 14:09:08 - WARNING - Suite 124872 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (55) for count in suite 124872
+2025-07-14 14:09:08 - WARNING - Suite 126167 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (317) for count in suite 126167
+2025-07-14 14:09:08 - WARNING - Suite 106603 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (42) for count in suite 106603
+2025-07-14 14:09:08 - WARNING - Suite 126171 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (50) for count in suite 126171
+2025-07-14 14:09:08 - WARNING - Suite 126154 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (280) for count in suite 126154
+2025-07-14 14:09:08 - WARNING - Suite 59734 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (2365) for count in suite 59734
+2025-07-14 14:09:08 - WARNING - Suite 106598 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (651) for count in suite 106598
+2025-07-14 14:09:08 - WARNING - Suite 141713 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (761) for count in suite 141713
+2025-07-14 14:09:08 - WARNING - Suite 77512 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (1534) for count in suite 77512
+2025-07-14 14:09:08 - WARNING - Suite 77513 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (823) for count in suite 77513
+2025-07-14 14:09:08 - WARNING - Suite 124869 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (19) for count in suite 124869
+2025-07-14 14:09:08 - WARNING - Suite 124870 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (8) for count in suite 124870
+2025-07-14 14:09:08 - WARNING - Suite 126169 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (38) for count in suite 126169
+2025-07-14 14:09:08 - WARNING - Suite 126173 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (1) for count in suite 126173
+2025-07-14 14:09:08 - WARNING - Suite 49373 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (226) for count in suite 49373
+2025-07-14 14:09:08 - WARNING - Suite 106608 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (327) for count in suite 106608
+2025-07-14 14:09:08 - WARNING - Suite 124867 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (79) for count in suite 124867
+2025-07-14 14:09:08 - WARNING - Suite 70481 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (199) for count in suite 70481
+2025-07-14 14:09:08 - WARNING - Suite 106599 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (63) for count in suite 106599
+2025-07-14 14:09:08 - WARNING - Suite 141658 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (26) for count in suite 141658
+2025-07-14 14:09:08 - WARNING - Suite 106602 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (16) for count in suite 106602
+2025-07-14 14:09:08 - WARNING - Suite 106597 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (308) for count in suite 106597
+2025-07-14 14:09:08 - WARNING - Suite 120698 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (193) for count in suite 120698
+2025-07-14 14:09:08 - WARNING - Suite 106601 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (2) for count in suite 106601
+2025-07-14 14:09:08 - WARNING - Suite 71007 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (93) for count in suite 71007
+2025-07-14 14:09:08 - WARNING - Suite 108714 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (49) for count in suite 108714
+2025-07-14 14:09:08 - WARNING - Suite 59042 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (213) for count in suite 59042
+2025-07-14 14:09:08 - WARNING - Suite 106596 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (132) for count in suite 106596
+2025-07-14 14:09:08 - WARNING - Suite 75101 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (511) for count in suite 75101
+2025-07-14 14:09:08 - WARNING - Suite 106600 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (610) for count in suite 106600
+2025-07-14 14:09:08 - WARNING - Suite 112790 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (687) for count in suite 112790
+2025-07-14 14:09:08 - WARNING - Suite 77514 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (615) for count in suite 77514
+2025-07-14 14:09:08 - WARNING - Suite 106604 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (131) for count in suite 106604
+2025-07-14 14:09:08 - WARNING - Suite 108717 is missing 'count' key, adding default
+2025-07-14 14:09:08 - INFO - Using testcase_count (38) for count in suite 108717
+2025-07-14 14:09:08 - INFO - Data processing completed successfully
+2025-07-14 14:09:08 - INFO - Generating Excel file: output\testlink_export_20250714_140908.xlsx
+2025-07-14 14:09:08 - INFO - Calling Excel exporter to generate file...
+Export data keys: dict_keys(['hierarchical_data', 'status_counts', 'tester_counts', 'suite_counts', 'metrics_by_suite', 'project_name', 'testplan_name'])
+Creating test suite execution summary with data keys: dict_keys(['hierarchical_data', 'status_counts', 'tester_counts', 'suite_counts', 'metrics_by_suite', 'project_name', 'testplan_name'])
+Suite 54302 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54302 has 'count': 37
+Suite 54708 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54708 has 'count': 22
+Suite 54753 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54753 has 'count': 9
+Suite 55294 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55294 has 'count': 2
+Suite 58309 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 58309 has 'count': 18
+Suite 144008 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 144008 has 'count': 30
+Suite 52905 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 52905 has 'count': 698
+Suite 83392 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 83392 has 'count': 5233
+Suite 77146 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77146 has 'count': 48
+Suite 55299 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55299 has 'count': 50
+Suite 124865 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124865 has 'count': 55
+Suite 126166 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126166 has 'count': 258
+Suite 51273 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 51273 has 'count': 29
+Suite 95227 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 95227 has 'count': 48
+Suite 112789 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 112789 has 'count': 2337
+Suite 54377 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54377 has 'count': 165
+Suite 51252 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 51252 has 'count': 10
+Suite 126165 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126165 has 'count': 7
+Suite 125461 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 125461 has 'count': 253
+Suite 99483 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99483 has 'count': 4
+Suite 125460 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 125460 has 'count': 37
+Suite 126170 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126170 has 'count': 36
+Suite 124866 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124866 has 'count': 48
+Suite 126168 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126168 has 'count': 62
+Suite 147580 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 147580 has 'count': 38
+Suite 146978 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146978 has 'count': 78
+Suite 146977 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146977 has 'count': 67
+Suite 146980 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146980 has 'count': 67
+Suite 146976 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146976 has 'count': 27
+Suite 147579 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 147579 has 'count': 58
+Suite 146979 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146979 has 'count': 59
+Suite 55985 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55985 has 'count': 21
+Suite 54772 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54772 has 'count': 64
+Suite 124871 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124871 has 'count': 14
+Suite 55400 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55400 has 'count': 292
+Suite 126172 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126172 has 'count': 80
+Suite 48910 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 48910 has 'count': 218
+Suite 120612 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 120612 has 'count': 5
+Suite 126164 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126164 has 'count': 359
+Suite 49826 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 49826 has 'count': 712
+Suite 126159 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126159 has 'count': 107
+Suite 126161 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126161 has 'count': 231
+Suite 126162 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126162 has 'count': 226
+Suite 143793 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 143793 has 'count': 53
+Suite 99484 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99484 has 'count': 2221
+Suite 124868 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124868 has 'count': 9
+Suite 93859 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 93859 has 'count': 64
+Suite 6247 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 6247 has 'count': 10
+Suite 126163 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126163 has 'count': 627
+Suite 120611 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 120611 has 'count': 37
+Suite 73242 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 73242 has 'count': 340
+Suite 106613 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106613 has 'count': 387
+Suite 95228 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 95228 has 'count': 40
+Suite 99481 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99481 has 'count': 61
+Suite 141712 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 141712 has 'count': 36
+Suite 126174 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126174 has 'count': 380
+Suite 95226 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 95226 has 'count': 666
+Suite 118859 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 118859 has 'count': 434
+Suite 81612 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 81612 has 'count': 435
+Suite 54901 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54901 has 'count': 196
+Suite 145409 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 145409 has 'count': 582
+Suite 22549 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 22549 has 'count': 6590
+Suite 126160 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126160 has 'count': 1899
+Suite 139000 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 139000 has 'count': 1670
+Suite 125459 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 125459 has 'count': 24
+Suite 99482 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99482 has 'count': 313
+Suite 81611 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 81611 has 'count': 452
+Suite 106606 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106606 has 'count': 446
+Suite 143236 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 143236 has 'count': 270
+Suite 51332 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 51332 has 'count': 786
+Suite 56029 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 56029 has 'count': 1121
+Suite 71425 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 71425 has 'count': 564
+Suite 143794 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 143794 has 'count': 53
+Suite 124872 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124872 has 'count': 55
+Suite 126167 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126167 has 'count': 317
+Suite 106603 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106603 has 'count': 42
+Suite 126171 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126171 has 'count': 50
+Suite 126154 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126154 has 'count': 280
+Suite 59734 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 59734 has 'count': 2365
+Suite 106598 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106598 has 'count': 651
+Suite 141713 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 141713 has 'count': 761
+Suite 77512 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77512 has 'count': 1534
+Suite 77513 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77513 has 'count': 823
+Suite 124869 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124869 has 'count': 19
+Suite 124870 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124870 has 'count': 8
+Suite 126169 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126169 has 'count': 38
+Suite 126173 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126173 has 'count': 1
+Suite 49373 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 49373 has 'count': 226
+Suite 106608 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106608 has 'count': 327
+Suite 124867 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124867 has 'count': 79
+Suite 70481 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 70481 has 'count': 199
+Suite 106599 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106599 has 'count': 63
+Suite 141658 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 141658 has 'count': 26
+Suite 106602 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106602 has 'count': 16
+Suite 106597 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106597 has 'count': 308
+Suite 120698 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 120698 has 'count': 193
+Suite 106601 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106601 has 'count': 2
+Suite 71007 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 71007 has 'count': 93
+Suite 108714 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 108714 has 'count': 49
+Suite 59042 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 59042 has 'count': 213
+Suite 106596 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106596 has 'count': 132
+Suite 75101 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 75101 has 'count': 511
+Suite 106600 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106600 has 'count': 610
+Suite 112790 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 112790 has 'count': 687
+Suite 77514 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77514 has 'count': 615
+Suite 106604 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106604 has 'count': 131
+Suite 108717 has keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 108717 has 'count': 38
+
+Extracting execution summary data
+Data keys: dict_keys(['hierarchical_data', 'status_counts', 'tester_counts', 'suite_counts', 'metrics_by_suite', 'project_name', 'testplan_name'])
+Found metrics_by_suite with 107 entries
+Processing suite 54302 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54302: Found count using key 'testcase_count' = 37
+Suite 54302: Found path using key 'full_path'
+Processing suite 54708 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54708: Found count using key 'testcase_count' = 22
+Suite 54708: Found path using key 'full_path'
+Processing suite 54753 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54753: Found count using key 'testcase_count' = 9
+Suite 54753: Found path using key 'full_path'
+Processing suite 55294 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55294: Found count using key 'testcase_count' = 2
+Suite 55294: Found path using key 'full_path'
+Processing suite 58309 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 58309: Found count using key 'testcase_count' = 18
+Suite 58309: Found path using key 'full_path'
+Processing suite 144008 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 144008: Found count using key 'testcase_count' = 30
+Suite 144008: Found path using key 'full_path'
+Processing suite 52905 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 52905: Found count using key 'testcase_count' = 698
+Suite 52905: Found path using key 'full_path'
+Processing suite 83392 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 83392: Found count using key 'testcase_count' = 5233
+Suite 83392: Found path using key 'full_path'
+Processing suite 77146 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77146: Found count using key 'testcase_count' = 48
+Suite 77146: Found path using key 'full_path'
+Processing suite 55299 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55299: Found count using key 'testcase_count' = 50
+Suite 55299: Found path using key 'full_path'
+Processing suite 124865 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124865: Found count using key 'testcase_count' = 55
+Suite 124865: Found path using key 'full_path'
+Processing suite 126166 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126166: Found count using key 'testcase_count' = 258
+Suite 126166: Found path using key 'full_path'
+Processing suite 51273 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 51273: Found count using key 'testcase_count' = 29
+Suite 51273: Found path using key 'full_path'
+Processing suite 95227 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 95227: Found count using key 'testcase_count' = 48
+Suite 95227: Found path using key 'full_path'
+Processing suite 112789 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 112789: Found count using key 'testcase_count' = 2337
+Suite 112789: Found path using key 'full_path'
+Processing suite 54377 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54377: Found count using key 'testcase_count' = 165
+Suite 54377: Found path using key 'full_path'
+Processing suite 51252 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 51252: Found count using key 'testcase_count' = 10
+Suite 51252: Found path using key 'full_path'
+Processing suite 126165 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126165: Found count using key 'testcase_count' = 7
+Suite 126165: Found path using key 'full_path'
+Processing suite 125461 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 125461: Found count using key 'testcase_count' = 253
+Suite 125461: Found path using key 'full_path'
+Processing suite 99483 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99483: Found count using key 'testcase_count' = 4
+Suite 99483: Found path using key 'full_path'
+Processing suite 125460 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 125460: Found count using key 'testcase_count' = 37
+Suite 125460: Found path using key 'full_path'
+Processing suite 126170 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126170: Found count using key 'testcase_count' = 36
+Suite 126170: Found path using key 'full_path'
+Processing suite 124866 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124866: Found count using key 'testcase_count' = 48
+Suite 124866: Found path using key 'full_path'
+Processing suite 126168 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126168: Found count using key 'testcase_count' = 62
+Suite 126168: Found path using key 'full_path'
+Processing suite 147580 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 147580: Found count using key 'testcase_count' = 38
+Suite 147580: Found path using key 'full_path'
+Processing suite 146978 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146978: Found count using key 'testcase_count' = 78
+Suite 146978: Found path using key 'full_path'
+Processing suite 146977 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146977: Found count using key 'testcase_count' = 67
+Suite 146977: Found path using key 'full_path'
+Processing suite 146980 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146980: Found count using key 'testcase_count' = 67
+Suite 146980: Found path using key 'full_path'
+Processing suite 146976 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146976: Found count using key 'testcase_count' = 27
+Suite 146976: Found path using key 'full_path'
+Processing suite 147579 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 147579: Found count using key 'testcase_count' = 58
+Suite 147579: Found path using key 'full_path'
+Processing suite 146979 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 146979: Found count using key 'testcase_count' = 59
+Suite 146979: Found path using key 'full_path'
+Processing suite 55985 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55985: Found count using key 'testcase_count' = 21
+Suite 55985: Found path using key 'full_path'
+Processing suite 54772 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54772: Found count using key 'testcase_count' = 64
+Suite 54772: Found path using key 'full_path'
+Processing suite 124871 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124871: Found count using key 'testcase_count' = 14
+Suite 124871: Found path using key 'full_path'
+Processing suite 55400 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 55400: Found count using key 'testcase_count' = 292
+Suite 55400: Found path using key 'full_path'
+Processing suite 126172 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126172: Found count using key 'testcase_count' = 80
+Suite 126172: Found path using key 'full_path'
+Processing suite 48910 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 48910: Found count using key 'testcase_count' = 218
+Suite 48910: Found path using key 'full_path'
+Processing suite 120612 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 120612: Found count using key 'testcase_count' = 5
+Suite 120612: Found path using key 'full_path'
+Processing suite 126164 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126164: Found count using key 'testcase_count' = 359
+Suite 126164: Found path using key 'full_path'
+Processing suite 49826 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 49826: Found count using key 'testcase_count' = 712
+Suite 49826: Found path using key 'full_path'
+Processing suite 126159 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126159: Found count using key 'testcase_count' = 107
+Suite 126159: Found path using key 'full_path'
+Processing suite 126161 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126161: Found count using key 'testcase_count' = 231
+Suite 126161: Found path using key 'full_path'
+Processing suite 126162 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126162: Found count using key 'testcase_count' = 226
+Suite 126162: Found path using key 'full_path'
+Processing suite 143793 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 143793: Found count using key 'testcase_count' = 53
+Suite 143793: Found path using key 'full_path'
+Processing suite 99484 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99484: Found count using key 'testcase_count' = 2221
+Suite 99484: Found path using key 'full_path'
+Processing suite 124868 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124868: Found count using key 'testcase_count' = 9
+Suite 124868: Found path using key 'full_path'
+Processing suite 93859 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 93859: Found count using key 'testcase_count' = 64
+Suite 93859: Found path using key 'full_path'
+Processing suite 6247 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 6247: Found count using key 'testcase_count' = 10
+Suite 6247: Found path using key 'full_path'
+Processing suite 126163 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126163: Found count using key 'testcase_count' = 627
+Suite 126163: Found path using key 'full_path'
+Processing suite 120611 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 120611: Found count using key 'testcase_count' = 37
+Suite 120611: Found path using key 'full_path'
+Processing suite 73242 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 73242: Found count using key 'testcase_count' = 340
+Suite 73242: Found path using key 'full_path'
+Processing suite 106613 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106613: Found count using key 'testcase_count' = 387
+Suite 106613: Found path using key 'full_path'
+Processing suite 95228 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 95228: Found count using key 'testcase_count' = 40
+Suite 95228: Found path using key 'full_path'
+Processing suite 99481 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99481: Found count using key 'testcase_count' = 61
+Suite 99481: Found path using key 'full_path'
+Processing suite 141712 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 141712: Found count using key 'testcase_count' = 36
+Suite 141712: Found path using key 'full_path'
+Processing suite 126174 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126174: Found count using key 'testcase_count' = 380
+Suite 126174: Found path using key 'full_path'
+Processing suite 95226 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 95226: Found count using key 'testcase_count' = 666
+Suite 95226: Found path using key 'full_path'
+Processing suite 118859 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 118859: Found count using key 'testcase_count' = 434
+Suite 118859: Found path using key 'full_path'
+Processing suite 81612 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 81612: Found count using key 'testcase_count' = 435
+Suite 81612: Found path using key 'full_path'
+Processing suite 54901 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 54901: Found count using key 'testcase_count' = 196
+Suite 54901: Found path using key 'full_path'
+Processing suite 145409 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 145409: Found count using key 'testcase_count' = 582
+Suite 145409: Found path using key 'full_path'
+Processing suite 22549 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 22549: Found count using key 'testcase_count' = 6590
+Suite 22549: Found path using key 'full_path'
+Processing suite 126160 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126160: Found count using key 'testcase_count' = 1899
+Suite 126160: Found path using key 'full_path'
+Processing suite 139000 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 139000: Found count using key 'testcase_count' = 1670
+Suite 139000: Found path using key 'full_path'
+Processing suite 125459 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 125459: Found count using key 'testcase_count' = 24
+Suite 125459: Found path using key 'full_path'
+Processing suite 99482 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 99482: Found count using key 'testcase_count' = 313
+Suite 99482: Found path using key 'full_path'
+Processing suite 81611 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 81611: Found count using key 'testcase_count' = 452
+Suite 81611: Found path using key 'full_path'
+Processing suite 106606 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106606: Found count using key 'testcase_count' = 446
+Suite 106606: Found path using key 'full_path'
+Processing suite 143236 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 143236: Found count using key 'testcase_count' = 270
+Suite 143236: Found path using key 'full_path'
+Processing suite 51332 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 51332: Found count using key 'testcase_count' = 786
+Suite 51332: Found path using key 'full_path'
+Processing suite 56029 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 56029: Found count using key 'testcase_count' = 1121
+Suite 56029: Found path using key 'full_path'
+Processing suite 71425 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 71425: Found count using key 'testcase_count' = 564
+Suite 71425: Found path using key 'full_path'
+Processing suite 143794 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 143794: Found count using key 'testcase_count' = 53
+Suite 143794: Found path using key 'full_path'
+Processing suite 124872 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124872: Found count using key 'testcase_count' = 55
+Suite 124872: Found path using key 'full_path'
+Processing suite 126167 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126167: Found count using key 'testcase_count' = 317
+Suite 126167: Found path using key 'full_path'
+Processing suite 106603 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106603: Found count using key 'testcase_count' = 42
+Suite 106603: Found path using key 'full_path'
+Processing suite 126171 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126171: Found count using key 'testcase_count' = 50
+Suite 126171: Found path using key 'full_path'
+Processing suite 126154 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126154: Found count using key 'testcase_count' = 280
+Suite 126154: Found path using key 'full_path'
+Processing suite 59734 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 59734: Found count using key 'testcase_count' = 2365
+Suite 59734: Found path using key 'full_path'
+Processing suite 106598 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106598: Found count using key 'testcase_count' = 651
+Suite 106598: Found path using key 'full_path'
+Processing suite 141713 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 141713: Found count using key 'testcase_count' = 761
+Suite 141713: Found path using key 'full_path'
+Processing suite 77512 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77512: Found count using key 'testcase_count' = 1534
+Suite 77512: Found path using key 'full_path'
+Processing suite 77513 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77513: Found count using key 'testcase_count' = 823
+Suite 77513: Found path using key 'full_path'
+Processing suite 124869 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124869: Found count using key 'testcase_count' = 19
+Suite 124869: Found path using key 'full_path'
+Processing suite 124870 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124870: Found count using key 'testcase_count' = 8
+Suite 124870: Found path using key 'full_path'
+Processing suite 126169 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126169: Found count using key 'testcase_count' = 38
+Suite 126169: Found path using key 'full_path'
+Processing suite 126173 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 126173: Found count using key 'testcase_count' = 1
+Suite 126173: Found path using key 'full_path'
+Processing suite 49373 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 49373: Found count using key 'testcase_count' = 226
+Suite 49373: Found path using key 'full_path'
+Processing suite 106608 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106608: Found count using key 'testcase_count' = 327
+Suite 106608: Found path using key 'full_path'
+Processing suite 124867 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 124867: Found count using key 'testcase_count' = 79
+Suite 124867: Found path using key 'full_path'
+Processing suite 70481 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 70481: Found count using key 'testcase_count' = 199
+Suite 70481: Found path using key 'full_path'
+Processing suite 106599 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106599: Found count using key 'testcase_count' = 63
+Suite 106599: Found path using key 'full_path'
+Processing suite 141658 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 141658: Found count using key 'testcase_count' = 26
+Suite 141658: Found path using key 'full_path'
+Processing suite 106602 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106602: Found count using key 'testcase_count' = 16
+Suite 106602: Found path using key 'full_path'
+Processing suite 106597 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106597: Found count using key 'testcase_count' = 308
+Suite 106597: Found path using key 'full_path'
+Processing suite 120698 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 120698: Found count using key 'testcase_count' = 193
+Suite 120698: Found path using key 'full_path'
+Processing suite 106601 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106601: Found count using key 'testcase_count' = 2
+Suite 106601: Found path using key 'full_path'
+Processing suite 71007 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 71007: Found count using key 'testcase_count' = 93
+Suite 71007: Found path using key 'full_path'
+Processing suite 108714 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 108714: Found count using key 'testcase_count' = 49
+Suite 108714: Found path using key 'full_path'
+Processing suite 59042 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 59042: Found count using key 'testcase_count' = 213
+Suite 59042: Found path using key 'full_path'
+Processing suite 106596 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106596: Found count using key 'testcase_count' = 132
+Suite 106596: Found path using key 'full_path'
+Processing suite 75101 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 75101: Found count using key 'testcase_count' = 511
+Suite 75101: Found path using key 'full_path'
+Processing suite 106600 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106600: Found count using key 'testcase_count' = 610
+Suite 106600: Found path using key 'full_path'
+Processing suite 112790 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 112790: Found count using key 'testcase_count' = 687
+Suite 112790: Found path using key 'full_path'
+Processing suite 77514 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 77514: Found count using key 'testcase_count' = 615
+Suite 77514: Found path using key 'full_path'
+Processing suite 106604 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 106604: Found count using key 'testcase_count' = 131
+Suite 106604: Found path using key 'full_path'
+Processing suite 108717 with keys: dict_keys(['name', 'full_path', 'testcase_count', 'passed_count', 'failed_count', 'blocked_count', 'not_run_count', 'project_notes', 'testplan_notes', 'testplan_id', 'project_id', 'count'])
+Suite 108717: Found count using key 'testcase_count' = 38
+Suite 108717: Found path using key 'full_path'
+Error exporting data: [Errno 2] No such file or directory: 'output\\output\\testlink_export_20250714_140908.xlsx'
+2025-07-14 14:09:09 - ERROR - Error exporting data: [Errno 2] No such file or directory: 'output\\output\\testlink_export_20250714_140908.xlsx'
+Traceback (most recent call last):
+  File "excel_exporter.py", line 1267, in export_data
+  File "openpyxl\workbook\workbook.py", line 386, in save
+  File "openpyxl\writer\excel.py", line 291, in save_workbook
+  File "zipfile\__init__.py", line 1367, in __init__
+FileNotFoundError: [Errno 2] No such file or directory: 'output\\output\\testlink_export_20250714_140908.xlsx'
+2025-07-14 14:09:09 - INFO - Excel file generated successfully: output\testlink_export_20250714_140908.xlsx
+Excel file generated successfully: output\testlink_export_20250714_140908.xlsx
+Disconnected from the database.
+2025-07-14 14:09:09 - INFO - Disconnected from database
+2025-07-14 14:09:09 - INFO - ======= Export completed successfully ========

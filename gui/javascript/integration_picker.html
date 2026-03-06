@@ -1,0 +1,149 @@
+<!-- Integration Picker Modal -->
+<!-- This modal allows users to select which integration to use when creating bugs -->
+<!-- Can be included in any page that needs integration selection -->
+
+<div id="integrationPickerModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="integrationPickerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="integrationPickerModalLabel">
+                    <i class="fas fa-plug"></i> Select Integration
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Loading State -->
+                <div id="integrationPickerLoading" class="text-center py-4" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2 mb-0">Loading integrations...</p>
+                </div>
+                
+                <!-- Error State -->
+                <div id="integrationPickerError" class="alert alert-danger" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="integrationPickerErrorMessage">Failed to load integrations</span>
+                    <button type="button" class="btn btn-sm btn-outline-danger ms-2" onclick="retryLoadIntegrations()">
+                        <i class="fas fa-redo"></i> Retry
+                    </button>
+                </div>
+                
+                <!-- Empty State -->
+                <div id="integrationPickerEmpty" class="text-center py-4" style="display: none;">
+                    <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                    <h6 class="text-muted">No Integrations Configured</h6>
+                    <p class="text-muted small">This project doesn't have any active integrations configured.</p>
+                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="goToIntegrationSettings()">
+                        <i class="fas fa-cog"></i> Configure Integrations
+                    </button>
+                </div>
+                
+                <!-- Integration List -->
+                <div id="integrationPickerList" style="display: none;">
+                    <div class="mb-3">
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle"></i> 
+                            Select which integration to use for creating this bug:
+                        </small>
+                    </div>
+                    <div id="integrationPickerItems" class="list-group">
+                        <!-- Integration items will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.integration-picker-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #dee2e6;
+    margin-bottom: 8px;
+}
+
+.integration-picker-item:hover {
+    background-color: #f8f9fa;
+    border-color: #007bff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.integration-picker-item.selected {
+    background-color: #e7f3ff;
+    border-color: #007bff;
+}
+
+.integration-type-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.integration-url {
+    font-size: 0.875rem;
+    color: #6c757d;
+    word-break: break-all;
+}
+
+.integration-picker-loading .spinner-border {
+    width: 2rem;
+    height: 2rem;
+}
+
+.modal-header .btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.modal-header .btn-close:hover {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .modal-dialog {
+        margin: 1rem;
+    }
+    
+    .integration-picker-item {
+        padding: 0.75rem;
+    }
+    
+    .integration-url {
+        font-size: 0.8rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .integration-picker-item {
+        background-color: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .integration-picker-item:hover {
+        background-color: #4a5568;
+        border-color: #63b3ed;
+    }
+    
+    .integration-picker-item.selected {
+        background-color: #2b6cb0;
+        border-color: #63b3ed;
+    }
+}
+</style>

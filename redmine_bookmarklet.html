@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redmine Bug Fix Bookmarklet for TestLink</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .bookmarklet {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .bookmarklet a {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .instructions {
+            margin-top: 30px;
+        }
+        .instructions ol {
+            padding-left: 20px;
+        }
+        .code {
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Redmine Bug Fix Bookmarklet for TestLink</h1>
+    
+    <p>This bookmarklet will scan your TestLink page for bug IDs (numbers starting with 64 followed by 3-5 digits) and convert them into clickable links to the Redmine issue tracker.</p>
+    
+    <div class="bookmarklet">
+        <p><strong>Drag this button to your bookmarks bar:</strong></p>
+        <a href="javascript:(function(){var s=document.createElement('script');s.src='https://test-management.nmbtz.com/testlink/custom/js/redmine_simple_fix.js?v='+Math.random();document.body.appendChild(s);})();">Fix Redmine Bug IDs</a>
+    </div>
+    
+    <div class="instructions">
+        <h2>How to Use</h2>
+        <ol>
+            <li>Drag the button above to your browser's bookmarks bar</li>
+            <li>Navigate to any TestLink page that contains bug IDs</li>
+            <li>Click the bookmarklet in your bookmarks bar</li>
+            <li>Bug IDs will be converted to clickable links</li>
+        </ol>
+        
+        <h2>Manual Method</h2>
+        <p>If you can't use the bookmarklet, you can paste this code into your browser's console (F12 > Console):</p>
+        <div class="code">(function(){var s=document.createElement('script');s.src='https://test-management.nmbtz.com/testlink/custom/js/redmine_simple_fix.js?v='+Math.random();document.body.appendChild(s);})();</div>
+        
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li>If you don't see any changes, check if there are any bug IDs on the page (numbers starting with 64 followed by 3-5 digits)</li>
+            <li>Look for a small indicator in the bottom right corner of the page showing the status of the fix</li>
+            <li>Check your browser's console (F12 > Console) for any error messages</li>
+        </ul>
+    </div>
+</body>
+</html>

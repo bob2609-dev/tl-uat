@@ -1,0 +1,9 @@
+id	login	first	last
+15	berry.nsanya	Berry	Nsanya
+id	build_id	tester_id	execution_ts	status	testplan_id	tcversion_id	platform_id
+77596	4	15	2026-01-28 13:29:51	f	242100	257380	0
+77601	4	15	2026-01-28 13:37:58	f	242100	414548	0
+77602	4	15	2026-01-28 13:39:33	f	242100	414548	0
+id	user_id	feature_id	type	status	creation_ts	testplan_id	tcversion_id	platform_id
+95903	15	84537	1	1	2026-01-28 13:36:39	242100	257380	0
+95904	15	161707	1	1	2026-01-28 13:36:39	242100	414548	0

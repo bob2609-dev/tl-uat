@@ -1,0 +1,65 @@
+<?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/ 
+ * This script is distributed under the GNU General Public License 2 or later. 
+ *
+ * Custom configuration for TestLink
+ * 
+ * SCOPE: Critical configurations, particularly email settings
+ */
+
+// *******************************************************************************
+// Email Configuration Settings
+// *******************************************************************************
+
+// SMTP server Configuration
+$g_smtp_host = '10.200.221.58';  
+
+// Email addresses for notifications
+$g_tl_admin_email = 'mwaimu.mtingele@nmbtz.com'; 
+$g_from_email = 'projectspace-test@nmbtz.com';  
+$g_return_path_email = 'mwaimu.mtingele@nmbtz.com';
+
+// PHPMailer method - set to SMTP
+$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
+
+// Email priority (5 = low, 1 = high, 0 = disabled)
+$g_mail_priority = 1;
+
+// SMTP port
+$g_smtp_port = 25;
+
+// SMTP connection mode (empty string, 'ssl', or 'tls')
+$g_smtp_connection_mode = '';
+
+// SMTP authentication (if required)
+$g_smtp_username = '';
+$g_smtp_password = '';
+
+// Email API configuration (this is crucial for TestLink to send emails correctly)
+$tlCfg->email_api = new stdClass();
+$tlCfg->email_api->from_address = $g_from_email;
+$tlCfg->email_api->from_label = 'TestLink Notification System';
+$tlCfg->email_api->return_path = $g_return_path_email;
+$tlCfg->email_api->smtp_host = $g_smtp_host;
+$tlCfg->email_api->smtp_port = $g_smtp_port;
+$tlCfg->email_api->emailFormat = 'html';
+
+// Disable auto TLS to avoid certificate issues
+$g_SMTPAutoTLS = false;
+
+// Enable notifications
+$tlCfg->notifications = new stdClass();
+$tlCfg->notifications->notify_on_test_assign = true;
+$tlCfg->notifications->notify_on_test_execution = true;
+$tlCfg->notifications->notify_on_build_creation = true;
+
+// *******************************************************************************
+// Performance Settings (retain from original)
+// *******************************************************************************
+
+// These settings improve performance for test case execution with many test cases
+// $tlCfg->gui->text_editor['execution'] = array('type' => 'none');
+// $tlCfg->exec_cfg->show_testsuite_contents = ENABLED;
+
+?>

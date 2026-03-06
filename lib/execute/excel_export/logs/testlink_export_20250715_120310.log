@@ -1,0 +1,20 @@
+2025-07-15 12:03:10 - INFO - ======= TestLink Test Execution Export ========
+2025-07-15 12:03:10 - INFO - Started at: 2025-07-15 12:03:10
+2025-07-15 12:03:10 - INFO - Arguments: Namespace(config='db_config.json', project=0, testplan=0, build=0, status='', start_date='', end_date='', output='', output_dir='', debug=False, log_level='INFO', list=False)
+2025-07-15 12:03:10 - INFO - Loading database configuration from: db_config.json
+2025-07-15 12:03:10 - INFO - Database configuration loaded successfully
+2025-07-15 12:03:10 - INFO - Connecting to database...
+2025-07-15 12:03:10 - INFO - Successfully connected to database
+2025-07-15 12:03:10 - INFO - Using filters: {'project_id': 0, 'testplan_id': 0, 'build_id': 0, 'status': '', 'start_date': '', 'end_date': ''}
+2025-07-15 12:03:10 - INFO - Initializing data processor...
+2025-07-15 12:03:10 - INFO - Data processor initialized successfully
+2025-07-15 12:03:10 - INFO - Processing test execution data...
+2025-07-15 12:03:12 - INFO - Retrieved suite progress data for 0 test suites
+2025-07-15 12:03:12 - INFO - Data processing completed successfully
+2025-07-15 12:03:12 - INFO - Generating Excel file: output\testlink_export_20250715_120312.xlsx
+2025-07-15 12:03:12 - INFO - Calling Excel exporter to generate file...
+2025-07-15 12:03:12 - WARNING - No suite_progress data found for second sheet
+2025-07-15 12:03:12 - INFO - Excel file saved successfully to C:\xampp\htdocs\tl-uat\lib\execute\excel_export\output\testlink_export_20250715_120312.xlsx
+2025-07-15 12:03:12 - INFO - Excel file generated successfully: output\testlink_export_20250715_120312.xlsx
+2025-07-15 12:03:12 - INFO - Disconnected from database
+2025-07-15 12:03:12 - INFO - ======= Export completed successfully ========

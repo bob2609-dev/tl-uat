@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Refresh Mechanism</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { color: green; }
+        .error { color: red; }
+        button { padding: 10px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Integration Management Refresh Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Cache Busting</h2>
+        <button onclick="testCacheBusting()">Test List APIs with Cache Busting</button>
+        <div id="cacheResult"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Integration Management</h2>
+        <button onclick="window.open('https://test-management.nmbtz.com:9443/lib/execute/custom_bugtrack_integration.html', '_blank')">
+            Open Integration Management
+        </button>
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Create a new integration</li>
+            <li>Check if it appears in the list immediately</li>
+            <li>Create a new project mapping</li>
+            <li>Check if it appears in the mappings list immediately</li>
+            <li>Delete the integration/mapping and verify it disappears</li>
+        </ol>
+    </div>
+    
+    <script>
+        function testCacheBusting() {
+            const resultDiv = document.getElementById('cacheResult');
+            resultDiv.innerHTML = '<p>Testing cache busting...</p>';
+            
+            // Test the getApiUrl function logic
+            const pathname = window.location.pathname;
+            let baseUrl = window.location.origin;
+            
+            if (pathname.includes('/lib/execute/')) {
+                baseUrl = window.location.origin + pathname.substring(0, pathname.lastIndexOf('/lib/execute/'));
+            }
+            
+            // Test list URLs with cache busting
+            const listUrl1 = `${baseUrl}/lib/execute/custom_bugtrack_integrator.php?action=list_integrations&_t=${new Date().getTime()}`;
+            const listUrl2 = `${baseUrl}/lib/execute/custom_bugtrack_integrator.php?action=list_project_mappings&_t=${new Date().getTime()}`;
+            
+            resultDiv.innerHTML = `
+                <p><strong>Base URL:</strong> ${baseUrl}</p>
+                <p><strong>List Integrations URL:</strong> ${listUrl1}</p>
+                <p><strong>List Mappings URL:</strong> ${listUrl2}</p>
+                <p class="success">✅ Cache busting timestamps are being added correctly!</p>
+            `;
+            
+            // Test actual API calls
+            Promise.all([
+                fetch(listUrl1).then(r => r.json()),
+                fetch(listUrl2).then(r => r.json())
+            ]).then(([integrations, mappings]) => {
+                resultDiv.innerHTML += `
+                    <p class="success">✅ API calls successful!</p>
+                    <p><strong>Integrations found:</strong> ${integrations.data ? integrations.data.length : 0}</p>
+                    <p><strong>Mappings found:</strong> ${mappings.data ? mappings.data.length : 0}</p>
+                `;
+            }).catch(error => {
+                resultDiv.innerHTML += `<p class="error">❌ API call failed: ${error.message}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>

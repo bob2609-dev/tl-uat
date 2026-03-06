@@ -1,0 +1,93 @@
+AddType image/jpeg .jpg .jpeg .jpe
+AddType image/png .png
+AddType image/gif .gif
+AddType image/svg+xml .svg
+
+# Block access to sensitive files (including common development/info files)
+<FilesMatch "(?i)(^\.|dockerfile|config\.inc\.php|info\.php|README\.md|CHANGELOG)$">
+ Require all denied
+</FilesMatch>
+
+# Deny direct access to known sensitive PHP config files
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteRule ^(config\.inc\.php|config_db\.inc\.php|db_config\.php|custom_config.*\.php)$ - [F,L]
+</IfModule>
+
+# Block common config/log files and specific extensions (including backups/archives)
+<FilesMatch "(?i)\.(env|git|htaccess|htpasswd|bak|old|orig|save|conf|config|ini|inc|log|sh|sql|swp|~|zip|tar|gz|bz2|7z|rar)$">
+ Require all denied
+</FilesMatch>
+
+# Block .git/.svn and vendor directories
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteRule ^(\.git|\.svn|vendor)/ - [F,L]
+</IfModule>
+
+# Allow directory indexing only if needed
+Options -Indexes
+
+# Security headers (comment out if causing issues)
+#<IfModule mod_headers.c>
+ # Header set X-Content-Type-Options "nosniff"
+ #Header set X-Frame-Options "DENY"
+ #Header unset "X-Powered-By"
+#</IfModule>
+
+# Remove ErrorDocument rules temporarily for debugging
+# ErrorDocument 403 /404.html
+# ErrorDocument 404 /404.html
+
+# Disable directory listings for ALL directories (already present, keeping for clarity)
+Options -Indexes
+
+# Optional: Block access to specific directories (e.g., /docs/) - vendor added above
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ # Vendor is now blocked by the rule above, keeping this for other directories if needed
+ RewriteRule ^(docs)/ - [F,L]
+ # Block access to install directory in production
+ RewriteRule ^install/ - [F,L]
+ # Block access to logs and sql directories
+ RewriteRule ^(logs|sql)/ - [F,L]
+ # Block access to query_outputs (may contain raw exports)
+ RewriteRule ^query_ouputs?/ - [F,L]
+ # Prevent PHP execution from upload_area (allow static downloads only)
+ RewriteRule ^upload_area/.*\.(php|phps|phtml|phar)$ - [F,L]
+</IfModule>
+
+# Restrict diagnostic.php to localhost only (Apache 2.4+)
+<Files "diagnostic.php">
+  Require local
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1 ::1
+  </IfModule>
+</Files>
+
+# Restrict other debug/test helper scripts to localhost as well (but allow direct_image.php)
+<FilesMatch "(?i)^(debug.*|direct_(?!image).*|.*_test|.*_fix)\.php$">
+  Require local
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1 ::1
+  </IfModule>
+</FilesMatch>
+
+# Explicitly allow navigation to userInfo page (match by filename only)
+# Files does not accept slashes; FilesMatch anchors to the basename
+<FilesMatch "(?i)^userInfo\.php$">
+  Require all granted
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Allow from all
+  </IfModule>
+</FilesMatch>
+
+# Deny direct access to sensitive plaintext info files
+<FilesMatch "(?i)^(db_details\.txt|README(\..*)?)$">
+  Require all denied
+</FilesMatch>

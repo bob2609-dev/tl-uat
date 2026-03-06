@@ -1,0 +1,126 @@
+<?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/ 
+ * This script is distributed under the GNU General Public License 2 or later. 
+ *
+ * Custom configuration for TestLink
+ * 
+ * SCOPE: Critical configurations, particularly email settings and LDAP authentication
+ */
+
+// *******************************************************************************
+// Email Configuration Settings
+// *******************************************************************************
+// Enable verbose LDAP logging
+$tlCfg->log_level = 'DEBUG';
+// $tlCfg->loggerFilter = array('DEBUG','AUDIT','WARNING','ERROR');
+// SMTP server Configuration
+$g_smtp_host = '10.200.221.58';  
+// Email addresses for notifications
+$g_tl_admin_email = 'mwaimu.mtingele@nmbtz.com'; 
+$g_from_email = 'projectspace-test@nmbtz.com';  
+$g_return_path_email = 'mwaimu.mtingele@nmbtz.com';
+
+// PHPMailer method - set to SMTP
+$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
+
+// Email priority (5 = low, 1 = high, 0 = disabled)
+$g_mail_priority = 1;
+
+// SMTP port
+$g_smtp_port = 25;
+
+// SMTP connection mode (empty string, 'ssl', or 'tls')
+$g_smtp_connection_mode = '';
+
+// SMTP authentication (if required)
+$g_smtp_username = '';
+$g_smtp_password = '';
+
+// Email API configuration (this is crucial for TestLink to send emails correctly)
+$tlCfg->email_api = new stdClass();
+$tlCfg->email_api->from_address = $g_from_email;
+$tlCfg->email_api->from_label = 'TestLink Notification System';
+$tlCfg->email_api->return_path = $g_return_path_email;
+$tlCfg->email_api->smtp_host = $g_smtp_host;
+$tlCfg->email_api->smtp_port = $g_smtp_port;
+$tlCfg->email_api->emailFormat = 'html';
+
+// Disable auto TLS to avoid certificate issues
+$g_SMTPAutoTLS = false;
+
+// *******************************************************************************
+// Image Display Fix Configuration
+// *******************************************************************************
+// This section adds custom scripts to fix attachment/image display issues
+
+// Add our image fix script to all pages
+$tlCfg->hooks['header'] = isset($tlCfg->hooks['header']) ? $tlCfg->hooks['header'] : array();
+$tlCfg->hooks['header'][] = 'custom/inc/image_fix_header.php';
+
+// Enable notifications
+$tlCfg->notifications = new stdClass();
+$tlCfg->notifications->notify_on_test_assign = true;
+$tlCfg->notifications->notify_on_test_execution = true;
+$tlCfg->notifications->notify_on_build_creation = true;
+
+// *******************************************************************************
+// LDAP Authentication Configuration
+// *******************************************************************************
+// LDAP Authentication Configuration
+$tlCfg->authentication['method'] = 'LDAP,MD5';
+
+// LDAP server settings
+$tlCfg->authentication['ldap'] = array(); // Initialize as empty array
+$tlCfg->authentication['ldap'][0] = array(); // Add first LDAP server
+
+// Server details
+$tlCfg->authentication['ldap'][0]['ldap_server'] = 'ldap://10.200.221.11';
+$tlCfg->authentication['ldap'][0]['ldap_port'] = 389;
+$tlCfg->authentication['ldap'][0]['ldap_version'] = 3;
+$tlCfg->authentication['ldap'][0]['ldap_start_tls'] = false;
+$tlCfg->authentication['ldap'][0]['ldap_tls'] = false;
+
+// Connection timeout (in seconds)
+$tlCfg->authentication['ldap'][0]['ldap_timeout'] = 5;
+
+// Binding credentials
+$tlCfg->authentication['ldap'][0]['ldap_bind_dn'] = 'CN=Service.testauto,OU=Service Accounts,DC=nmbtz,DC=com';
+$tlCfg->authentication['ldap'][0]['ldap_bind_passwd'] = 'p@ssw0rd';
+
+// Search settings
+$tlCfg->authentication['ldap'][0]['ldap_organization'] = '(objectClass=user)';
+$tlCfg->authentication['ldap'][0]['ldap_root_dn'] = 'dc=nmbtz,dc=com';
+$tlCfg->authentication['ldap'][0]['ldap_uid_field'] = 'sAMAccountName';
+
+// User auto-creation
+$tlCfg->authentication['ldap'][0]['ldap_automatic_user_creation'] = true;
+$tlCfg->authentication['ldap'][0]['ldap_email_field'] = 'mail';
+$tlCfg->authentication['ldap'][0]['ldap_firstname_field'] = 'givenname';
+$tlCfg->authentication['ldap'][0]['ldap_surname_field'] = 'sn';
+$tlCfg->authentication['ldap'][0]['ldap_user_dn_format'] = '';
+$tlCfg->authentication['ldap'][0]['ldap_default_role_id'] = 8;
+
+
+// $tlCfg->config_check_warning_mode = 'SILENT';
+// At the end of your custom_config.inc.php file, add this:
+
+// *******************************************************************************
+// Redmine Bug Tracker Integration Configuration
+// *******************************************************************************
+
+// Register the custom bug tracker interface
+require_once('lib/issuetrackers/redmine_ssl_fix.class.php');
+
+// Define the interface to use for bug tracking
+$g_interface_bugs = 'redmineSslFix';
+$g_interface_bugs_configuration = array(
+    'redmineSslFix' => array(
+        'uribase' => 'https://support.profinch.com/',
+        'apikey' => 'a597e200f8923a85484e81ca81d731827b8dbf3d',
+        'projectidentifier' => 'nmb-fcubs-14-7-uat2'
+    )
+);
+?>
+ 
+ 

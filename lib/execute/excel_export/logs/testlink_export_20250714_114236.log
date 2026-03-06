@@ -1,0 +1,15 @@
+2025-07-14 11:42:36 - INFO - Starting TestLink Export Tool
+2025-07-14 11:42:36 - INFO - Log level: INFO
+2025-07-14 11:42:36 - INFO - Log file: C:\xampp\htdocs\tl-uat\lib\execute\excel_export\logs\testlink_export_20250714_114236.log
+2025-07-14 11:42:36 - INFO - Loading database configuration from: db_config.json
+2025-07-14 11:42:36 - INFO - Connecting to database...
+2025-07-14 11:42:36 - INFO - Successfully connected to database
+2025-07-14 11:42:36 - INFO - === Current Filter Settings ===
+2025-07-14 11:42:36 - INFO - Project ID: All
+2025-07-14 11:42:36 - INFO - Test Plan ID: All
+2025-07-14 11:42:36 - INFO - Build ID: All
+2025-07-14 11:42:36 - INFO - Status: All
+2025-07-14 11:42:36 - INFO - Start Date: All
+2025-07-14 11:42:36 - INFO - End Date: All
+2025-07-14 11:42:36 - INFO - Retrieving test execution data...
+2025-07-14 11:42:38 - CRITICAL - Unhandled exception: 'count'

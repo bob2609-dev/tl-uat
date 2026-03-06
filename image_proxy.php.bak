@@ -1,0 +1,175 @@
+<?php
+/**
+ * Enhanced image proxy for TestLink attachments with debugging
+ */
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Include config to get database connection info
+require_once('config.inc.php');
+
+// Get attachment ID
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+if (!$id) {
+    die("No attachment ID specified");
+}
+
+// Connect to database
+$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+if ($db->connect_error) {
+    die("Database connection failed: " . $db->connect_error);
+}
+
+// Get attachment info
+$sql = "SELECT * FROM attachments WHERE id = $id";
+$result = $db->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    $attachment = $result->fetch_assoc();
+    
+    // Display debugging information
+    echo "<div style='border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; font-family: monospace;'>";
+    echo "<h2>Image Proxy Debug Info</h2>";
+    echo "<strong>ID:</strong> " . $id . "<br>";
+    echo "<strong>File Name:</strong> " . $attachment['file_name'] . "<br>";
+    echo "<strong>File Path in DB:</strong> " . $attachment['file_path'] . "<br>";
+    echo "<strong>File Size:</strong> " . $attachment['file_size'] . " bytes<br>";
+    echo "<strong>File Type:</strong> " . $attachment['file_type'] . "<br>";
+    echo "<strong>Repository Path:</strong> " . $g_repositoryPath . "<br>";
+    
+    // Construct paths
+    $dbPath = $attachment['file_path'];
+    $dbPath = str_replace('\\', '/', $dbPath);
+    $filePath = $g_repositoryPath . '/' . $dbPath;
+    
+    echo "<strong>Constructed Full Path:</strong> " . $filePath . "<br>";
+    echo "<strong>File Exists at Path:</strong> " . (file_exists($filePath) ? "Yes" : "No") . "<br>";
+    
+    // Try alternative path without 'executions' prefix
+    $parts = explode('/', $dbPath);
+    if ($parts[0] == 'executions') {
+        array_shift($parts); // Remove first part (executions)
+    }
+    $simplifiedPath = implode('/', $parts);
+    $alternatePath = $g_repositoryPath . '/' . $simplifiedPath;
+    
+    echo "<strong>Alternate Path:</strong> " . $alternatePath . "<br>";
+    echo "<strong>File Exists at Alternate Path:</strong> " . (file_exists($alternatePath) ? "Yes" : "No") . "<br>";
+    
+    // Check parent directory
+    $parentDir = dirname($filePath);
+    echo "<strong>Parent Directory:</strong> " . $parentDir . "<br>";
+    echo "<strong>Parent Directory Exists:</strong> " . (is_dir($parentDir) ? "Yes" : "No") . "<br>";
+    
+    if (is_dir($parentDir)) {
+        echo "<strong>Parent Directory Contents:</strong><br>";
+        $files = scandir($parentDir);
+        echo "<ul>";
+        foreach ($files as $file) {
+            if ($file !== '.' && $file !== '..') {
+                echo "<li>" . $file . " (" . filesize($parentDir . '/' . $file) . " bytes)</li>";
+            }
+        }
+        echo "</ul>";
+    }
+    
+    // Get base filename
+    $baseFilename = basename($filePath);
+    
+    // Look for files with similar size
+    echo "<strong>Looking for files with similar size (" . $attachment['file_size'] . " bytes):</strong><br>";
+    $found = false;
+    
+    $searchDirs = [
+        $g_repositoryPath,
+        $g_repositoryPath . '/executions',
+        $g_repositoryPath . '/executions/' . $attachment['fk_id']
+    ];
+    
+    foreach ($searchDirs as $dir) {
+        if (is_dir($dir)) {
+            echo "Searching in directory: " . $dir . "<br>";
+            $files = scandir($dir);
+            foreach ($files as $file) {
+                if ($file === '.' || $file === '..') continue;
+                
+                $path = $dir . '/' . $file;
+                if (is_dir($path)) {
+                    $subdir = $path;
+                    $subfiles = scandir($subdir);
+                    foreach ($subfiles as $subfile) {
+                        if ($subfile === '.' || $subfile === '..') continue;
+                        
+                        $subpath = $subdir . '/' . $subfile;
+                        if (is_file($subpath) && abs(filesize($subpath) - $attachment['file_size']) < 100) {
+                            echo "<span style='color:green'>MATCH: " . $subpath . " (" . filesize($subpath) . " bytes)</span><br>";
+                            $found = true;
+                            $foundPath = $subpath;
+                        }
+                    }
+                } elseif (is_file($path) && abs(filesize($path) - $attachment['file_size']) < 100) {
+                    echo "<span style='color:green'>MATCH: " . $path . " (" . filesize($path) . " bytes)</span><br>";
+                    $found = true;
+                    $foundPath = $path;
+                }
+            }
+        }
+    }
+    
+    echo "</div>";
+    
+    // Now try to display the image
+    echo "<h2>Attempting to display the image:</h2>";
+    
+    // Try various paths
+    $possiblePaths = [
+        $filePath,
+        $alternatePath
+    ];
+    
+    // Add found path if any
+    if ($found) {
+        $possiblePaths[] = $foundPath;
+    }
+    
+    $imageFound = false;
+    foreach ($possiblePaths as $path) {
+        if (file_exists($path)) {
+            echo "<div style='padding: 10px; border: 1px solid green;'>";
+            echo "<p>Image found at: " . $path . "</p>";
+            
+            // Create a base64 data URL to display the image
+            $imageData = file_get_contents($path);
+            $base64 = base64_encode($imageData);
+            $mime = $attachment['file_type'];
+            
+            echo "<img src='data:$mime;base64,$base64' style='max-width: 800px; border: 2px solid blue;'>";
+            echo "</div>";
+            
+            $imageFound = true;
+            break;
+        }
+    }
+    
+    if (!$imageFound) {
+        echo "<div style='color: red; padding: 10px; border: 1px solid red;'>";
+        echo "Could not find the image at any of the attempted paths.";
+        echo "</div>";
+    }
+    
+    // Provide a direct access link for testing
+    echo "<h2>Direct File Access</h2>";
+    
+    if ($found) {
+        echo "<a href='image_direct.php?path=" . urlencode($foundPath) . "' target='_blank'>Try direct access to found file</a>";
+    } else {
+        echo "No matching file was found.";
+    }
+    
+} else {
+    die("Attachment not found with ID: " . $id);
+}
+
+$db->close();
+?>

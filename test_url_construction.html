@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test URL Construction</title>
+</head>
+<body>
+    <h1>URL Construction Test</h1>
+    <div id="result"></div>
+    
+    <script>
+        // Test the corrected URL construction logic
+        const pathname = window.location.pathname;
+        let baseUrl = window.location.origin;
+        
+        // If we're in lib/execute, go up two levels to root
+        if (pathname.includes('/lib/execute/')) {
+            baseUrl = window.location.origin + pathname.substring(0, pathname.lastIndexOf('/lib/execute/'));
+        }
+        
+        const apiUrl = `${baseUrl}/lib/execute/custom_bugtrack_integrator.php?action=list_integrations`;
+        
+        document.getElementById('result').innerHTML = `
+            <p><strong>Current URL:</strong> ${window.location.href}</p>
+            <p><strong>Origin:</strong> ${window.location.origin}</p>
+            <p><strong>Pathname:</strong> ${pathname}</p>
+            <p><strong>Base URL:</strong> ${baseUrl}</p>
+            <p><strong>API URL:</strong> ${apiUrl}</p>
+            <button onclick="testAPI()">Test API Call</button>
+        `;
+        
+        function testAPI() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    alert('API Response: ' + JSON.stringify(data, null, 2));
+                })
+                .catch(error => {
+                    alert('Error: ' + error.message);
+                });
+        }
+    </script>
+</body>
+</html>

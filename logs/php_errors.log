@@ -1,0 +1,815 @@
+[05-Mar-2026 06:31:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 06:31:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 06:31:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 06:31:35 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 06:31:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 06:31:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 06:31:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 06:31:46 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 06:31:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 06:31:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 06:31:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 06:31:53 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 06:32:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 06:32:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 06:32:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 06:32:02 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 13:48:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 13:48:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 13:48:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 13:49:36 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[05-Mar-2026 13:49:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 7
+[05-Mar-2026 13:49:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 7
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 13:49:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"7","name":"Redmine1","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"8","created_on":"2026-02-23 11:03:55","updated_by":"8","updated_on":"2026-02-27 01:12:06"}
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.8.1] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.4.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431184
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81639
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.1.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine1
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST'
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 25
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.7.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST'
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.644] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 180
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.9.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.3.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+N/A
+]
+
+TestLink URLs:...'
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.9.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81639
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.3.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST...
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.6.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431184, Exec ID: 81639
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 7
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [2026-03-05 13:49:48.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 7
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 7
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"7","name":"Redmine1","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"8","created_on":"2026-02-23 11:03:55","updated_by":"8","updated_on":"2026-02-27 01:12:06"}
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: Redmine1 (ID: 7)
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431184, Execution ID: 81639
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: TESTLINK INTEGRATION TEST...
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 7
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431184","execution_id":81639,"summary":"TESTLINK INTEGRATION TEST","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nN\/A\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nN\/A\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":7,"tester":"mwaimu.mtingele"}
+[05-Mar-2026 13:49:48 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[05-Mar-2026 13:49:52 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[05-Mar-2026 13:49:52 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[05-Mar-2026 13:49:52 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87462,"issue_url":"https:\/\/support.profinch.com\/issues\/87462"}
+[05-Mar-2026 13:49:52 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87462
+[05-Mar-2026 13:49:52 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87462, Execution ID: 81639
+[05-Mar-2026 13:49:52 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87462 linked to execution 81639 using write_execution_bug
+[05-Mar-2026 13:49:52 Europe/Berlin] [2026-03-05 13:49:52.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87462,"issue_url":"https:\/\/support.profinch.com\/issues\/87462"}
+
+[05-Mar-2026 13:49:52 Europe/Berlin] [2026-03-05 13:49:52.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[05-Mar-2026 16:08:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:08:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:08:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:12:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:12:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:12:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:23:43 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:23:43 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:23:43 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:23:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:23:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:23:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:26:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:26:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:26:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:43:31 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:43:31 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:43:31 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:43:32 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 16:46:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:46:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:46:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:46:54 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 16:47:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 16:47:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 16:47:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 16:47:15 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 19:43:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 19:43:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 19:43:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 19:43:06 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 19:45:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 19:45:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 19:45:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 19:45:32 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 19:45:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 19:45:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 19:45:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 19:45:40 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 19:49:15 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 19:49:15 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 19:49:16 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 19:49:17 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 452 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 452
+[05-Mar-2026 19:56:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 19:56:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 19:56:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 19:56:11 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 451 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 451
+[05-Mar-2026 19:56:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 19:56:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 19:56:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 19:56:15 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 451 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 451
+[05-Mar-2026 20:03:18 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 20:03:18 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 20:03:18 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 20:03:18 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 452 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 452
+[05-Mar-2026 20:04:49 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 20:04:49 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 20:04:49 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 20:04:49 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 20:05:58 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 20:05:58 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 20:05:58 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 20:05:58 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 20:06:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 20:06:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 20:06:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 20:06:02 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\execSetResults.tpl"  on line 373 "$gui - > uploadOp - > tcLevel - > statusOK == false"  - Unexpected "> " <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 373
+[05-Mar-2026 20:13:59 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 20:13:59 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 20:13:59 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 20:13:59 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 452 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 452
+[05-Mar-2026 20:16:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 20:16:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 20:16:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 20:16:25 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 452 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 452
+[05-Mar-2026 20:22:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 20:22:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 20:22:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 20:22:37 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 452 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 452
+[05-Mar-2026 21:03:44 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:03:44 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:03:44 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:03:49 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 452 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 452
+[05-Mar-2026 21:10:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:10:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:10:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:10:38 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\tl-uat\gui\templates\tl-classic\execute\inc_exec_show_tc_exec.tpl"  on line 454 "{* ----------------------------------------------------------------------------------- *}" unclosed '{if}' tag <-- 
+  thrown in C:\xampp\htdocs\tl-uat\vendor\smarty\smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 454
+[05-Mar-2026 21:14:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:14:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:14:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:14:21 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:14:21 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:14:21 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:16:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:16:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:16:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:17:22 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:17:22 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:17:22 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:20:41 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:20:41 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:20:41 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:21:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:21:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:21:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:21:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:21:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:21:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:23:03 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.2.2] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.4.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431184
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81640
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.9.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21'
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21'
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 226
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK CONNECTIVITY TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK CONNECTIVITY...'
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81640
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.504] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21...
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431184, Exec ID: 81640
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [2026-03-05 21:23:13.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: Redmine2 (ID: 9)
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431184, Execution ID: 81640
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21...
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431184","execution_id":81640,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-03-05CET21:21","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[05-Mar-2026 21:23:13 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[05-Mar-2026 21:23:17 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[05-Mar-2026 21:23:17 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[05-Mar-2026 21:23:17 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87498,"issue_url":"https:\/\/support.profinch.com\/issues\/87498"}
+[05-Mar-2026 21:23:17 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87498
+[05-Mar-2026 21:23:17 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87498, Execution ID: 81640
+[05-Mar-2026 21:23:17 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87498 linked to execution 81640 using write_execution_bug
+[05-Mar-2026 21:23:17 Europe/Berlin] [2026-03-05 21:23:17.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87498,"issue_url":"https:\/\/support.profinch.com\/issues\/87498"}
+
+[05-Mar-2026 21:23:17 Europe/Berlin] [2026-03-05 21:23:17.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[05-Mar-2026 21:23:28 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:23:28 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:23:28 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:24:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:24:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:24:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:25:04 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:25:04 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:25:04 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:25:23 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:25:23 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:25:23 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:26:29 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:26:29 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:26:29 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:26:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:26:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:26:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:26:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:26:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:26:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[05-Mar-2026 21:27:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[05-Mar-2026 21:27:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[05-Mar-2026 21:27:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 20:28:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[06-Mar-2026 20:28:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[06-Mar-2026 20:28:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 02:12:29","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 20:29:22 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[06-Mar-2026 20:29:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[06-Mar-2026 20:29:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[06-Mar-2026 20:29:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.2.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.0.8] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431180
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81641
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.1.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.296] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.9.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28'
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.3.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28'
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.324] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 232
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRAITON TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK INTEG...'
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.7.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81641
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28...
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431180, Exec ID: 81641
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.6.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [2026-03-06 20:29:33.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: Redmine2 (ID: 9)
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431180, Execution ID: 81641
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28...
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431180","execution_id":81641,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:28","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[06-Mar-2026 20:29:33 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[06-Mar-2026 20:29:37 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[06-Mar-2026 20:29:37 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[06-Mar-2026 20:29:37 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87592,"issue_url":"https:\/\/support.profinch.com\/issues\/87592"}
+[06-Mar-2026 20:29:37 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87592
+[06-Mar-2026 20:29:37 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87592, Execution ID: 81641
+[06-Mar-2026 20:29:37 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87592 linked to execution 81641 using write_execution_bug
+[06-Mar-2026 20:29:37 Europe/Berlin] [2026-03-06 20:29:37.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87592,"issue_url":"https:\/\/support.profinch.com\/issues\/87592"}
+
+[06-Mar-2026 20:29:37 Europe/Berlin] [2026-03-06 20:29:37.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[06-Mar-2026 20:47:18 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431180
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81642
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29'
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.808] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29'
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 232
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK INTEG...'
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.9.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81642
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29...
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.1.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431180, Exec ID: 81642
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [2026-03-06 20:47:26.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: Redmine2 (ID: 9)
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431180, Execution ID: 81642
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29...
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431180","execution_id":81642,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:29","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[06-Mar-2026 20:47:26 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[06-Mar-2026 20:47:31 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[06-Mar-2026 20:47:31 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[06-Mar-2026 20:47:31 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87593,"issue_url":"https:\/\/support.profinch.com\/issues\/87593"}
+[06-Mar-2026 20:47:31 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87593
+[06-Mar-2026 20:47:31 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87593, Execution ID: 81642
+[06-Mar-2026 20:47:31 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87593 linked to execution 81642 using write_execution_bug
+[06-Mar-2026 20:47:31 Europe/Berlin] [2026-03-06 20:47:31.2.1] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87593,"issue_url":"https:\/\/support.profinch.com\/issues\/87593"}
+
+[06-Mar-2026 20:47:31 Europe/Berlin] [2026-03-06 20:47:31.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[06-Mar-2026 21:08:10 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[06-Mar-2026 21:08:18 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[06-Mar-2026 21:08:18 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[06-Mar-2026 21:08:18 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.9.9] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431180
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81643
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.741] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47'
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47'
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.0.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 232
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK INTEG...'
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81643
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.842] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47...
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431180, Exec ID: 81643
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [2026-03-06 21:08:19.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":null,"updated_on":"2026-03-05 00:50:14"}
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: Redmine2 (ID: 9)
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431180, Execution ID: 81643
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47...
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431180","execution_id":81643,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:47","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[06-Mar-2026 21:08:19 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[06-Mar-2026 21:08:24 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[06-Mar-2026 21:08:24 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[06-Mar-2026 21:08:24 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87594,"issue_url":"https:\/\/support.profinch.com\/issues\/87594"}
+[06-Mar-2026 21:08:24 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87594
+[06-Mar-2026 21:08:24 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87594, Execution ID: 81643
+[06-Mar-2026 21:08:24 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87594 linked to execution 81643 using write_execution_bug
+[06-Mar-2026 21:08:24 Europe/Berlin] [2026-03-06 21:08:24.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87594,"issue_url":"https:\/\/support.profinch.com\/issues\/87594"}
+
+[06-Mar-2026 21:08:24 Europe/Berlin] [2026-03-06 21:08:24.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+

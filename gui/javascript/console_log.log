@@ -1,0 +1,133 @@
+// Update the populateIntegrationModalDropdown function directly
+console.log('=== DIRECT FUNCTION UPDATE ===');
+
+// Get the nested iframe where execution is happening
+var mainIframe = document.querySelector('iframe[name="mainframe"]');
+if (mainIframe) {
+  var mainDoc = mainIframe.contentDocument || mainIframe.contentWindow.document;
+  var workframe = mainDoc.querySelector('iframe[name="workframe"]');
+  
+  if (workframe) {
+    var workframeDoc = workframe.contentDocument || workframe.contentWindow.document;
+    console.log('Workframe accessed successfully');
+    
+    // Extract project ID from workframe URL
+    var workframeUrl = workframe.src;
+    var urlMatch = workframeUrl.match(/id=(\d+)/);
+    var projectId = urlMatch ? urlMatch[1] : null;
+    
+    console.log('Project ID to use:', projectId);
+    
+    if (projectId) {
+      // Create a new populateIntegrationModalDropdown function that uses the URL
+      var newPopulateFunction = function() {
+        console.log('=== MODAL POPULATE WITH URL PROJECT ID ===');
+        console.log('Using project ID from URL:', projectId);
+        
+        // Get dropdown
+        var dropdown = this.document.getElementById('integrationModalDropdown');
+        if (!dropdown) {
+          console.log('Modal dropdown not found');
+          return;
+        }
+        
+        // Clear existing options
+        dropdown.empty();
+        dropdown.append('<option value="">-- Select Integration --</option>');
+        
+        console.log('Using tproject_id:', projectId);
+        
+        // Fetch integrations using the extracted project ID
+        fetch(window.location.origin + '/lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=' + projectId)
+          .then(response => response.json())
+          .then(data => {
+            console.log('Integrations fetched:', data);
+            console.log('Number of integrations:', data.integrations ? data.integrations.length : 0);
+            
+            if (data.success && data.integrations) {
+              data.integrations.forEach(function(integration) {
+                console.log('Adding integration:', integration.id, integration.name);
+                dropdown.append('<option value="' + integration.id + '">' + integration.name + '</option>');
+              });
+              
+              if (data.integrations.length === 1) {
+                dropdown.val(data.integrations[0].id);
+                console.log('Auto-selecting single integration:', data.integrations[0].id);
+              }
+            } else {
+              console.log('No integrations found or error:', data);
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching integrations:', error);
+          });
+        
+        console.log('=== END MODAL POPULATE ===');
+      };
+      
+      // Replace the function in the workframe
+      workframeDoc.populateIntegrationModalDropdown = newPopulateFunction;
+      console.log('Function replaced successfully');
+      
+      // Test the modal with the new function
+      var execButtons = workframeDoc.querySelectorAll('[id^="save_results"]');
+      var checkbox = workframeDoc.getElementById('createIssue');
+      
+      if (execButtons.length > 0 && checkbox) {
+        console.log('Testing modal with new function...');
+        checkbox.checked = true;
+        checkbox.dispatchEvent(new Event('change'));
+        execButtons[0].click();
+        console.log('Modal should now show integrations for project:', projectId);
+      }
+    }
+  }
+}
+
+console.log('=== END DIRECT FUNCTION UPDATE ===');
+VM19520:2 === DIRECT FUNCTION UPDATE ===
+VM19520:12 Workframe accessed successfully
+VM19520:19 Project ID to use: 448287
+VM19520:70 Function replaced successfully
+VM19520:77 Testing modal with new function...
+execSetResults.js:69 === EXECUTION BUTTON CLICK DEBUG ===
+execSetResults.js:70 Execution button clicked
+execSetResults.js:71 Create issue checked: true
+execSetResults.js:72 Selected integration: 
+execSetResults.js:73 Modal visibility before execution: block
+execSetResults.js:74 Event type: click
+execSetResults.js:75 Event target: <input type=​"hidden" name=​"save_results" id=​"save_results" value=​"0">​
+execSetResults.js:76 === END EXECUTION BUTTON DEBUG ===
+execSetResults.js:82 Should show dropdown? true
+execSetResults.js:85 Showing integration modal for selection...
+execSetResults.js?v=1772480397&cachebust=202603021016:69 === EXECUTION BUTTON CLICK DEBUG ===
+execSetResults.js?v=1772480397&cachebust=202603021016:70 Execution button clicked
+execSetResults.js?v=1772480397&cachebust=202603021016:71 Create issue checked: true
+execSetResults.js?v=1772480397&cachebust=202603021016:72 Selected integration: 
+execSetResults.js?v=1772480397&cachebust=202603021016:73 Modal visibility before execution: block
+execSetResults.js?v=1772480397&cachebust=202603021016:74 Event type: click
+execSetResults.js?v=1772480397&cachebust=202603021016:75 Event target: <input type=​"hidden" name=​"save_results" id=​"save_results" value=​"0">​
+execSetResults.js?v=1772480397&cachebust=202603021016:76 === END EXECUTION BUTTON DEBUG ===
+execSetResults.js?v=1772480397&cachebust=202603021016:82 Should show dropdown? true
+execSetResults.js?v=1772480397&cachebust=202603021016:85 Showing integration modal for selection...
+VM19520:81 Modal should now show integrations for project: 448287
+VM19520:87 === END DIRECT FUNCTION UPDATE ===
+undefined
+execSetResults.js?v=1772480397&cachebust=202603021016:230 Showing integration modal...
+execSetResults.js?v=1772480397&cachebust=202603021016:267 Populating integration modal dropdown...
+execSetResults.js?v=1772480397&cachebust=202603021016:311 Using tproject_id: null
+execSetResults.js?v=1772480397&cachebust=202603021016:312 Expected project: 448287 (has 3 integrations)
+execSetResults.js?v=1772480397&cachebust=202603021016:313 Current project: null has ? integrations
+execSetResults.js?v=1772480397&cachebust=202603021016:230 Showing integration modal...
+execSetResults.js?v=1772480397&cachebust=202603021016:267 Populating integration modal dropdown...
+execSetResults.js?v=1772480397&cachebust=202603021016:311 Using tproject_id: null
+execSetResults.js?v=1772480397&cachebust=202603021016:312 Expected project: 448287 (has 3 integrations)
+execSetResults.js?v=1772480397&cachebust=202603021016:313 Current project: null has ? integrations
+execSetResults.js?v=1772480397&cachebust=202603021016:330 Integrations fetched: {success: false, message: 'tproject_id required', data: null, debug: Array(0)}
+execSetResults.js?v=1772480397&cachebust=202603021016:331 Number of integrations: 0
+execSetResults.js?v=1772480397&cachebust=202603021016:332 Integration details: undefined
+execSetResults.js?v=1772480397&cachebust=202603021016:348 No integrations found or error: {success: false, message: 'tproject_id required', data: null, debug: Array(0)}
+execSetResults.js?v=1772480397&cachebust=202603021016:330 Integrations fetched: {success: false, message: 'tproject_id required', data: null, debug: Array(0)}
+execSetResults.js?v=1772480397&cachebust=202603021016:331 Number of integrations: 0
+execSetResults.js?v=1772480397&cachebust=202603021016:332 Integration details: undefined
+execSetResults.js?v=1772480397&cachebust=202603021016:348 No integrations found or error: {success: false, message: 'tproject_id required', data: null, debug: Array(0)}

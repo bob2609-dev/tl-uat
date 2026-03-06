@@ -1,0 +1,86 @@
+<?php
+/**
+ * Simple Redmine Connection Test
+ * 
+ * This standalone script tests Redmine connectivity without relying on TestLink's classes
+ */
+
+// Enable error display for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Include our standalone Redmine class
+require_once('lib/issuetrackerintegration/standalone_redmine_ssl_fix.class.php');
+
+// Redmine configuration
+$redmineUrl = 'https://support.profinch.com';
+$apiKey = 'a597e200f8923a85484e81ca81d731827b8dbf3d';
+$projectId = 'nmb-fcubs-14-7-uat2';
+
+// Create our tester object
+$tester = new standaloneRedmineSslFix($redmineUrl, $apiKey, $projectId);
+
+// Output HTML
+echo "<!DOCTYPE html>\n<html>\n<head>\n";
+echo "<title>Redmine Connection Test</title>\n";
+echo "<style>\n";
+echo "body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }\n";
+echo "h1, h2, h3 { color: #1a73e8; }\n";
+echo "pre { background-color: #f5f5f5; padding: 10px; overflow: auto; }\n";
+echo "</style>\n";
+echo "</head>\n<body>\n";
+
+echo "<h1>Redmine Connection Test</h1>\n";
+
+// Get and display diagnostic information
+echo $tester->getDiagnosticHtml();
+
+// Add TestLink configuration suggestions
+echo "<h2>TestLink Configuration</h2>\n";
+echo "<p>Based on your test results, here's what you should do:</p>\n";
+
+echo "<h3>Option 1: Use the Standalone Connection Test Script</h3>\n";
+echo "<p>Instead of trying to integrate with TestLink's issue tracker system, you can:</p>\n";
+echo "<ol>\n";
+echo "<li>Use this standalone script to verify Redmine connectivity</li>\n";
+echo "<li>Configure TestLink to use a simple URL format for bugs without trying to query Redmine</li>\n";
+echo "</ol>\n";
+
+echo "<h3>Option 2: Fix TestLink's Class Loading</h3>\n";
+echo "<p>The error you're seeing is because TestLink can't find the <code>issueTrackerInterface</code> class. This is likely because:</p>\n";
+echo "<ol>\n";
+echo "<li>The class file might be missing from your installation</li>\n";
+echo "<li>There's a path issue in how TestLink is trying to include the file</li>\n";
+echo "</ol>\n";
+
+echo "<p>If using Option 2, try copying the missing file from your working tl-uat installation:</p>\n";
+echo "<pre>\n";
+echo "Copy: tl-uat/lib/issuetrackerintegration/issueTrackerInterface.class.php\n";
+echo "To:   testlink/lib/issuetrackerintegration/issueTrackerInterface.class.php\n";
+echo "</pre>\n";
+
+echo "<h3>Simplified Integration</h3>\n";
+echo "<p>Add this to your <code>custom_config.inc.php</code> file to avoid dependency issues:</p>\n";
+echo "<pre>\n";
+echo "// Simple bug tracking - just uses direct URL without API integration\n";
+echo "$tlCfg->interface_bugs = true;\n";
+echo "$tlCfg->issue_tracker_enabled = true;\n";
+echo "\n";
+echo "// Configure bug tracking for direct URL access\n";
+echo "$g_interface_bugs_format = 'https://support.profinch.com/issues/%s';\n";
+echo "</pre>\n";
+
+// Connection help
+echo "<h2>Troubleshooting</h2>\n";
+echo "<p>If connection is failing, check the following:</p>\n";
+echo "<ul>\n";
+echo "<li>API key is correct and has appropriate permissions</li>\n";
+echo "<li>Project identifier exists in Redmine</li>\n";
+echo "<li>Network connectivity between your server and Redmine</li>\n";
+echo "<li>SSL certificate issues - our test disables verification but your server might still have issues</li>\n";
+echo "</ul>\n";
+
+echo "<p>Remember that we previously fixed image display issues using custom handlers and bypass scripts. The same approach might work here - creating a custom intermediary script that handles Redmine interaction rather than trying to fix TestLink's built-in integration.</p>\n";
+
+echo "</body>\n</html>";
+?>

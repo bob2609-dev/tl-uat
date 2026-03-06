@@ -1,0 +1,1891 @@
+[2026-02-27 22:11:12] ldap_api.php loaded; tlLDAP declared=yes
+[2026-02-27 22:11:13] ldap_api.php loaded; tlLDAP declared=yes
+[2026-02-27 22:11:56] ldap_api.php loaded; tlLDAP declared=yes
+[2026-02-27 22:11:56] ldap_api.php loaded; tlLDAP declared=yes
+[2026-02-27 22:12:38] ldap_api.php loaded; tlLDAP declared=yes
+[2026-02-27 22:12:38] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 20:45:11] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 20:45:14] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 20:45:14] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 20:45:14] Set locale to en_GB
+[2026-03-01 20:45:14] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 20:45:14] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-01 20:45:14] Login exists and not expired
+[2026-03-01 20:45:14] Checking password match
+[2026-03-01 20:45:14] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 20:45:14] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-01 20:45:14] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-01 20:45:14] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-01 20:45:14] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-01 20:45:14] Attempting LDAP authentication
+[2026-03-01 20:45:14] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-01 20:45:14] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-01 20:45:14] Creating tlLDAP object
+[2026-03-01 20:45:14] Calling ldap->authenticate
+[2026-03-01 20:45:14] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-01 20:45:14] LDAP authentication successful
+[2026-03-01 20:45:14] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-01 20:45:14] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-01 20:45:14] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 20:45:14] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-01 20:45:14] doSessionSetUp cookie set invoked
+[2026-03-01 20:45:14] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-01 22:12:06] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 22:12:07] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 22:15:14] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 22:15:23] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 22:15:59] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 22:15:59] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 23:17:59] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 23:18:04] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 23:18:04] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 23:18:04] Set locale to en_GB
+[2026-03-01 23:18:04] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 23:18:04] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-01 23:18:04] Login exists and not expired
+[2026-03-01 23:18:04] Checking password match
+[2026-03-01 23:18:04] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 23:18:04] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-01 23:18:04] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-01 23:18:04] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-01 23:18:04] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-01 23:18:04] Attempting LDAP authentication
+[2026-03-01 23:18:04] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-01 23:18:04] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-01 23:18:04] Creating tlLDAP object
+[2026-03-01 23:18:04] Calling ldap->authenticate
+[2026-03-01 23:18:04] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-01 23:18:04] LDAP authentication successful
+[2026-03-01 23:18:04] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-01 23:18:04] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-01 23:18:04] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 23:18:04] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-01 23:18:04] doSessionSetUp cookie set invoked
+[2026-03-01 23:18:04] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-01 23:52:04] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 23:52:07] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 23:52:07] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:07] Set locale to en_GB
+[2026-03-01 23:52:07] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:07] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-01 23:52:07] Login exists and not expired
+[2026-03-01 23:52:07] Checking password match
+[2026-03-01 23:52:07] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:07] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-01 23:52:07] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-01 23:52:07] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-01 23:52:07] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-01 23:52:07] Attempting LDAP authentication
+[2026-03-01 23:52:07] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-01 23:52:07] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-01 23:52:07] Creating tlLDAP object
+[2026-03-01 23:52:07] Calling ldap->authenticate
+[2026-03-01 23:52:07] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-01 23:52:07] LDAP authentication successful
+[2026-03-01 23:52:07] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-01 23:52:07] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-01 23:52:07] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:07] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-01 23:52:07] doSessionSetUp cookie set invoked
+[2026-03-01 23:52:07] doSessionSetUp exit Array
+(
+    [msg] => There is still a valid login for your browser. <br /> Please use this link >>>  <a style="color:white;" href="logout.php">Logout</a> <<< at first if you would like to renew your session.
+)
+
+[2026-03-01 23:52:35] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 23:52:38] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-01 23:52:38] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:38] Set locale to en_GB
+[2026-03-01 23:52:38] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:38] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-01 23:52:38] Login exists and not expired
+[2026-03-01 23:52:38] Checking password match
+[2026-03-01 23:52:38] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:38] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-01 23:52:38] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-01 23:52:38] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-01 23:52:38] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-01 23:52:38] Attempting LDAP authentication
+[2026-03-01 23:52:38] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-01 23:52:38] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-01 23:52:38] Creating tlLDAP object
+[2026-03-01 23:52:38] Calling ldap->authenticate
+[2026-03-01 23:52:38] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-01 23:52:38] LDAP authentication successful
+[2026-03-01 23:52:38] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-01 23:52:38] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-01 23:52:38] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-01 23:52:38] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-01 23:52:38] doSessionSetUp cookie set invoked
+[2026-03-01 23:52:38] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-02 08:48:08] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-02 08:48:09] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-02 08:48:09] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-02 08:48:09] Set locale to en_GB
+[2026-03-02 08:48:09] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-02 08:48:09] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-02 08:48:09] Login exists and not expired
+[2026-03-02 08:48:09] Checking password match
+[2026-03-02 08:48:09] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-02 08:48:09] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-02 08:48:09] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-02 08:48:09] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-02 08:48:09] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-02 08:48:09] Attempting LDAP authentication
+[2026-03-02 08:48:09] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-02 08:48:09] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-02 08:48:09] Creating tlLDAP object
+[2026-03-02 08:48:10] Calling ldap->authenticate
+[2026-03-02 08:48:10] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-02 08:48:10] LDAP authentication successful
+[2026-03-02 08:48:10] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-02 08:48:10] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-02 08:48:10] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-02 08:48:10] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-02 08:48:10] doSessionSetUp cookie set invoked
+[2026-03-02 08:48:10] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-02 17:11:21] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-02 17:11:30] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-02 17:11:30] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-02 17:11:30] Set locale to en_GB
+[2026-03-02 17:11:30] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-02 17:11:30] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-02 17:11:30] Login exists and not expired
+[2026-03-02 17:11:30] Checking password match
+[2026-03-02 17:11:30] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-02 17:11:30] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-02 17:11:30] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-02 17:11:30] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-02 17:11:30] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-02 17:11:30] Attempting LDAP authentication
+[2026-03-02 17:11:30] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-02 17:11:30] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-02 17:11:30] Creating tlLDAP object
+[2026-03-02 17:11:30] Calling ldap->authenticate
+[2026-03-02 17:11:30] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-02 17:11:30] LDAP authentication successful
+[2026-03-02 17:11:30] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-02 17:11:30] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-02 17:11:30] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-02 17:11:30] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-02 17:11:30] doSessionSetUp cookie set invoked
+[2026-03-02 17:11:30] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-02 20:18:24] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-02 20:18:34] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-02 20:18:34] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-02 20:18:34] Set locale to en_GB
+[2026-03-02 20:18:34] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-02 20:18:34] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-02 20:18:34] Login exists and not expired
+[2026-03-02 20:18:34] Checking password match
+[2026-03-02 20:18:34] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-02 20:18:34] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-02 20:18:34] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-02 20:18:34] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-02 20:18:34] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-02 20:18:34] Attempting LDAP authentication
+[2026-03-02 20:18:34] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-02 20:18:34] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-02 20:18:34] Creating tlLDAP object
+[2026-03-02 20:18:34] Calling ldap->authenticate
+[2026-03-02 20:18:34] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-02 20:18:34] LDAP authentication successful
+[2026-03-02 20:18:34] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-02 20:18:34] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-02 20:18:34] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-02 20:18:34] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-02 20:18:34] doSessionSetUp cookie set invoked
+[2026-03-02 20:18:34] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-03 06:37:45] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 06:37:52] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 06:37:52] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 06:37:52] Set locale to en_GB
+[2026-03-03 06:37:52] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 06:37:52] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-03 06:37:52] Login exists and not expired
+[2026-03-03 06:37:52] Checking password match
+[2026-03-03 06:37:52] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 06:37:52] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-03 06:37:52] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-03 06:37:52] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-03 06:37:52] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-03 06:37:52] Attempting LDAP authentication
+[2026-03-03 06:37:52] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-03 06:37:52] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-03 06:37:52] Creating tlLDAP object
+[2026-03-03 06:37:52] Calling ldap->authenticate
+[2026-03-03 06:37:52] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-03 06:37:52] LDAP authentication successful
+[2026-03-03 06:37:52] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-03 06:37:52] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-03 06:37:52] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 06:37:52] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-03 06:37:52] doSessionSetUp cookie set invoked
+[2026-03-03 06:37:53] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-03 13:21:24] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 13:21:25] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 13:21:27] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 13:21:27] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 13:21:27] Set locale to en_GB
+[2026-03-03 13:21:27] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 13:21:27] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-03 13:21:27] Login exists and not expired
+[2026-03-03 13:21:27] Checking password match
+[2026-03-03 13:21:27] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 13:21:27] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-03 13:21:27] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-03 13:21:27] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-03 13:21:27] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-03 13:21:27] Attempting LDAP authentication
+[2026-03-03 13:21:27] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-03 13:21:27] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-03 13:21:27] Creating tlLDAP object
+[2026-03-03 13:21:27] Calling ldap->authenticate
+[2026-03-03 13:21:27] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-03 13:21:27] LDAP authentication successful
+[2026-03-03 13:21:27] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-03 13:21:27] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-03 13:21:27] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 13:21:27] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-03 13:21:27] doSessionSetUp cookie set invoked
+[2026-03-03 13:21:27] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-03 14:55:37] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 14:55:39] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 14:55:39] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 14:55:39] Set locale to en_GB
+[2026-03-03 14:55:39] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 14:55:39] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-03 14:55:39] Login exists and not expired
+[2026-03-03 14:55:39] Checking password match
+[2026-03-03 14:55:39] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 14:55:39] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-03 14:55:39] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-03 14:55:39] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-03 14:55:39] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-03 14:55:39] Attempting LDAP authentication
+[2026-03-03 14:55:39] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-03 14:55:39] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-03 14:55:39] Creating tlLDAP object
+[2026-03-03 14:55:39] Calling ldap->authenticate
+[2026-03-03 14:55:39] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-03 14:55:39] LDAP authentication successful
+[2026-03-03 14:55:39] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-03 14:55:39] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-03 14:55:39] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 14:55:39] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-03 14:55:39] doSessionSetUp cookie set invoked
+[2026-03-03 14:55:39] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-03 18:08:05] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 18:08:07] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 18:08:07] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 18:08:07] Set locale to en_GB
+[2026-03-03 18:08:07] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-03 18:08:07] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-03 18:08:07] Login exists and not expired
+[2026-03-03 18:08:07] Checking password match
+[2026-03-03 18:08:07] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 18:08:07] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-03 18:08:07] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-03 18:08:07] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-03 18:08:07] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-03 18:08:07] Attempting LDAP authentication
+[2026-03-03 18:08:07] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-03 18:08:07] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-03 18:08:07] Creating tlLDAP object
+[2026-03-03 18:08:07] Calling ldap->authenticate
+[2026-03-03 18:08:07] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-03 18:08:07] LDAP authentication successful
+[2026-03-03 18:08:07] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-03 18:08:07] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-03 18:08:07] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-03 18:08:07] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-03 18:08:07] doSessionSetUp cookie set invoked
+[2026-03-03 18:08:07] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-03 22:10:41] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 22:10:41] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 22:11:20] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 22:11:20] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 22:11:53] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-03 22:11:53] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 09:25:32] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 09:25:35] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 09:25:35] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 09:25:35] Set locale to en_GB
+[2026-03-04 09:25:35] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 09:25:35] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-04 09:25:35] Login exists and not expired
+[2026-03-04 09:25:35] Checking password match
+[2026-03-04 09:25:35] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 09:25:35] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-04 09:25:35] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-04 09:25:35] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-04 09:25:35] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-04 09:25:35] Attempting LDAP authentication
+[2026-03-04 09:25:35] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-04 09:25:35] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 72
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-04 09:25:35] Creating tlLDAP object
+[2026-03-04 09:25:35] Calling ldap->authenticate
+[2026-03-04 09:25:35] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-04 09:25:35] LDAP authentication successful
+[2026-03-04 09:25:35] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-04 09:25:35] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-04 09:25:35] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 09:25:35] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-04 09:25:35] doSessionSetUp cookie set invoked
+[2026-03-04 09:25:35] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-04 20:27:45] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 20:28:01] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 20:28:01] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 20:28:01] Set locale to en_GB
+[2026-03-04 20:28:01] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 20:28:02] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-04 20:28:02] Login exists and not expired
+[2026-03-04 20:28:02] Checking password match
+[2026-03-04 20:28:02] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 20:28:02] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-04 20:28:02] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-04 20:28:02] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-04 20:28:02] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-04 20:28:02] Attempting LDAP authentication
+[2026-03-04 20:28:02] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-04 20:28:02] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 73
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-04 20:28:02] Creating tlLDAP object
+[2026-03-04 20:28:02] Calling ldap->authenticate
+[2026-03-04 20:28:02] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-04 20:28:02] LDAP authentication successful
+[2026-03-04 20:28:02] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-04 20:28:02] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-04 20:28:02] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 20:28:02] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-04 20:28:02] doSessionSetUp cookie set invoked
+[2026-03-04 20:28:03] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-04 20:28:06] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 20:32:02] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 20:32:03] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 20:32:03] Set locale to en_GB
+[2026-03-04 20:32:03] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 20:32:03] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-04 20:32:03] Login exists and not expired
+[2026-03-04 20:32:03] Checking password match
+[2026-03-04 20:32:03] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 20:32:03] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-04 20:32:03] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-04 20:32:03] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-04 20:32:03] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-04 20:32:03] Attempting LDAP authentication
+[2026-03-04 20:32:03] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-04 20:32:03] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 73
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-04 20:32:03] Creating tlLDAP object
+[2026-03-04 20:32:03] Calling ldap->authenticate
+[2026-03-04 20:32:05] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-04 20:32:05] LDAP authentication successful
+[2026-03-04 20:32:05] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-04 20:32:05] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-04 20:32:05] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 20:32:05] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-04 20:32:05] doSessionSetUp cookie set invoked
+[2026-03-04 20:32:06] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-04 20:34:08] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 20:34:20] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 20:34:21] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 20:34:21] Set locale to en_GB
+[2026-03-04 20:34:21] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 20:34:21] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-04 20:34:21] Login exists and not expired
+[2026-03-04 20:34:21] Checking password match
+[2026-03-04 20:34:21] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 20:34:21] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-04 20:34:21] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-04 20:34:21] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-04 20:34:21] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-04 20:34:21] Attempting LDAP authentication
+[2026-03-04 20:34:21] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-04 20:34:21] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 73
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-04 20:34:21] Creating tlLDAP object
+[2026-03-04 20:34:21] Calling ldap->authenticate
+[2026-03-04 20:34:22] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-04 20:34:22] LDAP authentication successful
+[2026-03-04 20:34:22] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-04 20:34:22] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-04 20:34:22] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 20:34:22] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-04 20:34:22] doSessionSetUp cookie set invoked
+[2026-03-04 20:34:22] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-04 22:05:03] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 22:05:14] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-04 22:05:14] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 22:05:14] Set locale to en_GB
+[2026-03-04 22:05:14] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-04 22:05:14] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-04 22:05:14] Login exists and not expired
+[2026-03-04 22:05:14] Checking password match
+[2026-03-04 22:05:14] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 22:05:14] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-04 22:05:14] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-04 22:05:14] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-04 22:05:14] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-04 22:05:14] Attempting LDAP authentication
+[2026-03-04 22:05:14] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-04 22:05:14] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 73
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-04 22:05:14] Creating tlLDAP object
+[2026-03-04 22:05:14] Calling ldap->authenticate
+[2026-03-04 22:05:15] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-04 22:05:15] LDAP authentication successful
+[2026-03-04 22:05:15] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-04 22:05:15] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-04 22:05:15] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-04 22:05:15] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-04 22:05:15] doSessionSetUp cookie set invoked
+[2026-03-04 22:05:15] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-05 20:21:38] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-05 20:21:49] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-05 20:21:49] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-05 20:21:49] Set locale to en_GB
+[2026-03-05 20:21:49] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-05 20:21:49] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-05 20:21:49] Login exists and not expired
+[2026-03-05 20:21:49] Checking password match
+[2026-03-05 20:21:49] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-05 20:21:49] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-05 20:21:49] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-05 20:21:49] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-05 20:21:49] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-05 20:21:49] Attempting LDAP authentication
+[2026-03-05 20:21:49] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-05 20:21:49] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 73
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-05 20:21:49] Creating tlLDAP object
+[2026-03-05 20:21:49] Calling ldap->authenticate
+[2026-03-05 20:21:51] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-05 20:21:51] LDAP authentication successful
+[2026-03-05 20:21:51] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-05 20:21:51] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-05 20:21:51] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-05 20:21:51] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-05 20:21:51] doSessionSetUp cookie set invoked
+[2026-03-05 20:21:51] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+
+[2026-03-06 20:27:17] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-06 20:27:30] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-06 20:27:31] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-06 20:27:31] Set locale to en_GB
+[2026-03-06 20:27:31] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-06 20:27:31] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-06 20:27:31] Login exists and not expired
+[2026-03-06 20:27:31] Checking password match
+[2026-03-06 20:27:31] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-06 20:27:31] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-06 20:27:31] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-06 20:27:31] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-06 20:27:31] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-06 20:27:31] Attempting LDAP authentication
+[2026-03-06 20:27:31] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-06 20:27:31] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 73
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-06 20:27:31] Creating tlLDAP object
+[2026-03-06 20:27:31] Calling ldap->authenticate
+[2026-03-06 20:27:32] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-06 20:27:32] LDAP authentication successful
+[2026-03-06 20:27:32] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-06 20:27:32] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-06 20:27:32] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-06 20:27:32] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-06 20:27:32] doSessionSetUp cookie set invoked
+[2026-03-06 20:27:32] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+

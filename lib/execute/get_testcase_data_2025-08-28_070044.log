@@ -1,0 +1,104 @@
+
+-------- SCRIPT START: 2025-08-28 07:00:44 --------
+Script: C:\xampp\htdocs\tl-uat\lib\execute\get_testcase_data_simple.php
+Log file: C:\xampp\htdocs\tl-uat\lib\execute/get_testcase_data_2025-08-28_070044.log
+Received tcversion_id: 209070
+Request method: GET
+Request parameters: Array
+(
+    [tcversion_id] => 209070
+    [_debug] => true
+    [_timestamp] => 2025-08-28T05:00:44.482Z
+)
+
+
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+[DEBUG] Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 209070
+    
+[INFO] Query prepared successfully
+[DEBUG] Parameter bound: tcversion_id = 209070
+[DEBUG] Complete query to execute:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = '209070'
+    
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: Liability Maintanance
+sub_scenario: Headroom Limit
+test_script: Create a facilty with a limit amount of TZS 700,000.00  under the liability  with Captured overall limit (Credit Appproved Limit) of TZS 1,000,000.00 and capture counterparty apetite limit (customer requested amount) of TZS 1,000,000.00
+expected_results: System should reflect  TZS 300,000 as remaining amount to link to a facility at  headroom limit 
+er_process: TEMPLATE_EMPTY
+testcase_name: CCL-RSME-TC4
+primary_module: GEDMLIAB
+test_type: Positive
+test_execution_path: TEMPLATE_EMPTY
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-28 07:00:55 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => Liability Maintanance
+            [sub_scenario] => Headroom Limit
+            [test_script] => Create a facilty with a limit amount of TZS 700,000.00  under the liability  with Captured overall limit (Credit Appproved Limit) of TZS 1,000,000.00 and capture counterparty apetite limit (customer requested amount) of TZS 1,000,000.00
+            [expected_results] => System should reflect  TZS 300,000 as remaining amount to link to a facility at  headroom limit 
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CCL-RSME-TC4
+            [primary_module] => GEDMLIAB
+            [test_type] => Positive
+            [test_execution_path] => TEMPLATE_EMPTY
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 209070
+            [timestamp] => 2025-08-28 07:00:55
+        )
+
+)
+
+JSON Response: {"success":true,"data":{"scenario_id":"Liability Maintanance","sub_scenario":"Headroom Limit","test_script":"Create a facilty with a limit amount of TZS 700,000.00  under the liability  with Captured overall limit (Credit Appproved Limit) of TZS 1,000,000.00 and capture counterparty apetite limit (customer requested amount) of TZS 1,000,000.00","expected_results":"System should reflect  TZS 300,000 as remaining amount to link to a facility at  headroom limit ","er_process":"TEMPLATE_EMPTY","testcase_name":"CCL-RSME-TC4","primary_module":"GEDMLIAB","test_type":"Positive","test_execution_path":"TEMPLATE_EMPTY","test_data":"","priority":"","execution_status":"","notes":""},"message":"","debug":{"received_id":209070,"timestamp":"2025-08-28 07:00:55"}}
+JSON Response Length: 757 bytes
+-------- END OF REQUEST --------
+

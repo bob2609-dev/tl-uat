@@ -1,0 +1,492 @@
+[2026-02-12 21:23:35] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:23:35] Parameters: Project=242099, User=111, Start=2026-02-12, End=, IncludeNonAssigned=1
+[2026-02-12 21:23:35] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:23:35] DEBUG BEFORE START: 16174 executions before 2026-02-12
+[2026-02-12 21:23:36] Query executed successfully, checking results...
+[2026-02-12 21:23:36] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:23:36] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:23:36] Query returned 2 rows (including totals)
+[2026-02-12 21:23:36] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:23:36] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:23:45] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:23:45] Parameters: Project=242099, User=111, Start=2026-01-01, End=, IncludeNonAssigned=1
+[2026-02-12 21:23:45] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:23:45] DEBUG BEFORE START: 8630 executions before 2026-01-01
+[2026-02-12 21:23:46] Query executed successfully, checking results...
+[2026-02-12 21:23:46] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 90 | Passed: 88 | Failed: 1 | Blocked: 1 | Not Run: 433 | Pass Rate: 97.78%
+[2026-02-12 21:23:46] TOTALS: Assigned: 508 | Executed: 90 | Passed: 88 | Failed: 1 | Blocked: 1 | Not Run: 433 | Pass Rate: 98.88%
+[2026-02-12 21:23:46] Query returned 2 rows (including totals)
+[2026-02-12 21:23:46] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:23:46] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:25:02] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:25:02] Parameters: Project=242099, User=111, Start=2026-02-12, End=, IncludeNonAssigned=1
+[2026-02-12 21:25:02] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:25:02] DEBUG BEFORE START: 16174 executions before 2026-02-12
+[2026-02-12 21:25:02] Query executed successfully, checking results...
+[2026-02-12 21:25:02] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:25:02] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:25:02] Query returned 2 rows (including totals)
+[2026-02-12 21:25:02] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:25:02] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:25:28] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:25:28] Parameters: Project=242099, User=111, Start=2026-02-09, End=, IncludeNonAssigned=1
+[2026-02-12 21:25:28] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:25:28] DEBUG BEFORE START: 16174 executions before 2026-02-09
+[2026-02-12 21:25:28] Query executed successfully, checking results...
+[2026-02-12 21:25:28] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:25:28] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:25:28] Query returned 2 rows (including totals)
+[2026-02-12 21:25:28] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:25:28] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:25:34] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:25:34] Parameters: Project=242099, User=111, Start=2026-02-01, End=, IncludeNonAssigned=1
+[2026-02-12 21:25:34] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:25:34] DEBUG BEFORE START: 15873 executions before 2026-02-01
+[2026-02-12 21:25:35] Query executed successfully, checking results...
+[2026-02-12 21:25:35] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 3 | Passed: 3 | Failed: 0 | Blocked: 0 | Not Run: 346 | Pass Rate: 100%
+[2026-02-12 21:25:35] TOTALS: Assigned: 508 | Executed: 3 | Passed: 3 | Failed: 0 | Blocked: 0 | Not Run: 346 | Pass Rate: 100%
+[2026-02-12 21:25:35] Query returned 2 rows (including totals)
+[2026-02-12 21:25:35] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:25:35] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:26:07] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:26:07] Parameters: Project=242099, User=111, Start=2026-02-01, End=, IncludeNonAssigned=1
+[2026-02-12 21:26:07] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:26:07] DEBUG BEFORE START: 11664 executions before 2026-02-01
+[2026-02-12 21:26:07] Query executed successfully, checking results...
+[2026-02-12 21:26:07] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 3 | Passed: 3 | Failed: 0 | Blocked: 0 | Not Run: 346 | Pass Rate: 100%
+[2026-02-12 21:26:07] TOTALS: Assigned: 508 | Executed: 3 | Passed: 3 | Failed: 0 | Blocked: 0 | Not Run: 346 | Pass Rate: 100%
+[2026-02-12 21:26:07] Query returned 2 rows (including totals)
+[2026-02-12 21:26:07] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:26:07] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:26:15] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:26:15] Parameters: Project=242099, User=111, Start=2026-02-10, End=, IncludeNonAssigned=1
+[2026-02-12 21:26:15] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:26:15] DEBUG BEFORE START: 11808 executions before 2026-02-10
+[2026-02-12 21:26:15] Query executed successfully, checking results...
+[2026-02-12 21:26:15] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:26:15] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:26:15] Query returned 2 rows (including totals)
+[2026-02-12 21:26:15] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:26:15] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:26:31] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:26:31] Parameters: Project=242099, User=111, Start=2026-01-07, End=, IncludeNonAssigned=1
+[2026-02-12 21:26:31] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:26:31] DEBUG BEFORE START: 7491 executions before 2026-01-07
+[2026-02-12 21:26:31] Query executed successfully, checking results...
+[2026-02-12 21:26:31] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 65 | Passed: 63 | Failed: 1 | Blocked: 1 | Not Run: 408 | Pass Rate: 96.92%
+[2026-02-12 21:26:31] TOTALS: Assigned: 508 | Executed: 65 | Passed: 63 | Failed: 1 | Blocked: 1 | Not Run: 408 | Pass Rate: 98.44%
+[2026-02-12 21:26:31] Query returned 2 rows (including totals)
+[2026-02-12 21:26:31] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:26:31] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:26:42] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:26:42] Parameters: Project=242099, User=111, Start=2026-01-09, End=, IncludeNonAssigned=1
+[2026-02-12 21:26:42] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:26:42] DEBUG BEFORE START: 7547 executions before 2026-01-09
+[2026-02-12 21:26:42] Query executed successfully, checking results...
+[2026-02-12 21:26:42] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 53 | Passed: 51 | Failed: 1 | Blocked: 1 | Not Run: 396 | Pass Rate: 96.23%
+[2026-02-12 21:26:42] TOTALS: Assigned: 508 | Executed: 53 | Passed: 51 | Failed: 1 | Blocked: 1 | Not Run: 396 | Pass Rate: 98.08%
+[2026-02-12 21:26:42] Query returned 2 rows (including totals)
+[2026-02-12 21:26:42] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:26:42] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:26:48] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:26:48] Parameters: Project=242099, User=111, Start=2026-01-14, End=, IncludeNonAssigned=1
+[2026-02-12 21:26:48] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:26:48] DEBUG BEFORE START: 7627 executions before 2026-01-14
+[2026-02-12 21:26:48] Query executed successfully, checking results...
+[2026-02-12 21:26:48] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 41 | Passed: 39 | Failed: 1 | Blocked: 1 | Not Run: 384 | Pass Rate: 95.12%
+[2026-02-12 21:26:48] TOTALS: Assigned: 508 | Executed: 41 | Passed: 39 | Failed: 1 | Blocked: 1 | Not Run: 384 | Pass Rate: 97.5%
+[2026-02-12 21:26:48] Query returned 2 rows (including totals)
+[2026-02-12 21:26:48] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:26:48] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:26:55] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:26:55] Parameters: Project=242099, User=111, Start=2026-01-21, End=, IncludeNonAssigned=1
+[2026-02-12 21:26:55] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:26:56] DEBUG BEFORE START: 8312 executions before 2026-01-21
+[2026-02-12 21:26:56] Query executed successfully, checking results...
+[2026-02-12 21:26:56] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 33 | Passed: 31 | Failed: 1 | Blocked: 1 | Not Run: 376 | Pass Rate: 93.94%
+[2026-02-12 21:26:56] TOTALS: Assigned: 508 | Executed: 33 | Passed: 31 | Failed: 1 | Blocked: 1 | Not Run: 376 | Pass Rate: 96.88%
+[2026-02-12 21:26:56] Query returned 2 rows (including totals)
+[2026-02-12 21:26:56] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:26:56] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:27:01] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:27:01] Parameters: Project=242099, User=111, Start=2026-01-28, End=, IncludeNonAssigned=1
+[2026-02-12 21:27:01] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:27:01] DEBUG BEFORE START: 10772 executions before 2026-01-28
+[2026-02-12 21:27:01] Query executed successfully, checking results...
+[2026-02-12 21:27:01] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 13 | Passed: 13 | Failed: 0 | Blocked: 0 | Not Run: 356 | Pass Rate: 100%
+[2026-02-12 21:27:01] TOTALS: Assigned: 508 | Executed: 13 | Passed: 13 | Failed: 0 | Blocked: 0 | Not Run: 356 | Pass Rate: 100%
+[2026-02-12 21:27:01] Query returned 2 rows (including totals)
+[2026-02-12 21:27:01] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:27:01] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:27:09] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:27:09] Parameters: Project=242099, User=111, Start=2026-02-09, End=, IncludeNonAssigned=1
+[2026-02-12 21:27:09] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:27:09] DEBUG BEFORE START: 11808 executions before 2026-02-09
+[2026-02-12 21:27:09] Query executed successfully, checking results...
+[2026-02-12 21:27:09] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:27:09] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:27:09] Query returned 2 rows (including totals)
+[2026-02-12 21:27:09] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:27:09] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-12 21:27:17] === getTesterReportDataLatestOnly START ===
+[2026-02-12 21:27:17] Parameters: Project=242099, User=111, Start=2026-02-12, End=, IncludeNonAssigned=1
+[2026-02-12 21:27:17] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-12 21:27:17] DEBUG BEFORE START: 11808 executions before 2026-02-12
+[2026-02-12 21:27:17] Query executed successfully, checking results...
+[2026-02-12 21:27:17] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:27:17] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-12 21:27:17] Query returned 2 rows (including totals)
+[2026-02-12 21:27:17] Processed 1 individual user rows + 1 totals row
+[2026-02-12 21:27:17] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-13 07:13:19] === getTesterReportDataLatestOnly START ===
+[2026-02-13 07:13:19] Parameters: Project=242099, User=0, Start=2026-02-20, End=, IncludeNonAssigned=1
+[2026-02-13 07:13:19] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-13 07:13:19] DEBUG BEFORE START: 11808 executions before 2026-02-20
+[2026-02-13 07:13:20] Query executed successfully, checking results...
+[2026-02-13 07:13:20] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Abeid Ngwanakilala | Assigned: 56 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Ahmed Ubwa | Assigned: 14 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 14 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Alexander Samwel | Assigned: 145 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 94 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Asha Nyaraka | Assigned: 174 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 7 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Baby Njella | Assigned: 362 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 144 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Benson Moshi | Assigned: 8 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Berry Nsanya | Assigned: 9 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 4 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: CHANDE KAMTANDE | Assigned: 620 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 42 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Charity Mwakalonge | Assigned: 350 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 224 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Charles Nyamboha | Assigned: 3 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Daniel Mwangi | Assigned: 47 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Darius Elias | Assigned: 105 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Dotto Kubiha | Assigned: 746 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 174 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Elipokea Shio | Assigned: 148 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Emmanuel Mbwambo | Assigned: 673 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 114 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Eric Moye | Assigned: 78 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 48 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Franael Mungure | Assigned: 112 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 32 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Gabriel Kalikwenda | Assigned: 493 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 320 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Geofrey Kakuru | Assigned: 41 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Getrudah Mataro | Assigned: 157 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 36 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Godbles Lema | Assigned: 105 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Goodluck Makori | Assigned: 29 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 27 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Happy Chimile | Assigned: 122 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Helga Loth | Assigned: 521 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 334 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Hellen Allan | Assigned: 232 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 48 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Huruma Stewart | Assigned: 52 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 52 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Jackson Chuma | Assigned: 436 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 346 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Janestella Nyaluli | Assigned: 828 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 97 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Japhet Walubela | Assigned: 628 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 412 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Johanitha Ishemoi | Assigned: 82 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Julieth Makalwe | Assigned: 226 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 93 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Julius Keneth | Assigned: 889 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 86 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Kiyao Mwihava | Assigned: 77 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 18 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Leonard Makungu | Assigned: 53 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 16 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Mgayo Athuman | Assigned: 574 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 269 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Msafiri Ally | Assigned: 26 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Muumini Mohamed | Assigned: 658 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 401 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Neema Kassim | Assigned: 92 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Pauline Mohele | Assigned: 29 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Peace Ndaula | Assigned: 662 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 371 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Rachel Tsingay | Assigned: 662 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 356 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Richard Barnaba | Assigned: 642 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 47 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Rita Lyamuya | Assigned: 100 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 0 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Rukia Reli | Assigned: 71 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 2 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Said Mzelela | Assigned: 89 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 3 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Sebastian Kavishe | Assigned: 77 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 75 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Shaabani Kassali | Assigned: 175 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 28 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Tenjin Automation | Assigned: 7677 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 5616 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Upendo Mbajo | Assigned: 347 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 188 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Upendo Samiji | Assigned: 1074 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 182 | Pass Rate: 0%
+[2026-02-13 07:13:20] User: Zaharia Kilakala | Assigned: 318 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 50 | Pass Rate: 0%
+[2026-02-13 07:13:20] TOTALS: Assigned: 22402 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 10713 | Pass Rate: 0%
+[2026-02-13 07:13:20] Query returned 53 rows (including totals)
+[2026-02-13 07:13:20] Processed 52 individual user rows + 1 totals row
+[2026-02-13 07:13:20] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-13 07:13:29] === getTesterReportDataLatestOnly START ===
+[2026-02-13 07:13:29] Parameters: Project=242099, User=15, Start=2026-02-20, End=, IncludeNonAssigned=1
+[2026-02-13 07:13:29] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-13 07:13:29] DEBUG BEFORE START: 11808 executions before 2026-02-20
+[2026-02-13 07:13:29] Query executed successfully, checking results...
+[2026-02-13 07:13:29] User: Berry Nsanya | Assigned: 9 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 4 | Pass Rate: 0%
+[2026-02-13 07:13:29] TOTALS: Assigned: 9 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 4 | Pass Rate: 0%
+[2026-02-13 07:13:29] Query returned 2 rows (including totals)
+[2026-02-13 07:13:29] Processed 1 individual user rows + 1 totals row
+[2026-02-13 07:13:29] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-13 07:13:45] === getTesterReportDataLatestOnly START ===
+[2026-02-13 07:13:45] Parameters: Project=242099, User=15, Start=2026-02-01, End=, IncludeNonAssigned=1
+[2026-02-13 07:13:45] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-13 07:13:45] DEBUG BEFORE START: 11664 executions before 2026-02-01
+[2026-02-13 07:13:45] Query executed successfully, checking results...
+[2026-02-13 07:13:45] User: Berry Nsanya | Assigned: 9 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 4 | Pass Rate: 0%
+[2026-02-13 07:13:45] TOTALS: Assigned: 9 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 4 | Pass Rate: 0%
+[2026-02-13 07:13:45] Query returned 2 rows (including totals)
+[2026-02-13 07:13:45] Processed 1 individual user rows + 1 totals row
+[2026-02-13 07:13:45] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-13 07:13:52] === getTesterReportDataLatestOnly START ===
+[2026-02-13 07:13:52] Parameters: Project=242099, User=15, Start=2026-03-10, End=, IncludeNonAssigned=1
+[2026-02-13 07:13:52] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-13 07:13:52] DEBUG BEFORE START: 11808 executions before 2026-03-10
+[2026-02-13 07:13:53] Query executed successfully, checking results...
+[2026-02-13 07:13:53] User: Berry Nsanya | Assigned: 9 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 4 | Pass Rate: 0%
+[2026-02-13 07:13:53] TOTALS: Assigned: 9 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 4 | Pass Rate: 0%
+[2026-02-13 07:13:53] Query returned 2 rows (including totals)
+[2026-02-13 07:13:53] Processed 1 individual user rows + 1 totals row
+[2026-02-13 07:13:53] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-13 07:14:03] === getTesterReportDataLatestOnly START ===
+[2026-02-13 07:14:03] Parameters: Project=242099, User=111, Start=2026-03-10, End=, IncludeNonAssigned=1
+[2026-02-13 07:14:03] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-13 07:14:03] DEBUG BEFORE START: 11808 executions before 2026-03-10
+[2026-02-13 07:14:03] Query executed successfully, checking results...
+[2026-02-13 07:14:03] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-13 07:14:03] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-13 07:14:03] Query returned 2 rows (including totals)
+[2026-02-13 07:14:03] Processed 1 individual user rows + 1 totals row
+[2026-02-13 07:14:03] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-13 07:14:15] === getTesterReportDataLatestOnly START ===
+[2026-02-13 07:14:15] Parameters: Project=242099, User=111, Start=2026-02-04, End=, IncludeNonAssigned=1
+[2026-02-13 07:14:15] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-13 07:14:15] DEBUG BEFORE START: 11807 executions before 2026-02-04
+[2026-02-13 07:14:15] Query executed successfully, checking results...
+[2026-02-13 07:14:15] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-13 07:14:15] TOTALS: Assigned: 508 | Executed: 0 | Passed: 0 | Failed: 0 | Blocked: 0 | Not Run: 343 | Pass Rate: 0%
+[2026-02-13 07:14:15] Query returned 2 rows (including totals)
+[2026-02-13 07:14:15] Processed 1 individual user rows + 1 totals row
+[2026-02-13 07:14:15] === getTesterReportDataLatestOnly END SUCCESS ===
+[2026-02-13 07:14:25] === getTesterReportDataLatestOnly START ===
+[2026-02-13 07:14:25] Parameters: Project=242099, User=111, Start=2026-01-01, End=, IncludeNonAssigned=1
+[2026-02-13 07:14:25] Executing enhanced query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                IFNULL(e.executed_cnt, 0) AS executed_testcases,
+                IFNULL(e.pass_cnt, 0) AS passed_testcases,
+                IFNULL(e.fail_cnt, 0) AS failed_testcases,
+                IFNULL(e.blocked_cnt, 0) AS blocked_testcases,
+                
+                GREATEST(IFNULL(a.assi...
+[2026-02-13 07:14:25] DEBUG BEFORE START: 7420 executions before 2026-01-01
+[2026-02-13 07:14:25] Query executed successfully, checking results...
+[2026-02-13 07:14:25] User: Abdulrahman Mfundo | Assigned: 508 | Executed: 90 | Passed: 88 | Failed: 1 | Blocked: 1 | Not Run: 433 | Pass Rate: 97.78%
+[2026-02-13 07:14:25] TOTALS: Assigned: 508 | Executed: 90 | Passed: 88 | Failed: 1 | Blocked: 1 | Not Run: 433 | Pass Rate: 98.88%
+[2026-02-13 07:14:25] Query returned 2 rows (including totals)
+[2026-02-13 07:14:25] Processed 1 individual user rows + 1 totals row
+[2026-02-13 07:14:25] === getTesterReportDataLatestOnly END SUCCESS ===

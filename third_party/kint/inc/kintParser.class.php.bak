@@ -1,0 +1,9 @@
+<?php
+/**
+ * Stub for kintParser to avoid PHP 8 errors
+ */
+
+class kintParser {
+    public static function factory() { return new self(); }
+    public function parse() { return null; }
+}

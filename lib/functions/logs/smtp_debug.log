@@ -1,0 +1,920 @@
+[2025-08-29 11:15:02] PHPMailer Send() returned false. ctx host=10.200.221.58 port=25 secure= autoTLS= userSet=no helo=NMB-DC-CBS-V004 from=projectspace-test@nmbtz.com sender=mwaimu.mtingele@nmbtz.com ErrorInfo=SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[2025-08-29 14:23:42] [level=3] Connection: opening to 10.200.221.58:25, timeout=300, options=array()
+[2025-08-29 14:24:03] [level=3] Connection failed. Error #2: stream_socket_client(): unable to connect to 10.200.221.58:25 (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+) [C:\xampp\htdocs\tl-uat\vendor\phpmailer\phpmailer\src\SMTP.php line 325]
+[2025-08-29 14:24:03] [level=1] SMTP ERROR: Failed to connect to server: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+ (10060)
+[2025-08-29 14:24:03] [level=3] SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[2025-08-29 14:24:03] PHPMailer Send() returned false. ctx host=10.200.221.58 port=25 secure= autoTLS= userSet=no helo=NMB-DC-CBS-V004 from=projectspace-test@nmbtz.com sender=mwaimu.mtingele@nmbtz.com ErrorInfo=SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[2025-08-29 15:36:51] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-08-29 15:36:51] [level=3] Connection: opened
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Fri, 29 Aug 2025 16:36:50 +0300
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: RCPT TO:<mwaimu.mtingele@nmbbank.co.tz>
+
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: DATA
+
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: Date: Fri, 29 Aug 2025 15:36:51 +0200
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: To: mwaimu.mtingele@nmbbank.co.tz
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: Message-ID: <cRwN1WDPtHgtWhxzIczWPwivUXJKBweWUFdkvqCanLk@NMB-DC-CBS-V004>
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: wAit,;PWe/q?
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: .
+
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 250 2.6.0 <cRwN1WDPtHgtWhxzIczWPwivUXJKBweWUFdkvqCanLk@NMB-DC-CBS-V004> [InternalId=30515742654940, Hostname=NMB-DC-EXC-V012.nmbtz.com] 1882 bytes in 0.105, 17.406 KB/sec Queued mail for delivery
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: RSET
+
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-08-29 15:36:51] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-08-29 15:36:51] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-08-29 15:36:51] [level=3] Connection: closed
+[2025-08-29 15:37:24] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-08-29 15:37:24] [level=3] Connection: opened
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Fri, 29 Aug 2025 16:37:23 +0300
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: DATA
+
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: Date: Fri, 29 Aug 2025 15:37:24 +0200
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: Message-ID: <gw7UJOyItI5la8H29eUwzsTwIIfhuwDglM7U4N90g@NMB-DC-CBS-V004>
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: O.:41a*8$7rv
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: .
+
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 250 2.6.0 <gw7UJOyItI5la8H29eUwzsTwIIfhuwDglM7U4N90g@NMB-DC-CBS-V004> [InternalId=30515742655118, Hostname=NMB-DC-EXC-V012.nmbtz.com] 1873 bytes in 0.123, 14.790 KB/sec Queued mail for delivery
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: RSET
+
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-08-29 15:37:24] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-08-29 15:37:24] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-08-29 15:37:24] [level=3] Connection: closed
+[2025-08-29 15:41:21] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-08-29 15:41:21] [level=3] Connection: opened
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Fri, 29 Aug 2025 16:41:20 +0300
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: DATA
+
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: Date: Fri, 29 Aug 2025 15:41:21 +0200
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: Message-ID: <nYWV3u6z0GQ8NWAPbcVLteI4IbxTkrqHV2WLHhpso@NMB-DC-CBS-V004>
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: uGa$XU3.,!Yz
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: 
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: .
+
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 250 2.6.0 <nYWV3u6z0GQ8NWAPbcVLteI4IbxTkrqHV2WLHhpso@NMB-DC-CBS-V004> [InternalId=26637387189628, Hostname=NMB-DC-EXC-V013.nmbtz.com] 1873 bytes in 0.133, 13.683 KB/sec Queued mail for delivery
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: RSET
+
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-08-29 15:41:21] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-08-29 15:41:21] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-08-29 15:41:21] [level=3] Connection: closed
+[2025-08-31 18:52:08] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-08-31 18:52:08] [level=3] Connection: opened
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Sun, 31 Aug 2025 19:52:07 +0300
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: RCPT TO:<mwaimu.mtingele@nmbbank.co.tz>
+
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: DATA
+
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: Date: Sun, 31 Aug 2025 18:52:08 +0200
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: To: mwaimu.mtingele@nmbbank.co.tz
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: Message-ID: <fmnZUme4MG5dR34vxcFNCiCjA3EuqXMtYlI38UAlU@NMB-DC-CBS-V004>
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: 
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: 
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: 
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: 7g?n3b-.y:69
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: 
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: 
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: .
+
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 250 2.6.0 <fmnZUme4MG5dR34vxcFNCiCjA3EuqXMtYlI38UAlU@NMB-DC-CBS-V004> [InternalId=30734785972654, Hostname=NMB-DC-EXC-V012.nmbtz.com] 1880 bytes in 0.130, 14.030 KB/sec Queued mail for delivery
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: RSET
+
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-08-31 18:52:08] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-08-31 18:52:08] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-08-31 18:52:08] [level=3] Connection: closed
+[2025-09-02 12:26:37] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-09-02 12:26:37] [level=3] Connection: opened
+[2025-09-02 12:26:37] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Tue, 2 Sep 2025 13:26:37 +0300
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-09-02 12:26:37] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-09-02 12:26:37] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-09-02 12:26:37] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: DATA
+
+[2025-09-02 12:26:37] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: Date: Tue, 2 Sep 2025 12:26:37 +0200
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: Message-ID: <IXGNF0YwotpYTH96wZ29YDX1v4koORDUenDm1Ny4eIo@NMB-DC-CBS-V004>
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: 
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: 
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: 
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: IVlG:*fF*8E/
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: 
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: 
+
+[2025-09-02 12:26:37] [level=1] CLIENT -> SERVER: .
+
+[2025-09-02 12:26:38] [level=2] SERVER -> CLIENT: 250 2.6.0 <IXGNF0YwotpYTH96wZ29YDX1v4koORDUenDm1Ny4eIo@NMB-DC-CBS-V004> [InternalId=30915174610701, Hostname=NMB-DC-EXC-V012.nmbtz.com] 1872 bytes in 0.119, 15.297 KB/sec Queued mail for delivery
+
+[2025-09-02 12:26:38] [level=1] CLIENT -> SERVER: RSET
+
+[2025-09-02 12:26:38] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-09-02 12:26:38] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-09-02 12:26:38] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-09-02 12:26:38] [level=3] Connection: closed
+[2025-10-16 10:32:02] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-10-16 10:32:02] [level=3] Connection: opened
+[2025-10-16 10:32:02] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Thu, 16 Oct 2025 11:32:02 +0300
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-10-16 10:32:02] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-10-16 10:32:02] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-10-16 10:32:02] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: DATA
+
+[2025-10-16 10:32:02] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: Date: Thu, 16 Oct 2025 10:32:02 +0200
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: Message-ID: <r6FKFGSbyHtQ4pVNcwYJkVKF5kc2gPIiWJQmS8Mfg0@NMB-DC-CBS-V004>
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: 1yo;ZA/Rd*;O
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: .
+
+[2025-10-16 10:32:02] [level=2] SERVER -> CLIENT: 250 2.6.0 <r6FKFGSbyHtQ4pVNcwYJkVKF5kc2gPIiWJQmS8Mfg0@NMB-DC-CBS-V004> [InternalId=31563714671590, Hostname=NMB-DC-EXC-V013.nmbtz.com] 1874 bytes in 0.099, 18.401 KB/sec Queued mail for delivery
+
+[2025-10-16 10:32:02] [level=1] CLIENT -> SERVER: RSET
+
+[2025-10-16 10:32:02] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-10-16 10:32:03] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-10-16 10:32:03] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-10-16 10:32:03] [level=3] Connection: closed
+[2025-10-16 10:32:18] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-10-16 10:32:18] [level=3] Connection: opened
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Thu, 16 Oct 2025 11:32:18 +0300
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: DATA
+
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: Date: Thu, 16 Oct 2025 10:32:18 +0200
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: Message-ID: <XCu2hEG9kqQ4UNPbuLxfrIPPBxMvPaW1u9rx2fP4KcI@NMB-DC-CBS-V004>
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: /.u6EA!isO;P
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: .
+
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 250 2.6.0 <XCu2hEG9kqQ4UNPbuLxfrIPPBxMvPaW1u9rx2fP4KcI@NMB-DC-CBS-V004> [InternalId=35442070140055, Hostname=NMB-DC-EXC-V012.nmbtz.com] 1875 bytes in 0.129, 14.093 KB/sec Queued mail for delivery
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: RSET
+
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-10-16 10:32:18] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-10-16 10:32:18] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-10-16 10:32:18] [level=3] Connection: closed
+[2025-10-16 19:22:26] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-10-16 19:22:26] [level=3] Connection: opened
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Thu, 16 Oct 2025 20:22:25 +0300
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: DATA
+
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: Date: Thu, 16 Oct 2025 19:22:26 +0200
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: Message-ID: <QOYf2X2jS9y63BFzncG2dP2ATfSQ2Rzy8YGErX0FA@NMB-DC-CBS-V004>
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: y*DTI.u-03.C
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: .
+
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 250 2.6.0 <QOYf2X2jS9y63BFzncG2dP2ATfSQ2Rzy8YGErX0FA@NMB-DC-CBS-V004> [InternalId=31602369366766, Hostname=NMB-DC-EXC-V013.nmbtz.com] 1873 bytes in 0.131, 13.945 KB/sec Queued mail for delivery
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: RSET
+
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-10-16 19:22:26] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-10-16 19:22:26] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-10-16 19:22:26] [level=3] Connection: closed
+[2025-10-16 19:22:56] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-10-16 19:22:56] [level=3] Connection: opened
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Thu, 16 Oct 2025 20:22:55 +0300
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: DATA
+
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: Date: Thu, 16 Oct 2025 19:22:56 +0200
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: Message-ID: <FvphTN98RFZ3pE0H3EpbyLiZwtoDfOb1TtVDjX4rs@NMB-DC-CBS-V004>
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: uNS?y*3*Rr$c
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: 
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: .
+
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 250 2.6.0 <FvphTN98RFZ3pE0H3EpbyLiZwtoDfOb1TtVDjX4rs@NMB-DC-CBS-V004> [InternalId=35480724834972, Hostname=NMB-DC-EXC-V012.nmbtz.com] 1873 bytes in 0.136, 13.411 KB/sec Queued mail for delivery
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: RSET
+
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-10-16 19:22:56] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-10-16 19:22:56] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-10-16 19:22:56] [level=3] Connection: closed
+[2025-11-20 13:28:28] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-11-20 13:28:28] [level=3] Connection: opened
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Thu, 20 Nov 2025 15:28:27 +0300
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: DATA
+
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: Date: Thu, 20 Nov 2025 13:28:28 +0100
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: Message-ID: <bmPwsY1KQtHdmoCtIF0xAs4boBYYg0kk1lxoaZ6ECw@NMB-DC-CBS-V004>
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: fimb6;jg$$T&
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: .
+
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 250 2.6.0 <bmPwsY1KQtHdmoCtIF0xAs4boBYYg0kk1lxoaZ6ECw@NMB-DC-CBS-V004> [InternalId=35188667068642, Hostname=NMB-DC-EXC-V013.nmbtz.com] 1874 bytes in 0.131, 13.938 KB/sec Queued mail for delivery
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: RSET
+
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-11-20 13:28:28] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-11-20 13:28:28] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-11-20 13:28:28] [level=3] Connection: closed
+[2025-11-20 13:28:42] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-11-20 13:28:42] [level=3] Connection: opened
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Thu, 20 Nov 2025 15:28:41 +0300
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: DATA
+
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: Date: Thu, 20 Nov 2025 13:28:42 +0100
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: Message-ID: <O6A708UoQp4hIaqR6Vk5lI5KULmc8w8uLYKRWxk9dYo@NMB-DC-CBS-V004>
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: v:+fCc/@D6Q8
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: .
+
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 250 2.6.0 <O6A708UoQp4hIaqR6Vk5lI5KULmc8w8uLYKRWxk9dYo@NMB-DC-CBS-V004> [InternalId=39067022536549, Hostname=NMB-DC-EXC-V012.nmbtz.com] 1875 bytes in 0.119, 15.336 KB/sec Queued mail for delivery
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: RSET
+
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-11-20 13:28:42] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-11-20 13:28:42] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-11-20 13:28:42] [level=3] Connection: closed
+[2025-11-20 13:29:21] [level=3] Connection: opening to 10.200.221.17:25, timeout=300, options=array()
+[2025-11-20 13:29:21] [level=3] Connection: opened
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 220 NMB-DC-EXC-V013.nmbtz.com Microsoft ESMTP MAIL Service ready at Thu, 20 Nov 2025 15:29:20 +0300
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: EHLO NMB-DC-CBS-V004
+
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 250-NMB-DC-EXC-V013.nmbtz.com Hello [10.200.221.51]
+250-SIZE 37748736
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: MAIL FROM:<mwaimu.mtingele@nmbtz.com>
+
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 250 2.1.0 Sender OK
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: RCPT TO:<baraka.range@nmbtz.com>
+
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 250 2.1.5 Recipient OK
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: DATA
+
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 354 Start mail input; end with <CRLF>.<CRLF>
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: Date: Thu, 20 Nov 2025 13:29:21 +0100
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: To: baraka.range@nmbtz.com
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: From: projectspace-test@nmbtz.com
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: Subject: Your new TestLink password.
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: Message-ID: <7uoEfTyUMg9HpppdHIL2gD9j0LCgWJsp1m0AjLa8@NMB-DC-CBS-V004>
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: X-Priority: 1
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.5 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: Your new TestLink password is:
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: ..+OIWo0A,+BH
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: If you have any further problems please contact your administrator.
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: 
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: .
+
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 250 2.6.0 <7uoEfTyUMg9HpppdHIL2gD9j0LCgWJsp1m0AjLa8@NMB-DC-CBS-V004> [InternalId=35188667068899, Hostname=NMB-DC-EXC-V013.nmbtz.com] 1872 bytes in 0.135, 13.470 KB/sec Queued mail for delivery
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: RSET
+
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 250 2.0.0 Resetting
+
+[2025-11-20 13:29:21] [level=1] CLIENT -> SERVER: QUIT
+
+[2025-11-20 13:29:21] [level=2] SERVER -> CLIENT: 221 2.0.0 Service closing transmission channel
+
+[2025-11-20 13:29:21] [level=3] Connection: closed

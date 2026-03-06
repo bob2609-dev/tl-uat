@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redmine Bug Fix for TestLink</title>
+</head>
+<body>
+    <h1>Redmine Bug Fix for TestLink</h1>
+    <p>This page contains the JavaScript fix for making bug IDs clickable in TestLink.</p>
+    <p>To use this fix, add the following code to your browser's bookmarks:</p>
+    
+    <textarea style="width: 100%; height: 100px;">javascript:(function(){var s=document.createElement('script');s.src='https://test-management.nmbtz.com/testlink/custom/js/redmine_bug_fix.js?v='+Math.random();document.body.appendChild(s);})();</textarea>
+    
+    <p>Then, when you're on a TestLink page with bug IDs, click the bookmark to activate the fix.</p>
+    
+    <h2>Manual Installation</h2>
+    <p>Alternatively, you can copy and paste the following JavaScript directly into your browser's console:</p>
+    
+    <textarea style="width: 100%; height: 200px;">
+// Redmine Bug Fix for TestLink
+(function() {
+    // Load the script
+    var script = document.createElement('script');
+    script.src = 'https://test-management.nmbtz.com/testlink/custom/js/redmine_bug_fix.js?v=' + Math.random();
+    document.body.appendChild(script);
+})();
+    </textarea>
+    
+    <p>Press F12 to open your browser's developer tools, go to the Console tab, paste the code, and press Enter.</p>
+</body>
+</html>

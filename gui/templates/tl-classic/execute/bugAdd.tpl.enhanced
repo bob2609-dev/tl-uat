@@ -1,0 +1,320 @@
+{*
+TestLink Open Source Project - http://testlink.sourceforge.net/ 
+@filesource bugAdd.tpl
+*}
+{include file="inc_head.tpl"}
+
+{$cfg_section=$smarty.template|basename|replace:".tpl":""}
+{config_load file="input_dimensions.conf" section=$cfg_section}
+{lang_get var='labels' 
+          s='title_bug_add,link_bts_create_bug,bug_id,notes,hint_bug_notes,
+             btn_close,btn_add_bug,btn_save,bug_summary,
+             add_link_to_tlexec,add_link_to_tlexec_print_view,
+             issueType,issuePriority,artifactVersion,artifactComponent'} 
+
+
+<body onunload="dialog_onUnload(bug_dialog)" onload="dialog_onLoad(bug_dialog)">
+<h1 class="title">
+  {$gui->pageTitle|escape} 
+  {include file="inc_help.tpl" helptopic="hlp_btsIntegration" show_help_icon=true}
+</h1>
+
+{include file="inc_update.tpl" user_feedback=$gui->msg}
+<div class="workBack">
+  <form action="lib/execute/bugAdd.php" method="post" id="bugAddForm">
+    <input type="hidden" name="tproject_id" id="tproject_id" value="{$gui->tproject_id}">
+    <input type="hidden" name="tplan_id" id="tplan_id" value="{$gui->tplan_id}">
+    <input type="hidden" name="tcversion_id" id="tcversion_id" value="{$gui->tcversion_id}">
+    <input type="hidden" name="user_action" id="user_action" value="">
+    <input type="hidden" name="tcstep_id" id="tcstep_id" value="{$gui->tcstep_id}">
+
+    {if $gui->user_action == 'link' || $gui->user_action == 'add_note'}
+      <p>
+      <a style="font-weight:normal" target="_blank" href="{$gui->issueTrackerCfg->createIssueURL}">
+      {$labels.link_bts_create_bug}({$gui->issueTrackerCfg->VerboseID|escape})</a>
+      </p>  
+      <p class="label">{$gui->issueTrackerCfg->VerboseType|escape} {$labels.bug_id}
+        <input type="text" id="bug_id" name="bug_id" required value="{$gui->bug_id}"
+               size="{#BUGID_SIZE#}" maxlength="{$gui->issueTrackerCfg->bugIDMaxLength}" 
+               {if $gui->user_action == 'add_note'} readonly {/if} />
+      </p>
+
+    {/if}
+
+    {if $gui->user_action == 'create' || $gui->user_action == 'doCreate' }
+      <p style="color: #000000; font-weight: bold;">{$labels.bug_summary}(*)
+        {* Format the test case path with slashes replaced by hyphens or greater-than symbols *}
+        {assign var="formattedSummary" value=$gui->bug_summary}
+        {* Check if it contains 'Test Case:' prefix *}
+        {assign var="testCasePos" value=$gui->bug_summary|strpos:'Test Case:'}
+        {if $testCasePos !== false}
+          {* Try to extract project name and testcase path using regex_replace *}
+          {assign var="projectName" value=$gui->bug_summary|regex_replace:'/Test Case: \/(.*?)\/(.*?)\/(.*?)(?:\s*-\s*Executed\s+ON.*)?$/':'\1'}
+          
+          {* Only proceed if we successfully extracted the project name *}
+          {if $projectName != $gui->bug_summary}
+            {assign var="testcasePath" value=$gui->bug_summary|regex_replace:'/Test Case: \/(.*?)\/(.*?)\/(.*?)(?:\s*-\s*Executed\s+ON.*)?$/':'\2/\3'}
+            {* Replace slashes with greater-than symbols in the testcase path *}
+            {assign var="formattedPath" value=$testcasePath|replace:'/':' > '}
+            {assign var="formattedSummary" value="$formattedPath"}
+          {/if}
+        {/if}
+        {* If it's a different format, check if it contains a slash *}
+        {if $formattedSummary == $gui->bug_summary && $gui->bug_summary|strpos:'/' !== false}
+          {* Try to extract project name and testcase path using regex_replace *}
+          {assign var="projectName" value=$gui->bug_summary|regex_replace:'/\/(.*?)\/(.*?)\/(.*?)(?:\s*-\s*Executed\s+ON.*)?$/':'\1'}
+          
+          {* Only proceed if we successfully extracted the project name *}
+          {if $projectName != $gui->bug_summary}
+            {assign var="testcasePath" value=$gui->bug_summary|regex_replace:'/\/(.*?)\/(.*?)\/(.*?)(?:\s*-\s*Executed\s+ON.*)?$/':'\2/\3'}
+            {* Replace slashes with greater-than symbols in the testcase path *}
+            {assign var="formattedPath" value=$testcasePath|replace:'/':' > '}
+            {assign var="formattedSummary" value="$formattedPath"}
+          {/if}
+        {/if}
+        <input type="text" id="bug_summary" name="bug_summary" required value="{$formattedSummary}"
+               size="{#BUGSUMMARY_SIZE#}" maxlength="{$gui->issueTrackerCfg->bugSummaryMaxLength}" 
+      </p>
+
+     {$itMetaData = $gui->issueTrackerMetaData}
+     {if '' != $itMetaData && null != $itMetaData}
+        {include file="./issueTrackerMetadata.inc.tpl"
+                 useOnSteps=0
+        }  
+     {/if}  {* $itMetaData *}
+
+    {/if}
+
+    {if $gui->issueTrackerCfg->tlCanAddIssueNote || $gui->user_action == 'create' || $gui->user_action == 'doCreate'}
+      <span class="label"><img src="{$tlImages.info}" title="{$labels.hint_bug_notes}">{$labels.notes}</span>
+        <textarea id="bug_notes" name="bug_notes" 
+                  rows="{#BUGNOTES_ROWS#}" cols="{#BUGNOTES_COLS#}" >{$gui->bug_notes}</textarea>
+    {/if}    
+
+    {if $gui->user_action == 'create' || $gui->user_action == 'doCreate' || $gui->user_action == 'link'}
+      <br><br>
+      <input type="checkbox" name="addLinkToTL" id="addLinkToTL"
+      {if $gui->addLinkToTLChecked} checked {/if} >
+      <span class="label">{$labels.add_link_to_tlexec}</span>
+      <br>
+      <input type="checkbox" name="addLinkToTLPrintView" id="addLinkToTLPrintView"
+      {if $gui->addLinkToTLPrintViewChecked} checked {/if} >
+      <span class="label">{$labels.add_link_to_tlexec_print_view}</span>
+    {/if}
+
+    <div class="groupBtn">
+     {if $gui->user_action == 'link'}
+      <input type="button" value="{$labels.btn_save}" 
+             onclick="submitBugLink('{$gui->user_action}')" />
+     {/if} 
+
+     {if $gui->user_action == 'create' || $gui->user_action == 'doCreate'}
+      <input type="button" value="{$labels.btn_save}" 
+             onclick="submitBugForm('doCreate')" />
+     {/if} 
+
+     {if $gui->user_action == 'add_note'}
+      <input type="button" value="{$labels.btn_save}" onclick="submitBugForm('add_note')" />
+     {/if} 
+
+
+      <input type="button" value="{$labels.btn_close}" onclick="window.close()" />
+    </div>
+  </form>
+</div>
+
+<script>
+jQuery(document).ready(function() {
+    // Initialize chosen selects
+    jQuery(".chosen-select").chosen({ width: "35%" });
+
+    // From https://github.com/harvesthq/chosen/issues/515
+    jQuery(".chosen-select").each(function(){
+        jQuery(this).next(".chosen-container").prepend(jQuery(this).detach());
+        jQuery(this).attr("style","display:block!important; position:absolute; clip:rect(0,0,0,0)");
+        jQuery(this).on("click focus keyup",function(event){
+            jQuery(this).closest(".chosen-container").trigger("mousedown.chosen");
+        });
+    });
+    
+    // Create debug log container
+    jQuery('body').append('<div id="debug-log" style="position:fixed; bottom:0; right:0; background:white; border:1px solid black; padding:5px; max-height:200px; overflow:auto; z-index:9999;"></div>');
+    
+    // Debug log function
+    function debugLog(message) {
+        var now = new Date();
+        var timestamp = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+        jQuery('#debug-log').append('<div>[' + timestamp + '] ' + message + '</div>');
+        jQuery('#debug-log').scrollTop(jQuery('#debug-log')[0].scrollHeight);
+    }
+    
+    // Enhanced form submission handling with fallback mechanism
+    var formSubmitted = false;
+    var submissionTimeout = null;
+    var fallbackActivated = false;
+    
+    // Specialized function for bug linking (prevents double execution)
+    function submitBugLink(action) {
+        debugLog('Bug link submission started');
+
+        console.log('⚠️--> Linking Bug 260206  >>')
+        
+        if (formSubmitted) {
+            debugLog('Bug link already submitted, preventing resubmission');
+            alert('Your request is being processed. Please wait...');
+            return false;
+        }
+        
+        // Set action and disable button
+        jQuery('#user_action').val(action);
+        jQuery('input[type="button"]').prop('disabled', true).val('Linking...');
+        formSubmitted = true;
+        
+        // Show progress indicator for linking
+        var $progressIndicator = jQuery('<div id="submission-progress" style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; border:1px solid #ccc; padding:20px; z-index:10000; text-align:center;"></div>');
+        $progressIndicator.html('<h3>Linking Bug...</h3><p>Please wait while the bug is being linked to the execution.</p><div style="margin:10px 0;"><img src="gui/themes/default/images/progress.gif" alt="Loading..."></div>');
+        jQuery('body').append($progressIndicator);
+        
+        // Submit form for bug linking ONLY (no parent window interaction)
+        var formData = jQuery('#bugAddForm').serialize();
+        
+        jQuery.ajax({
+            type: 'POST',
+            url: jQuery('#bugAddForm').attr('action'),
+            data: formData,
+            timeout: 15000, // 15 second timeout for linking
+            success: function(response) {
+                debugLog('Bug link AJAX response received');
+                clearTimeout(submissionTimeout);
+                jQuery('#submission-progress').remove();
+                
+                // Show success message
+                var $successMsg = jQuery('<div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; border:2px solid green; padding:20px; z-index:10000; text-align:center;"></div>');
+                $successMsg.html('<h3 style="color:green;">Success!</h3><p>Bug linked successfully!</p><button onclick="window.close();">Close</button>');
+                jQuery('body').append($successMsg);
+                // linked
+                        console.log('✅--> LINKED Bug 260206  >>')
+
+                // Refresh parent window after a short delay to show the linked bug
+                setTimeout(function() {
+                    try {
+                        if (window.opener && !window.opener.closed) {
+                            // Use location.href instead of reload to prevent form resubmission
+                            window.opener.location.href = window.opener.location.href;
+                        }
+                    } catch (e) {
+                        debugLog('Error refreshing parent: ' + e.message);
+                    }
+                }, 500);
+            },
+            error: function(xhr, status, error) {
+                debugLog('Bug link AJAX error: ' + status + ' - ' + error);
+                clearTimeout(submissionTimeout);
+                jQuery('#submission-progress').remove();
+                
+                alert('Error linking bug: ' + error);
+                
+                // Re-enable form
+                jQuery('input[type="button"]').prop('disabled', false).val('Save');
+                formSubmitted = false;
+            }
+        });
+    }
+    
+    // Enhanced function for bug creation (with parent window protection)
+    function submitBugForm(action) {
+        debugLog('Bug creation submission started');
+        
+        if (formSubmitted) {
+            debugLog('Bug creation already submitted, preventing resubmission');
+            alert('Your request is being processed. Please wait...');
+            return false;
+        }
+        
+        // Set action and disable button
+        jQuery('#user_action').val(action);
+        jQuery('input[type="button"]').prop('disabled', true).val('Creating...');
+        formSubmitted = true;
+        debugLog('Bug creation submission started');
+        
+        // Show progress indicator
+        var $progressIndicator = jQuery('<div id="submission-progress" style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; border:1px solid #ccc; padding:20px; z-index:10000; text-align:center;"></div>');
+        $progressIndicator.html('<h3>Creating Bug...</h3><p>Please wait while your bug is being created.</p><div style="margin:10px 0;"><img src="gui/themes/default/images/progress.gif" alt="Loading..."></div>');
+        jQuery('body').append($progressIndicator);
+        
+        // Notify parent window if it exists (for bug creation only)
+        if (window.opener && window.opener.disableTestExecButtons) {
+            window.opener.bugSubmissionInProgress = true;
+            window.opener.disableTestExecButtons(true);
+            debugLog('Notified parent window for bug creation');
+        }
+        
+        // Submit form for bug creation
+        var formData = jQuery('#bugAddForm').serialize();
+        jQuery.ajax({
+            type: 'POST',
+            url: jQuery('#bugAddForm').attr('action'),
+            data: formData,
+            timeout: 30000, // 30 second timeout for creation
+            success: function(response) {
+                debugLog('Bug creation AJAX response received');
+                
+                // Only process if fallback hasn't been activated yet
+                clearTimeout(submissionTimeout);
+                jQuery('#submission-progress').remove();
+                
+                // Show success message
+                var $successMsg = jQuery('<div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; border:2px solid green; padding:20px; z-index:10000; text-align:center;"></div>');
+                $successMsg.html('<h3 style="color:green;">Success!</h3><p>Bug created successfully!</p><button onclick="window.close();">Close</button>');
+                jQuery('body').append($successMsg);
+                
+                // Re-enable buttons in parent window
+                if (window.opener && window.opener.disableTestExecButtons) {
+                    window.opener.bugSubmissionInProgress = false;
+                    window.opener.disableTestExecButtons(false);
+                    debugLog('Reset parent window after bug creation');
+                    
+                    // Refresh parent window to show the new bug
+                    try {
+                        setTimeout(function() {
+                            // Use location.href instead of reload to prevent form resubmission
+                            window.opener.location.href = window.opener.location.href;
+                        }, 1000);
+                    } catch (e) {
+                        debugLog('Error refreshing parent: ' + e.message);
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                debugLog('Bug creation AJAX error: ' + status + ' - ' + error);
+                
+                // Show error message
+                clearTimeout(submissionTimeout);
+                jQuery('#submission-progress').remove();
+                
+                alert('Error creating bug: ' + error);
+                
+                // Re-enable form
+                jQuery('input[type="button"]').prop('disabled', false).val('Save');
+                formSubmitted = false;
+                
+                // Re-enable buttons in parent window
+                if (window.opener && window.opener.disableTestExecButtons) {
+                    window.opener.bugSubmissionInProgress = false;
+                    window.opener.disableTestExecButtons(false);
+                    debugLog('Reset parent window after bug creation error');
+                }
+            }
+        });
+    }
+
+// When the window is closed, make sure to re-enable buttons in the parent window
+window.onbeforeunload = function() {
+    if (window.opener && window.opener.disableTestExecButtons) {
+        window.opener.bugSubmissionInProgress = false;
+        window.opener.disableTestExecButtons(false);
+    }
+};
+</script>
+</body>
+</html>

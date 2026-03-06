@@ -1,0 +1,11 @@
+=== Minimal Query Log Started: 2026-02-16 14:10:01 ===
+
+[14:10:02.935] [1.1472s] Query - 0.9593s
+SQL: new tlTestCaseFilterControl()
+
+[14:10:02.955] [1.1675s] Query - 0.0197s
+SQL: initializeGui()
+
+[14:10:09.567] [7.7786s] Query - 6.6106s
+SQL: build_tree_menu()
+

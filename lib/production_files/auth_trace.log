@@ -1,0 +1,24 @@
+[2025-05-28 20:05:08] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2025-05-28 20:05:08] Set locale to en_GB
+[2025-05-28 20:05:08] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2025-05-28 20:05:08] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2025-05-28 20:05:08] Login exists and not expired
+[2025-05-28 20:05:08] Checking password match
+[2025-05-28 20:05:08] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2025-05-28 20:05:08] Loading custom config from: C:\xampp\htdocs\testlink\lib\functions/../../custom_config.inc.php

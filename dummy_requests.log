@@ -1,0 +1,4 @@
+[2025-04-15 15:11:51] DIRECT INCLUSION MODE: Using provided data
+[2025-04-15 15:11:51] POST request to /issues.json
+[2025-04-15 15:11:51] Request data: {"issue":{"subject":"Test Issue from Diagnostic Script","description":"This is a test issue created by the diagnostic script at 2025-04-15 15:11:50"}}
+[2025-04-15 15:11:51] Creating issue #10000

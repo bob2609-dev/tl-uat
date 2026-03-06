@@ -1,0 +1,186 @@
+2025-10-18 12:06:15 | INFO | begin controller
+2025-10-18 12:06:15 | INFO | after testlinkInitPage
+2025-10-18 12:06:25 | INFO | begin controller
+2025-10-18 12:06:25 | INFO | after testlinkInitPage
+2025-10-18 12:06:30 | INFO | begin controller
+2025-10-18 12:06:30 | INFO | after testlinkInitPage
+2025-10-18 12:06:32 | INFO | begin controller
+2025-10-18 12:06:32 | INFO | after testlinkInitPage
+2025-10-18 12:06:32 | INFO | executing SP with filters
+2025-10-18 12:06:32 | INFO | Params: proj=242099 plan=242100 build=0 status='' path='' start='' end=''
+2025-10-18 12:06:32 | INFO | SQL: CALL suite_execution_summary(242099, 242100, 0, NULL, NULL, NULL, NULL)
+2025-10-18 12:06:32 | INFO | SP returned 0 rows
+2025-10-18 12:15:53 | INFO | begin controller
+2025-10-18 12:15:53 | INFO | after testlinkInitPage
+2025-10-18 12:15:56 | INFO | begin controller
+2025-10-18 12:15:56 | INFO | after testlinkInitPage
+2025-10-18 12:15:58 | INFO | begin controller
+2025-10-18 12:15:58 | INFO | after testlinkInitPage
+2025-10-18 12:16:05 | INFO | begin controller
+2025-10-18 12:16:05 | INFO | after testlinkInitPage
+2025-10-18 12:16:06 | INFO | begin controller
+2025-10-18 12:16:06 | INFO | after testlinkInitPage
+2025-10-18 12:16:06 | INFO | executing SP with filters
+2025-10-18 12:16:06 | INFO | Params: proj=1 plan=2 build=0 status='' path='' start='' end=''
+2025-10-18 12:16:06 | INFO | SQL: CALL suite_execution_summary(1, 2, 0, NULL, NULL, NULL, NULL)
+2025-10-18 12:16:08 | INFO | SP returned 169 rows
+2025-10-18 12:16:53 | INFO | begin controller
+2025-10-18 12:16:53 | INFO | after testlinkInitPage
+2025-10-18 12:16:56 | INFO | begin controller
+2025-10-18 12:16:56 | INFO | after testlinkInitPage
+2025-10-18 12:17:03 | INFO | begin controller
+2025-10-18 12:17:03 | INFO | after testlinkInitPage
+2025-10-18 12:17:05 | INFO | begin controller
+2025-10-18 12:17:05 | INFO | after testlinkInitPage
+2025-10-18 12:17:05 | INFO | executing SP with filters
+2025-10-18 12:17:05 | INFO | Params: proj=242099 plan=242100 build=0 status='' path='' start='' end=''
+2025-10-18 12:17:05 | INFO | SQL: CALL suite_execution_summary(242099, 242100, 0, NULL, NULL, NULL, NULL)
+2025-10-18 12:17:05 | INFO | SP returned 0 rows
+2025-10-18 12:17:10 | INFO | begin controller
+2025-10-18 12:17:10 | INFO | after testlinkInitPage
+2025-10-18 12:17:10 | INFO | executing SP with filters
+2025-10-18 12:17:10 | INFO | Params: proj=242099 plan=242100 build=0 status='' path='' start='' end=''
+2025-10-18 12:17:10 | INFO | SQL: CALL suite_execution_summary(242099, 242100, 0, NULL, NULL, NULL, NULL)
+2025-10-18 12:17:10 | INFO | SP returned 0 rows
+2025-10-18 12:17:38 | INFO | begin controller
+2025-10-18 12:17:38 | INFO | after testlinkInitPage
+2025-10-18 12:17:38 | INFO | executing SP with filters
+2025-10-18 12:17:38 | INFO | Params: proj=242099 plan=242100 build=4 status='' path='' start='' end=''
+2025-10-18 12:17:38 | INFO | SQL: CALL suite_execution_summary(242099, 242100, 4, NULL, NULL, NULL, NULL)
+2025-10-18 12:17:38 | INFO | SP returned 0 rows
+2025-10-18 12:54:28 | INFO | begin controller
+2025-10-18 12:54:28 | INFO | after testlinkInitPage
+2025-10-18 12:54:30 | INFO | begin controller
+2025-10-18 12:54:30 | INFO | after testlinkInitPage
+2025-10-18 12:54:35 | INFO | begin controller
+2025-10-18 12:54:35 | INFO | after testlinkInitPage
+2025-10-18 12:54:37 | INFO | begin controller
+2025-10-18 12:54:37 | INFO | after testlinkInitPage
+2025-10-18 12:54:37 | INFO | executing SP with filters
+2025-10-18 12:54:37 | INFO | Params: proj=1 plan=2 build=0 status='' path='' start='' end=''
+2025-10-18 12:54:37 | INFO | SQL: CALL suite_execution_summary(1, 2, 0, NULL, NULL, NULL, NULL)
+2025-10-18 12:54:38 | INFO | SP returned 169 rows
+2025-10-20 08:43:11 | INFO | begin controller
+2025-10-20 08:43:11 | INFO | after testlinkInitPage
+2025-10-20 08:43:17 | INFO | begin controller
+2025-10-20 08:43:17 | INFO | after testlinkInitPage
+2025-10-20 08:43:19 | INFO | begin controller
+2025-10-20 08:43:19 | INFO | after testlinkInitPage
+2025-10-20 08:43:20 | INFO | begin controller
+2025-10-20 08:43:20 | INFO | after testlinkInitPage
+2025-10-20 08:43:20 | INFO | executing SP with filters
+2025-10-20 08:43:20 | INFO | Params: proj=242099 plan=242100 build=0 status='' path='' start='' end=''
+2025-10-20 08:43:20 | INFO | SQL: CALL suite_execution_summary(242099, 242100, 0, NULL, NULL, NULL, NULL)
+2025-10-20 08:43:21 | INFO | SP returned 142 rows
+2025-10-20 08:46:04 | INFO | begin controller
+2025-10-20 08:46:04 | INFO | after testlinkInitPage
+2025-10-20 08:46:10 | INFO | begin controller
+2025-10-20 08:46:10 | INFO | after testlinkInitPage
+2025-10-20 08:46:13 | INFO | begin controller
+2025-10-20 08:46:13 | INFO | after testlinkInitPage
+2025-10-20 08:46:15 | INFO | begin controller
+2025-10-20 08:46:15 | INFO | after testlinkInitPage
+2025-10-20 08:46:16 | INFO | begin controller
+2025-10-20 08:46:16 | INFO | after testlinkInitPage
+2025-10-20 08:46:16 | INFO | executing SP with filters
+2025-10-20 08:46:16 | INFO | Params: proj=242099 plan=242100 build=0 status='' path='' start='' end=''
+2025-10-20 08:46:16 | INFO | SQL: CALL suite_execution_summary(242099, 242100, 0, NULL, NULL, NULL, NULL)
+2025-10-20 08:46:16 | INFO | SP returned 142 rows
+2025-11-17 09:11:33 | INFO | begin controller
+2025-11-17 09:11:33 | INFO | after testlinkInitPage
+2025-11-20 13:51:29 | INFO | begin controller
+2025-11-20 13:51:29 | INFO | after testlinkInitPage
+2025-11-26 07:53:45 | INFO | begin controller
+2025-11-26 07:53:46 | INFO | after testlinkInitPage
+2025-11-26 07:53:54 | INFO | begin controller
+2025-11-26 07:53:54 | INFO | after testlinkInitPage
+2025-11-26 07:54:10 | INFO | begin controller
+2025-11-26 07:54:10 | INFO | after testlinkInitPage
+2025-11-26 07:54:37 | INFO | begin controller
+2025-11-26 07:54:37 | INFO | after testlinkInitPage
+2025-11-26 07:54:37 | INFO | executing SP with filters
+2025-11-26 07:54:37 | INFO | Params: proj=242099 plan=0 build=0 status='' path='' start='' end='2025-09-25'
+2025-11-26 07:54:37 | INFO | SQL: CALL suite_execution_summary(242099, 0, 0, NULL, NULL, NULL, '2025-09-25 23:59:59')
+2025-11-26 07:54:38 | INFO | SP returned 223 rows
+2025-11-26 07:54:38 | INFO | begin controller
+2025-11-26 07:54:38 | INFO | after testlinkInitPage
+2025-11-26 07:54:38 | INFO | executing SP with filters
+2025-11-26 07:54:38 | INFO | Params: proj=242099 plan=0 build=0 status='' path='' start='' end='2025-09-25'
+2025-11-26 07:54:38 | INFO | SQL: CALL suite_execution_summary(242099, 0, 0, NULL, NULL, NULL, '2025-09-25 23:59:59')
+2025-11-26 07:54:39 | INFO | SP returned 223 rows
+2025-11-26 07:55:29 | INFO | begin controller
+2025-11-26 07:55:29 | INFO | after testlinkInitPage
+2025-11-26 07:55:38 | INFO | begin controller
+2025-11-26 07:55:38 | INFO | after testlinkInitPage
+2025-11-26 07:56:00 | INFO | begin controller
+2025-11-26 07:56:00 | INFO | after testlinkInitPage
+2025-11-26 07:56:00 | INFO | executing SP with filters
+2025-11-26 07:56:00 | INFO | Params: proj=242099 plan=0 build=0 status='' path='' start='' end='2025-09-26'
+2025-11-26 07:56:00 | INFO | SQL: CALL suite_execution_summary(242099, 0, 0, NULL, NULL, NULL, '2025-09-26 23:59:59')
+2025-11-26 07:56:00 | INFO | SP returned 224 rows
+2025-12-01 13:58:06 | INFO | begin controller
+2025-12-01 13:58:06 | INFO | after testlinkInitPage
+2025-12-01 13:58:09 | INFO | begin controller
+2025-12-01 13:58:09 | INFO | after testlinkInitPage
+2025-12-01 13:58:20 | INFO | begin controller
+2025-12-01 13:58:20 | INFO | after testlinkInitPage
+2025-12-01 13:58:31 | INFO | begin controller
+2025-12-01 13:58:31 | INFO | after testlinkInitPage
+2025-12-05 08:52:40 | INFO | begin controller
+2025-12-05 08:52:40 | INFO | after testlinkInitPage
+2025-12-05 08:52:50 | INFO | begin controller
+2025-12-05 08:52:50 | INFO | after testlinkInitPage
+2025-12-05 08:52:52 | INFO | begin controller
+2025-12-05 08:52:52 | INFO | after testlinkInitPage
+2025-12-05 08:53:00 | INFO | begin controller
+2025-12-05 08:53:00 | INFO | after testlinkInitPage
+2025-12-05 08:53:11 | INFO | begin controller
+2025-12-05 08:53:11 | INFO | after testlinkInitPage
+2025-12-05 08:53:12 | INFO | begin controller
+2025-12-05 08:53:12 | INFO | after testlinkInitPage
+2025-12-05 08:53:13 | INFO | begin controller
+2025-12-05 08:53:13 | INFO | after testlinkInitPage
+2026-01-21 16:51:31 | INFO | begin controller
+2026-01-21 16:51:31 | INFO | after testlinkInitPage
+2026-01-21 16:51:37 | INFO | begin controller
+2026-01-21 16:51:37 | INFO | after testlinkInitPage
+2026-01-21 16:51:39 | INFO | begin controller
+2026-01-21 16:51:39 | INFO | after testlinkInitPage
+2026-01-21 16:51:42 | INFO | begin controller
+2026-01-21 16:51:42 | INFO | after testlinkInitPage
+2026-01-21 16:51:44 | INFO | begin controller
+2026-01-21 16:51:44 | INFO | after testlinkInitPage
+2026-01-21 16:51:44 | INFO | executing SP with filters
+2026-01-21 16:51:44 | INFO | Params: proj=359529 plan=359530 build=0 status='' path='' start='' end=''
+2026-01-21 16:51:44 | INFO | SQL: CALL suite_execution_summary(359529, 359530, 0, NULL, NULL, NULL, NULL)
+2026-01-21 16:51:44 | INFO | SP returned 10 rows
+2026-01-21 16:52:02 | INFO | begin controller
+2026-01-21 16:52:02 | INFO | after testlinkInitPage
+2026-01-21 16:52:04 | INFO | begin controller
+2026-01-21 16:52:04 | INFO | after testlinkInitPage
+2026-01-21 16:52:06 | INFO | begin controller
+2026-01-21 16:52:06 | INFO | after testlinkInitPage
+2026-01-21 16:52:06 | INFO | executing SP with filters
+2026-01-21 16:52:06 | INFO | Params: proj=1 plan=2 build=0 status='' path='' start='' end=''
+2026-01-21 16:52:06 | INFO | SQL: CALL suite_execution_summary(1, 2, 0, NULL, NULL, NULL, NULL)
+2026-01-21 16:52:07 | INFO | SP returned 172 rows
+2026-01-21 16:52:08 | INFO | begin controller
+2026-01-21 16:52:08 | INFO | after testlinkInitPage
+2026-01-21 16:52:08 | INFO | executing SP with filters
+2026-01-21 16:52:08 | INFO | Params: proj=1 plan=2 build=0 status='' path='' start='' end=''
+2026-01-21 16:52:08 | INFO | SQL: CALL suite_execution_summary(1, 2, 0, NULL, NULL, NULL, NULL)
+2026-01-21 16:52:09 | INFO | SP returned 172 rows
+2026-01-23 17:07:03 | INFO | begin controller
+2026-01-23 17:07:03 | INFO | after testlinkInitPage
+2026-01-24 12:37:30 | INFO | SP returned 0 rows
+2026-01-24 12:37:42 | INFO | SP returned 0 rows
+2026-01-24 12:37:53 | INFO | SP returned 0 rows
+2026-01-24 12:37:57 | INFO | SP returned 0 rows
+2026-01-24 12:38:03 | INFO | SP returned 0 rows
+2026-01-24 12:38:44 | INFO | SP returned 0 rows
+2026-01-24 12:45:30 | INFO | SP returned 10 rows
+2026-01-24 12:45:42 | INFO | SP returned 328 rows
+2026-01-24 12:50:40 | INFO | SP returned 172 rows
+2026-01-24 12:52:00 | INFO | SP returned 328 rows
+2026-01-24 13:20:08 | INFO | SP returned 328 rows
+2026-01-24 13:20:35 | INFO | SP returned 328 rows

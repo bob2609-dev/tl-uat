@@ -1,0 +1,8 @@
+review @test_execution_summary.php and @test_execution_summary.tpl add a section similar to and next to or below Test Suite Progress but use these formulars to display details;
+with the table and stored procedure created in plan.txt in mind lets make sure we display the full path and the number of test cases in each path also display more information in a table based on these formulars
+
+
+Pass Rate = Pass/(Pass +Failed)
+Faile Rate = Fail/(Pass + Fail)
+Block Rate = Blocked/Total Test Cases
+Pending (Not Run) Rate = Pending /(Total - Blocked)

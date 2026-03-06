@@ -1,0 +1,357 @@
+<?php
+/**
+ * Professional Tester Execution Report Backend
+ * Uses hardcoded SQL with parameters for maximum performance and flexibility
+ */
+
+// Include TestLink API and database connection
+define('NOCRYPT', true);
+require_once('../../config.inc.php');
+require_once('common.php');
+
+// Initialize session and check permissions
+testlinkInitPage($db, false, false, false);
+$currentUser = $_SESSION['currentUser'];
+
+// Initialize GUI object
+$gui = new stdClass();
+
+// Get filter parameters (needed before AJAX check)
+$selectedProject = isset($_REQUEST['project_id']) ? intval($_REQUEST['project_id']) : 0;
+$selectedPlan = isset($_REQUEST['testplan_id']) ? intval($_REQUEST['testplan_id']) : 0;
+$selectedBuild = isset($_REQUEST['build_id']) ? intval($_REQUEST['build_id']) : 0;
+$selectedTester = isset($_REQUEST['tester_id']) ? intval($_REQUEST['tester_id']) : 0;
+$reportType = isset($_REQUEST['report_type']) ? $_REQUEST['report_type'] : 'assigned';
+$startDate = isset($_REQUEST['start_date']) ? $_REQUEST['start_date'] : '';
+$endDate = isset($_REQUEST['end_date']) ? $_REQUEST['end_date'] : '';
+$hideZeroExecutions = isset($_REQUEST['hide_zero_executions']) ? ($_REQUEST['hide_zero_executions'] === 'true' || $_REQUEST['hide_zero_executions'] === '1') : false;
+
+// Initialize data for AJAX requests (needed before AJAX check)
+$testProjectMgr = new testproject($db);
+error_log('Current user ID: ' . $currentUser->dbID);
+$gui->testprojects = $testProjectMgr->get_accessible_for_user($currentUser->dbID);
+error_log('Projects loaded: ' . (is_array($gui->testprojects) ? count($gui->testprojects) : 'not an array'));
+
+// Get test plans for selected project
+$gui->testplans = array();
+if ($selectedProject > 0) {
+    $gui->testplans = $testProjectMgr->get_all_testplans($selectedProject, array('plan_status' => 1));
+}
+
+// Get builds for selected test plan
+$gui->builds = array();
+if ($selectedPlan > 0) {
+    $testPlanMgr = new testplan($db);
+    $gui->builds = $testPlanMgr->get_builds($selectedPlan);
+}
+
+// Get initial testers list
+$gui->testers = array();
+try {
+    if ($selectedProject > 0) {
+        // Load testers for specific project
+        $sql = "SELECT DISTINCT u.id, u.login, u.first, u.last 
+                FROM users u
+                JOIN user_assignments ua ON u.id = ua.user_id
+                JOIN testplan_tcversions tptc ON ua.feature_id = tptc.id
+                JOIN testplans tp ON tptc.testplan_id = tp.id
+                WHERE ua.type IN (1, 2)
+                AND tp.testproject_id = " . $selectedProject . "
+                ORDER BY u.first, u.last";
+    } else {
+        // Load all active testers when no project selected
+        $sql = "SELECT DISTINCT u.id, u.login, u.first, u.last 
+                FROM users u
+                WHERE u.active = 1
+                ORDER BY u.first, u.last";
+    }
+    
+    $result = $db->exec_query($sql);
+    if ($result) {
+        while ($row = $db->fetch_array($result)) {
+            $gui->testers[] = array(
+                'id' => $row['id'],
+                'login' => $row['login'],
+                'first' => $row['first'],
+                'last' => $row['last'],
+                'name' => $row['first'] . ' ' . $row['last']
+            );
+        }
+    }
+} catch (Exception $e) {
+    error_log('Error loading testers: ' . $e->getMessage());
+}
+
+// Check if this is an AJAX request
+if (isset($_REQUEST['ajax'])) {
+    header('Content-Type: application/json');
+    header('Cache-Control: no-cache, must-revalidate');
+    
+    if (!isset($currentUser) || !$currentUser->dbID) {
+        echo json_encode(['success' => false, 'error' => 'User not logged in or session expired']);
+        exit;
+    }
+    
+    try {
+        
+        // Handle different AJAX actions
+        $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+        
+        switch ($action) {
+            case 'get_initial_data':
+                getInitialData($db, $gui);
+                break;
+                
+            case 'get_testplans':
+                getTestPlans($db, $selectedProject);
+                break;
+                
+            case 'get_builds':
+                getBuilds($db, $selectedPlan);
+                break;
+                
+            case 'get_testers':
+                getTesters($db, $selectedProject, $selectedPlan, $selectedBuild);
+                break;
+                
+            case 'run_report':
+                runTesterReport($db, $selectedProject, $selectedPlan, $selectedBuild, $selectedTester, $reportType, $startDate, $endDate, $hideZeroExecutions);
+                break;
+                
+            default:
+                echo json_encode(['success' => false, 'error' => 'Invalid action']);
+        }
+    } catch (Exception $e) {
+        echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+    }
+    exit;
+}
+
+/**
+ * Get initial data for dropdowns
+ */
+function getInitialData($db, $gui) {
+    error_log('=== getInitialData DEBUG ===');
+    error_log('Projects count: ' . (isset($gui->testprojects) ? count($gui->testprojects) : 'not set'));
+    error_log('Testers count: ' . (isset($gui->testers) ? count($gui->testers) : 'not set'));
+    
+    if (isset($gui->testprojects)) {
+        error_log('Projects data: ' . print_r($gui->testprojects, true));
+    }
+    
+    echo json_encode([
+        'success' => true,
+        'data' => array(
+            'projects' => $gui->testprojects,
+            'testplans' => $gui->testplans,
+            'builds' => $gui->builds,
+            'testers' => $gui->testers
+        )
+    ]);
+}
+
+/**
+ * Get test plans for a specific project
+ */
+function getTestPlans($db, $projectId) {
+    $testProjectMgr = new testproject($db);
+    $testplans = $testProjectMgr->get_all_testplans($projectId, array('plan_status' => 1));
+    
+    echo json_encode([
+        'success' => true,
+        'testplans' => $testplans
+    ]);
+}
+
+/**
+ * Get builds for a specific test plan
+ */
+function getBuilds($db, $planId) {
+    $testPlanMgr = new testplan($db);
+    $builds = $testPlanMgr->get_builds($planId);
+    
+    echo json_encode([
+        'success' => true,
+        'builds' => $builds
+    ]);
+}
+
+/**
+ * Get testers for specific project/test plan/build
+ */
+function getTesters($db, $projectId, $planId, $buildId) {
+    $testers = array();
+    
+    try {
+        $sql = "SELECT DISTINCT u.id, u.login, u.first, u.last 
+                FROM users u
+                JOIN user_assignments ua ON u.id = ua.user_id
+                JOIN testplan_tcversions tptc ON ua.feature_id = tptc.id
+                JOIN testplans tp ON tptc.testplan_id = tp.id
+                WHERE ua.type IN (1, 2)";
+        
+        if ($projectId > 0) {
+            $sql .= " AND tp.testproject_id = " . intval($projectId);
+        }
+        
+        if ($planId > 0) {
+            $sql .= " AND tptc.testplan_id = " . intval($planId);
+        }
+        
+        if ($buildId > 0) {
+            $sql .= " AND (ua.build_id = " . intval($buildId) . " OR ua.build_id = 0 OR ua.build_id IS NULL)";
+        }
+        
+        $sql .= " ORDER BY u.first, u.last";
+        
+        $result = $db->exec_query($sql);
+        if ($result) {
+            while ($row = $db->fetch_array($result)) {
+                $testers[] = array(
+                    'id' => $row['id'],
+                    'login' => $row['login'],
+                    'first' => $row['first'],
+                    'last' => $row['last'],
+                    'name' => $row['first'] . ' ' . $row['last']
+                );
+            }
+        }
+    } catch (Exception $e) {
+        error_log('Error loading filtered testers: ' . $e->getMessage());
+    }
+    
+    echo json_encode([
+        'success' => true,
+        'testers' => $testers
+    ]);
+}
+
+/**
+ * Run the tester execution report with historical stored procedure
+ */
+function runTesterReport($db, $projectId, $planId, $buildId, $testerId, $reportType, $startDate, $endDate, $hideZeroExecutions = false) {
+    if (ob_get_length()) ob_clean();
+    
+    $startTime = microtime(true);
+    $logFile = 'tester_report_performance.log';
+    
+    // Create dedicated log entry
+    $logEntry = "\n=== Historical Tester Report DEBUG ===\n";
+    $logEntry .= "Timestamp: " . date('Y-m-d H:i:s') . "\n";
+    $logEntry .= "Parameters: Project=$projectId, Plan=$planId, Build=$buildId, Tester=$testerId, Type=$reportType, Start=$startDate, End=$endDate, HideZero=$hideZeroExecutions\n";
+    $logEntry .= "Raw REQUEST data: " . print_r($_REQUEST, true) . "\n";
+    
+    error_log($logEntry);
+    file_put_contents($logFile, $logEntry, FILE_APPEND);
+    
+    try {
+        // Prepare parameters for stored procedure
+        $params = array();
+        $paramTypes = '';
+        
+        // Build parameter string for stored procedure call
+        $spParams = array();
+        
+        $spParams[] = $projectId > 0 ? $projectId : 'NULL';
+        $spParams[] = $planId > 0 ? $planId : 'NULL';
+        $spParams[] = $buildId > 0 ? $buildId : 'NULL';
+        $spParams[] = $testerId > 0 ? $testerId : 'NULL';
+        $spParams[] = "'" . $db->prepare_string($reportType) . "'";
+        $spParams[] = !empty($startDate) ? "'" . $db->prepare_string($startDate) . "'" : 'NULL';
+        $spParams[] = !empty($endDate) ? "'" . $db->prepare_string($endDate) . "'" : 'NULL';
+        $spParams[] = $hideZeroExecutions ? 'TRUE' : 'FALSE';
+        
+        $paramString = implode(', ', $spParams);
+        
+        error_log("Stored Procedure Parameters: $paramString");
+        file_put_contents($logFile, "Stored Procedure Parameters: $paramString\n", FILE_APPEND);
+        
+        // Call stored procedure for detailed data
+        $sql = "CALL sp_tester_execution_report_historical($paramString)";
+        error_log("Main SQL: " . $sql);
+        file_put_contents($logFile, "Main SQL: " . $sql . "\n", FILE_APPEND);
+        
+        $queryStartTime = microtime(true);
+        $result = $db->exec_query($sql);
+        $queryEndTime = microtime(true);
+        $queryExecutionTime = ($queryEndTime - $queryStartTime) * 1000; // Convert to milliseconds
+        
+        error_log("Query execution time: " . number_format($queryExecutionTime, 2) . " ms");
+        file_put_contents($logFile, "Query execution time: " . number_format($queryExecutionTime, 2) . " ms\n", FILE_APPEND);
+        
+        if (!$result) {
+            $errorMsg = "Stored procedure execution failed: " . $db->error_msg();
+            error_log("ERROR: " . $errorMsg);
+            throw new Exception($errorMsg);
+        }
+        
+        $testers = array();
+        $summary = ['totalTesters' => 0, 'totalAssigned' => 0, 'totalPassed' => 0, 'totalFailed' => 0, 'totalBlocked' => 0, 'totalNotRun' => 0];
+        
+        // Fetch detailed results
+        while ($row = $db->fetch_array($result)) {
+            $row['pass_rate'] = ($row['passed'] + $row['failed']) > 0 ? round(($row['passed'] / ($row['passed'] + $row['failed'])) * 100, 1) : 0;
+            $testers[] = $row;
+            
+            // Accumulate summary data
+            $summary['totalTesters']++;
+            $summary['totalAssigned'] += intval($row['total_assigned']);
+            $summary['totalPassed'] += intval($row['passed']);
+            $summary['totalFailed'] += intval($row['failed']);
+            $summary['totalBlocked'] += intval($row['blocked']);
+            $summary['totalNotRun'] += intval($row['not_run']);
+        }
+        
+        // Add TOTAL row if we have data
+        if (!empty($testers)) {
+            $totalRow = array(
+                'serial_no' => null,
+                'tester_id' => null,
+                'tester_name' => 'TOTAL',
+                'total_assigned' => $summary['totalAssigned'],
+                'total_executions' => 0, // Calculate if needed
+                'passed' => $summary['totalPassed'],
+                'failed' => $summary['totalFailed'],
+                'blocked' => $summary['totalBlocked'],
+                'not_run' => $summary['totalNotRun'],
+                'pass_rate' => ($summary['totalPassed'] + $summary['totalFailed']) > 0 ? 
+                               round(($summary['totalPassed'] / ($summary['totalPassed'] + $summary['totalFailed'])) * 100, 1) : 0,
+                'last_execution' => null
+            );
+            $testers[] = $totalRow;
+        }
+        
+        error_log("Results: " . count($testers) . " rows returned");
+        error_log("Summary: " . print_r($summary, true));
+        
+        $endTime = microtime(true);
+        $totalExecutionTime = ($endTime - $startTime) * 1000; // Convert to milliseconds
+        
+        $finalLogEntry = "Results: " . count($testers) . " rows returned\n";
+        $finalLogEntry .= "Query execution time: " . number_format($queryExecutionTime, 2) . " ms\n";
+        $finalLogEntry .= "Total PHP execution time: " . number_format($totalExecutionTime, 2) . " ms\n";
+        $finalLogEntry .= "=== END Historical Tester Report DEBUG ===\n";
+        
+        error_log("Total PHP execution time: " . number_format($totalExecutionTime, 2) . " ms");
+        error_log("=== END Historical Tester Report DEBUG ===");
+        file_put_contents($logFile, $finalLogEntry, FILE_APPEND);
+        
+        echo json_encode(['success' => true, 'data' => $testers, 'summary' => $summary]);
+        
+    } catch (Exception $e) {
+        $endTime = microtime(true);
+        $totalExecutionTime = ($endTime - $startTime) * 1000;
+        
+        $errorLogEntry = "ERROR in runTesterReport: " . $e->getMessage() . "\n";
+        $errorLogEntry .= "Failed execution time: " . number_format($totalExecutionTime, 2) . " ms\n";
+        $errorLogEntry .= "=== END Historical Tester Report DEBUG (ERROR) ===\n";
+        
+        error_log("ERROR in runTesterReport: " . $e->getMessage());
+        error_log("Failed execution time: " . number_format($totalExecutionTime, 2) . " ms");
+        error_log("=== END Historical Tester Report DEBUG (ERROR) ===");
+        file_put_contents($logFile, $errorLogEntry, FILE_APPEND);
+        
+        echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+    }
+}
+?>

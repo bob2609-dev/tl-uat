@@ -1,0 +1,50 @@
+The solution is to modify the script to add two new command-line arguments:
+
+1. `--preprocess`: A flag to automatically preprocess the Excel file (default: True)
+2. `--clean-only`: A flag to only clean empty rows without modifying column names (default: False)
+
+Here are the changes needed:
+
+1. In the `parse_arguments()` function, add these new arguments:
+```python
+parser.add_argument('--preprocess', action='store_true',
+                   help='Automatically preprocess the Excel file')
+                   
+parser.add_argument('--no-preprocess', dest='preprocess', action='store_false',
+                   help='Do not preprocess the Excel file')
+                   
+parser.add_argument('--clean-only', action='store_true',
+                   help='Only clean empty rows, do not modify column names')
+                   
+parser.set_defaults(preprocess=True, clean_only=False)
+```
+
+2. In the `main()` function, modify the preprocessing section (around line 167) to use the arguments instead of prompting:
+```python
+# Preprocess the Excel file using the helper scripts if available
+preprocessed_file = excel_file
+if scripts_imported:
+    print("\nInspecting the Excel file...")
+    inspect_excel(excel_file)
+    
+    # Use command line arguments instead of prompting
+    if args and args.preprocess:
+        # Use clean_only flag from arguments
+        clean_only = args.clean_only
+        
+        file_name, file_ext = os.path.splitext(excel_file)
+        updated_file = f"{file_name}_processed{file_ext}"
+        
+        if update_excel_columns(excel_file, updated_file, clean_only=clean_only, verbose=True):
+            preprocessed_file = updated_file
+            print(f"\nUsing preprocessed file: {preprocessed_file}")
+```
+
+After applying these changes, you can use the script with the following command:
+```
+TestLink_Excel_Import_Tool.exe -f "path/to/excel.xlsx" -o "output.sql" -s 106594 -a 8 -n 1020 --preprocess --clean-only
+```
+
+This will:
+1. Automatically preprocess the Excel file without prompting
+2. Only clean empty rows, leaving column names unchanged

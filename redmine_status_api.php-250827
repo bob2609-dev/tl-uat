@@ -1,0 +1,98 @@
+<?php
+/**
+ * Redmine Status API
+ * 
+ * This file provides a simple API to get the status of a Redmine issue
+ * using the same approach as the redminerestInterface.getIssue method
+ */
+
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Check if we have a bug ID
+if (!isset($_GET['bug_id'])) {
+    header('Content-Type: application/json');
+    echo json_encode(['error' => 'No bug ID provided']);
+    exit;
+}
+
+// Get the bug ID
+$bugID = $_GET['bug_id'];
+
+// Log the request
+file_put_contents('redmine_status_api_log.txt', 
+                  date('Y-m-d H:i:s') . " - Getting status for bug ID: {$bugID}\n", 
+                  FILE_APPEND);
+
+// Define the Redmine API parameters - same as in redminerestInterface
+$baseUrl = 'https://support.profinch.com';
+$apiKey = 'a597e200f8923a85484e81ca81d731827b8dbf3d';
+$url = $baseUrl . '/issues/' . $bugID . '.json';
+
+try {
+    // Make the API request - using the same approach as in redminerestInterface.makeApiRequest
+    $ch = curl_init($url);
+    
+    // Set up cURL options - exactly the same as in redminerestInterface.makeApiRequest
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification for self-signed certs
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'X-Redmine-API-Key: ' . $apiKey,
+        'Content-Type: application/json'
+    ));
+    
+    // Execute the request
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    
+    // Log curl errors if any
+    if ($response === false) {
+        $curlError = curl_error($ch);
+        file_put_contents('redmine_status_api_log.txt', 
+                          date('Y-m-d H:i:s') . " - cURL Error: {$curlError}\n", 
+                          FILE_APPEND);
+    }
+    
+    curl_close($ch);
+    
+    // Log the response
+    file_put_contents('redmine_status_api_log.txt', 
+                      date('Y-m-d H:i:s') . " - API response code: {$httpCode}\n", 
+                      FILE_APPEND);
+    
+    // Log the full response for debugging
+    file_put_contents('redmine_status_api_log.txt', 
+                      date('Y-m-d H:i:s') . " - API response body: {$response}\n", 
+                      FILE_APPEND);
+    
+    // Check if we got a valid response - same logic as in redminerestInterface.getIssue
+    if ($response !== false && $httpCode >= 200 && $httpCode < 300) {
+        $data = json_decode($response, true);
+        
+        if (isset($data['issue']) && isset($data['issue']['status']) && isset($data['issue']['status']['name'])) {
+            $status = $data['issue']['status']['name'];
+            
+            // Return the status as JSON
+            header('Content-Type: application/json');
+            echo json_encode(['status' => $status]);
+            exit;
+        }
+    }
+    
+    // If we get here, we couldn't get the status
+    // Return Unknown as a fallback - same as in redminerestInterface.getIssue
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'Unknown']);
+    
+} catch (Exception $e) {
+    // Log the error
+    file_put_contents('redmine_status_api_log.txt', 
+                      date('Y-m-d H:i:s') . " - Error: " . $e->getMessage() . "\n", 
+                      FILE_APPEND);
+    
+    // Return an error
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'Unknown']);
+}

@@ -1,0 +1,51 @@
+
+=== Historical Tester Report DEBUG ===
+Timestamp: 2026-01-30 22:12:11
+Parameters: Project=242099, Plan=0, Build=0, Tester=0, Type=assigned, Start=, End=, HideZero=
+Raw REQUEST data: Array
+(
+    [_] => 1769807531151
+    [nocache] => 0.2816846225301851
+    [ajax] => 1
+    [action] => run_report
+    [project_id] => 242099
+    [testplan_id] => 
+    [build_id] => 
+    [tester_id] => 
+    [report_type] => assigned
+    [start_date] => 
+    [end_date] => 
+    [date_mode] => current
+    [hide_zero_executions] => false
+)
+
+Stored Procedure Parameters: 242099, NULL, NULL, NULL, 'assigned', NULL, NULL, FALSE
+Main SQL: CALL sp_tester_execution_report_historical(242099, NULL, NULL, NULL, 'assigned', NULL, NULL, FALSE)
+
+=== Historical Tester Report DEBUG ===
+Timestamp: 2026-02-02 12:27:42
+Parameters: Project=242099, Plan=0, Build=0, Tester=0, Type=assigned, Start=2026-01-28, End=2026-02-02, HideZero=
+Raw REQUEST data: Array
+(
+    [_] => 1770031662710
+    [nocache] => 0.23141224995181364
+    [ajax] => 1
+    [action] => run_report
+    [project_id] => 242099
+    [testplan_id] => 
+    [build_id] => 
+    [tester_id] => 
+    [report_type] => assigned
+    [start_date] => 2026-01-28
+    [end_date] => 2026-02-02
+    [date_mode] => date_range
+    [hide_zero_executions] => false
+)
+
+Stored Procedure Parameters: 242099, NULL, NULL, NULL, 'assigned', '2026-01-28', '2026-02-02', FALSE
+Main SQL: CALL sp_tester_execution_report_historical(242099, NULL, NULL, NULL, 'assigned', '2026-01-28', '2026-02-02', FALSE)
+Query execution time: 21,581.40 ms
+Results: 37 rows returned
+Query execution time: 21,581.40 ms
+Total PHP execution time: 21,595.47 ms
+=== END Historical Tester Report DEBUG ===

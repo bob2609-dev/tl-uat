@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester Execution Report</title>
+    <script src="../../gui/javascript/jquery-3.6.0.min.js"></script>
+    <script src="libraries/select2.min.js"></script>
+    <link href="libraries/select2.min.css" rel="stylesheet" />
+
+<style>
+/* Modern CSS for Tester Execution Report */
+.tester_report_container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.filter_section {
+    background: #f0f7ff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,89,169,0.08);
+    color: #333;
+    border: 1px solid #d4e6ff;
+}
+
+.filter_title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0059a9;
+}
+
+.filter_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filter_group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter_group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #0059a9;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.filter_group input,
+.filter_group select {
+    padding: 10px 12px;
+    border: 2px solid #d4e6ff;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.filter_group input:focus,
+.filter_group select:focus {
+    outline: none;
+    border-color: #0059a9;
+    box-shadow: 0 0 0 3px rgba(0,89,169,0.08);
+}
+
+/* Select2 Custom Styling */
+.select2-container--default .select2-selection--single {
+    border: 2px solid #d4e6ff;
+    border-radius: 8px;
+    background: white;
+    height: 44px;
+    padding: 8px 12px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #333;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 42px;
+}
+
+.select2-dropdown {
+    border: 1px solid #d4e6ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,89,169,0.08);
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background: #0059a9;
+    color: white;
+}
+
+.action_buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn_run {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74,144,226,0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid #4a90e2;
+}
+
+.btn_run:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(74,144,226,0.3);
+    background: #5ba0f2;
+    border-color: #5ba0f2;
+}
+
+.btn_run:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn_clear {
+    background: #f8f9fa;
+    color: #0059a9;
+    border: 2px solid #0059a9;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn_clear:hover {
+    background: #0059a9;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108,117,125,0.4);
+}
+
+.btn_export {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(23,162,184,0.3);
+}
+
+.btn_export:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(23,162,184,0.4);
+}
+
+.summary_stats {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: none;
+}
+
+.summary_title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.stats_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat_item {
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: transform 0.3s ease;
+}
+
+.stat_item:hover {
+    transform: translateY(-2px);
+}
+
+.stat_value {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat_label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.5px;
+}
+
+.stat_total { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); }
+.stat_passed { background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%); }
+.stat_failed { background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); }
+.stat_blocked { background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); }
+.stat_not_run { background: #f8f9fa; }
+
+.results_section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: none;
+}
+
+.results_title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.results_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.results_title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.view_toggle {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.view_btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.view_btn:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.view_btn.active {
+    background: #0059a9;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,89,169,0.3);
+}
+
+.view_icon {
+    font-size: 16px;
+}
+
+.tester_cards_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tester_card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0,89,169,0.12);
+    border: 1px solid #e6f2ff;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.tester_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0059a9 0%, #0073cc 50%, #0088dd 100%);
+}
+
+.tester_card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,89,169,0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tester_card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0,89,169,0.2);
+    border-color: #0059a9;
+}
+
+.tester_card:hover::after {
+    opacity: 1;
+}
+
+.tester_card_header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e6f2ff;
+    position: relative;
+    z-index: 2;
+}
+
+.tester_avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0059a9 0%, #0073cc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    margin-right: 16px;
+    box-shadow: 0 4px 12px rgba(0,89,169,0.3);
+    position: relative;
+}
+
+.tester_avatar::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0059a9, #0073cc, #0088dd);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.tester_info {
+    flex: 1;
+}
+
+.tester_name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0059a9;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.tester_login {
+    font-size: 13px;
+    color: #6c757d;
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.tester_metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.metric_item {
+    text-align: center;
+    padding: 16px 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric_item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: currentColor;
+    opacity: 0.1;
+}
+
+.metric_item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.metric_value {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.metric_label {
+    font-size: 11px;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.metric_passed { 
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); 
+    color: #155724;
+    border-color: #c3e6cb;
+}
+.metric_failed { 
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); 
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+.metric_blocked { 
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); 
+    color: #856404;
+    border-color: #ffeeba;
+}
+.metric_not_run { 
+    background: #e9ecef; 
+    color: #495057;
+    border-color: #ced4da;
+}
+.metric_total { 
+    background: linear-gradient(135deg, #e6f2ff 0%, #cce7ff 100%); 
+    color: #0059a9;
+    border-color: #cce7ff;
+}
+
+.tester_card_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #e6f2ff;
+    position: relative;
+    z-index: 2;
+}
+
+.pass_rate {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0059a9;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pass_rate::before {
+    content: '📈';
+    font-size: 14px;
+}
+
+.last_execution {
+    font-size: 12px;
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+/* Table View Styles */
+.tester_table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,89,169,0.1);
+    border: 1px solid #e6f2ff;
+}
+
+.tester_table th {
+    background: linear-gradient(135deg, #0059a9 0%, #0073cc 100%);
+    color: white;
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #004080;
+}
+
+.tester_table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e6f2ff;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.tester_table tr:hover {
+    background: #f8f9ff;
+}
+
+.tester_table tr:nth-child(even) {
+    background: #fafbff;
+}
+
+.tester_name {
+    font-weight: 600;
+    color: #0059a9;
+}
+
+.status_passed { color: #28a745; font-weight: 600; }
+.status_failed { color: #dc3545; font-weight: 600; }
+.status_blocked { color: #fd7e14; font-weight: 600; }
+.status_not_run { color: #6c757d; font-weight: 600; }
+
+/* View visibility */
+.table_view { display: none; }
+.card_view { display: grid; }
+
+.table_view.active { display: table; }
+.card_view.active { display: grid; }
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    max-width: 300px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification.success { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
+.notification.error { background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); }
+.notification.info { background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); }
+
+@media (max-width: 768px) {
+    .filter_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tester_table {
+        font-size: 12px;
+    }
+    
+    .tester_table th,
+    .tester_table td {
+        padding: 8px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="tester_report_container">
+    <!-- Filter Section -->
+    <div class="filter_section">
+        <div class="filter_title">👤 Tester Execution Report</div>
+        
+        <div class="filter_grid">
+            <div class="filter_group">
+                <label for="project_id">Project</label>
+                <select id="project_id" name="project_id">
+                    <option value="">Loading projects...</option>
+                </select>
+            </div>
+            
+            <div class="filter_group">
+                <label for="testplan_id">Test Plan</label>
+                <select id="testplan_id" name="testplan_id">
+                    <option value="">Select Test Plan</option>
+                </select>
+            </div>
+            
+            <div class="filter_group">
+                <label for="build_id">Build</label>
+                <select id="build_id" name="build_id">
+                    <option value="">Select Build</option>
+                </select>
+            </div>
+            
+            <div class="filter_group">
+                <label for="tester_id">Tester</label>
+                <select id="tester_id" name="tester_id" style="width: 100%;">
+                    <option value="">All Testers</option>
+                </select>
+            </div>
+            
+            <div class="filter_group">
+                <label for="report_type">Report Type</label>
+                <select id="report_type" name="report_type">
+                    <option value="assigned">Assigned Testers Only</option>
+                    <option value="all">All Testers (Including Non-Assigned)</option>
+                </select>
+            </div>
+            
+            <div class="filter_group">
+                <label for="start_date">Start Date</label>
+                <input type="date" id="start_date" name="start_date" value="">
+            </div>
+            
+            <div class="filter_group">
+                <label for="end_date">End Date</label>
+                <input type="date" id="end_date" name="end_date" value="">
+            </div>
+        </div>
+        
+        <div class="action_buttons">
+            <button type="button" class="btn btn_run" onclick="runReport()">
+                🔍 Run Report
+            </button>
+            <button type="button" class="btn btn_clear" onclick="clearFilters()">
+                🔄 Clear Filters
+            </button>
+            <button type="button" class="btn btn_export" onclick="exportToCSV()">
+                📊 Export CSV
+            </button>
+        </div>
+    </div>
+    
+    <!-- Summary Statistics -->
+    <div id="summarySection" class="summary_stats">
+        <div class="summary_title">📊 Tester Execution Summary</div>
+        <div class="stats_grid">
+            <div class="stat_item stat_total">
+                <div class="stat_value" id="totalTesters">0</div>
+                <div class="stat_label">Total Testers</div>
+            </div>
+            <div class="stat_item stat_passed">
+                <div class="stat_value" id="passedCount">0</div>
+                <div class="stat_label">Passed</div>
+            </div>
+            <div class="stat_item stat_failed">
+                <div class="stat_value" id="failedCount">0</div>
+                <div class="stat_label">Failed</div>
+            </div>
+            <div class="stat_item stat_blocked">
+                <div class="stat_value" id="blockedCount">0</div>
+                <div class="stat_label">Blocked</div>
+            </div>
+            <div class="stat_item stat_not_run">
+                <div class="stat_value" id="notRunCount">0</div>
+                <div class="stat_label">Not Run</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Results Section -->
+    <div id="resultsSection" class="results_section">
+        <div class="results_header">
+            <div class="results_title">📋 Tester Execution Details</div>
+            <div class="view_toggle">
+                <button id="cardViewBtn" class="view_btn active" onclick="switchView('card')">
+                    <span class="view_icon">🎴</span> Card View
+                </button>
+                <button id="tableViewBtn" class="view_btn" onclick="switchView('table')">
+                    <span class="view_icon">📊</span> Table View
+                </button>
+            </div>
+        </div>
+        <div id="tableContainer">
+            <div class="loading">
+                <div class="spinner"></div>
+                <div>Loading tester execution data...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Notification Container -->
+<div id="notification" class="notification"></div>
+
+<script>
+let currentData = [];
+let isLoading = false;
+let currentView = 'card'; // 'card' or 'table'
+
+// Initialize event handlers
+$(document).ready(function() {
+    loadInitialData();
+    initializeEventHandlers();
+    
+    // Initialize Select2 for tester dropdown
+    $('#tester_id').select2({
+        placeholder: 'Search and select tester...',
+        allowClear: true,
+        width: '100%'
+    });
+});
+
+function loadInitialData() {
+    console.log('Loading initial data...');
+    
+    $.ajax({
+        url: 'tester_execution_report.php',
+        type: 'POST',
+        data: {
+            ajax: 1,
+            action: 'get_initial_data'
+        },
+        dataType: 'json',
+        success: function(response) {
+            console.log('Initial data response:', response);
+            if (response.success) {
+                populateDropdowns(response.data);
+            } else {
+                showNotification('Error loading initial data: ' + response.error, 'error');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX error loading initial data:', {
+                status: status,
+                error: error,
+                responseText: xhr.responseText
+            });
+            showNotification('Network error loading data: ' + error, 'error');
+        }
+    });
+}
+
+function populateDropdowns(data) {
+    console.log('Populating tester dropdowns with data:', data);
+    
+    // Populate projects
+    const $projectSelect = $('#project_id');
+    $projectSelect.html('<option value="">Select Project</option>');
+    if (data.projects) {
+        console.log('Projects found:', data.projects);
+        console.log('Projects type:', typeof data.projects);
+        console.log('Projects length:', data.projects.length);
+        
+        // Handle different data formats
+        if (Array.isArray(data.projects)) {
+            data.projects.forEach(function(project, index) {
+                console.log(`Project ${index}:`, project);
+                console.log(`Project ${index} type:`, typeof project);
+                
+                let name, id;
+                
+                if (typeof project === 'object' && project !== null) {
+                    // Object format
+                    name = project.name || project.notes || `Project ${index}`;
+                    id = project.id || index;
+                    console.log(`Object project - name: ${name}, id: ${id}`);
+                } else {
+                    // Primitive format (string or number)
+                    name = project.toString();
+                    id = project;
+                    console.log(`Primitive project - name: ${name}, id: ${id}`);
+                }
+                
+                $projectSelect.append(`<option value="${id}">${name}</option>`);
+            });
+        } else if (typeof data.projects === 'object') {
+            // Handle object format
+            Object.keys(data.projects).forEach(function(key) {
+                const project = data.projects[key];
+                const name = project.name || project.notes || `Project ${key}`;
+                const id = project.id || key;
+                $projectSelect.append(`<option value="${id}">${name}</option>`);
+            });
+        }
+    }
+    
+    // Populate testers
+    const $testerSelect = $('#tester_id');
+    $testerSelect.html('<option value="">All Testers</option>');
+    
+    if (data.testers && data.testers.length > 0) {
+        console.log('Testers found:', data.testers.length);
+        if (Array.isArray(data.testers)) {
+            data.testers.forEach(function(tester) {
+                const name = tester.name || tester.login || `${tester.first} ${tester.last}`;
+                const id = tester.id || tester.user_id;
+                $testerSelect.append(`<option value="${id}">${name}</option>`);
+            });
+        } else if (typeof data.testers === 'object') {
+            Object.keys(data.testers).forEach(function(key) {
+                const tester = data.testers[key];
+                const name = tester.name || tester.login || `${tester.first} ${tester.last}`;
+                const id = tester.id || tester.user_id || key;
+                $testerSelect.append(`<option value="${id}">${name}</option>`);
+            });
+        }
+    } else {
+        console.log('No testers found in data');
+    }
+    
+    // Initialize Select2 for searchable dropdown
+    $testerSelect.select2({
+        placeholder: "Search and select tester...",
+        allowClear: true,
+        width: '100%'
+    });
+}
+
+function initializeEventHandlers() {
+    $('#project_id').on('change', function() {
+        const projectId = $(this).val();
+        loadTestPlans(projectId);
+        updateTesters();
+    });
+    
+    $('#testplan_id').on('change', function() {
+        const planId = $(this).val();
+        loadBuilds(planId);
+        updateTesters();
+    });
+    
+    $('#build_id').on('change', function() {
+        updateTesters();
+    });
+}
+
+function loadTestPlans(projectId) {
+    const $planSelect = $('#testplan_id');
+    $planSelect.html('<option value="">Select Test Plan</option>');
+    
+    if (!projectId) {
+        return;
+    }
+    
+    $.ajax({
+        url: 'tester_execution_report.php',
+        type: 'POST',
+        data: {
+            ajax: 1,
+            action: 'get_testplans',
+            project_id: projectId
+        },
+        dataType: 'json',
+        success: function(response) {
+            console.log('Test plans response:', response);
+            if (response.success && response.testplans) {
+                console.log('Test plans data:', response.testplans);
+                console.log('Test plans type:', typeof response.testplans);
+                console.log('Is array?', Array.isArray(response.testplans));
+                
+                // Handle different data formats
+                let testplans = response.testplans;
+                if (!Array.isArray(testplans)) {
+                    if (typeof testplans === 'object') {
+                        // Convert object to array
+                        testplans = Object.keys(testplans).map(key => testplans[key]);
+                        console.log('Converted testplans to array:', testplans);
+                    } else {
+                        console.error('Test plans is not an array or object');
+                        return;
+                    }
+                }
+                
+                testplans.forEach(function(plan) {
+                    console.log('Adding test plan:', plan);
+                    $planSelect.append(`<option value="${plan.id}">${plan.name}</option>`);
+                });
+            } else {
+                console.error('No test plans in response or success=false');
+            }
+        },
+        error: function() {
+            console.error('Error loading test plans');
+        }
+    });
+}
+
+function loadBuilds(planId) {   
+    const $buildSelect = $('#build_id');
+    $buildSelect.html('<option value="">Select Build</option>');
+    
+    if (!planId) {
+        return;
+    }
+    
+    $.ajax({
+        url: 'tester_execution_report.php',
+        type: 'POST',
+        data: {
+            ajax: 1,
+            action: 'get_builds',
+            testplan_id: planId
+        },
+        dataType: 'json',
+        success: function(response) {
+            console.log('Builds response:', response);
+            if (response.success && response.builds) {
+                console.log('Builds data:', response.builds);
+                console.log('Builds type:', typeof response.builds);
+                console.log('Is array?', Array.isArray(response.builds));
+                
+                // Handle different data formats
+                let builds = response.builds;
+                if (!Array.isArray(builds)) {
+                    if (typeof builds === 'object') {
+                        // Convert object to array
+                        builds = Object.keys(builds).map(key => builds[key]);
+                        console.log('Converted builds to array:', builds);
+                    } else {
+                        console.error('Builds is not an array or object');
+                        return;
+                    }
+                }
+                
+                builds.forEach(function(build) {
+                    console.log('Adding build:', build);
+                    $buildSelect.append(`<option value="${build.id}">${build.name}</option>`);
+                });
+            } else {
+                console.error('No builds in response or success=false');
+            }
+        },
+        error: function() {
+            console.error('Error loading builds');
+        }
+    });
+}
+
+function updateTesters() {
+    const projectId = $('#project_id').val();
+    const planId = $('#testplan_id').val();
+    const buildId = $('#build_id').val();
+    
+    if (!projectId) {
+        $('#tester_id').html('<option value="">All Testers</option>');
+        $('#tester_id').trigger('change');
+        return;
+    }
+    
+    $.ajax({
+        url: 'tester_execution_report.php',
+        type: 'POST',
+        data: {
+            ajax: 1,
+            action: 'get_testers',
+            project_id: projectId,
+            testplan_id: planId,
+            build_id: buildId
+        },
+        dataType: 'json',
+        success: function(response) {
+            console.log('Testers response:', response);
+            if (response.success && response.testers) {
+                const $testerSelect = $('#tester_id');
+                $testerSelect.html('<option value="">All Testers</option>');
+                
+                // Handle different data formats
+                if (Array.isArray(response.testers)) {
+                    response.testers.forEach(function(tester) {
+                        const name = tester.name || tester.login || `${tester.first} ${tester.last}`;
+                        const id = tester.id || tester.user_id;
+                        $testerSelect.append(`<option value="${id}">${name}</option>`);
+                    });
+                } else if (typeof response.testers === 'object') {
+                    Object.keys(response.testers).forEach(function(key) {
+                        const tester = response.testers[key];
+                        const name = tester.name || tester.login || `${tester.first} ${tester.last}`;
+                        const id = tester.id || tester.user_id || key;
+                        $testerSelect.append(`<option value="${id}">${name}</option>`);
+                    });
+                }
+                
+                $testerSelect.trigger('change');
+            } else {
+                console.error('No testers in response or success=false');
+            }
+        },
+        error: function() {
+            console.error('Error loading testers');
+        }
+    });
+}
+
+function runReport() {
+    if (isLoading) return;
+    
+    const formData = {
+        ajax: 1,
+        action: 'run_report',
+        project_id: $('#project_id').val(),
+        testplan_id: $('#testplan_id').val(),
+        build_id: $('#build_id').val(),
+        tester_id: $('#tester_id').val(),
+        report_type: $('#report_type').val(),
+        start_date: $('#start_date').val(),
+        end_date: $('#end_date').val()
+    };
+    
+    console.log('=== RUNNING REPORT ===');
+    console.log('Form data:', formData);
+    console.log('Project ID:', formData.project_id);
+    console.log('Test Plan ID:', formData.testplan_id);
+    
+    if (!formData.project_id) {
+        console.error('No project selected');
+        showNotification('Please select a project', 'error');
+        return;
+    }
+     
+    setLoading(true);
+    console.log('Sending AJAX request...');
+     
+    $.ajax({
+        url: 'tester_execution_report.php',
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        beforeSend: function() {
+            console.log('AJAX request about to send...');
+        },
+        success: function(response) {
+            console.log('=== AJAX SUCCESS ===');
+            console.log('Raw response:', response);
+            console.log('Response type:', typeof response);
+            console.log('Success:', response.success);
+            
+            if (response.success) {
+                console.log('Data:', response.data);
+                console.log('Data type:', typeof response.data);
+                console.log('Data length:', response.data ? response.data.length : 'null/undefined');
+                console.log('Summary:', response.summary);
+                
+                currentData = response.data;
+                updateTable(response.data);
+                updateSummary(response.summary);
+                showNotification('Tester report loaded successfully', 'success');
+            } else {
+                console.error('Report returned error:', response.error);
+                showNotification(response.error || 'Error loading tester report', 'error');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.log('=== AJAX ERROR ===');
+            console.error('Status:', status);
+            console.error('Error:', error);
+            console.error('Response text:', xhr.responseText);
+            console.error('Ready state:', xhr.readyState);
+            console.error('Status code:', xhr.status);
+            showNotification('Network error: ' + error, 'error');
+        },
+        complete: function() {
+            console.log('=== AJAX COMPLETE ===');
+            setLoading(false);
+        }
+    });
+}
+
+function updateTable(data) {
+    const $container = $('#tableContainer');
+    
+    if (!data || data.length === 0) {
+        $container.html('<div class="no_data">No tester execution data found</div>');
+        return;
+    }
+    
+    if (currentView === 'card') {
+        displayCardView(data, $container);
+    } else {
+        displayTableView(data, $container);
+    }
+}
+
+function displayCardView(data, $container) {
+    let html = '<div class="tester_cards_grid card_view active">';
+    
+    data.forEach(function(row) {
+        const formattedDate = row.last_execution ? new Date(row.last_execution).toLocaleString() : 'N/A';
+        const testerName = row.tester_name || row.login || `${row.first} ${row.last}` || 'Unknown';
+        const initials = testerName.split(' ').map(n => n.charAt(0).toUpperCase()).join('').substring(0, 2);
+        
+        html += `
+            <div class="tester_card">
+                <div class="tester_card_header">
+                    <div class="tester_avatar">${initials}</div>
+                    <div class="tester_info">
+                        <div class="tester_name">${testerName}</div>
+                        <div class="tester_login">${row.login || ''}</div>
+                    </div>
+                </div>
+                
+                <div class="tester_metrics">
+                    <div class="metric_item metric_total">
+                        <div class="metric_value">${row.total_assigned || 0}</div>
+                        <div class="metric_label">Assigned</div>
+                    </div>
+                    <div class="metric_item metric_passed">
+                        <div class="metric_value">${row.passed || 0}</div>
+                        <div class="metric_label">Passed (${row.pass_rate || 0}%)</div>
+                    </div>
+                    <div class="metric_item metric_failed">
+                        <div class="metric_value">${row.failed || 0}</div>
+                        <div class="metric_label">Failed (${row.fail_rate || 0}%)</div>
+                    </div>
+                    <div class="metric_item metric_blocked">
+                        <div class="metric_value">${row.blocked || 0}</div>
+                        <div class="metric_label">Blocked (${row.block_rate || 0}%)</div>
+                    </div>
+                    <div class="metric_item metric_not_run">
+                        <div class="metric_value">${row.not_run || 0}</div>
+                        <div class="metric_label">Not Run (${row.not_run_rate || 0}%)</div>
+                    </div>
+                    <div class="metric_item">
+                        <div class="metric_value">${row.pass_rate || 0}%</div>
+                        <div class="metric_label">Pass Rate</div>
+                    </div>
+                </div>
+                
+                <div class="tester_card_footer">
+                    <div class="pass_rate">Pass Rate: ${row.pass_rate || 0}%</div>
+                    <div class="last_execution">Last: ${formattedDate}</div>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    $container.html(html);
+}
+
+function displayTableView(data, $container) {
+    let html = `
+        <table class="tester_table table_view active">
+            <thead>
+                <tr>
+                    <th>Tester Name</th>
+                    <th>Total Assigned</th>
+                    <th>Passed</th>
+                    <th>Failed</th>
+                    <th>Blocked</th>
+                    <th>Not Run</th>
+                    <th>Pass Rate</th>
+                    <th>Fail Rate</th>
+                    <th>Block Rate</th>
+                    <th>Not Run Rate</th>
+                    <th>Last Execution</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    data.forEach(function(row) {
+        const formattedDate = row.last_execution ? new Date(row.last_execution).toLocaleString() : 'N/A';
+        const testerName = row.tester_name || row.login || `${row.first} ${row.last}` || 'Unknown';
+        
+        html += `
+            <tr>
+                <td class="tester_name">${testerName}</td>
+                <td>${row.total_assigned || 0}</td>
+                <td class="status_passed">${row.passed || 0}</td>
+                <td class="status_failed">${row.failed || 0}</td>
+                <td class="status_blocked">${row.blocked || 0}</td>
+                <td class="status_not_run">${row.not_run || 0}</td>
+                <td class="pass_rate">${row.pass_rate || 0}%</td>
+                <td class="fail_rate">${row.fail_rate || 0}%</td>
+                <td class="block_rate">${row.block_rate || 0}%</td>
+                <td class="not_run_rate">${row.not_run_rate || 0}%</td>
+                <td>${formattedDate}</td>
+            </tr>
+        `;
+    });
+    
+    html += '</tbody></table>';
+    $container.html(html);
+}
+
+function switchView(view) {
+    currentView = view;
+    
+    // Update button states
+    $('#cardViewBtn, #tableViewBtn').removeClass('active');
+    if (view === 'card') {
+        $('#cardViewBtn').addClass('active');
+    } else {
+        $('#tableViewBtn').addClass('active');
+    }
+    
+    // Re-render the data if we have it
+    if (currentData && currentData.length > 0) {
+        updateTable(currentData);
+    }
+}
+
+function updateSummary(summary) {
+    $('#totalTesters').text(summary.totalTesters || 0);
+    $('#passedCount').text(summary.totalPassed || 0);
+    $('#failedCount').text(summary.totalFailed || 0);
+    $('#blockedCount').text(summary.totalBlocked || 0);
+    $('#notRunCount').text(summary.totalNotRun || 0);
+    
+    $('#summarySection').show();
+    $('#resultsSection').show();
+}
+
+function clearFilters() {
+    $('#project_id, #testplan_id, #build_id, #report_type').val('');
+    $('#start_date, #end_date').val('');
+    $('#tester_id').val('').trigger('change');
+    $('#summarySection, #resultsSection').hide();
+    showNotification('Filters cleared', 'info');
+}
+
+function exportToCSV() {
+    if (!currentData || currentData.length === 0) {
+        showNotification('No data to export', 'error');
+        return;
+    }
+    
+    let csv = 'Tester Name,Total Executions,Passed,Failed,Blocked,Not Run,Pass Rate,Last Execution\n';
+    
+    currentData.forEach(function(row) {
+        const passRate = row.total_executions > 0 ? ((row.passed / row.total_executions) * 100).toFixed(1) : '0.0';
+        const formattedDate = row.last_execution ? new Date(row.last_execution).toLocaleString() : 'N/A';
+        const testerName = row.tester_name || row.login || `${row.first} ${row.last}` || 'Unknown';
+        
+        csv += `"${testerName}",${row.total_executions || 0},${row.passed || 0},${row.failed || 0},${row.blocked || 0},${row.not_run || 0},"${passRate}%","${formattedDate}"\n`;
+    });
+    
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'tester_execution_report_' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.click();
+    window.URL.revokeObjectURL(url);
+    
+    showNotification('CSV exported successfully', 'success');
+}
+
+function setLoading(loading) {
+    isLoading = loading;
+    const $runBtn = $('.btn_run');
+    
+    if (loading) {
+        $runBtn.html('⏳ Loading...').prop('disabled', true);
+        $('#tableContainer').html('<div class="loading"><div class="spinner"></div><div>Loading tester execution data...</div></div>');
+    } else {
+        $runBtn.html('🎯 Run Report').prop('disabled', false);
+    }
+}
+
+function showNotification(message, type) {
+    const $notification = $('#notification');
+    $notification.removeClass('success error info').addClass(type);
+    $notification.text(message);
+    $notification.addClass('show');
+    
+    setTimeout(function() {
+        $notification.removeClass('show');
+    }, 3000);
+}
+</script>
+</body>
+</html>

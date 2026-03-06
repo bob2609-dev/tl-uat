@@ -1,0 +1,77 @@
+<?php
+// Set display errors on to see all issues
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// Define the path to config files explicitly
+$testlink_root = 'C:/xampp/htdocs/testlink/';
+$custom_config_file = $testlink_root . 'custom_config.inc.php';
+
+echo "<pre>Loading configuration from: $custom_config_file\n";
+
+// Check if the file exists and is readable
+if (file_exists($custom_config_file)) {
+    echo "Custom config file exists\n";
+    if (is_readable($custom_config_file)) {
+        echo "Custom config file is readable\n";
+    } else {
+        echo "Custom config file is NOT readable\n";
+    }
+} else {
+    echo "Custom config file does NOT exist\n";
+}
+
+// Try to include the file directly
+echo "Attempting to include custom config file...\n";
+include($custom_config_file);
+
+// Check if the variable is defined after inclusion
+echo "After inclusion, is variable defined: " . (isset($g_interface_bugs_configuration) ? "YES" : "NO") . "\n";
+
+// If it's still not defined, show the entire custom config file contents
+if (!isset($g_interface_bugs_configuration)) {
+    echo "Variable not found. Showing custom config file contents:\n";
+    echo htmlspecialchars(file_get_contents($custom_config_file));
+}
+
+// Regardless, let's define a temporary configuration for testing
+echo "\nTesting with hardcoded configuration:\n";
+$test_config = array(
+    'redmineURL' => 'https://support.profinch.com',
+    'apiKey' => 'c16548f2503932a9ef6d6d8f9a59393436e67f39',
+    'projectIdentifier' => 'nmb-fcubs-14-7-uat_1'
+);
+
+// Test the connection using the hardcoded config
+$ch = curl_init($test_config['redmineURL'] . '/projects.xml');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HEADER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'X-Redmine-API-Key: ' . $test_config['apiKey'],
+    'Content-Type: application/xml'
+));
+
+$response = curl_exec($ch);
+
+if ($response === false) {
+    echo "CURL Error: " . curl_error($ch) . "\n";
+}
+
+$info = curl_getinfo($ch);
+
+echo "HTTP Code: " . $info['http_code'] . "\n";
+echo "SSL Verify Result: " . curl_getinfo($ch, CURLINFO_SSL_VERIFYRESULT) . "\n";
+echo "Response Header Size: " . $info['header_size'] . "\n";
+
+if ($info['header_size'] > 0) {
+    $header = substr($response, 0, $info['header_size']);
+    $body = substr($response, $info['header_size']);
+    
+    echo "Response Headers:\n" . $header . "\n";
+    echo "Response Body (first 500 chars):\n" . substr($body, 0, 500) . "...\n";
+} else {
+    echo "No response received\n";
+}
+?>

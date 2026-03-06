@@ -1,0 +1,132 @@
+[2026-03-05 21:23:13.2.2] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-05 21:23:13.4.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-05 21:23:13.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-05 21:23:13.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-05 21:23:13.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431184
+[2026-03-05 21:23:13.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-05 21:23:13.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81640
+[2026-03-05 21:23:13.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-05 21:23:13.9.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+[2026-03-05 21:23:13.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-05 21:23:13.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-05 21:23:13.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21'
+[2026-03-05 21:23:13.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+[2026-03-05 21:23:13.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21'
+[2026-03-05 21:23:13.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 226
+[2026-03-05 21:23:13.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-05 21:23:13.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK CONNECTIVITY TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK CONNECTIVITY...'
+[2026-03-05 21:23:13.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81640
+[2026-03-05 21:23:13.504] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21...
+[2026-03-05 21:23:13.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-05 21:23:13.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431184, Exec ID: 81640
+[2026-03-05 21:23:13.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-05 21:23:13.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-05 21:23:17.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87498,"issue_url":"https:\/\/support.profinch.com\/issues\/87498"}
+[2026-03-05 21:23:17.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-06 20:29:33.2.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-06 20:29:33.0.8] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-06 20:29:33.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-06 20:29:33.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-06 20:29:33.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431180
+[2026-03-06 20:29:33.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-06 20:29:33.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81641
+[2026-03-06 20:29:33.1.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-06 20:29:33.296] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+[2026-03-06 20:29:33.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-06 20:29:33.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-06 20:29:33.9.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28'
+[2026-03-06 20:29:33.3.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+[2026-03-06 20:29:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28'
+[2026-03-06 20:29:33.324] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 232
+[2026-03-06 20:29:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-06 20:29:33.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRAITON TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK INTEG...'
+[2026-03-06 20:29:33.7.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81641
+[2026-03-06 20:29:33.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28...
+[2026-03-06 20:29:33.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-06 20:29:33.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431180, Exec ID: 81641
+[2026-03-06 20:29:33.6.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-06 20:29:33.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-06 20:29:37.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87592,"issue_url":"https:\/\/support.profinch.com\/issues\/87592"}
+[2026-03-06 20:29:37.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-06 20:47:26.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-06 20:47:26.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-06 20:47:26.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-06 20:47:26.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-06 20:47:26.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431180
+[2026-03-06 20:47:26.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-06 20:47:26.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81642
+[2026-03-06 20:47:26.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-06 20:47:26.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+[2026-03-06 20:47:26.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-06 20:47:26.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-06 20:47:26.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29'
+[2026-03-06 20:47:26.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+[2026-03-06 20:47:26.808] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29'
+[2026-03-06 20:47:26.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 232
+[2026-03-06 20:47:26.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-06 20:47:26.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK INTEG...'
+[2026-03-06 20:47:26.9.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81642
+[2026-03-06 20:47:26.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29...
+[2026-03-06 20:47:26.1.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-06 20:47:26.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431180, Exec ID: 81642
+[2026-03-06 20:47:26.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-06 20:47:26.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-06 20:47:31.2.1] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87593,"issue_url":"https:\/\/support.profinch.com\/issues\/87593"}
+[2026-03-06 20:47:31.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-06 21:08:19.9.9] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-06 21:08:19.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-06 21:08:19.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-06 21:08:19.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-06 21:08:19.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431180
+[2026-03-06 21:08:19.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-06 21:08:19.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81643
+[2026-03-06 21:08:19.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-06 21:08:19.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine2
+[2026-03-06 21:08:19.741] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-06 21:08:19.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-06 21:08:19.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47'
+[2026-03-06 21:08:19.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+[2026-03-06 21:08:19.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47'
+[2026-03-06 21:08:19.0.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 232
+[2026-03-06 21:08:19.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-06 21:08:19.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK INTEG...'
+[2026-03-06 21:08:19.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81643
+[2026-03-06 21:08:19.842] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47...
+[2026-03-06 21:08:19.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-06 21:08:19.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431180, Exec ID: 81643
+[2026-03-06 21:08:19.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-06 21:08:19.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-06 21:08:24.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87594,"issue_url":"https:\/\/support.profinch.com\/issues\/87594"}
+[2026-03-06 21:08:24.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Datalabels Fix</title>
+</head>
+<body>
+    <h1>🎯 Final Fix for Numbers on Points & Clean Tooltips</h1>
+    
+    <h2>✅ Issues Identified:</h2>
+    <ul>
+        <li><strong>❌ Datalabels not working</strong> - Local plugin too complex/compatibility issues</li>
+        <li><strong>❌ Tooltip shows two sets</strong> - Complex logic showing all datasets</li>
+    </ul>
+    
+    <h2>🔧 Simple Working Solution:</h2>
+    
+    <h3>Step 1: Add Simple Datalabels</h3>
+    <p>Replace the entire datalabels section with this simple version:</p>
+    <pre><code>
+                    },
+                    datalabels: {
+                        display: true,
+                        color: '#333',
+                        font: {
+                            size: 10,
+                            weight: 'bold'
+                        },
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 8
+                    },
+    </code></pre>
+    
+    <h3>Step 2: Simplify Tooltip</h3>
+    <p>Replace the entire tooltip label function with this simple version:</p>
+    <pre><code>
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    var value = context.parsed.y;
+                                    return label + ': ' + value;
+                                }
+    </code></pre>
+    
+    <h2>🎯 Expected Result:</h2>
+    <ul>
+        <li>✅ <strong>Numbers on points</strong> - Simple datalabels configuration</li>
+        <li>✅ <strong>Clean tooltips</strong> - Single line: "Dataset: Value"</li>
+        <li>✅ <strong>No conflicts</strong> - Simple, working solution</li>
+    </ul>
+    
+    <h2>📝 Manual Instructions:</h2>
+    <ol>
+        <li>Find the datalabels section in cumulative progress chart options</li>
+        <li>Replace with the simple version above</li>
+        <li>Find the tooltip label function (around lines 1817-1858)</li>
+        <li>Replace with the simple version above</li>
+        <li>Save and test</li>
+    </ol>
+    
+    <div style="background: #e8f5e8; padding: 20px; border-left: 4px solid #2e7d32; margin: 20px 0;">
+        <h3>🔍 Why This Works:</h3>
+        <p>The simple datalabels configuration uses basic Chart.js plugin features that are guaranteed to work, while the complex local file may have compatibility issues with your Chart.js version.</p>
+        <p>The simplified tooltip removes the complex conditional logic that was causing duplicate information display.</p>
+    </div>
+</body>
+</html>

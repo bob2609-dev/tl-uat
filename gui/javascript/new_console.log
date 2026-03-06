@@ -1,0 +1,382 @@
+VM24591 execSetResults.php:5 Create Issue checkbox clicked, current state: true
+VM24591 execSetResults.php:7 Checkbox checked - checking for integration dropdown
+VM24508 execSetResults.js:105 Checkbox clicked, current state: true
+VM24508 execSetResults.js:106 Modal visibility after checkbox click: none
+VM24508 execSetResults.js:107 Modal exists after click: true
+VM24497 execSetResults.js:105 Checkbox clicked, current state: true
+VM24497 execSetResults.js:106 Modal visibility after checkbox click: none
+VM24497 execSetResults.js:107 Modal exists after click: true
+VM24512 bug_description_autofill.js:86 createIssue checkbox changed, checked: true
+VM24512 bug_description_autofill.js:221 populateBugDescription function called
+VM24512 bug_description_autofill.js:225 Create Issue checkbox is checked
+VM24512 bug_description_autofill.js:299 Found TC ID from hidden field: 431185
+VM24512 bug_description_autofill.js:229 Test Case Version ID: 431185
+VM24512 bug_description_autofill.js:299 Found TC ID from hidden field: 431185
+VM24512 bug_description_autofill.js:108 ===== FETCH TEST CASE DATA =====
+VM24512 bug_description_autofill.js:109 Request URL: lib/execute/get_testcase_data_simple.php?tcversion_id=431185
+VM24512 bug_description_autofill.js:110 tcversion_id: 431185
+VM24512 bug_description_autofill.js:111 Exec ID: 431185
+VM24512 bug_description_autofill.js:114 Current URL: https://test-management.nmbtz.com:9443/lib/execute/execSetResults.php?version_id=431185&level=testcase&id=431184&form_token=1257947379&setting_build=7
+VM24512 bug_description_autofill.js:115 Form data: CSRFName=CSRFGuard_1592064761&CSRFToken=9dab3724c3f1e5803f1aacb962aca101a15b0cd1b648129963fca43c154a8b58ab801526b8a33a2b9ac7602816c37dbd6d04914c28e54d8e14a83e3766c36782&save_button_clicked=0&do_delete=0&exec_to_delete=0&form_token=1257947379&refresh_tree=0&btn_history_off=1&history_on=1&tpn_view_status=0&bn_view_status=0&tc_version%5B431185%5D=431184&version_number%5B431185%5D=1&tsdetails_view_status_431184=0&custom_field_20_10_431184=TESTLINK+CONNECTIVITY+TEST&custom_field_6_11_431184=NORMAL&custom_field_6_13_431184=&notes%5B431185%5D=TESTLINK+CONNECTIVITY+TEST&execution_duration=&createIssue=on&statusSingle%5B431185%5D=&save_results=0&save_and_next=0&bug_summary=Test+Case%3A+%2FARCHIVE%2FWORKING+D%2FTESTING%2FARC-994%3AATM-TC110+-+++2026-03-03CET19%3A01+&bug_notes=&addLinkToTL=on&addLinkToTLPrintView=on
+VM24586 execSetResults.php:38 Bug creation checkbox checked
+VM24512 bug_description_autofill.js:132 ===== API RESPONSE =====
+VM24512 bug_description_autofill.js:133 Status: success
+VM24512 bug_description_autofill.js:134 Raw response text: {"success":true,"data":{"scenario_id":"STDCRDMS","sub_scenario":"New","test_script":"Negative test","expected_results":"Cards >  Maintenance > Card Master ","er_process":"Card request should not be saved","testcase_name":"","primary_module":"Card Master Maintenance","test_type":"Verify If card request can be saved without selecting card status","test_execution_path":"1. Select account type: to any allowed account type\r\n\r\n2. Select its appropriate Card Type .\r\n\r\n3. Attempt  to save without selecting card status","test_data":"","priority":"","execution_status":"","notes":""},"message":"","debug":{"received_id":431185,"timestamp":"2026-03-03 19:03:19"}}
+VM24512 bug_description_autofill.js:141 Parsed response: {success: true, data: {…}, message: '', debug: {…}}
+VM24512 bug_description_autofill.js:248 Successfully fetched test case data: {scenario_id: 'STDCRDMS', sub_scenario: 'New', test_script: 'Negative test', expected_results: 'Cards >  Maintenance > Card Master ', er_process: 'Card request should not be saved', …}
+VM24512 bug_description_autofill.js:328 ===== POPULATE TEMPLATE =====
+VM24512 bug_description_autofill.js:329 Raw data received: {success: true, data: {…}, message: '', debug: {…}}
+VM24512 bug_description_autofill.js:333 Data type: object
+VM24512 bug_description_autofill.js:334 Data keys: (4) ['success', 'data', 'message', 'debug']
+VM24512 bug_description_autofill.js:338 Data.data type: object
+VM24512 bug_description_autofill.js:339 Data.data keys: (13) ['scenario_id', 'sub_scenario', 'test_script', 'expected_results', 'er_process', 'testcase_name', 'primary_module', 'test_type', 'test_execution_path', 'test_data', 'priority', 'execution_status', 'notes']
+VM24512 bug_description_autofill.js:363 Using test case data from response.data: {scenario_id: 'STDCRDMS', sub_scenario: 'New', test_script: 'Negative test', expected_results: 'Cards >  Maintenance > Card Master ', er_process: 'Card request should not be saved', …}
+VM24512 bug_description_autofill.js:372 Function ID from API: STDCRDMS
+VM24512 bug_description_autofill.js:385 Action from API: New
+VM24512 bug_description_autofill.js:390 Test Script from API: Negative test
+VM24512 bug_description_autofill.js:409 Found test data element with ID: custom_field_20_10_431184
+VM24512 bug_description_autofill.js:426 Test data value from form field: TESTLINK CONNECTIVITY TEST
+VM24512 bug_description_autofill.js:450 Expected Results from API: Cards >  Maintenance > Card Master 
+VM24512 bug_description_autofill.js:474 Using test result from form field: TESTLINK CONNECTIVITY TEST
+VM24512 bug_description_autofill.js:299 Found TC ID from hidden field: 431185
+VM24512 bug_description_autofill.js:491 Test case ID for URLs: 431185
+VM24512 bug_description_autofill.js:496 Base URL for TestLink: https://test-management.nmbtz.com:9443
+VM24512 bug_description_autofill.js:501 TestLink URLs added to template
+VM24512 bug_description_autofill.js:506 Generated template: Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK CONNECTIVITY TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK CONNECTIVITY TEST
+]
+
+TestLink URLs:
+
+VM24512 bug_description_autofill.js:510 Attempting to find bug_notes field...
+VM24512 bug_description_autofill.js:530 Found bug_notes field using selector: #bug_notes
+VM24512 bug_description_autofill.js:593 ===== TEMPLATE TO SET =====
+VM24512 bug_description_autofill.js:594 Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK CONNECTIVITY TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK CONNECTIVITY TEST
+]
+
+TestLink URLs:
+
+VM24512 bug_description_autofill.js:595 ===========================
+VM24512 bug_description_autofill.js:598 Current field value BEFORE setting: {id: 'bug_notes', name: 'bug_notes', value: '', isVisible: true, isDisabled: false, …}
+VM24512 bug_description_autofill.js:608 Setting field value using jQuery.val()...
+VM24512 bug_description_autofill.js:610 jQuery.val() completed
+VM24512 bug_description_autofill.js:613 Triggering change and input events...
+VM24512 bug_description_autofill.js:622 Setting value using vanilla JS...
+VM24512 bug_description_autofill.js:640 Value set using vanilla JS events
+VM24512 bug_description_autofill.js:643 Trying setAttribute approach...
+VM24512 bug_description_autofill.js:659 Current field value AFTER setting: {value: 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…: [\nTESTLINK CONNECTIVITY TEST\n]\n\nTestLink URLs:\n', jQuery.val(): 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…: [\nTESTLINK CONNECTIVITY TEST\n]\n\nTestLink URLs:\n', element.value: 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…: [\nTESTLINK CONNECTIVITY TEST\n]\n\nTestLink URLs:\n', element.getAttribute(value): 'Function ID: STDCRDMS\nAction: New\nTest scenario: N…: [\nTESTLINK CONNECTIVITY TEST\n]\n\nTestLink URLs:\n'}
+VM24512 bug_description_autofill.js:705 Set value using DOM traversal
+VM24497 execSetResults.js:1013 saveExecStatus called with tcvID: 431185 status: f msg: undefined goNext: undefined
+VM24497 execSetResults.js:1029 No integration selected, showing modal
+VM24497 execSetResults.js:24 Pending execution action set: {type: 'saveExecStatus', tcvID: 431185, status: 'f', msg: undefined, goNext: undefined}
+VM24497 execSetResults.js:365 Showing integration modal...
+VM24497 execSetResults.js:404 Populating integration modal dropdown...
+VM24497 execSetResults.js:340 Found tproject_id from server-rendered value: 448287
+VM24497 execSetResults.js:416 Using tproject_id: 448287
+VM24497 execSetResults.js:439 Integrations fetched: {success: true, message: 'Integrations retrieved successfully', data: null, debug: Array(0), status: 'ok', …}
+VM24497 execSetResults.js:446 Number of integrations: 3
+VM24497 execSetResults.js:447 Integration details: (3) [{…}, {…}, {…}]
+VM24497 execSetResults.js:451 Adding integration: 7 Redmine1
+VM24497 execSetResults.js:451 Adding integration: 9 Redmine2
+VM24497 execSetResults.js:451 Adding integration: 11 Redmine4
+VM24497 execSetResults.js:460 Multiple integrations found, showing dropdown for user selection
+VM24497 execSetResults.js:388 Integration selected from modal: 7
+VM24497 execSetResults.js:380 Hiding integration modal...
+VM24497 execSetResults.js:41 Resuming pending execution action: {type: 'saveExecStatus', tcvID: 431185, status: 'f', msg: undefined, goNext: undefined}
+VM24497 execSetResults.js:1013 saveExecStatus called with tcvID: 431185 status: f msg: undefined goNext: undefined
+VM24497 execSetResults.js:1048 Integration selected: 7 proceeding with bug creation
+VM24497 execSetResults.js:1052 Checking if showPriorityPopup is function: function
+VM24497 execSetResults.js:1054 Calling showPriorityPopup
+VM24497 execSetResults.js:844 showPriorityPopup called with tcvID: 431185 status: f
+VM24497 execSetResults.js:853 Checking if priority exists for tcvID: 431185
+VM24497 execSetResults.js:866 Priority check response for tcvID 431185 : {success: true, has_priority: true, priority: 'LOW', message: 'Priority check completed successfully', debug: {…}}
+VM24497 execSetResults.js:870 ✓ Priority already exists (LOW) for tcvID 431185 - proceeding with execution save
+VM24497 execSetResults.js:1083 Integration check - selectedIntegration: 7
+VM24497 execSetResults.js:1107 Adding integration info to bug submission - Integration ID: 7
+VM24497 execSetResults.js:1124 Integration info added to bug fields
+VM24599 execSetResults.php:1 DEBUG: Attempting to update tree node
+VM24599 execSetResults.php:1 DEBUG: tcase_id = 431184
+VM24599 execSetResults.php:1 DEBUG: status = f
+VM24599 execSetResults.php:1 DEBUG: color = #FF0000
+VM24599 execSetResults.php:1 DEBUG: Checking different window contexts...
+VM24599 execSetResults.php:1 DEBUG: window.parent.updateTestCaseNodeInTree type: undefined
+VM24599 execSetResults.php:1 DEBUG: window.top.updateTestCaseNodeInTree type: undefined
+VM24599 execSetResults.php:1 DEBUG: window.opener is null: true
+VM24610 execSetResults.js:17 execSetResults.js: LOADING VERSION SUBMISSION_LOCK_FIX - 20260303-4
+VM24610 execSetResults.js:235 execSetResults.js: Test functions loaded
+VM24610 execSetResults.js:236 execSetResults.js: testModal available: true
+VM24610 execSetResults.js:237 execSetResults.js: simpleTest available: true
+VM24610 execSetResults.js:238 execSetResults.js: testProjectIntegrations available: true
+VM24610 execSetResults.js:830 execSetResults.js loaded - integration picker functions available
+VM24610 execSetResults.js:833 saveExecStatus function exists: function
+VM24601 execSetResults.js:17 execSetResults.js: LOADING VERSION SUBMISSION_LOCK_FIX - 20260303-4
+VM24601 execSetResults.js:235 execSetResults.js: Test functions loaded
+VM24601 execSetResults.js:236 execSetResults.js: testModal available: true
+VM24601 execSetResults.js:237 execSetResults.js: simpleTest available: true
+VM24601 execSetResults.js:238 execSetResults.js: testProjectIntegrations available: true
+VM24601 execSetResults.js:830 execSetResults.js loaded - integration picker functions available
+VM24601 execSetResults.js:833 saveExecStatus function exists: function
+VM24617 execSetResults.php:7 Nifty library status: LOADED
+VM24617 execSetResults.php:9 Nifty version: unknown
+VM24661 execSetResults.php:2 === SINGLE EXECUTION TEMPLATE DEBUG ===
+VM24661 execSetResults.php:3 inc_exec_show_tc_exec.tpl is being rendered!
+VM24661 execSetResults.php:4 Current time: Tue Mar 03 2026 21:03:46 GMT+0300 (East Africa Time)
+VM24661 execSetResults.php:5 jQuery available: true
+VM24661 execSetResults.php:6 tlCanCreateIssue: 1
+VM24661 execSetResults.php:7 === END SINGLE EXECUTION TEMPLATE DEBUG ===
+VM24663 execSetResults.php:1 DEBUG: Processing execution in loop - exec_id: 81635
+VM24664 execSetResults.php:2 Loading bugs for execution ID: 81635
+VM24667 execSetResults.php:2 === TEMPLATE INTEGRATION DEBUG ===
+VM24667 execSetResults.php:3 Integration dropdown HTML is being added to template
+VM24667 execSetResults.php:4 tlCanCreateIssue value: 1
+VM24667 execSetResults.php:5 === END TEMPLATE INTEGRATION DEBUG ===
+VM24610 execSetResults.js:95 === EXECUTION BUTTON DEBUG ===
+VM24610 execSetResults.js:96 Looking for execution buttons...
+VM24610 execSetResults.js:97 save_results buttons: 1
+VM24610 execSetResults.js:98 save_and_next buttons: 1
+VM24610 execSetResults.js:99 move2next buttons: 0
+VM24610 execSetResults.js:100 All execution buttons: 2
+VM24610 execSetResults.js:101 === END EXECUTION BUTTON DEBUG ===
+VM24614 bug_description_autofill.js:82 bug_description_autofill.js loaded
+VM24614 bug_description_autofill.js:92 createIssue checkbox exists: true
+VM24601 execSetResults.js:95 === EXECUTION BUTTON DEBUG ===
+VM24601 execSetResults.js:96 Looking for execution buttons...
+VM24601 execSetResults.js:97 save_results buttons: 1
+VM24601 execSetResults.js:98 save_and_next buttons: 1
+VM24601 execSetResults.js:99 move2next buttons: 0
+VM24601 execSetResults.js:100 All execution buttons: 2
+VM24601 execSetResults.js:101 === END EXECUTION BUTTON DEBUG ===
+VM24658 execSetResults.php:4 Applying Nifty corners...
+VM24658 execSetResults.php:9 Applied Nifty to exec_test_spec
+VM24658 execSetResults.php:16 Applied Nifty to exec_history
+VM24658 execSetResults.php:23 Applied Nifty to exec_tc_title
+VM24612 redmine_hook.js:35 Redmine hook loaded
+VM24614 bug_description_autofill.js:182 DOM fully loaded and parsed
+VM24614 bug_description_autofill.js:185 Page successfully loaded at 9:03:46 PM
+VM24612 redmine_hook.js:19 Redmine hook loaded
+VM24612 redmine_hook.js:26 Window loaded - adding Redmine buttons
+VM24612 redmine_hook.js:61 Adding Redmine buttons
+VM24612 redmine_hook.js:71 Execution page detected
+VM24612 redmine_hook.js:75 Found 0 status selects
+VM24612 redmine_hook.js:165 No status selects found, trying general approach
+VM24664 execSetResults.php:8 Bug data for exec 81635: {success: true, execution_id: 81635, bugs: Array(0), count: 0, debug: 'Fetched 0 bugs from database and Redmine', …}
+VM24612 redmine_hook.js:61 Adding Redmine buttons
+VM24612 redmine_hook.js:71 Execution page detected
+VM24612 redmine_hook.js:75 Found 0 status selects
+VM24612 redmine_hook.js:165 No status selects found, trying general approach
+VM24601 execSetResults.js:64 === DEBUG MODAL STATE ===
+VM24601 execSetResults.js:65 Modal visibility: none
+VM24601 execSetResults.js:66 Modal exists: true
+VM24601 execSetResults.js:67 Create issue checked: false
+VM24601 execSetResults.js:68 Selected integration: undefined
+VM24601 execSetResults.js:71 CreateIssue checkbox exists: true
+VM24601 execSetResults.js:74 Trying different selectors:
+VM24601 execSetResults.js:75   #integrationModal: 1
+VM24601 execSetResults.js:76   div[id="integrationModal"]: 1
+VM24601 execSetResults.js:77   [id="integrationModal"]: 1
+VM24601 execSetResults.js:80 All divs with integration in ID: 1
+VM24601 execSetResults.js:82   Found: integrationModal visibility: none
+VM24601 execSetResults.js:85 === END DEBUG MODAL STATE ===
+VM24601 execSetResults.js:86 === END DEBUG ===
+VM24601 execSetResults.js:64 === DEBUG MODAL STATE ===
+VM24601 execSetResults.js:65 Modal visibility: none
+VM24601 execSetResults.js:66 Modal exists: true
+VM24601 execSetResults.js:67 Create issue checked: false
+VM24601 execSetResults.js:68 Selected integration: undefined
+VM24601 execSetResults.js:71 CreateIssue checkbox exists: true
+VM24601 execSetResults.js:74 Trying different selectors:
+VM24601 execSetResults.js:75   #integrationModal: 1
+VM24601 execSetResults.js:76   div[id="integrationModal"]: 1
+VM24601 execSetResults.js:77   [id="integrationModal"]: 1
+VM24601 execSetResults.js:80 All divs with integration in ID: 1
+VM24601 execSetResults.js:82   Found: integrationModal visibility: none
+VM24601 execSetResults.js:85 === END DEBUG MODAL STATE ===
+VM24601 execSetResults.js:86 === END DEBUG ===
+execSetResults.js:17 execSetResults.js: LOADING VERSION SUBMISSION_LOCK_FIX - 20260303-4
+execSetResults.js:235 execSetResults.js: Test functions loaded
+execSetResults.js:236 execSetResults.js: testModal available: true
+execSetResults.js:237 execSetResults.js: simpleTest available: true
+execSetResults.js:238 execSetResults.js: testProjectIntegrations available: true
+execSetResults.js:830 execSetResults.js loaded - integration picker functions available
+execSetResults.js:833 saveExecStatus function exists: function
+execSetResults.js?v=1772561112&cachebust=20260303:17 execSetResults.js: LOADING VERSION SUBMISSION_LOCK_FIX - 20260303-4
+execSetResults.js?v=1772561112&cachebust=20260303:235 execSetResults.js: Test functions loaded
+execSetResults.js?v=1772561112&cachebust=20260303:236 execSetResults.js: testModal available: true
+execSetResults.js?v=1772561112&cachebust=20260303:237 execSetResults.js: simpleTest available: true
+execSetResults.js?v=1772561112&cachebust=20260303:238 execSetResults.js: testProjectIntegrations available: true
+execSetResults.js?v=1772561112&cachebust=20260303:830 execSetResults.js loaded - integration picker functions available
+execSetResults.js?v=1772561112&cachebust=20260303:833 saveExecStatus function exists: function
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:115 Nifty library status: LOADED
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:117 Nifty version: unknown
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:552 === SINGLE EXECUTION TEMPLATE DEBUG ===
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:553 inc_exec_show_tc_exec.tpl is being rendered!
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:554 Current time: Tue Mar 03 2026 21:05:12 GMT+0300 (East Africa Time)
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:555 jQuery available: true
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:556 tlCanCreateIssue: 1
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:557 === END SINGLE EXECUTION TEMPLATE DEBUG ===
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:686 DEBUG: Processing execution in loop - exec_id: 81586
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:763 Loading bugs for execution ID: 81586
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:1065 === TEMPLATE INTEGRATION DEBUG ===
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:1066 Integration dropdown HTML is being added to template
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:1067 tlCanCreateIssue value: 1
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:1068 === END TEMPLATE INTEGRATION DEBUG ===
+execSetResults.js:95 === EXECUTION BUTTON DEBUG ===
+execSetResults.js:96 Looking for execution buttons...
+execSetResults.js:97 save_results buttons: 1
+execSetResults.js:98 save_and_next buttons: 1
+execSetResults.js:99 move2next buttons: 0
+execSetResults.js:100 All execution buttons: 2
+execSetResults.js:101 === END EXECUTION BUTTON DEBUG ===
+bug_description_autofill.js:82 bug_description_autofill.js loaded
+bug_description_autofill.js:92 createIssue checkbox exists: true
+execSetResults.js?v=1772561112&cachebust=20260303:95 === EXECUTION BUTTON DEBUG ===
+execSetResults.js?v=1772561112&cachebust=20260303:96 Looking for execution buttons...
+execSetResults.js?v=1772561112&cachebust=20260303:97 save_results buttons: 1
+execSetResults.js?v=1772561112&cachebust=20260303:98 save_and_next buttons: 1
+execSetResults.js?v=1772561112&cachebust=20260303:99 move2next buttons: 0
+execSetResults.js?v=1772561112&cachebust=20260303:100 All execution buttons: 2
+execSetResults.js?v=1772561112&cachebust=20260303:101 === END EXECUTION BUTTON DEBUG ===
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:420 Applying Nifty corners...
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:425 Applied Nifty to exec_test_spec
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:432 Applied Nifty to exec_history
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:439 Applied Nifty to exec_tc_title
+redmine_hook.js:35 Redmine hook loaded
+bug_description_autofill.js:182 DOM fully loaded and parsed
+bug_description_autofill.js:185 Page successfully loaded at 9:05:12 PM
+redmine_hook.js:19 Redmine hook loaded
+redmine_hook.js:26 Window loaded - adding Redmine buttons
+redmine_hook.js:61 Adding Redmine buttons
+redmine_hook.js:71 Execution page detected
+redmine_hook.js:75 Found 0 status selects
+redmine_hook.js:165 No status selects found, trying general approach
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:769 Bug data for exec 81586: {success: true, execution_id: 81586, bugs: Array(0), count: 0, debug: 'Fetched 0 bugs from database and Redmine', …}
+redmine_hook.js:61 Adding Redmine buttons
+redmine_hook.js:71 Execution page detected
+redmine_hook.js:75 Found 0 status selects
+redmine_hook.js:165 No status selects found, trying general approach
+execSetResults.js?v=1772561112&cachebust=20260303:64 === DEBUG MODAL STATE ===
+execSetResults.js?v=1772561112&cachebust=20260303:65 Modal visibility: none
+execSetResults.js?v=1772561112&cachebust=20260303:66 Modal exists: true
+execSetResults.js?v=1772561112&cachebust=20260303:67 Create issue checked: false
+execSetResults.js?v=1772561112&cachebust=20260303:68 Selected integration: undefined
+execSetResults.js?v=1772561112&cachebust=20260303:71 CreateIssue checkbox exists: true
+execSetResults.js?v=1772561112&cachebust=20260303:74 Trying different selectors:
+execSetResults.js?v=1772561112&cachebust=20260303:75   #integrationModal: 1
+execSetResults.js?v=1772561112&cachebust=20260303:76   div[id="integrationModal"]: 1
+execSetResults.js?v=1772561112&cachebust=20260303:77   [id="integrationModal"]: 1
+execSetResults.js?v=1772561112&cachebust=20260303:80 All divs with integration in ID: 1
+execSetResults.js?v=1772561112&cachebust=20260303:82   Found: integrationModal visibility: none
+execSetResults.js?v=1772561112&cachebust=20260303:85 === END DEBUG MODAL STATE ===
+execSetResults.js?v=1772561112&cachebust=20260303:86 === END DEBUG ===
+execSetResults.js?v=1772561112&cachebust=20260303:64 === DEBUG MODAL STATE ===
+execSetResults.js?v=1772561112&cachebust=20260303:65 Modal visibility: none
+execSetResults.js?v=1772561112&cachebust=20260303:66 Modal exists: true
+execSetResults.js?v=1772561112&cachebust=20260303:67 Create issue checked: false
+execSetResults.js?v=1772561112&cachebust=20260303:68 Selected integration: undefined
+execSetResults.js?v=1772561112&cachebust=20260303:71 CreateIssue checkbox exists: true
+execSetResults.js?v=1772561112&cachebust=20260303:74 Trying different selectors:
+execSetResults.js?v=1772561112&cachebust=20260303:75   #integrationModal: 1
+execSetResults.js?v=1772561112&cachebust=20260303:76   div[id="integrationModal"]: 1
+execSetResults.js?v=1772561112&cachebust=20260303:77   [id="integrationModal"]: 1
+execSetResults.js?v=1772561112&cachebust=20260303:80 All divs with integration in ID: 1
+execSetResults.js?v=1772561112&cachebust=20260303:82   Found: integrationModal visibility: none
+execSetResults.js?v=1772561112&cachebust=20260303:85 === END DEBUG MODAL STATE ===
+execSetResults.js?v=1772561112&cachebust=20260303:86 === END DEBUG ===
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:1066 Create Issue checkbox clicked, current state: true
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:1068 Checkbox checked - checking for integration dropdown
+execSetResults.js:105 Checkbox clicked, current state: true
+execSetResults.js:106 Modal visibility after checkbox click: none
+execSetResults.js:107 Modal exists after click: true
+execSetResults.js?v=1772561112&cachebust=20260303:105 Checkbox clicked, current state: true
+execSetResults.js?v=1772561112&cachebust=20260303:106 Modal visibility after checkbox click: none
+execSetResults.js?v=1772561112&cachebust=20260303:107 Modal exists after click: true
+bug_description_autofill.js:86 createIssue checkbox changed, checked: true
+bug_description_autofill.js:221 populateBugDescription function called
+bug_description_autofill.js:225 Create Issue checkbox is checked
+bug_description_autofill.js:299 Found TC ID from hidden field: 431179
+bug_description_autofill.js:229 Test Case Version ID: 431179
+bug_description_autofill.js:299 Found TC ID from hidden field: 431179
+bug_description_autofill.js:108 ===== FETCH TEST CASE DATA =====
+bug_description_autofill.js:109 Request URL: lib/execute/get_testcase_data_simple.php?tcversion_id=431179
+bug_description_autofill.js:110 tcversion_id: 431179
+bug_description_autofill.js:111 Exec ID: 431179
+bug_description_autofill.js:114 Current URL: https://test-management.nmbtz.com:9443/lib/execute/execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7
+bug_description_autofill.js:115 Form data: CSRFName=CSRFGuard_1498891437&CSRFToken=d6b4ebfd3cc0911a967620cec247395b5b67585388c17da1e423f59519c601e3a7b03ed3095d1336f8a8450a452dc8bfbc5b3b0669937bdcb1e68cf1d7ae2dce&save_button_clicked=0&do_delete=0&exec_to_delete=0&form_token=1257947379&refresh_tree=0&btn_history_on=1&history_on=&tpn_view_status=0&bn_view_status=0&tc_version%5B431179%5D=431178&version_number%5B431179%5D=1&tsdetails_view_status_431178=0&custom_field_20_10_431178=&custom_field_6_11_431178=NORMAL&custom_field_6_13_431178=&notes%5B431179%5D=&execution_duration=&createIssue=on&statusSingle%5B431179%5D=&save_results=0&save_and_next=0&bug_summary=Test+Case%3A+%2FARCHIVE%2FWORKING+D%2FTESTING%2FARC-991%3AATM-TC107+-+++2026-03-03CET19%3A05+&bug_notes=&addLinkToTL=on&addLinkToTLPrintView=on
+execSetResults.php?version_id=431179&level=testcase&id=431178&form_token=1257947379&setting_build=7:1327 Bug creation checkbox checked
+bug_description_autofill.js:132 ===== API RESPONSE =====
+bug_description_autofill.js:133 Status: success
+bug_description_autofill.js:134 Raw response text: {"success":true,"data":{"scenario_id":"STSCRDMS","sub_scenario":"Search","test_script":"Positive test","expected_results":"Cards >  Maintenance > Card Master Summary","er_process":"Card status in CBS should match with the card status in postilion","testcase_name":"","primary_module":"Card Master Maintenance Summary","test_type":"Verify if the card status sync between postilion and CBS - Check if a blocked card in postilion is also blocked in CBS","test_execution_path":"1. Select card record\r\n\r\n2. Confirm card status \r\n\r\n\r\n\r\n","test_data":"","priority":"","execution_status":"","notes":""},"message":"","debug":{"received_id":431179,"timestamp":"2026-03-03 19:05:17"}}
+bug_description_autofill.js:141 Parsed response: {success: true, data: {…}, message: '', debug: {…}}
+bug_description_autofill.js:248 Successfully fetched test case data: {scenario_id: 'STSCRDMS', sub_scenario: 'Search', test_script: 'Positive test', expected_results: 'Cards >  Maintenance > Card Master Summary', er_process: 'Card status in CBS should match with the card status in postilion', …}
+bug_description_autofill.js:328 ===== POPULATE TEMPLATE =====
+bug_description_autofill.js:329 Raw data received: {success: true, data: {…}, message: '', debug: {…}}
+bug_description_autofill.js:333 Data type: object
+bug_description_autofill.js:334 Data keys: (4) ['success', 'data', 'message', 'debug']
+bug_description_autofill.js:338 Data.data type: object
+bug_description_autofill.js:339 Data.data keys: (13) ['scenario_id', 'sub_scenario', 'test_script', 'expected_results', 'er_process', 'testcase_name', 'primary_module', 'test_type', 'test_execution_path', 'test_data', 'priority', 'execution_status', 'notes']
+bug_description_autofill.js:363 Using test case data from response.data: {scenario_id: 'STSCRDMS', sub_scenario: 'Search', test_script: 'Positive test', expected_results: 'Cards >  Maintenance > Card Master Summary', er_process: 'Card status in CBS should match with the card status in postilion', …}
+bug_description_autofill.js:372 Function ID from API: STSCRDMS
+bug_description_autofill.js:385 Action from API: Search
+bug_description_autofill.js:390 Test Script from API: Positive test
+bug_description_autofill.js:409 Found test data element with ID: custom_field_20_10_431178
+bug_description_autofill.js:426 Test data value from form field: 
+bug_description_autofill.js:450 Expected Results from API: Cards >  Maintenance > Card Master Summary
+bug_description_autofill.js:474 Using test result from form field: 
+bug_description_autofill.js:299 Found TC ID from hidden field: 431179
+bug_description_autofill.js:491 Test case ID for URLs: 431179
+bug_description_autofill.js:496 Base URL for TestLink: https://test-management.nmbtz.com:9443
+bug_description_autofill.js:501 TestLink URLs added to template
+bug_description_autofill.js:506 Generated template: Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+N/A
+]
+
+TestLink URLs:
+
+bug_description_autofill.js:510 Attempting to find bug_notes field...
+bug_description_autofill.js:530 Found bug_notes field using selector: #bug_notes
+bug_description_autofill.js:593 ===== TEMPLATE TO SET =====
+bug_description_autofill.js:594 Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+N/A
+]
+
+TestLink URLs:
+
+bug_description_autofill.js:595 ===========================
+bug_description_autofill.js:598 Current field value BEFORE setting: {id: 'bug_notes', name: 'bug_notes', value: '', isVisible: true, isDisabled: false, …}
+bug_description_autofill.js:608 Setting field value using jQuery.val()...
+bug_description_autofill.js:610 jQuery.val() completed
+bug_description_autofill.js:613 Triggering change and input events...
+bug_description_autofill.js:622 Setting value using vanilla JS...
+bug_description_autofill.js:640 Value set using vanilla JS events
+bug_description_autofill.js:643 Trying setAttribute approach...
+bug_description_autofill.js:659 Current field value AFTER setting: {value: 'Function ID: STSCRDMS\nAction: Search\nTest scenario…ter Summary\nTest result: [\nN/A\n]\n\nTestLink URLs:\n', jQuery.val(): 'Function ID: STSCRDMS\nAction: Search\nTest scenario…ter Summary\nTest result: [\nN/A\n]\n\nTestLink URLs:\n', element.value: 'Function ID: STSCRDMS\nAction: Search\nTest scenario…ter Summary\nTest result: [\nN/A\n]\n\nTestLink URLs:\n', element.getAttribute(value): 'Function ID: STSCRDMS\nAction: Search\nTest scenario…ter Summary\nTest result: [\nN/A\n]\n\nTestLink URLs:\n'}
+bug_description_autofill.js:705 Set value using DOM traversal

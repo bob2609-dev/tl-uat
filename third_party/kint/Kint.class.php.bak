@@ -1,0 +1,24 @@
+<?php
+/**
+ * Kint Stub Class for PHP 8 Compatibility
+ * This is a replacement for the original Kint that does nothing
+ */
+
+class Kint {
+    public static function dump() { return null; }
+    public static function trace() { return null; }
+    public static function enabled() { return false; }
+    
+    // Add any other static methods that might be called in the code
+    public static function _dump() { return null; }
+    public static function _trace() { return null; }
+}
+
+// Define constants to prevent errors
+if (!defined('KINT_DIR')) {
+    define('KINT_DIR', dirname(__FILE__));
+}
+
+if (!defined('KINT_SKIP_HELPERS')) {
+    define('KINT_SKIP_HELPERS', true);
+}

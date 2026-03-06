@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration Manager - Test</title>
+    <script src="../gui/javascript/integration_edit_modal.js"></script>
+</head>
+<body>
+    <h1>Custom Integration Manager</h1>
+    <p>This page allows you to test the modern modal for editing integrations.</p>
+    
+    <h2>Current Integrations in Database:</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>API Endpoint</th>
+            <th>Actions</th>
+        </tr>
+        
+        <tr data-integration-id="7">
+            <td>7</td>
+            <td>Redmine1</td>
+            <td>REDMINE</td>
+            <td>https://support.profinch.com</td>
+            <td>
+                <button onclick="openIntegrationEditModal(7)">✏️ Edit</button>
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Test Instructions:</h2>
+    <ol>
+        <li>Click the "Edit" button to open the modern modal</li>
+        <li>The modal should load existing integration data</li>
+        <li>Try changing the API key to test the fallback mechanism</li>
+        <li>Save changes and verify they persist</li>
+        <li>Check the logs to confirm which path is being used</li>
+    </ol>
+    
+    <h2>Integration Logs:</h2>
+    <p>Check the following log files:</p>
+    <ul>
+        <li><strong>redmine_status_api.log</strong> - Main API calls and custom integration usage</li>
+        <li><strong>redmine_integration_log.txt</strong> - Legacy integration calls</li>
+    </ul>
+</body>
+</html>

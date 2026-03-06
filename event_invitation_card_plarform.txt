@@ -1,0 +1,12 @@
+I want to create an event invitation card platform, where customers can use to create their invitation cards based on pre-loaded templates (consider having the ability for the users to customize the visual look of the template e.g. fonts, colors, background, patterns etc.) and send e-invite (better name to come) invitation cards to people they want to invite, after going through the card creation process, they could upload an xlsx or csv file with information of the invitees etc and the platform would send the invites via whatsapp and SMS
+it will be a paid platform, there should be subscription or one time depending on the users needs, subscription could potentially be for someone doing a business (e.g. event planners ets) and needs to use the platform often.
+charges will be per card sent, (lower for subscription users)
+
+now lets brainstorm this idea and finally we should come up with a BRD document and Task Plan on the initial approach
+
+proposed technology stack
+1. Docker
+2. Java Springboot
+3. ReactJS (Strictly JSX files will be acceptable) + TailwindCSS + AntDesign
+4. PostgreSQL database or MongoDB (Prefered PostgreSQL)
+5. NGINX Proxy

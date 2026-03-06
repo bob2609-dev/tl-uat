@@ -1,0 +1,29 @@
+/**
+ * Custom CSS fixes for TestLink
+ * This file contains fixes for UI issues in TestLink
+ */
+
+/* Hide unwanted numbers in test case execution assignment view */
+#header-wrap + p + div.workBack > div[id^="div_"] > table.simple > tbody > tr > td:first-child {
+  position: relative;
+}
+
+/* This targets the unwanted numbers that appear in the red box in your screenshot */
+#header-wrap + p + div.workBack > div[id^="div_"] > table.simple > tbody > tr > td:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+/* Make sure the actual test case links and icons remain visible */
+#header-wrap + p + div.workBack > div[id^="div_"] > table.simple > tbody > tr > td:first-child > img,
+#header-wrap + p + div.workBack > div[id^="div_"] > table.simple > tbody > tr > td:first-child > a,
+#header-wrap + p + div.workBack > div[id^="div_"] > table.simple > tbody > tr > td:first-child > span {
+  position: relative;
+  z-index: 2;
+}

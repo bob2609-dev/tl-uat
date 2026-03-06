@@ -1,0 +1,61 @@
+2025-04-15 20:49:06 [api_67feaa22169eb] - API Request: POST redminerestInterface/issues.json
+2025-04-15 20:49:06 [api_67feaa22169eb] - Request data: {"issue":{"project_id":"profinch-redmine","subject":"API INTEGRATION TEST","description":"API INTEGRATION TEST\n\nLink to TestLink Execution: https:\/\/test-management.nmbtz.com:8443\/ltx.php?item=exec&feature_id=713&build_id=1\n\nLink to TestLink Execution Print View: https:\/\/test-management.nmbtz.com:8443\/lnl.php?type=exec&id=10&apikey=bbe01288e9aed3bcaa9340735aae1175d63b481dc325ffabc271502e99f7f86a\n\nCreated from TestLink on 2025-04-15 20:49:06\n\nSubmitted by: Mwaimu Mtingele\nTransaction ID: tl_67feaa221648e","tracker_id":3,"priority_id":2,"assigned_to_id":2366,"custom_fields":[{"id":16,"value":"Mwaimu Mtingele"}]}}
+2025-04-15 20:49:06 [api_67feaa22169eb] - Using dummy API: NO
+2025-04-15 20:49:06 [api_67feaa22169eb] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 20:49:08 [api_67feaa24428d3] - API Request: GET redminerestInterface/issues/64812.json
+2025-04-15 20:49:08 [api_67feaa24428d3] - Using dummy API: NO
+2025-04-15 20:49:08 [api_67feaa24428d3] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 20:49:09 [api_67feaa2543559] - API Request: GET redminerestInterface/issues/64813.json
+2025-04-15 20:49:09 [api_67feaa2543559] - Using dummy API: NO
+2025-04-15 20:49:09 [api_67feaa2543559] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 20:49:10 [api_67feaa264556d] - API Request: GET redminerestInterface/issues/64814.json
+2025-04-15 20:49:10 [api_67feaa264556d] - Using dummy API: NO
+2025-04-15 20:49:10 [api_67feaa264556d] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 20:49:11 [api_67feaa2767cef] - API Request: GET redminerestInterface/issues/64812.json
+2025-04-15 20:49:11 [api_67feaa2767cef] - Using dummy API: NO
+2025-04-15 20:49:11 [api_67feaa2767cef] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 20:49:12 [api_67feaa286728b] - API Request: GET redminerestInterface/issues/64813.json
+2025-04-15 20:49:12 [api_67feaa286728b] - Using dummy API: NO
+2025-04-15 20:49:12 [api_67feaa286728b] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 20:49:13 [api_67feaa2969f2b] - API Request: GET redminerestInterface/issues/64814.json
+2025-04-15 20:49:13 [api_67feaa2969f2b] - Using dummy API: NO
+2025-04-15 20:49:13 [api_67feaa2969f2b] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:02:56 [api_67fead6070567] - API Request: POST https://redminerestInterface/issues.json
+2025-04-15 21:02:56 [api_67fead6070567] - Request data: {"issue":{"project_id":"profinch-redmine","subject":"API INTEGRATION TEST","description":"API INTEGRATION TEST\n\nLink to TestLink Execution: https:\/\/test-management.nmbtz.com:8443\/ltx.php?item=exec&feature_id=714&build_id=1\n\nLink to TestLink Execution Print View: https:\/\/test-management.nmbtz.com:8443\/lnl.php?type=exec&id=24&apikey=bbe01288e9aed3bcaa9340735aae1175d63b481dc325ffabc271502e99f7f86a\n\nCreated from TestLink on 2025-04-15 21:02:56\n\nSubmitted by: Mwaimu Mtingele\nTransaction ID: tl_67fead6070288","tracker_id":3,"priority_id":2,"assigned_to_id":2366,"custom_fields":[{"id":16,"value":"Mwaimu Mtingele"}]}}
+2025-04-15 21:02:56 [api_67fead6070567] - Using dummy API: NO
+2025-04-15 21:02:56 [api_67fead6070567] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:04:52 [api_67feadd410616] - API Request: POST https://redminerestInterface/issues.json
+2025-04-15 21:04:52 [api_67feadd410616] - Request data: {"issue":{"project_id":"profinch-redmine","subject":"API INTEGRATION TEST","description":"API INTEGRATION TEST\n\nLink to TestLink Execution: https:\/\/test-management.nmbtz.com:8443\/ltx.php?item=exec&feature_id=714&build_id=1\n\nLink to TestLink Execution Print View: https:\/\/test-management.nmbtz.com:8443\/lnl.php?type=exec&id=24&apikey=bbe01288e9aed3bcaa9340735aae1175d63b481dc325ffabc271502e99f7f86a\n\nCreated from TestLink on 2025-04-15 21:04:52\n\nSubmitted by: Mwaimu Mtingele\nTransaction ID: tl_67feadd4102ac","tracker_id":3,"priority_id":2,"assigned_to_id":2366,"custom_fields":[{"id":16,"value":"Mwaimu Mtingele"}]}}
+2025-04-15 21:04:52 [api_67feadd410616] - Using dummy API: NO
+2025-04-15 21:04:52 [api_67feadd410616] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:14 [api_67feae6284c33] - API Request: GET https://redminerestInterface/issues/64812.json
+2025-04-15 21:07:14 [api_67feae6284c33] - Using dummy API: NO
+2025-04-15 21:07:14 [api_67feae6284c33] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:15 [api_67feae6388d71] - API Request: GET https://redminerestInterface/issues/64813.json
+2025-04-15 21:07:15 [api_67feae6388d71] - Using dummy API: NO
+2025-04-15 21:07:15 [api_67feae6388d71] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:16 [api_67feae648c31d] - API Request: GET https://redminerestInterface/issues/64814.json
+2025-04-15 21:07:16 [api_67feae648c31d] - Using dummy API: NO
+2025-04-15 21:07:16 [api_67feae648c31d] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:30 [api_67feae72ed3df] - API Request: POST https://redminerestInterface/issues.json
+2025-04-15 21:07:30 [api_67feae72ed3df] - Request data: {"issue":{"project_id":"profinch-redmine","subject":"API INTEGRATION TEST","description":"API INTEGRATION TEST\n\nLink to TestLink Execution: https:\/\/test-management.nmbtz.com:8443\/ltx.php?item=exec&feature_id=713&build_id=1\n\nLink to TestLink Execution Print View: https:\/\/test-management.nmbtz.com:8443\/lnl.php?type=exec&id=10&apikey=bbe01288e9aed3bcaa9340735aae1175d63b481dc325ffabc271502e99f7f86a\n\nCreated from TestLink on 2025-04-15 21:07:30\n\nSubmitted by: Mwaimu Mtingele\nTransaction ID: tl_67feae72ed10c","tracker_id":3,"priority_id":2,"assigned_to_id":2635,"custom_fields":[{"id":16,"value":"Mwaimu Mtingele"}]}}
+2025-04-15 21:07:30 [api_67feae72ed3df] - Using dummy API: NO
+2025-04-15 21:07:30 [api_67feae72ed3df] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:33 [api_67feae7524ebe] - API Request: GET https://redminerestInterface/issues/64812.json
+2025-04-15 21:07:33 [api_67feae7524ebe] - Using dummy API: NO
+2025-04-15 21:07:33 [api_67feae7524ebe] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:34 [api_67feae7624ded] - API Request: GET https://redminerestInterface/issues/64813.json
+2025-04-15 21:07:34 [api_67feae7624ded] - Using dummy API: NO
+2025-04-15 21:07:34 [api_67feae7624ded] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:35 [api_67feae7727528] - API Request: GET https://redminerestInterface/issues/64814.json
+2025-04-15 21:07:35 [api_67feae7727528] - Using dummy API: NO
+2025-04-15 21:07:35 [api_67feae7727528] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:36 [api_67feae784b71e] - API Request: GET https://redminerestInterface/issues/64812.json
+2025-04-15 21:07:36 [api_67feae784b71e] - Using dummy API: NO
+2025-04-15 21:07:36 [api_67feae784b71e] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:37 [api_67feae794aff0] - API Request: GET https://redminerestInterface/issues/64813.json
+2025-04-15 21:07:37 [api_67feae794aff0] - Using dummy API: NO
+2025-04-15 21:07:37 [api_67feae794aff0] - cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:38 [api_67feae7a4bae5] - API Request: GET https://redminerestInterface/issues/64814.json
+2025-04-15 21:07:38 [api_67feae7a4bae5] - Using dummy API: NO
+2025-04-15 21:07:38 [api_67feae7a4bae5] - cURL error: Could not resolve host: redminerestInterface

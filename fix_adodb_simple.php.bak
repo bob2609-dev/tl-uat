@@ -1,0 +1,113 @@
+<?php
+/**
+ * Simple ADODB Fix for PHP 8
+ * This script creates a fixed version of the ADODB library for PHP 8 compatibility
+ */
+
+// Function to log messages
+function log_message($message) {
+    echo $message . "\n";
+}
+
+log_message("Starting ADODB PHP 8 compatibility fix...");
+
+// Find the ADODB file
+$basePath = __DIR__;
+$adodbFile = $basePath . '/vendor/adodb/adodb-php/adodb.inc.php';
+
+// Try different possible locations
+if (!file_exists($adodbFile)) {
+    $possiblePaths = [
+        $basePath . '/vendor/adodb/adodb-php/adodb.inc.php',
+        $basePath . '/lib/adodb/adodb.inc.php',
+        $basePath . '/third_party/adodb/adodb.inc.php',
+        $basePath . '/adodb/adodb.inc.php'
+    ];
+    
+    foreach ($possiblePaths as $path) {
+        if (file_exists($path)) {
+            log_message("Found ADODB at: $path");
+            $adodbFile = $path;
+            break;
+        }
+    }
+}
+
+if (!file_exists($adodbFile)) {
+    log_message("ERROR: Could not find ADODB file. Please specify the correct path manually.");
+    exit(1);
+}
+
+// Create a backup
+$backupFile = $adodbFile . '.bak';
+if (!file_exists($backupFile)) {
+    copy($adodbFile, $backupFile);
+    log_message("Created backup at: $backupFile");
+}
+
+// Read the file
+$content = file_get_contents($adodbFile);
+if ($content === false) {
+    log_message("ERROR: Failed to read ADODB file");
+    exit(1);
+}
+
+// Simple fix: Add the ReturnTypeWillChange attribute before each problematic method
+$methodsToFix = [
+    'function current(',
+    'function next(',
+    'function key(',
+    'function valid(',
+    'function rewind(',
+    'function getIterator('
+];
+
+foreach ($methodsToFix as $method) {
+    $content = str_replace(
+        $method,
+        "#[\\ReturnTypeWillChange]\n\t" . $method,
+        $content
+    );
+}
+
+// Write the fixed file
+if (file_put_contents($adodbFile, $content) !== false) {
+    log_message("Successfully fixed ADODB file with ReturnTypeWillChange attributes");
+} else {
+    log_message("ERROR: Failed to write to ADODB file");
+    exit(1);
+}
+
+// Create a simple error suppression file
+$errorSuppressFile = $basePath . '/error_suppress.php';
+$errorSuppressContent = "<?php\n// Disable all PHP deprecation warnings\nerror_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);\nini_set('display_errors', 0);\n";
+
+file_put_contents($errorSuppressFile, $errorSuppressContent);
+log_message("Created error_suppress.php");
+
+// Update the index.php to include our error suppression
+$indexFile = $basePath . '/index.php';
+if (file_exists($indexFile)) {
+    $indexContent = file_get_contents($indexFile);
+    
+    // Check if our fix is already included
+    if (strpos($indexContent, 'error_suppress.php') === false) {
+        // Add it after the opening PHP tag
+        $indexContent = str_replace(
+            '<?php',
+            "<?php\nrequire_once(__DIR__ . '/error_suppress.php'); // PHP 8 compatibility",
+            $indexContent
+        );
+        
+        file_put_contents($indexFile, $indexContent);
+        log_message("Updated index.php to include error suppression");
+    } else {
+        log_message("index.php already includes error suppression");
+    }
+}
+
+log_message("\nFix complete! Please copy these files to your actual TestLink installation:");
+log_message("1. The fixed adodb.inc.php file");
+log_message("2. The error_suppress.php file");
+log_message("3. The updated index.php file");
+log_message("\nThen restart your web server and clear your browser cache.");

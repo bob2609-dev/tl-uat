@@ -1,0 +1,10 @@
+
+Database config loaded:
+Host: localhost
+User: root
+Database: tl_uat
+
+Database config loaded:
+Host: localhost
+User: root
+Database: tl_uat

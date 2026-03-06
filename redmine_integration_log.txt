@@ -1,0 +1,2062 @@
+[2026-02-26 21:30:59] Building view bug link for issue: 86723
+[2026-02-26 21:30:59] Getting issue details for: 86723
+[2026-02-26 21:31:00] Successfully created issue object for: 86723
+[2026-02-26 21:31:00] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:31:00] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 21:31:00] Building view bug link for issue: 86482
+[2026-02-26 21:31:00] Getting issue details for: 86482
+[2026-02-26 21:31:01] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 21:31:01] Invalid response from Redmine for issue: 86482
+[2026-02-26 21:31:01] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:31:01] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 21:31:01] Building view bug link for issue: 86481
+[2026-02-26 21:31:01] Getting issue details for: 86481
+[2026-02-26 21:31:03] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 21:31:03] Invalid response from Redmine for issue: 86481
+[2026-02-26 21:31:03] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:31:03] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 21:31:03] Building view bug link for issue: 86480
+[2026-02-26 21:31:03] Getting issue details for: 86480
+[2026-02-26 21:31:04] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 21:31:04] Invalid response from Redmine for issue: 86480
+[2026-02-26 21:31:04] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:31:04] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 21:31:04] Building view bug link for issue: 86472
+[2026-02-26 21:31:04] Getting issue details for: 86472
+[2026-02-26 21:31:06] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 21:31:06] Invalid response from Redmine for issue: 86472
+[2026-02-26 21:31:06] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:31:06] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 21:39:29] Building view bug link for issue: 86723
+[2026-02-26 21:39:29] Getting issue details for: 86723
+[2026-02-26 21:39:30] Successfully created issue object for: 86723
+[2026-02-26 21:39:30] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:39:30] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 21:39:30] Building view bug link for issue: 86482
+[2026-02-26 21:39:30] Getting issue details for: 86482
+[2026-02-26 21:39:32] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 21:39:32] Invalid response from Redmine for issue: 86482
+[2026-02-26 21:39:32] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:39:32] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 21:39:32] Building view bug link for issue: 86481
+[2026-02-26 21:39:32] Getting issue details for: 86481
+[2026-02-26 21:39:33] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 21:39:33] Invalid response from Redmine for issue: 86481
+[2026-02-26 21:39:33] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:39:33] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 21:39:33] Building view bug link for issue: 86480
+[2026-02-26 21:39:33] Getting issue details for: 86480
+[2026-02-26 21:39:35] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 21:39:35] Invalid response from Redmine for issue: 86480
+[2026-02-26 21:39:35] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:39:35] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 21:39:35] Building view bug link for issue: 86472
+[2026-02-26 21:39:35] Getting issue details for: 86472
+[2026-02-26 21:39:36] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 21:39:36] Invalid response from Redmine for issue: 86472
+[2026-02-26 21:39:36] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 21:39:36] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:03:40] Building view bug link for issue: 86723
+[2026-02-26 22:03:40] Getting issue details for: 86723
+[2026-02-26 22:03:42] Successfully created issue object for: 86723
+[2026-02-26 22:03:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:03:42] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:03:42] Building view bug link for issue: 86482
+[2026-02-26 22:03:42] Getting issue details for: 86482
+[2026-02-26 22:03:43] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:03:43] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:03:43] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:03:43] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:03:43] Building view bug link for issue: 86481
+[2026-02-26 22:03:43] Getting issue details for: 86481
+[2026-02-26 22:03:44] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:03:44] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:03:44] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:03:44] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:03:44] Building view bug link for issue: 86480
+[2026-02-26 22:03:44] Getting issue details for: 86480
+[2026-02-26 22:03:46] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:03:46] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:03:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:03:46] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:03:46] Building view bug link for issue: 86472
+[2026-02-26 22:03:46] Getting issue details for: 86472
+[2026-02-26 22:03:47] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:03:47] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:03:47] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:03:47] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:04:21] Building view bug link for issue: 86723
+[2026-02-26 22:04:21] Getting issue details for: 86723
+[2026-02-26 22:04:22] Successfully created issue object for: 86723
+[2026-02-26 22:04:22] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:04:22] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:04:22] Building view bug link for issue: 86482
+[2026-02-26 22:04:22] Getting issue details for: 86482
+[2026-02-26 22:04:24] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:04:24] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:04:24] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:04:24] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:04:24] Building view bug link for issue: 86481
+[2026-02-26 22:04:24] Getting issue details for: 86481
+[2026-02-26 22:04:25] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:04:25] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:04:25] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:04:25] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:04:25] Building view bug link for issue: 86480
+[2026-02-26 22:04:25] Getting issue details for: 86480
+[2026-02-26 22:04:27] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:04:27] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:04:27] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:04:27] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:04:27] Building view bug link for issue: 86472
+[2026-02-26 22:04:27] Getting issue details for: 86472
+[2026-02-26 22:04:28] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:04:28] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:04:28] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:04:28] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:06:38] Building view bug link for issue: 86723
+[2026-02-26 22:06:38] Getting issue details for: 86723
+[2026-02-26 22:06:39] Successfully created issue object for: 86723
+[2026-02-26 22:06:39] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:06:39] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:06:39] Building view bug link for issue: 86482
+[2026-02-26 22:06:39] Getting issue details for: 86482
+[2026-02-26 22:06:41] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:06:41] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:06:41] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:06:41] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:06:41] Building view bug link for issue: 86481
+[2026-02-26 22:06:41] Getting issue details for: 86481
+[2026-02-26 22:06:42] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:06:42] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:06:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:06:42] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:06:42] Building view bug link for issue: 86480
+[2026-02-26 22:06:42] Getting issue details for: 86480
+[2026-02-26 22:06:44] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:06:44] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:06:44] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:06:44] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:06:44] Building view bug link for issue: 86472
+[2026-02-26 22:06:44] Getting issue details for: 86472
+[2026-02-26 22:06:45] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:06:45] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:06:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:06:45] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:07:48] Building view bug link for issue: 86722
+[2026-02-26 22:07:48] Getting issue details for: 86722
+[2026-02-26 22:07:50] Successfully created issue object for: 86722
+[2026-02-26 22:07:50] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:07:50] Built link for issue 86722: <span style="font-weight:bold;color:red;">[ID:86722] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86722" target="_blank">Issue #86722</a>
+[2026-02-26 22:07:57] Building view bug link for issue: 86723
+[2026-02-26 22:07:57] Getting issue details for: 86723
+[2026-02-26 22:07:58] Successfully created issue object for: 86723
+[2026-02-26 22:07:58] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:07:58] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:07:58] Building view bug link for issue: 86482
+[2026-02-26 22:07:58] Getting issue details for: 86482
+[2026-02-26 22:07:59] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:07:59] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:07:59] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:07:59] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:07:59] Building view bug link for issue: 86481
+[2026-02-26 22:07:59] Getting issue details for: 86481
+[2026-02-26 22:08:01] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:08:01] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:08:01] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:08:01] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:08:01] Building view bug link for issue: 86480
+[2026-02-26 22:08:01] Getting issue details for: 86480
+[2026-02-26 22:08:02] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:08:02] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:08:02] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:08:02] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:08:02] Building view bug link for issue: 86472
+[2026-02-26 22:08:02] Getting issue details for: 86472
+[2026-02-26 22:08:04] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:08:04] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:08:04] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:08:04] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:12:44] Building view bug link for issue: 86723
+[2026-02-26 22:12:44] Getting issue details for: 86723
+[2026-02-26 22:12:46] Successfully created issue object for: 86723
+[2026-02-26 22:12:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:12:46] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:12:46] Building view bug link for issue: 86482
+[2026-02-26 22:12:46] Getting issue details for: 86482
+[2026-02-26 22:12:47] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:12:47] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:12:47] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:12:47] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:12:47] Building view bug link for issue: 86481
+[2026-02-26 22:12:47] Getting issue details for: 86481
+[2026-02-26 22:12:48] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:12:48] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:12:48] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:12:48] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:12:48] Building view bug link for issue: 86480
+[2026-02-26 22:12:48] Getting issue details for: 86480
+[2026-02-26 22:12:50] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:12:50] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:12:50] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:12:50] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:12:50] Building view bug link for issue: 86472
+[2026-02-26 22:12:50] Getting issue details for: 86472
+[2026-02-26 22:12:51] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:12:51] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:12:51] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:12:51] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:14:08] Building view bug link for issue: 86723
+[2026-02-26 22:14:08] Getting issue details for: 86723
+[2026-02-26 22:14:09] Successfully created issue object for: 86723
+[2026-02-26 22:14:09] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:14:09] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:14:09] Building view bug link for issue: 86482
+[2026-02-26 22:14:09] Getting issue details for: 86482
+[2026-02-26 22:14:10] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:14:10] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:14:10] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:14:10] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:14:10] Building view bug link for issue: 86481
+[2026-02-26 22:14:11] Getting issue details for: 86481
+[2026-02-26 22:14:12] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:14:12] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:14:12] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:14:12] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:14:12] Building view bug link for issue: 86480
+[2026-02-26 22:14:12] Getting issue details for: 86480
+[2026-02-26 22:14:13] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:14:13] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:14:13] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:14:13] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:14:13] Building view bug link for issue: 86472
+[2026-02-26 22:14:13] Getting issue details for: 86472
+[2026-02-26 22:14:15] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:14:15] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:14:15] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:14:15] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:16:10] Building view bug link for issue: 86723
+[2026-02-26 22:16:10] Getting issue details for: 86723
+[2026-02-26 22:16:11] Successfully created issue object for: 86723
+[2026-02-26 22:16:11] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:16:11] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:16:11] Building view bug link for issue: 86482
+[2026-02-26 22:16:11] Getting issue details for: 86482
+[2026-02-26 22:16:13] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:16:13] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:16:13] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:16:13] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:16:13] Building view bug link for issue: 86481
+[2026-02-26 22:16:13] Getting issue details for: 86481
+[2026-02-26 22:16:14] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:16:14] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:16:14] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:16:14] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:16:14] Building view bug link for issue: 86480
+[2026-02-26 22:16:14] Getting issue details for: 86480
+[2026-02-26 22:16:15] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:16:15] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:16:15] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:16:15] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:16:15] Building view bug link for issue: 86472
+[2026-02-26 22:16:15] Getting issue details for: 86472
+[2026-02-26 22:16:17] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:16:17] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:16:17] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:16:17] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:18:09] Building view bug link for issue: 86723
+[2026-02-26 22:18:09] Getting issue details for: 86723
+[2026-02-26 22:18:11] Successfully created issue object for: 86723
+[2026-02-26 22:18:11] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:18:11] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:18:11] Building view bug link for issue: 86482
+[2026-02-26 22:18:11] Getting issue details for: 86482
+[2026-02-26 22:18:12] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:18:12] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:18:12] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:18:12] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:18:12] Building view bug link for issue: 86481
+[2026-02-26 22:18:12] Getting issue details for: 86481
+[2026-02-26 22:18:14] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:18:14] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:18:14] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:18:14] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:18:14] Building view bug link for issue: 86480
+[2026-02-26 22:18:14] Getting issue details for: 86480
+[2026-02-26 22:18:15] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:18:15] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:18:15] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:18:15] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:18:15] Building view bug link for issue: 86472
+[2026-02-26 22:18:15] Getting issue details for: 86472
+[2026-02-26 22:18:16] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:18:16] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:18:16] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:18:16] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:20:50] Building view bug link for issue: 86723
+[2026-02-26 22:20:50] Getting issue details for: 86723
+[2026-02-26 22:20:51] Successfully created issue object for: 86723
+[2026-02-26 22:20:51] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:20:51] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:20:51] Building view bug link for issue: 86482
+[2026-02-26 22:20:51] Getting issue details for: 86482
+[2026-02-26 22:20:53] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:20:53] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:20:53] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:20:53] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:20:53] Building view bug link for issue: 86481
+[2026-02-26 22:20:53] Getting issue details for: 86481
+[2026-02-26 22:20:54] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:20:54] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:20:54] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:20:54] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:20:54] Building view bug link for issue: 86480
+[2026-02-26 22:20:54] Getting issue details for: 86480
+[2026-02-26 22:20:55] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:20:55] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:20:55] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:20:55] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:20:55] Building view bug link for issue: 86472
+[2026-02-26 22:20:55] Getting issue details for: 86472
+[2026-02-26 22:20:57] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:20:57] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:20:57] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:20:57] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:23:30] Building view bug link for issue: 86723
+[2026-02-26 22:23:30] Getting issue details for: 86723
+[2026-02-26 22:23:31] Successfully created issue object for: 86723
+[2026-02-26 22:23:31] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:23:31] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:23:31] Building view bug link for issue: 86482
+[2026-02-26 22:23:31] Getting issue details for: 86482
+[2026-02-26 22:23:32] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:23:32] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:23:32] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:23:32] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:23:32] Building view bug link for issue: 86481
+[2026-02-26 22:23:32] Getting issue details for: 86481
+[2026-02-26 22:23:34] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:23:34] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:23:34] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:23:34] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:23:34] Building view bug link for issue: 86480
+[2026-02-26 22:23:34] Getting issue details for: 86480
+[2026-02-26 22:23:35] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:23:35] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:23:35] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:23:35] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:23:35] Building view bug link for issue: 86472
+[2026-02-26 22:23:35] Getting issue details for: 86472
+[2026-02-26 22:23:37] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:23:37] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:23:37] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:23:37] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:26:09] Building view bug link for issue: 86723
+[2026-02-26 22:26:09] Getting issue details for: 86723
+[2026-02-26 22:26:10] Successfully created issue object for: 86723
+[2026-02-26 22:26:10] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:26:10] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:26:10] Building view bug link for issue: 86482
+[2026-02-26 22:26:10] Getting issue details for: 86482
+[2026-02-26 22:26:11] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:26:11] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:26:11] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:26:11] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:26:11] Building view bug link for issue: 86481
+[2026-02-26 22:26:11] Getting issue details for: 86481
+[2026-02-26 22:26:13] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:26:13] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:26:13] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:26:13] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:26:13] Building view bug link for issue: 86480
+[2026-02-26 22:26:13] Getting issue details for: 86480
+[2026-02-26 22:26:14] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:26:14] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:26:14] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:26:14] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:26:14] Building view bug link for issue: 86472
+[2026-02-26 22:26:14] Getting issue details for: 86472
+[2026-02-26 22:26:16] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:26:16] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:26:16] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:26:16] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:27:18] Building view bug link for issue: 86723
+[2026-02-26 22:27:18] Getting issue details for: 86723
+[2026-02-26 22:27:20] Successfully created issue object for: 86723
+[2026-02-26 22:27:20] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:27:20] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:27:20] Building view bug link for issue: 86482
+[2026-02-26 22:27:20] Getting issue details for: 86482
+[2026-02-26 22:27:21] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:27:21] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:27:21] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:27:21] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:27:21] Building view bug link for issue: 86481
+[2026-02-26 22:27:21] Getting issue details for: 86481
+[2026-02-26 22:27:23] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:27:23] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:27:23] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:27:23] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:27:23] Building view bug link for issue: 86480
+[2026-02-26 22:27:23] Getting issue details for: 86480
+[2026-02-26 22:27:24] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:27:24] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:27:24] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:27:24] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:27:24] Building view bug link for issue: 86472
+[2026-02-26 22:27:24] Getting issue details for: 86472
+[2026-02-26 22:27:25] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:27:25] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:27:25] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:27:25] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:28:39] Building view bug link for issue: 86723
+[2026-02-26 22:28:39] Getting issue details for: 86723
+[2026-02-26 22:28:41] Successfully created issue object for: 86723
+[2026-02-26 22:28:41] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:28:41] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:28:41] Building view bug link for issue: 86482
+[2026-02-26 22:28:41] Getting issue details for: 86482
+[2026-02-26 22:28:42] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:28:42] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:28:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:28:42] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:28:42] Building view bug link for issue: 86481
+[2026-02-26 22:28:42] Getting issue details for: 86481
+[2026-02-26 22:28:44] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:28:44] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:28:44] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:28:44] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:28:44] Building view bug link for issue: 86480
+[2026-02-26 22:28:44] Getting issue details for: 86480
+[2026-02-26 22:28:45] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:28:45] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:28:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:28:45] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:28:45] Building view bug link for issue: 86472
+[2026-02-26 22:28:45] Getting issue details for: 86472
+[2026-02-26 22:28:46] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:28:46] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:28:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:28:46] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:35:30] Building view bug link for issue: 86723
+[2026-02-26 22:35:30] Getting issue details for: 86723
+[2026-02-26 22:35:31] Successfully created issue object for: 86723
+[2026-02-26 22:35:31] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:31] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:35:31] Building view bug link for issue: 86482
+[2026-02-26 22:35:31] Getting issue details for: 86482
+[2026-02-26 22:35:33] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:35:33] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:35:33] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:33] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:35:33] Building view bug link for issue: 86481
+[2026-02-26 22:35:33] Getting issue details for: 86481
+[2026-02-26 22:35:34] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:35:34] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:35:34] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:34] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:35:34] Building view bug link for issue: 86480
+[2026-02-26 22:35:34] Getting issue details for: 86480
+[2026-02-26 22:35:36] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:35:36] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:35:36] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:36] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:35:36] Building view bug link for issue: 86472
+[2026-02-26 22:35:36] Getting issue details for: 86472
+[2026-02-26 22:35:37] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:35:37] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:35:37] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:37] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:35:54] Building view bug link for issue: 86723
+[2026-02-26 22:35:54] Getting issue details for: 86723
+[2026-02-26 22:35:56] Successfully created issue object for: 86723
+[2026-02-26 22:35:56] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:56] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:35:56] Building view bug link for issue: 86482
+[2026-02-26 22:35:56] Getting issue details for: 86482
+[2026-02-26 22:35:57] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:35:57] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:35:57] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:57] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:35:57] Building view bug link for issue: 86481
+[2026-02-26 22:35:57] Getting issue details for: 86481
+[2026-02-26 22:35:59] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:35:59] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:35:59] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:35:59] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:35:59] Building view bug link for issue: 86480
+[2026-02-26 22:35:59] Getting issue details for: 86480
+[2026-02-26 22:36:00] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:36:00] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:36:00] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:36:00] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:36:00] Building view bug link for issue: 86472
+[2026-02-26 22:36:00] Getting issue details for: 86472
+[2026-02-26 22:36:01] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:36:01] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:36:01] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:36:01] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:39:32] Building view bug link for issue: 86723
+[2026-02-26 22:39:32] Getting issue details for: 86723
+[2026-02-26 22:39:34] Successfully created issue object for: 86723
+[2026-02-26 22:39:34] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:39:34] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:39:34] Building view bug link for issue: 86482
+[2026-02-26 22:39:34] Getting issue details for: 86482
+[2026-02-26 22:39:35] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:39:35] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:39:35] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:39:35] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:39:35] Building view bug link for issue: 86481
+[2026-02-26 22:39:35] Getting issue details for: 86481
+[2026-02-26 22:39:36] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:39:36] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:39:37] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:39:37] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:39:37] Building view bug link for issue: 86480
+[2026-02-26 22:39:37] Getting issue details for: 86480
+[2026-02-26 22:39:38] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:39:38] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:39:38] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:39:38] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:39:38] Building view bug link for issue: 86472
+[2026-02-26 22:39:38] Getting issue details for: 86472
+[2026-02-26 22:39:39] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:39:39] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:39:39] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:39:39] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:41:42] Building view bug link for issue: 86723
+[2026-02-26 22:41:42] Getting issue details for: 86723
+[2026-02-26 22:41:43] Successfully created issue object for: 86723
+[2026-02-26 22:41:43] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:41:43] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:41:43] Building view bug link for issue: 86482
+[2026-02-26 22:41:43] Getting issue details for: 86482
+[2026-02-26 22:41:45] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:41:45] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:41:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:41:45] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:41:45] Building view bug link for issue: 86481
+[2026-02-26 22:41:45] Getting issue details for: 86481
+[2026-02-26 22:41:46] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:41:46] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:41:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:41:46] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:41:46] Building view bug link for issue: 86480
+[2026-02-26 22:41:46] Getting issue details for: 86480
+[2026-02-26 22:41:47] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:41:47] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:41:47] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:41:47] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:41:47] Building view bug link for issue: 86472
+[2026-02-26 22:41:47] Getting issue details for: 86472
+[2026-02-26 22:41:49] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:41:49] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:41:49] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:41:49] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:42:35] Building view bug link for issue: 86723
+[2026-02-26 22:42:35] Getting issue details for: 86723
+[2026-02-26 22:42:36] Successfully created issue object for: 86723
+[2026-02-26 22:42:36] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:42:36] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:42:36] Building view bug link for issue: 86482
+[2026-02-26 22:42:36] Getting issue details for: 86482
+[2026-02-26 22:42:37] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:42:37] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:42:37] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:42:37] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:42:37] Building view bug link for issue: 86481
+[2026-02-26 22:42:37] Getting issue details for: 86481
+[2026-02-26 22:42:39] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:42:39] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:42:39] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:42:39] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:42:39] Building view bug link for issue: 86480
+[2026-02-26 22:42:39] Getting issue details for: 86480
+[2026-02-26 22:42:40] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:42:40] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:42:40] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:42:40] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:42:40] Building view bug link for issue: 86472
+[2026-02-26 22:42:40] Getting issue details for: 86472
+[2026-02-26 22:42:42] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:42:42] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:42:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:42:42] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:48:05] Building view bug link for issue: 86723
+[2026-02-26 22:48:05] Getting issue details for: 86723
+[2026-02-26 22:48:07] Successfully created issue object for: 86723
+[2026-02-26 22:48:07] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:48:07] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:48:07] Building view bug link for issue: 86482
+[2026-02-26 22:48:07] Getting issue details for: 86482
+[2026-02-26 22:48:08] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:48:08] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:48:08] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:48:08] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:48:08] Building view bug link for issue: 86481
+[2026-02-26 22:48:08] Getting issue details for: 86481
+[2026-02-26 22:48:09] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:48:09] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:48:09] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:48:09] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:48:09] Building view bug link for issue: 86480
+[2026-02-26 22:48:09] Getting issue details for: 86480
+[2026-02-26 22:48:11] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:48:11] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:48:11] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:48:11] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:48:11] Building view bug link for issue: 86472
+[2026-02-26 22:48:11] Getting issue details for: 86472
+[2026-02-26 22:48:12] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:48:12] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:48:12] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:48:12] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:49:40] Building view bug link for issue: 86723
+[2026-02-26 22:49:40] Getting issue details for: 86723
+[2026-02-26 22:49:41] Successfully created issue object for: 86723
+[2026-02-26 22:49:41] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:49:41] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:49:41] Building view bug link for issue: 86482
+[2026-02-26 22:49:41] Getting issue details for: 86482
+[2026-02-26 22:49:42] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:49:42] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:49:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:49:42] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:49:42] Building view bug link for issue: 86481
+[2026-02-26 22:49:42] Getting issue details for: 86481
+[2026-02-26 22:49:44] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:49:44] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:49:44] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:49:44] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:49:44] Building view bug link for issue: 86480
+[2026-02-26 22:49:44] Getting issue details for: 86480
+[2026-02-26 22:49:45] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:49:45] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:49:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:49:45] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:49:45] Building view bug link for issue: 86472
+[2026-02-26 22:49:45] Getting issue details for: 86472
+[2026-02-26 22:49:46] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:49:46] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:49:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:49:46] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:51:08] Building view bug link for issue: 86723
+[2026-02-26 22:51:08] Getting issue details for: 86723
+[2026-02-26 22:51:10] Successfully created issue object for: 86723
+[2026-02-26 22:51:10] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:10] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:51:10] Building view bug link for issue: 86482
+[2026-02-26 22:51:10] Getting issue details for: 86482
+[2026-02-26 22:51:11] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:51:11] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:51:11] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:11] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:51:11] Building view bug link for issue: 86481
+[2026-02-26 22:51:11] Getting issue details for: 86481
+[2026-02-26 22:51:13] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:51:13] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:51:13] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:13] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:51:13] Building view bug link for issue: 86480
+[2026-02-26 22:51:13] Getting issue details for: 86480
+[2026-02-26 22:51:14] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:51:14] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:51:14] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:14] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:51:14] Building view bug link for issue: 86472
+[2026-02-26 22:51:14] Getting issue details for: 86472
+[2026-02-26 22:51:16] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:51:16] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:51:16] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:16] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:51:42] Building view bug link for issue: 86723
+[2026-02-26 22:51:42] Getting issue details for: 86723
+[2026-02-26 22:51:44] Successfully created issue object for: 86723
+[2026-02-26 22:51:44] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:44] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:51:44] Building view bug link for issue: 86482
+[2026-02-26 22:51:44] Getting issue details for: 86482
+[2026-02-26 22:51:45] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:51:45] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:51:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:45] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:51:45] Building view bug link for issue: 86481
+[2026-02-26 22:51:45] Getting issue details for: 86481
+[2026-02-26 22:51:46] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:51:46] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:51:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:46] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:51:46] Building view bug link for issue: 86480
+[2026-02-26 22:51:46] Getting issue details for: 86480
+[2026-02-26 22:51:48] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:51:48] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:51:48] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:48] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:51:48] Building view bug link for issue: 86472
+[2026-02-26 22:51:48] Getting issue details for: 86472
+[2026-02-26 22:51:49] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:51:49] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:51:49] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:51:49] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:53:38] Building view bug link for issue: 86723
+[2026-02-26 22:53:38] Getting issue details for: 86723
+[2026-02-26 22:53:39] Successfully created issue object for: 86723
+[2026-02-26 22:53:39] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:53:39] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:53:39] Building view bug link for issue: 86482
+[2026-02-26 22:53:39] Getting issue details for: 86482
+[2026-02-26 22:53:41] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:53:41] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:53:41] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:53:41] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:53:41] Building view bug link for issue: 86481
+[2026-02-26 22:53:41] Getting issue details for: 86481
+[2026-02-26 22:53:42] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:53:42] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:53:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:53:42] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:53:42] Building view bug link for issue: 86480
+[2026-02-26 22:53:42] Getting issue details for: 86480
+[2026-02-26 22:53:44] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:53:44] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:53:44] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:53:44] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:53:44] Building view bug link for issue: 86472
+[2026-02-26 22:53:44] Getting issue details for: 86472
+[2026-02-26 22:53:45] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:53:45] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:53:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:53:45] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:55:27] Building view bug link for issue: 86723
+[2026-02-26 22:55:27] Getting issue details for: 86723
+[2026-02-26 22:55:28] Successfully created issue object for: 86723
+[2026-02-26 22:55:28] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:55:28] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:55:28] Building view bug link for issue: 86482
+[2026-02-26 22:55:28] Getting issue details for: 86482
+[2026-02-26 22:55:29] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:55:29] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:55:30] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:55:30] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:55:30] Building view bug link for issue: 86481
+[2026-02-26 22:55:30] Getting issue details for: 86481
+[2026-02-26 22:55:31] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:55:31] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:55:31] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:55:31] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:55:31] Building view bug link for issue: 86480
+[2026-02-26 22:55:31] Getting issue details for: 86480
+[2026-02-26 22:55:32] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:55:32] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:55:32] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:55:32] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:55:32] Building view bug link for issue: 86472
+[2026-02-26 22:55:32] Getting issue details for: 86472
+[2026-02-26 22:55:34] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:55:34] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:55:34] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:55:34] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:56:12] Building view bug link for issue: 86723
+[2026-02-26 22:56:12] Getting issue details for: 86723
+[2026-02-26 22:56:13] Successfully created issue object for: 86723
+[2026-02-26 22:56:13] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:13] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:56:13] Building view bug link for issue: 86482
+[2026-02-26 22:56:13] Getting issue details for: 86482
+[2026-02-26 22:56:15] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:56:15] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:56:15] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:15] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:56:15] Building view bug link for issue: 86481
+[2026-02-26 22:56:15] Getting issue details for: 86481
+[2026-02-26 22:56:16] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:56:16] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:56:16] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:16] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:56:16] Building view bug link for issue: 86480
+[2026-02-26 22:56:16] Getting issue details for: 86480
+[2026-02-26 22:56:17] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:56:17] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:56:17] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:17] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:56:17] Building view bug link for issue: 86472
+[2026-02-26 22:56:17] Getting issue details for: 86472
+[2026-02-26 22:56:19] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:56:19] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:56:19] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:19] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:56:32] Building view bug link for issue: 86723
+[2026-02-26 22:56:32] Getting issue details for: 86723
+[2026-02-26 22:56:34] Successfully created issue object for: 86723
+[2026-02-26 22:56:34] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:34] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:56:34] Building view bug link for issue: 86482
+[2026-02-26 22:56:34] Getting issue details for: 86482
+[2026-02-26 22:56:35] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:56:35] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:56:35] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:35] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:56:35] Building view bug link for issue: 86481
+[2026-02-26 22:56:35] Getting issue details for: 86481
+[2026-02-26 22:56:37] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:56:37] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:56:37] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:37] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:56:37] Building view bug link for issue: 86480
+[2026-02-26 22:56:37] Getting issue details for: 86480
+[2026-02-26 22:56:38] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:56:38] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:56:38] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:38] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:56:38] Building view bug link for issue: 86472
+[2026-02-26 22:56:38] Getting issue details for: 86472
+[2026-02-26 22:56:40] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:56:40] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:56:40] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:56:40] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 22:57:01] Building view bug link for issue: 86723
+[2026-02-26 22:57:01] Getting issue details for: 86723
+[2026-02-26 22:57:02] Successfully created issue object for: 86723
+[2026-02-26 22:57:02] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:57:02] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 22:57:02] Building view bug link for issue: 86482
+[2026-02-26 22:57:02] Getting issue details for: 86482
+[2026-02-26 22:57:04] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 22:57:04] Invalid response from Redmine for issue: 86482
+[2026-02-26 22:57:04] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:57:04] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 22:57:04] Building view bug link for issue: 86481
+[2026-02-26 22:57:04] Getting issue details for: 86481
+[2026-02-26 22:57:05] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 22:57:05] Invalid response from Redmine for issue: 86481
+[2026-02-26 22:57:05] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:57:05] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 22:57:05] Building view bug link for issue: 86480
+[2026-02-26 22:57:05] Getting issue details for: 86480
+[2026-02-26 22:57:06] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 22:57:06] Invalid response from Redmine for issue: 86480
+[2026-02-26 22:57:06] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:57:06] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 22:57:06] Building view bug link for issue: 86472
+[2026-02-26 22:57:06] Getting issue details for: 86472
+[2026-02-26 22:57:08] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 22:57:08] Invalid response from Redmine for issue: 86472
+[2026-02-26 22:57:08] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 22:57:08] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:01:40] Building view bug link for issue: 86723
+[2026-02-26 23:01:40] Getting issue details for: 86723
+[2026-02-26 23:01:42] Successfully created issue object for: 86723
+[2026-02-26 23:01:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:01:42] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:01:42] Building view bug link for issue: 86482
+[2026-02-26 23:01:42] Getting issue details for: 86482
+[2026-02-26 23:01:43] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:01:43] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:01:43] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:01:43] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:01:43] Building view bug link for issue: 86481
+[2026-02-26 23:01:43] Getting issue details for: 86481
+[2026-02-26 23:01:44] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:01:44] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:01:44] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:01:44] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:01:44] Building view bug link for issue: 86480
+[2026-02-26 23:01:44] Getting issue details for: 86480
+[2026-02-26 23:01:46] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:01:46] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:01:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:01:46] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:01:46] Building view bug link for issue: 86472
+[2026-02-26 23:01:46] Getting issue details for: 86472
+[2026-02-26 23:01:47] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:01:47] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:01:47] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:01:47] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:04:29] Building view bug link for issue: 86723
+[2026-02-26 23:04:29] Getting issue details for: 86723
+[2026-02-26 23:04:31] Successfully created issue object for: 86723
+[2026-02-26 23:04:31] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:04:31] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:04:31] Building view bug link for issue: 86482
+[2026-02-26 23:04:31] Getting issue details for: 86482
+[2026-02-26 23:04:32] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:04:32] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:04:32] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:04:32] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:04:32] Building view bug link for issue: 86481
+[2026-02-26 23:04:32] Getting issue details for: 86481
+[2026-02-26 23:04:33] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:04:33] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:04:33] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:04:33] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:04:33] Building view bug link for issue: 86480
+[2026-02-26 23:04:33] Getting issue details for: 86480
+[2026-02-26 23:04:35] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:04:35] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:04:35] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:04:35] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:04:35] Building view bug link for issue: 86472
+[2026-02-26 23:04:35] Getting issue details for: 86472
+[2026-02-26 23:04:36] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:04:36] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:04:36] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:04:36] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:05:13] Building view bug link for issue: 86723
+[2026-02-26 23:05:13] Getting issue details for: 86723
+[2026-02-26 23:05:14] Successfully created issue object for: 86723
+[2026-02-26 23:05:14] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:14] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:05:14] Building view bug link for issue: 86482
+[2026-02-26 23:05:14] Getting issue details for: 86482
+[2026-02-26 23:05:16] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:05:16] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:05:16] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:16] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:05:16] Building view bug link for issue: 86481
+[2026-02-26 23:05:16] Getting issue details for: 86481
+[2026-02-26 23:05:17] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:05:17] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:05:17] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:17] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:05:17] Building view bug link for issue: 86480
+[2026-02-26 23:05:17] Getting issue details for: 86480
+[2026-02-26 23:05:18] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:05:18] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:05:18] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:18] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:05:18] Building view bug link for issue: 86472
+[2026-02-26 23:05:18] Getting issue details for: 86472
+[2026-02-26 23:05:20] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:05:20] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:05:20] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:20] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:05:32] Building view bug link for issue: 86723
+[2026-02-26 23:05:32] Getting issue details for: 86723
+[2026-02-26 23:05:34] Successfully created issue object for: 86723
+[2026-02-26 23:05:34] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:34] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:05:34] Building view bug link for issue: 86482
+[2026-02-26 23:05:34] Getting issue details for: 86482
+[2026-02-26 23:05:35] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:05:35] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:05:35] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:35] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:05:35] Building view bug link for issue: 86481
+[2026-02-26 23:05:35] Getting issue details for: 86481
+[2026-02-26 23:05:37] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:05:37] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:05:37] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:37] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:05:37] Building view bug link for issue: 86480
+[2026-02-26 23:05:37] Getting issue details for: 86480
+[2026-02-26 23:05:38] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:05:38] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:05:38] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:38] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:05:38] Building view bug link for issue: 86472
+[2026-02-26 23:05:38] Getting issue details for: 86472
+[2026-02-26 23:05:39] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:05:39] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:05:39] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:05:39] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:06:41] Building view bug link for issue: 86723
+[2026-02-26 23:06:41] Getting issue details for: 86723
+[2026-02-26 23:06:42] Successfully created issue object for: 86723
+[2026-02-26 23:06:42] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:06:42] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:06:42] Building view bug link for issue: 86482
+[2026-02-26 23:06:42] Getting issue details for: 86482
+[2026-02-26 23:06:43] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:06:43] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:06:43] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:06:43] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:06:43] Building view bug link for issue: 86481
+[2026-02-26 23:06:43] Getting issue details for: 86481
+[2026-02-26 23:06:45] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:06:45] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:06:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:06:45] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:06:45] Building view bug link for issue: 86480
+[2026-02-26 23:06:45] Getting issue details for: 86480
+[2026-02-26 23:06:46] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:06:46] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:06:46] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:06:46] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:06:46] Building view bug link for issue: 86472
+[2026-02-26 23:06:46] Getting issue details for: 86472
+[2026-02-26 23:06:48] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:06:48] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:06:48] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:06:48] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:08:16] Building view bug link for issue: 86723
+[2026-02-26 23:08:16] Getting issue details for: 86723
+[2026-02-26 23:08:17] Successfully created issue object for: 86723
+[2026-02-26 23:08:17] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:08:17] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:08:17] Building view bug link for issue: 86482
+[2026-02-26 23:08:17] Getting issue details for: 86482
+[2026-02-26 23:08:19] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:08:19] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:08:19] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:08:19] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:08:19] Building view bug link for issue: 86481
+[2026-02-26 23:08:19] Getting issue details for: 86481
+[2026-02-26 23:08:20] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:08:20] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:08:20] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:08:20] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:08:20] Building view bug link for issue: 86480
+[2026-02-26 23:08:20] Getting issue details for: 86480
+[2026-02-26 23:08:22] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:08:22] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:08:22] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:08:22] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:08:22] Building view bug link for issue: 86472
+[2026-02-26 23:08:22] Getting issue details for: 86472
+[2026-02-26 23:08:23] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:08:23] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:08:23] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:08:23] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:11:21] Building view bug link for issue: 86723
+[2026-02-26 23:11:21] Getting issue details for: 86723
+[2026-02-26 23:11:22] Successfully created issue object for: 86723
+[2026-02-26 23:11:22] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:11:22] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:11:22] Building view bug link for issue: 86482
+[2026-02-26 23:11:22] Getting issue details for: 86482
+[2026-02-26 23:11:24] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:11:24] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:11:24] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:11:24] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:11:24] Building view bug link for issue: 86481
+[2026-02-26 23:11:24] Getting issue details for: 86481
+[2026-02-26 23:11:25] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:11:25] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:11:25] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:11:25] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:11:25] Building view bug link for issue: 86480
+[2026-02-26 23:11:25] Getting issue details for: 86480
+[2026-02-26 23:11:26] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:11:26] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:11:26] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:11:26] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:11:26] Building view bug link for issue: 86472
+[2026-02-26 23:11:26] Getting issue details for: 86472
+[2026-02-26 23:11:28] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:11:28] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:11:28] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:11:28] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-26 23:12:16] Building view bug link for issue: 86723
+[2026-02-26 23:12:16] Getting issue details for: 86723
+[2026-02-26 23:12:18] Successfully created issue object for: 86723
+[2026-02-26 23:12:18] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:12:18] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-26 23:12:18] Building view bug link for issue: 86482
+[2026-02-26 23:12:18] Getting issue details for: 86482
+[2026-02-26 23:12:19] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-26 23:12:19] Invalid response from Redmine for issue: 86482
+[2026-02-26 23:12:19] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:12:19] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-26 23:12:19] Building view bug link for issue: 86481
+[2026-02-26 23:12:19] Getting issue details for: 86481
+[2026-02-26 23:12:20] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-26 23:12:20] Invalid response from Redmine for issue: 86481
+[2026-02-26 23:12:20] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:12:20] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-26 23:12:20] Building view bug link for issue: 86480
+[2026-02-26 23:12:20] Getting issue details for: 86480
+[2026-02-26 23:12:22] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-26 23:12:22] Invalid response from Redmine for issue: 86480
+[2026-02-26 23:12:22] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:12:22] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-26 23:12:22] Building view bug link for issue: 86472
+[2026-02-26 23:12:22] Getting issue details for: 86472
+[2026-02-26 23:12:23] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-26 23:12:23] Invalid response from Redmine for issue: 86472
+[2026-02-26 23:12:23] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-26 23:12:23] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-27 07:00:56] Building view bug link for issue: 86723
+[2026-02-27 07:00:56] Getting issue details for: 86723
+[2026-02-27 07:00:57] Successfully created issue object for: 86723
+[2026-02-27 07:00:57] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:00:57] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-27 07:00:57] Building view bug link for issue: 86482
+[2026-02-27 07:00:57] Getting issue details for: 86482
+[2026-02-27 07:00:59] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-27 07:00:59] Invalid response from Redmine for issue: 86482
+[2026-02-27 07:00:59] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:00:59] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-27 07:00:59] Building view bug link for issue: 86481
+[2026-02-27 07:00:59] Getting issue details for: 86481
+[2026-02-27 07:01:01] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-27 07:01:01] Invalid response from Redmine for issue: 86481
+[2026-02-27 07:01:01] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:01:01] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-27 07:01:01] Building view bug link for issue: 86480
+[2026-02-27 07:01:01] Getting issue details for: 86480
+[2026-02-27 07:01:02] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-27 07:01:02] Invalid response from Redmine for issue: 86480
+[2026-02-27 07:01:02] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:01:02] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-27 07:01:02] Building view bug link for issue: 86472
+[2026-02-27 07:01:02] Getting issue details for: 86472
+[2026-02-27 07:01:03] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-27 07:01:03] Invalid response from Redmine for issue: 86472
+[2026-02-27 07:01:03] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:01:03] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-27 07:02:50] Building view bug link for issue: 86723
+[2026-02-27 07:02:50] Getting issue details for: 86723
+[2026-02-27 07:02:52] Successfully created issue object for: 86723
+[2026-02-27 07:02:52] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:02:52] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-27 07:02:52] Building view bug link for issue: 86482
+[2026-02-27 07:02:52] Getting issue details for: 86482
+[2026-02-27 07:02:53] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-27 07:02:53] Invalid response from Redmine for issue: 86482
+[2026-02-27 07:02:53] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:02:53] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-27 07:02:53] Building view bug link for issue: 86481
+[2026-02-27 07:02:53] Getting issue details for: 86481
+[2026-02-27 07:02:55] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-27 07:02:55] Invalid response from Redmine for issue: 86481
+[2026-02-27 07:02:55] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:02:55] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-27 07:02:55] Building view bug link for issue: 86480
+[2026-02-27 07:02:55] Getting issue details for: 86480
+[2026-02-27 07:02:56] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-27 07:02:56] Invalid response from Redmine for issue: 86480
+[2026-02-27 07:02:56] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:02:56] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-27 07:02:56] Building view bug link for issue: 86472
+[2026-02-27 07:02:56] Getting issue details for: 86472
+[2026-02-27 07:02:57] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-27 07:02:57] Invalid response from Redmine for issue: 86472
+[2026-02-27 07:02:57] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:02:57] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-27 07:03:06] Building view bug link for issue: 86723
+[2026-02-27 07:03:06] Getting issue details for: 86723
+[2026-02-27 07:03:07] Successfully created issue object for: 86723
+[2026-02-27 07:03:07] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:03:07] Built link for issue 86723: <span style="font-weight:bold;color:red;">[ID:86723] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86723" target="_blank">Issue #86723</a>
+[2026-02-27 07:03:07] Building view bug link for issue: 86482
+[2026-02-27 07:03:07] Getting issue details for: 86482
+[2026-02-27 07:03:08] HTTP Error: 403 | URL: https://support.profinch.com/issues/86482.json | Response: 
+[2026-02-27 07:03:08] Invalid response from Redmine for issue: 86482
+[2026-02-27 07:03:08] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:03:08] Built link for issue 86482: <span style="font-weight:bold;color:red;">[ID:86482] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86482" target="_blank">Issue #86482</a>
+[2026-02-27 07:03:08] Building view bug link for issue: 86481
+[2026-02-27 07:03:08] Getting issue details for: 86481
+[2026-02-27 07:03:10] HTTP Error: 403 | URL: https://support.profinch.com/issues/86481.json | Response: 
+[2026-02-27 07:03:10] Invalid response from Redmine for issue: 86481
+[2026-02-27 07:03:10] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:03:10] Built link for issue 86481: <span style="font-weight:bold;color:red;">[ID:86481] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86481" target="_blank">Issue #86481</a>
+[2026-02-27 07:03:10] Building view bug link for issue: 86480
+[2026-02-27 07:03:10] Getting issue details for: 86480
+[2026-02-27 07:03:11] HTTP Error: 403 | URL: https://support.profinch.com/issues/86480.json | Response: 
+[2026-02-27 07:03:11] Invalid response from Redmine for issue: 86480
+[2026-02-27 07:03:11] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:03:11] Built link for issue 86480: <span style="font-weight:bold;color:red;">[ID:86480] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86480" target="_blank">Issue #86480</a>
+[2026-02-27 07:03:11] Building view bug link for issue: 86472
+[2026-02-27 07:03:11] Getting issue details for: 86472
+[2026-02-27 07:03:13] HTTP Error: 403 | URL: https://support.profinch.com/issues/86472.json | Response: 
+[2026-02-27 07:03:13] Invalid response from Redmine for issue: 86472
+[2026-02-27 07:03:13] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:03:13] Built link for issue 86472: <span style="font-weight:bold;color:red;">[ID:86472] [Status:UNKNOWN]</span> <a href="https://support.profinch.com/issues/86472" target="_blank">Issue #86472</a>
+[2026-02-27 07:03:36] Creating Redmine issue with summary: TESTLINK CONNECTIVITY TEST
+[2026-02-27 07:03:36] Current user submitting bug: Mwaimu Mtingele
+[2026-02-27 07:03:37] HTTP Error: 403 | URL: https://support.profinch.com/custom_fields.json | Response: 
+[2026-02-27 07:03:37] Using bug_notes content as-is for Redmine description
+[2026-02-27 07:03:37] Description length: 495 characters
+[2026-02-27 07:03:37] Description preview: Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK CONNECTIVITY TEST
+]
+
+TestLink URLs:
+
+View Test Case: https://test-management.nmbtz.com:9443/ltx.php?item=exec&feature_id=176312&buil...
+[2026-02-27 07:03:37] Request URL: https://support.profinch.com/issues.json
+[2026-02-27 07:03:37] Request data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"TESTLINK CONNECTIVITY TEST","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nN\/A\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\n\r\nTestLink URLs:\n\nView Test Case: https:\/\/test-management.nmbtz.com:9443\/ltx.php?item=exec&feature_id=176312&build_id=7\n\nPreview Test Case: https:\/\/test-management.nmbtz.com:9443\/lnl.php?type=exec&id=81632&apikey=cab01e6210b7992b4caf2bc936d36c7f6a6887c4619de32705b8c7eaaddc627b\n\nSubmitted by: Mwaimu Mtingele","assigned_to_id":2635,"tracker_id":1}}
+[2026-02-27 07:03:37] API Key configured: Yes
+[2026-02-27 07:03:37] Base URL: https://support.profinch.com
+[2026-02-27 07:03:37] Project ID: nmb-fcubs-14-7-uat2
+[2026-02-27 07:03:40] Getting issue details for: 86750
+[2026-02-27 07:03:42] Successfully created issue object for: 86750
+[2026-02-27 07:03:42] Building view bug link for issue: 86750
+[2026-02-27 07:03:42] Getting issue details for: 86750
+[2026-02-27 07:03:43] Successfully created issue object for: 86750
+[2026-02-27 07:03:43] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:OPEN]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">TESTLINK CONNECTIVITY TEST</a>
+[2026-02-27 07:03:43] Building view bug link for issue: 86750
+[2026-02-27 07:03:43] Getting issue details for: 86750
+[2026-02-27 07:03:45] Successfully created issue object for: 86750
+[2026-02-27 07:03:45] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:03:45] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:OPEN]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">Issue #86750</a>
+[2026-02-27 07:05:02] Building view bug link for issue: 86750
+[2026-02-27 07:05:02] Getting issue details for: 86750
+[2026-02-27 07:05:03] Successfully created issue object for: 86750
+[2026-02-27 07:05:03] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 07:05:03] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">Issue #86750</a>
+[2026-02-27 10:37:10] Building view bug link for issue: 86750
+[2026-02-27 10:37:10] Getting issue details for: 86750
+[2026-02-27 10:37:12] Successfully created issue object for: 86750
+[2026-02-27 10:37:12] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 10:37:12] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">Issue #86750</a>
+[2026-02-27 10:38:41] Building view bug link for issue: 86750
+[2026-02-27 10:38:41] Getting issue details for: 86750
+[2026-02-27 10:38:43] Successfully created issue object for: 86750
+[2026-02-27 10:38:43] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 10:38:43] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">Issue #86750</a>
+[2026-02-27 10:38:50] Building view bug link for issue: 86750
+[2026-02-27 10:38:50] Getting issue details for: 86750
+[2026-02-27 10:38:51] Successfully created issue object for: 86750
+[2026-02-27 10:38:51] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 10:38:51] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">Issue #86750</a>
+[2026-02-27 21:07:52] Building view bug link for issue: 86750
+[2026-02-27 21:07:52] Getting issue details for: 86750
+[2026-02-27 21:07:54] Successfully created issue object for: 86750
+[2026-02-27 21:07:54] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 21:07:54] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">Issue #86750</a>
+[2026-02-27 21:36:29] Building view bug link for issue: 86750
+[2026-02-27 21:36:29] Getting issue details for: 86750
+[2026-02-27 21:36:30] Successfully created issue object for: 86750
+[2026-02-27 21:36:30] Summary is an array, converting to string: Array
+(
+    [raw] => 
+)
+
+[2026-02-27 21:36:30] Built link for issue 86750: <span style="font-weight:bold;color:red;">[ID:86750] [Status:RESOLVED]</span> <a href="https://support.profinch.com/issues/86750" target="_blank">Issue #86750</a>

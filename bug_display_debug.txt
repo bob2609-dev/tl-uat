@@ -1,0 +1,146 @@
+[2026-02-27 21:36:29] Attempting to get issue details for bug ID: 86750
+[2026-02-27 21:36:29] Getting issue details for: 86750
+[2026-02-27 21:36:30] Redmine response for issue 86750
+Data: Array
+(
+    [issue] => Array
+        (
+            [id] => 86750
+            [project] => Array
+                (
+                    [id] => 634
+                    [name] => NMB FCUBS 14.7 UAT2
+                )
+
+            [tracker] => Array
+                (
+                    [id] => 1
+                    [name] => Bug
+                )
+
+            [status] => Array
+                (
+                    [id] => 5
+                    [name] => Closed
+                )
+
+            [priority] => Array
+                (
+                    [id] => 1
+                    [name] => Low
+                )
+
+            [author] => Array
+                (
+                    [id] => 2366
+                    [name] => Berry Nsanya
+                )
+
+            [assigned_to] => Array
+                (
+                    [id] => 2635
+                    [name] => NMBBANK ICT
+                )
+
+            [subject] => TESTLINK CONNECTIVITY TEST
+            [description] => Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK CONNECTIVITY TEST
+]
+
+TestLink URLs:
+
+View Test Case: https://test-management.nmbtz.com:9443/ltx.php?item=exec&feature_id=176312&build_id=7
+
+Preview Test Case: https://test-management.nmbtz.com:9443/lnl.php?type=exec&id=81632&apikey=cab01e6210b7992b4caf2bc936d36c7f6a6887c4619de32705b8c7eaaddc627b
+
+Submitted by: Mwaimu Mtingele
+            [start_date] => 2026-02-27
+            [done_ratio] => 0
+            [spent_hours] => 0
+            [total_spent_hours] => 0
+            [custom_fields] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 16
+                            [name] => Reminders #
+                            [value] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 141
+                            [name] => Module_NMB
+                            [value] => 
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 142
+                            [name] => Dependent test case count
+                            [value] => 
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => 143
+                            [name] => Issue Classification
+                            [value] => 
+                        )
+
+                    [4] => Array
+                        (
+                            [id] => 145
+                            [name] => PendingOn
+                            [value] => 
+                        )
+
+                    [5] => Array
+                        (
+                            [id] => 170
+                            [name] => Critical for Live
+                            [value] => 
+                        )
+
+                    [6] => Array
+                        (
+                            [id] => 181
+                            [name] => MOS Ticket Number
+                            [value] => 
+                        )
+
+                    [7] => Array
+                        (
+                            [id] => 182
+                            [name] => MOS CFL
+                            [value] => 
+                        )
+
+                )
+
+            [created_on] => 2026-02-27T06:03:30Z
+            [updated_on] => 2026-02-27T06:04:50Z
+            [closed_on] => 2026-02-27T06:04:50Z
+        )
+
+)
+
+[2026-02-27 21:36:30] Issue object for bug ID 86750
+Data: stdClass Object
+(
+    [id] => 86750
+    [summary] => TESTLINK CONNECTIVITY TEST
+    [statusCode] => 5
+    [statusVerbose] => Closed
+    [IDHTMLString] => <a href="https://support.profinch.com/issues/86750" target="_blank">86750</a>
+    [summaryHTMLString] => TESTLINK CONNECTIVITY TEST
+)
+
+[2026-02-27 21:36:30] Got status for issue 86750: Closed

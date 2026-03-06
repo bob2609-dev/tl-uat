@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester Execution Report</title>
+    <script src="../../gui/javascript/jquery-3.6.0.min.js"></script>
+    <script src="../../gui/javascript/select2.min.js"></script>
+    <link href="../../gui/css/select2.min.css" rel="stylesheet" />
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: rgba(126, 171, 223, 0.55);
+            color: #0059a9;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(126, 171, 223, 0.3);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .filters {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            width: auto;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+
+        .results {
+            padding: 30px;
+        }
+
+        .results-table {
+            overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .summary-card.total {
+            background: #1B263B;
+            color: white;
+        }
+
+        .summary-card.assigned {
+            background: #415A77;
+            color: white;
+        }
+
+        .summary-card.executed {
+            background: #778DA9;
+            color: white;
+        }
+
+        .summary-card.passed {
+            background: #2D6A4F;
+            color: white;
+        }
+
+        .summary-card.failed {
+            background: #9B2226;
+            color: white;
+        }
+
+        .summary-card.blocked {
+            background: #E09F3E;
+            color: #212529;
+        }
+
+        .summary-card.not-run {
+            background: #E0E1DD;
+            color: #495057;
+        }
+
+        .summary-card.pass-rate {
+            background: #003566;
+            color: white;
+        }
+
+        .summary-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: inherit;
+        }
+
+        .summary-label {
+            font-size: 12px;
+            color: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: #f8f9fa;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .totals-row {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .totals-row td {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .cell-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .badge-assigned {
+            background: #415A77;
+            color: white;
+        }
+
+        .badge-executed {
+            background: #778DA9;
+            color: white;
+        }
+
+        .badge-passed {
+            background: #2D6A4F;
+            color: white;
+        }
+
+        .badge-failed {
+            background: #9B2226;
+            color: white;
+        }
+
+        .badge-blocked {
+            background: #E09F3E;
+            color: #212529;
+        }
+
+        .badge-not-run {
+            background: #E0E1DD;
+            color: #495057;
+        }
+
+        .badge-pass-rate {
+            background: #003566;
+            color: white;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 30px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 30px;
+            border: 1px solid #c3e6cb;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Tester Execution Report</h1>
+            <p>Comprehensive analysis of tester performance and execution metrics</p>
+        </div>
+
+        <div class="filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="project_id">Test Project</label>
+                    <select id="project_id" name="project_id">
+                        <option value="">All Projects</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="user_id">User</label>
+                    <select id="user_id" name="user_id">
+                        <option value="">All Users</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date">
+                </div>
+
+                <div class="filter-group" style="margin-left: 20px;">
+                    <label for="end_date">End Date</label>
+                    <input type="date" id="end_date" name="end_date">
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="include_non_assigned" name="include_non_assigned" checked>
+                <label for="include_non_assigned">Include testers with zero assignments</label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" id="generate_report" class="btn btn-primary">Generate Report</button>
+            <button type="button" id="clear_filters" class="btn btn-secondary">Clear Filters</button>
+            <button type="button" id="export_csv" class="btn btn-success" style="display: none;">Export to CSV</button>
+        </div>
+
+        <div class="results">
+            <div id="summaryCards" class="summary-cards" style="display: none;">
+                <div class="summary-card total">
+                    <div class="summary-value" id="totalTesters">0</div>
+                    <div class="summary-label">Total Testers</div>
+                </div>
+                <div class="summary-card assigned">
+                    <div class="summary-value" id="totalAssigned">0</div>
+                    <div class="summary-label">Total Assigned</div>
+                </div>
+                <div class="summary-card executed">
+                    <div class="summary-value" id="totalExecuted">0</div>
+                    <div class="summary-label">Total Executed</div>
+                </div>
+                <div class="summary-card passed">
+                    <div class="summary-value" id="totalPassed">0</div>
+                    <div class="summary-label">Total Passed</div>
+                </div>
+                <div class="summary-card failed">
+                    <div class="summary-value" id="totalFailed">0</div>
+                    <div class="summary-label">Total Failed</div>
+                </div>
+                <div class="summary-card blocked">
+                    <div class="summary-value" id="totalBlocked">0</div>
+                    <div class="summary-label">Total Blocked</div>
+                </div>
+                <div class="summary-card not-run">
+                    <div class="summary-value" id="totalNotRun">0</div>
+                    <div class="summary-label">Assigned Not Run</div>
+                </div>
+                <div class="summary-card pass-rate">
+                    <div class="summary-value" id="overallPassRate">0%</div>
+                    <div class="summary-label">Overall Pass Rate</div>
+                </div>
+            </div>
+            
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generating report...</p>
+            </div>
+            
+            <div id="error_message" class="error" style="display: none;"></div>
+            <div id="success_message" class="success" style="display: none;"></div>
+            
+            <div id="results_table" class="table-container" style="display: none;">
+                <table id="report_table">
+                    <thead>
+                        <tr>
+                            <th>Tester ID</th>
+                            <th>Tester Name</th>
+                            <th>Assigned</th>
+                            <th>Executed</th>
+                            <th>Passed</th>
+                            <th>Failed</th>
+                            <th>Blocked</th>
+                            <th>Assigned Not Run</th>
+                            <th>Pass %</th>
+                            <th>Last Execution</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2 for dropdowns
+            $('#project_id, #user_id').select2({
+                width: '100%',
+                placeholder: 'Select an option'
+            });
+
+            // Load initial data
+            loadProjects();
+            loadUsers();
+
+            // Event handlers
+            $('#generate_report').click(generateReport);
+            $('#clear_filters').click(clearFilters);
+            $('#export_csv').click(exportToCSV);
+        });
+
+        function loadProjects() {
+            $.ajax({
+                url: 'tester_execution_report_latest_only.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.testprojects) {
+                        var $select = $('#project_id');
+                        $select.find('option:not(:first)').remove();
+                        
+                        $.each(response.testprojects, function(index, project) {
+                            $select.append('<option value="' + project.id + '">' + project.name + '</option>');
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    showError('Failed to load projects: ' + error);
+                }
+            });
+        }
+
+        function loadUsers() {
+            $.ajax({
+                url: 'tester_execution_report_latest_only.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.users) {
+                        var $select = $('#user_id');
+                        $select.find('option:not(:first)').remove();
+                        
+                        $.each(response.users, function(index, user) {
+                            $select.append('<option value="' + user.id + '">' + user.first + ' ' + user.last + '</option>');
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    showError('Failed to load users: ' + error);
+                }
+            });
+        }
+
+        function generateReport() {
+            var params = {
+                get_report: '1',
+                project_id: $('#project_id').val(),
+                user_id: $('#user_id').val(),
+                start_date: $('#start_date').val(),
+                end_date: $('#end_date').val(),
+                include_non_assigned: $('#include_non_assigned').is(':checked')
+            };
+
+            showLoading();
+            hideMessages();
+
+            $.ajax({
+                url: 'tester_execution_report_latest_only.php',
+                type: 'POST',
+                data: params,
+                dataType: 'json',
+                success: function(response) {
+                    hideLoading();
+                    
+                    if (response.success) {
+                        displayResults(response.data);
+                        showSuccess('Report generated successfully');
+                    } else {
+                        showError('Error: ' + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    hideLoading();
+                    showError('Failed to generate report: ' + error);
+                }
+            });
+        }
+
+        function displayResults(data) {
+            var $tbody = $('#table_body');
+            $tbody.empty();
+
+            // Find the totals row (usually the last row)
+            var totalsRow = null;
+            var individualTestersCount = 0;
+            
+            $.each(data, function(index, row) {
+                var $tr = $('<tr>');
+                
+                if (row.tester_name === 'TOTAL') {
+                    $tr.addClass('totals-row');
+                    totalsRow = row;
+                } else {
+                    individualTestersCount++;
+                }
+
+                $tr.append('<td>' + (row.tester_id || '') + '</td>');
+                $tr.append('<td>' + row.tester_name + '</td>');
+                $tr.append('<td><span class="cell-badge badge-assigned">' + row.assigned_testcases + '</span></td>');
+                $tr.append('<td><span class="cell-badge badge-executed">' + row.executed_testcases + '</span></td>');
+                $tr.append('<td><span class="cell-badge badge-passed">' + row.passed_testcases + '</span></td>');
+                $tr.append('<td><span class="cell-badge badge-failed">' + row.failed_testcases + '</span></td>');
+                $tr.append('<td><span class="cell-badge badge-blocked">' + (row.blocked_testcases || 0) + '</span></td>');
+                $tr.append('<td><span class="cell-badge badge-not-run">' + row.assigned_not_run + '</span></td>');
+                $tr.append('<td><span class="cell-badge badge-pass-rate">' + (row.pass_rate_percent !== null && row.pass_rate_percent !== undefined ? row.pass_rate_percent + '%' : '0%') + '</span></td>');
+                $tr.append('<td>' + (row.last_execution_date ? formatDate(row.last_execution_date) : '') + '</td>');
+                
+                $tbody.append($tr);
+            });
+
+            // Update summary cards if we have totals data
+            if (totalsRow) {
+                $('#totalTesters').text(individualTestersCount);
+                $('#totalAssigned').text(totalsRow.assigned_testcases || 0);
+                $('#totalExecuted').text(totalsRow.executed_testcases || 0);
+                $('#totalPassed').text(totalsRow.passed_testcases || 0);
+                $('#totalFailed').text(totalsRow.failed_testcases || 0);
+                $('#totalBlocked').text(totalsRow.blocked_testcases || 0);
+                $('#totalNotRun').text(totalsRow.assigned_not_run || 0);
+                $('#overallPassRate').text((totalsRow.pass_rate_percent || 0) + '%');
+                
+                // Show summary cards
+                $('#summaryCards').show();
+            }
+
+            $('#results_table').show();
+            $('#export_csv').show(); // Show export button when results are displayed
+        }
+
+        function clearFilters() {
+            $('#project_id').val('').trigger('change');
+            $('#user_id').val('').trigger('change');
+            $('#start_date').val('');
+            $('#end_date').val('');
+            $('#include_non_assigned').prop('checked', true);
+            $('#results_table').hide();
+            $('#summaryCards').hide(); // Hide summary cards when clearing filters
+            $('#export_csv').hide(); // Hide export button when clearing filters
+            hideMessages();
+        }
+
+        function exportToCSV() {
+            // Get current table data
+            var tableData = [];
+            $('#table_body tr').each(function() {
+                var row = [];
+                $(this).find('td').each(function() {
+                    row.push($(this).text());
+                });
+                tableData.push(row);
+            });
+
+            if (tableData.length === 0) {
+                showError('No data to export');
+                return;
+            }
+
+            // Create CSV content
+            var headers = ['Tester ID', 'Tester Name', 'Assigned Testcases', 'Executed Testcases', 'Passed Testcases', 'Failed Testcases', 'Blocked Testcases', 'Assigned Not Run', 'Pass Rate %', 'Last Execution Date'];
+            var csvContent = headers.join(',') + '\n';
+
+            tableData.forEach(function(row) {
+                // Escape commas and quotes in data
+                var escapedRow = row.map(function(cell) {
+                    cell = cell.toString().replace(/"/g, '""'); // Escape quotes
+                    if (cell.includes(',') || cell.includes('"')) {
+                        cell = '"' + cell + '"'; // Wrap in quotes if contains comma or quote
+                    }
+                    return cell;
+                });
+                csvContent += escapedRow.join(',') + '\n';
+            });
+
+            // Create and download CSV file
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement('a');
+            
+            if (link.download !== undefined) {
+                var url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                
+                // Generate filename with current date
+                var date = new Date().toISOString().split('T')[0];
+                var projectName = $('#project_id option:selected').text() || 'All_Projects';
+                projectName = projectName.replace(/[^a-zA-Z0-9]/g, '_'); // Clean filename
+                var fileName = 'Tester_Execution_Report_' + projectName + '_' + date + '.csv';
+                
+                link.setAttribute('download', fileName);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showSuccess('Report exported successfully to ' + fileName);
+            } else {
+                showError('Your browser does not support CSV export');
+            }
+        }
+
+        function showLoading() {
+            $('#loading').show();
+        }
+
+        function hideLoading() {
+            $('#loading').hide();
+        }
+
+        function showError(message) {
+            $('#error_message').text(message).show();
+        }
+
+        function showSuccess(message) {
+            $('#success_message').text(message).show();
+        }
+
+        function hideMessages() {
+            $('#error_message, #success_message').hide();
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            
+            var date = new Date(dateString);
+            return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+        }
+    </script>
+</body>
+</html>

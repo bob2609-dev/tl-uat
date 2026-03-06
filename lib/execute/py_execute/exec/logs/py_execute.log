@@ -1,0 +1,4 @@
+2026-02-18 01:20:45,159 - __main__ - WARNING - Configuration warnings:
+2026-02-18 01:20:45,160 - __main__ - WARNING -   - Using default secret key - change in production
+2026-02-18 01:47:00,646 - __main__ - ERROR - Query execution failed: 1146 (42S02): Table 'tl_uat.testproject_suites' doesn't exist
+2026-02-18 01:47:00,651 - __main__ - ERROR - Error getting tree nodes: 500: Database query failed: 1146 (42S02): Table 'tl_uat.testproject_suites' doesn't exist

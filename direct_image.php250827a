@@ -1,0 +1,263 @@
+<?php
+// Include PHP 8 compatibility layer
+// require_once('custom/inc/php8_init.php');
+// Super simple image serving script with minimal dependencies
+
+// Disable all error reporting and output
+error_reporting(0);
+ini_set('display_errors', 0);
+
+// Start with a clean slate - no output before headers
+if (ob_get_level()) ob_end_clean();
+
+// Get the attachment ID
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+if (!$id) {
+    header("HTTP/1.0 404 Not Found");
+    exit("No ID specified");
+}
+
+// Use TestLink's database configuration and repository config
+require_once('config_db.inc.php');
+require_once('config.inc.php'); // for $g_repositoryPath
+
+// Resolve base directories
+$uploadDir = 'upload_area';
+$repoDir = isset($g_repositoryPath) && is_string($g_repositoryPath) && $g_repositoryPath !== '' ? $g_repositoryPath : $uploadDir;
+// normalize repo path separators
+$repoDir = rtrim(str_replace('\\\\', '/', str_replace('\\', '/', $repoDir)), '/');
+
+// Connect to database using TestLink's config values
+$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+@$db->set_charset('utf8mb4');
+
+// If connection fails, show a more detailed error to help with debugging
+if ($db->connect_error) {
+    header("HTTP/1.0 500 Internal Server Error");
+    exit("Database connection error");
+}
+
+// Get attachment info using prepared statement
+$stmt = $db->prepare("SELECT id, fk_id, file_name, file_size, file_path FROM attachments WHERE id = ?");
+if (!$stmt) {
+    header("HTTP/1.0 500 Internal Server Error");
+    exit("Internal error");
+}
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if (!$result || $result->num_rows == 0) {
+    header("HTTP/1.0 404 Not Found");
+    exit("Attachment not found");
+}
+
+$attachment = $result->fetch_assoc();
+if ($stmt) { $stmt->close(); }
+$fileName = $attachment['file_name'];
+$fileSize = $attachment['file_size'];
+$filePath = $attachment['file_path'];
+$rawPath  = $filePath; // keep original
+
+// Helper: normalize paths to forward slashes, trim leading ./ and /
+$normalize = function ($path) {
+    if (!is_string($path) || $path === '') { return ''; }
+    $p = str_replace('\\\\', '/', $path);
+    $p = str_replace('\\/', '/', $p);
+    $p = str_replace('\\', '/', $p);
+    // collapse repeated slashes
+    $p = preg_replace('#/{2,}#', '/', $p);
+    // do not trim leading '/' if it is absolute
+    if (!(strlen($p) > 0 && ($p[0] === '/' || preg_match('/^[A-Za-z]:\\\\?/', $path)))) {
+        $p = ltrim($p, './');
+        $p = ltrim($p, '/');
+    }
+    return $p;
+};
+
+$filePath = $normalize($filePath);
+$fileName = basename($fileName); // safety
+
+// If file_path doesn't exist or isn't a full path, try to find it
+$possiblePaths = array(
+    // try raw DB path first (may be absolute)
+    $rawPath,
+    // normalized DB path
+    $filePath,
+    // prefix upload dir if path was relative or missing
+    $uploadDir . '/' . $filePath,
+    // prefix repository dir
+    $repoDir . '/' . $filePath,
+    // handle cases where DB already included upload_area
+    'upload_area/' . $filePath,
+    // handle cases where DB path is already under repository
+    $repoDir . '/' . basename($filePath) === $repoDir ? $repoDir . '/' . $filePath : $repoDir . '/' . $filePath,
+    // common TestLink structures
+    $uploadDir . '/nodes_hierarchy/' . intval($attachment['fk_id']) . '/' . $fileName,
+    $uploadDir . '/executions/' . intval($attachment['fk_id']) . '/' . $fileName,
+    $repoDir . '/nodes_hierarchy/' . intval($attachment['fk_id']) . '/' . $fileName,
+    $repoDir . '/executions/' . intval($attachment['fk_id']) . '/' . $fileName,
+    'upload_area/' . $fileName,
+    'upload_area/executions/' . $fileName,
+    $repoDir . '/' . $fileName,
+    $repoDir . '/executions/' . $fileName
+);
+
+$found = false;
+$foundPath = '';
+
+foreach ($possiblePaths as $path) {
+    if ($path && file_exists($path)) {
+        $found = true;
+        $foundPath = $path;
+        break;
+    }
+}
+
+// If not found by path, try to find by size first, then by filename within fk_id subtree
+if (!$found) {
+    $searchDirs = array(
+        $repoDir,
+        $repoDir . '/nodes_hierarchy',
+        $repoDir . '/executions',
+        $uploadDir,
+        $uploadDir . '/nodes_hierarchy',
+        $uploadDir . '/executions'
+    );
+    
+    foreach ($searchDirs as $dir) {
+        if (!is_dir($dir)) continue;
+        
+        $files = scandir($dir);
+        foreach ($files as $file) {
+            if ($file == '.' || $file == '..') continue;
+            
+            $path = $dir . '/' . $file;
+            if (is_dir($path)) {
+                $subfiles = scandir($path);
+                foreach ($subfiles as $subfile) {
+                    if ($subfile == '.' || $subfile == '..') continue;
+                    
+                    $subpath = $path . '/' . $subfile;
+                    if (is_file($subpath) && filesize($subpath) == $fileSize) {
+                        $found = true;
+                        $foundPath = $subpath;
+                        break 3;
+                    }
+                }
+            } elseif (is_file($path) && filesize($path) == $fileSize) {
+                $found = true;
+                $foundPath = $path;
+                break 2;
+            }
+        }
+    }
+}
+
+// As a last resort, do a safe, shallow recursive search by filename within fk_id-specific dirs
+if (!$found) {
+    $maxDepth = 4; // prevent deep traversal
+    $visited = 0;
+    $walker = function ($dir, $target, $depth) use (&$walker, $maxDepth, &$visited) {
+        if ($depth > $maxDepth || !is_dir($dir)) { return ''; }
+        $items = @scandir($dir);
+        if ($items === false) { return ''; }
+        foreach ($items as $it) {
+            if ($it === '.' || $it === '..') { continue; }
+            $p = $dir . '/' . $it;
+            if (is_dir($p)) {
+                $res = $walker($p, $target, $depth + 1);
+                if ($res) { return $res; }
+            } else {
+                if (strcasecmp($it, $target) === 0) { return $p; }
+            }
+        }
+        return '';
+    };
+
+    $tryDirs = array(
+        $repoDir . '/nodes_hierarchy/' . intval($attachment['fk_id']),
+        $repoDir . '/executions/' . intval($attachment['fk_id']),
+        $uploadDir . '/nodes_hierarchy/' . intval($attachment['fk_id']),
+        $uploadDir . '/executions/' . intval($attachment['fk_id'])
+    );
+
+    foreach ($tryDirs as $d) {
+        // search repository first, then upload_area
+        $candidate = $walker($repoDir, $fileName, 0);
+        if (!$candidate) { $candidate = $walker($uploadDir, $fileName, 0); }
+        if ($candidate) { $found = true; $foundPath = $candidate; }
+    }
+}
+
+if (!$found) {
+    header("HTTP/1.0 404 Not Found");
+    exit("File not found");
+}
+
+// Determine correct MIME type based on file extension
+$ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+$mimeType = 'application/octet-stream'; // Default
+
+switch ($ext) {
+    case 'jpg':
+    case 'jpeg':
+    case 'jpe':
+        $mimeType = 'image/jpeg';
+        break;
+    case 'png':
+        $mimeType = 'image/png';
+        break;
+    case 'gif':
+        $mimeType = 'image/gif';
+        break;
+    case 'bmp':
+        $mimeType = 'image/bmp';
+        break;
+    case 'svg':
+        $mimeType = 'image/svg+xml';
+        break;
+    case 'pdf':
+        $mimeType = 'application/pdf';
+        break;
+    case 'doc':
+        $mimeType = 'application/msword';
+        break;
+    case 'docx':
+        $mimeType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+        break;
+    case 'xls':
+        $mimeType = 'application/vnd.ms-excel';
+        break;
+    case 'xlsx':
+        $mimeType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+        break;
+    case 'ppt':
+        $mimeType = 'application/vnd.ms-powerpoint';
+        break;
+    case 'pptx':
+        $mimeType = 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
+        break;
+    case 'txt':
+        $mimeType = 'text/plain';
+        break;
+}
+
+// Output the file
+header('X-Content-Type-Options: nosniff');
+header('Content-Type: ' . $mimeType);
+$size = @filesize($foundPath);
+if ($size !== false) {
+    header('Content-Length: ' . $size);
+}
+// Sanitize filename for header context and provide RFC 5987 filename*
+$dispName = str_replace(["\r","\n","\\","\""], '', $fileName);
+$encodedName = rawurlencode($fileName);
+header('Content-Disposition: inline; filename="' . $dispName . '"; filename*=UTF-8\'' . '' . '\'' . $encodedName);
+header('Cache-Control: max-age=86400'); // Cache for one day
+header('Pragma: public');
+
+readfile($foundPath);
+exit;
+?>
+

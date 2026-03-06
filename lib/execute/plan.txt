@@ -1,0 +1,217 @@
+
+
+ lets create a table and stored procedure that will refresh the  node_hierarchy_paths table and fetch the path of each test suite (the entire tree)
+
+ use the below SQL to get the paths
+
+DROP TABLE IF EXISTS node_hierarchy_paths;
+CREATE TABLE node_hierarchy_paths (
+    node_id INT NOT NULL,
+    level1_id INT NULL,
+    level1_name VARCHAR(100) NULL,
+    level2_id INT NULL,
+    level2_name VARCHAR(100) NULL,
+    level3_id INT NULL,
+    level3_name VARCHAR(100) NULL,
+    level4_id INT NULL,
+    level4_name VARCHAR(100) NULL,
+    level5_id INT NULL,
+    level5_name VARCHAR(100) NULL,
+    full_path VARCHAR(500) NULL,
+    PRIMARY KEY (node_id),
+    INDEX idx_l1 (level1_id),
+    INDEX idx_l2 (level2_id),
+    INDEX idx_l3 (level3_id),
+    INDEX idx_l4 (level4_id),
+    INDEX idx_l5 (level5_id)
+);
+
+-- Populate the hierarchy path table with a single execution of the recursive CTE
+-- This avoids recalculating the paths on every query
+INSERT INTO node_hierarchy_paths (node_id, level1_id, level1_name, level2_id, level2_name, 
+                                 level3_id, level3_name, level4_id, level4_name, 
+                                 level5_id, level5_name, full_path)
+WITH RECURSIVE node_hierarchy_path AS (
+    -- Anchor member: starting points (nodes without parent or with parent_id=0)
+    SELECT 
+        id, 
+        name, 
+        parent_id,
+        name AS path,
+        1 AS level,
+        CAST(id AS CHAR(50)) AS id_path
+    FROM nodes_hierarchy 
+    WHERE parent_id IS NULL OR parent_id = 0
+    
+    UNION ALL
+    
+    -- Recursive member: nodes with parents
+    SELECT 
+        nh.id, 
+        nh.name, 
+        nh.parent_id,
+        CONCAT(nhp.path, ' > ', nh.name) AS path,
+        nhp.level + 1 AS level,
+        CONCAT(nhp.id_path, ',', nh.id) AS id_path
+    FROM 
+        nodes_hierarchy nh
+        JOIN node_hierarchy_path nhp ON nh.parent_id = nhp.id
+)
+SELECT 
+    n.id AS node_id,
+    -- Extract each level based on position in the path
+    -- Store both IDs and names to avoid joins later
+    SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 1), ',', -1) AS level1_id,
+    (SELECT name FROM nodes_hierarchy WHERE id = SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 1), ',', -1)) AS level1_name,
+    
+    -- Level 2 (only if we have enough levels)
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 1
+         THEN SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 2), ',', -1) ELSE NULL END AS level2_id,
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 1
+         THEN (SELECT name FROM nodes_hierarchy WHERE id = SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 2), ',', -1)) ELSE NULL END AS level2_name,
+    
+    -- Level 3 (only if we have enough levels)
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 2
+         THEN SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 3), ',', -1) ELSE NULL END AS level3_id,
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 2
+         THEN (SELECT name FROM nodes_hierarchy WHERE id = SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 3), ',', -1)) ELSE NULL END AS level3_name,
+    
+    -- Level 4 (only if we have enough levels)
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 3
+         THEN SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 4), ',', -1) ELSE NULL END AS level4_id,
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 3
+         THEN (SELECT name FROM nodes_hierarchy WHERE id = SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 4), ',', -1)) ELSE NULL END AS level4_name,
+    
+    -- Level 5 (only if we have enough levels)
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 4
+         THEN SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 5), ',', -1) ELSE NULL END AS level5_id,
+    CASE WHEN (LENGTH(id_path) - LENGTH(REPLACE(id_path, ',', ''))) >= 4
+         THEN (SELECT name FROM nodes_hierarchy WHERE id = SUBSTRING_INDEX(SUBSTRING_INDEX(id_path, ',', 5), ',', -1)) ELSE NULL END AS level5_name,
+    
+    -- Store the full path as well
+    path AS full_path
+FROM node_hierarchy_path n;
+
+-- Create additional indexes to speed up common filter patterns
+CREATE INDEX idx_hierarchy_path_fullpath ON node_hierarchy_paths (full_path(255));
+
+
+================================
+node_hierachy table sample
+
+"id"	"name"	"parent_id"	"node_type_id"	"node_order"
+"1"	"FCUBS UPGRADE PROJECT"	"N/A"	"1"	"1"
+"2"	"UAT1"	"1"	"5"	"0"
+"6246"	"Lending"	"77511"	"2"	"1"
+"6247"	"LBL"	"6246"	"2"	"1"
+"6248"	"LBL-TC1"	"6247"	"3"	"1020"
+"6249"	"LBL-TC1"	"6248"	"4"	"0"
+"6250"	"LBL-TC2"	"6247"	"3"	"1021"
+"6251"	"LBL-TC2"	"6250"	"4"	"0"
+"6252"	"LBL-TC3"	"6247"	"3"	"1022"
+"6253"	"LBL-TC3"	"6252"	"4"	"0"
+"6254"	"LBL-TC4"	"6247"	"3"	"1023"
+"6255"	"LBL-TC4"	"6254"	"4"	"0"
+"6256"	"LBL-TC5"	"6247"	"3"	"1024"
+"6257"	"LBL-TC5"	"6256"	"4"	"0"
+"6258"	"LBL-TC6"	"6247"	"3"	"1025"
+"6259"	"LBL-TC6"	"6258"	"4"	"0"
+"6260"	"LBL-TC7"	"6247"	"3"	"1026"
+"6261"	"LBL-TC7"	"6260"	"4"	"0"
+"6262"	"LBL-TC8"	"6247"	"3"	"1027"
+"6263"	"LBL-TC8"	"6262"	"4"	"0"
+"6264"	"LBL-TC9"	"6247"	"3"	"1028"
+"6265"	"LBL-TC9"	"6264"	"4"	"0"
+"6266"	"LBL-TC10"	"6247"	"3"	"1029"
+"6267"	"LBL-TC10"	"6266"	"4"	"0"
+"6268"	"LBL-TC11"	"6247"	"3"	"1030"
+"6269"	"LBL-TC11"	"6268"	"4"	"0"
+"6270"	"LBL-TC12"	"6247"	"3"	"1031"
+"6271"	"LBL-TC12"	"6270"	"4"	"0"
+"6272"	"LBL-TC13"	"6247"	"3"	"1032"
+"6273"	"LBL-TC13"	"6272"	"4"	"0"
+"6274"	"LBL-TC14"	"6247"	"3"	"1033"
+"6275"	"LBL-TC14"	"6274"	"4"	"0"
+"6276"	"LBL-TC15"	"6247"	"3"	"1034"
+"6277"	"LBL-TC15"	"6276"	"4"	"0"
+"6278"	"LBL-TC16"	"6247"	"3"	"1035"
+"6279"	"LBL-TC16"	"6278"	"4"	"0"
+"6280"	"LBL-TC17"	"6247"	"3"	"1036"
+"6281"	"LBL-TC17"	"6280"	"4"	"0"
+"6282"	"LBL-TC18"	"6247"	"3"	"1037"
+"6283"	"LBL-TC18"	"6282"	"4"	"0"
+"6284"	"LBL-TC19"	"6247"	"3"	"1038"
+"6285"	"LBL-TC19"	"6284"	"4"	"0"
+"6286"	"LBL-TC20"	"6247"	"3"	"1039"
+"6287"	"LBL-TC20"	"6286"	"4"	"0"
+"6288"	"LBL-TC21"	"6247"	"3"	"1040"
+"6289"	"LBL-TC21"	"6288"	"4"	"0"
+"6290"	"LBL-TC22"	"6247"	"3"	"1041"
+"6291"	"LBL-TC22"	"6290"	"4"	"0"
+"6292"	"LBL-TC23"	"6247"	"3"	"1042"
+"6293"	"LBL-TC23"	"6292"	"4"	"0"
+"6294"	"LBL-TC24"	"6247"	"3"	"1043"
+"6295"	"LBL-TC24"	"6294"	"4"	"0"
+"6296"	"LBL-TC25"	"6247"	"3"	"1044"
+"6297"	"LBL-TC25"	"6296"	"4"	"0"
+"6298"	"LBL-TC26"	"6247"	"3"	"1045"
+"6299"	"LBL-TC26"	"6298"	"4"	"0"
+"6300"	"LBL-TC27"	"6247"	"3"	"1046"
+"6301"	"LBL-TC27"	"6300"	"4"	"0"
+"6302"	"LBL-TC28"	"6247"	"3"	"1047"
+"6303"	"LBL-TC28"	"6302"	"4"	"0"
+"6304"	"LBL-TC29"	"6247"	"3"	"1048"
+"6305"	"LBL-TC29"	"6304"	"4"	"0"
+"6306"	"LBL-TC30"	"6247"	"3"	"1049"
+"6307"	"LBL-TC30"	"6306"	"4"	"0"
+"6308"	"LBL-TC31"	"6247"	"3"	"1050"
+"6309"	"LBL-TC31"	"6308"	"4"	"0"
+"6310"	"LBL-TC32"	"6247"	"3"	"1051"
+"6311"	"LBL-TC32"	"6310"	"4"	"0"
+"6312"	"LBL-TC33"	"6247"	"3"	"1052"
+"6313"	"LBL-TC33"	"6312"	"4"	"0"
+"6314"	"LBL-TC34"	"6247"	"3"	"1053"
+"6315"	"LBL-TC34"	"6314"	"4"	"0"
+"6316"	"LBL-TC35"	"6247"	"3"	"1054"
+"6317"	"LBL-TC35"	"6316"	"4"	"0"
+"6318"	"LBL-TC36"	"6247"	"3"	"1055"
+"6319"	"LBL-TC36"	"6318"	"4"	"0"
+"6320"	"LBL-TC37"	"6247"	"3"	"1056"
+"6321"	"LBL-TC37"	"6320"	"4"	"0"
+"6322"	"LBL-TC38"	"6247"	"3"	"1057"
+"6323"	"LBL-TC38"	"6322"	"4"	"0"
+"6324"	"LBL-TC39"	"6247"	"3"	"1058"
+"6325"	"LBL-TC39"	"6324"	"4"	"0"
+"6326"	"LBL-TC40"	"6247"	"3"	"1059"
+"6327"	"LBL-TC40"	"6326"	"4"	"0"
+"6328"	"LBL-TC41"	"6247"	"3"	"1060"
+"6329"	"LBL-TC41"	"6328"	"4"	"0"
+"6330"	"LBL-TC42"	"6247"	"3"	"1061"
+"6331"	"LBL-TC42"	"6330"	"4"	"0"
+"6332"	"LBL-TC43"	"6247"	"3"	"1062"
+"6333"	"LBL-TC43"	"6332"	"4"	"0"
+"6334"	"LBL-TC44"	"6247"	"3"	"1063"
+"6335"	"LBL-TC44"	"6334"	"4"	"0"
+"6336"	"LBL-TC45"	"6247"	"3"	"1064"
+"6337"	"LBL-TC45"	"6336"	"4"	"0"
+"6338"	"LBL-TC46"	"6247"	"3"	"1065"
+"6339"	"LBL-TC46"	"6338"	"4"	"0"
+"6340"	"LBL-TC47"	"6247"	"3"	"1066"
+"6341"	"LBL-TC47"	"6340"	"4"	"0"
+"6342"	"LBL-TC48"	"6247"	"3"	"1067"
+"6343"	"LBL-TC48"	"6342"	"4"	"0"
+======================================================
+
+sample of node_hierarchy_paths table
+
+"node_id"	"level1_id"	"level1_name"	"level2_id"	"level2_name"	"level3_id"	"level3_name"	"level4_id"	"level4_name"	"level5_id"	"level5_name"	"full_path"
+"1"	"1"	"FCUBS UPGRADE PROJECT"	"N/A"	"N/A"	"N/A"	"N/A"	"N/A"	"N/A"	"N/A"	"N/A"	"FCUBS UPGRADE PROJECT"
+"2"	"1"	"FCUBS UPGRADE PROJECT"	"2"	"UAT1"	"N/A"	"N/A"	"N/A"	"N/A"	"N/A"	"N/A"	"FCUBS UPGRADE PROJECT > UAT1"
+"6246"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"N/A"	"N/A"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending"
+"6247"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"6247"	"LBL"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending > LBL"
+"6248"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"6247"	"LBL"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending > LBL > LBL-TC1"
+"6249"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"6247"	"LBL"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending > LBL > LBL-TC1 > LBL-TC1"
+"6250"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"6247"	"LBL"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending > LBL > LBL-TC2"
+"6251"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"6247"	"LBL"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending > LBL > LBL-TC2 > LBL-TC2"
+"6252"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"6247"	"LBL"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending > LBL > LBL-TC3"
+"6253"	"1"	"FCUBS UPGRADE PROJECT"	"106593"	"CYCLE 1"	"77511"	"Batch 1"	"6246"	"Lending"	"6247"	"LBL"	"FCUBS UPGRADE PROJECT > CYCLE 1 > Batch 1 > Lending > LBL > LBL-TC3 > LBL-TC3"

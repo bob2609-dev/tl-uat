@@ -1,0 +1,4 @@
+Testing LDAP connection to ldap://10.200.221.11:389
+Bind DN: CN=Service.testauto,OU=Service Accounts,DC=nmbtz,DC=com
+Bind result: SUCCESS
+Error: Success

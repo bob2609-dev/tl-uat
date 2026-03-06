@@ -1,0 +1,10 @@
+[2025-04-14 08:56:12] Using configuration:
+[2025-04-14 08:56:12] Base URL: https://support.profinch.com
+[2025-04-14 08:56:12] Project ID: nmb-fcubs-14-7-uat2
+[2025-04-14 08:56:12] Format: xml
+[2025-04-14 08:56:12] API Key: a597e...dbf3d (masked for security)
+[2025-04-14 08:56:12] Fetching custom fields from: https://support.profinch.com/custom_fields.xml
+[2025-04-14 08:56:12] Making GET request to: https://support.profinch.com/custom_fields.xml
+[2025-04-14 08:56:13] API Request completed: HTTP Code: 403
+[2025-04-14 08:56:13] API Request Error: , HTTP Code: 403
+[2025-04-14 08:56:13] Error: Failed to fetch custom fields from Redmine.

@@ -1,0 +1,114 @@
+<?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/ 
+ * This script is distributed under the GNU General Public License 2 or later. 
+ *
+ * Custom configuration for TestLink
+ * 
+ * SCOPE: Critical configurations, particularly email settings and LDAP authentication
+ */
+
+// *******************************************************************************
+// Email Configuration Settings
+// *******************************************************************************
+// Enable verbose LDAP logging
+// $tlCfg->log_level = 'DEBUG';
+// $tlCfg->loggerFilter = array('DEBUG','AUDIT','WARNING','ERROR');
+// SMTP server Configuration
+$g_smtp_host = '10.200.221.58';  
+// Email addresses for notifications
+$g_tl_admin_email = 'mwaimu.mtingele@nmbtz.com'; 
+$g_from_email = 'projectspace-test@nmbtz.com';  
+$g_return_path_email = 'mwaimu.mtingele@nmbtz.com';
+
+// PHPMailer method - set to SMTP
+$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
+
+// Email priority (5 = low, 1 = high, 0 = disabled)
+$g_mail_priority = 1;
+
+// SMTP port
+$g_smtp_port = 25;
+
+// SMTP connection mode (empty string, 'ssl', or 'tls')
+$g_smtp_connection_mode = '';
+
+// SMTP authentication (if required)
+$g_smtp_username = '';
+$g_smtp_password = '';
+
+// Email API configuration (this is crucial for TestLink to send emails correctly)
+$tlCfg->email_api = new stdClass();
+$tlCfg->email_api->from_address = $g_from_email;
+$tlCfg->email_api->from_label = 'TestLink Notification System';
+$tlCfg->email_api->return_path = $g_return_path_email;
+$tlCfg->email_api->smtp_host = $g_smtp_host;
+$tlCfg->email_api->smtp_port = $g_smtp_port;
+$tlCfg->email_api->emailFormat = 'html';
+
+// Disable auto TLS to avoid certificate issues
+$g_SMTPAutoTLS = false;
+
+// Enable notifications
+$tlCfg->notifications = new stdClass();
+$tlCfg->notifications->notify_on_test_assign = true;
+$tlCfg->notifications->notify_on_test_execution = true;
+$tlCfg->notifications->notify_on_build_creation = true;
+
+// *******************************************************************************
+// LDAP Authentication Configuration
+// *******************************************************************************
+
+// Enable LDAP authentication
+// $tlCfg->authentication['method'] = 'LDAP';
+$tlCfg->authentication['method'] = 'LDAP,MD5';
+
+// LDAP server settings
+$tlCfg->authentication['ldap_server'] = 'ldap://10.200.221.11';
+$tlCfg->authentication['ldap_port'] = 389;
+$tlCfg->authentication['ldap_version'] = 3;
+
+// LDAP Authentication method
+$tlCfg->authentication['ldap_auth_method'] = 'authenticated';
+
+// Binding credentials
+$tlCfg->authentication['ldap_bind_dn'] = 'CN=Service.testauto,OU=Service Accounts,DC=nmbtz,DC=com';
+$tlCfg->authentication['ldap_bind_passwd'] = 'p@ssw0rd';
+
+// LDAP search settings - adjusted to focus on just the username
+$tlCfg->authentication['ldap_base_dn'] = 'dc=nmbtz,dc=com';
+$tlCfg->authentication['ldap_uid_field'] = 'sAMAccountName';
+$tlCfg->authentication['ldap_search_filter'] = '(&(objectClass=user)(objectCategory=person)(sAMAccountName=%username%))';
+
+// Configure TestLink to not use user DN format - this is critical for domain-less login
+$tlCfg->authentication['ldap_user_dn_format'] = ''; 
+
+// Skip LDAP username transformation
+$tlCfg->authentication['ldap_allow_username_without_domain'] = true;
+$tlCfg->authentication['ldap_extract_domain'] = false;
+
+// Enable automatic user creation
+$tlCfg->authentication['ldap_automatic_user_creation'] = true;
+
+// Map LDAP attributes to TestLink user fields
+$tlCfg->authentication['ldap_email_field'] = 'mail';
+$tlCfg->authentication['ldap_firstname_field'] = 'givenname';
+$tlCfg->authentication['ldap_surname_field'] = 'sn';
+$tlCfg->authentication['ldap_phone_field'] = 'telephonenumber';
+
+// Default role for auto-created users (8 = Tester)
+$tlCfg->authentication['ldap_default_role_id'] = 8;
+
+// Optional (but recommended): Debug logging for troubleshooting
+$tlCfg->log_level = 'DEBUG';
+// $tlCfg->loggerFilter = array('DEBUG','AUDIT','WARNING','ERROR');
+
+// *******************************************************************************
+// Performance Settings
+// *******************************************************************************
+
+// These settings improve performance for test case execution with many test cases
+// $tlCfg->gui->text_editor['execution'] = array('type' => 'none');
+// $tlCfg->exec_cfg->show_testsuite_contents = ENABLED;
+
+?>

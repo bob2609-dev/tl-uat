@@ -1,0 +1,93 @@
+<?php
+/**
+ * Simple Redmine Test Script
+ * 
+ * This minimal script tests the connection to Redmine
+ * without dependency on complex TestLink code
+ */
+
+// Enable error display for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Redmine configuration - update these values
+$redmineUrl = 'https://support.profinch.com';
+$apiKey = 'c16548f2503932a9ef6d6d8f9a59393436e67f39';
+
+// Function to test API connectivity directly
+function testRedmineConnection($url, $apiKey) {
+    // Clean URL
+    $url = rtrim($url, '/');
+    $endpoint = $url . '/projects.json';
+    
+    echo "<h3>Testing connection to: $endpoint</h3>\n";
+    
+    // Set up cURL
+    $ch = curl_init($endpoint);
+    
+    // IMPORTANT: Disable SSL verification for testing
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    
+    // Set necessary options
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'X-Redmine-API-Key: ' . $apiKey,
+        'Content-Type: application/json'
+    ));
+    
+    // Execute request
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    
+    // Output results
+    echo "<p>HTTP Code: $httpCode</p>\n";
+    if ($error) {
+        echo "<p style='color:red'>cURL Error: $error</p>\n";
+    }
+    
+    if ($httpCode == 200) {
+        echo "<p style='color:green'><strong>Connection successful!</strong></p>\n";
+        $data = json_decode($response, true);
+        if ($data && isset($data['projects'])) {
+            echo "<p>Found " . count($data['projects']) . " projects</p>\n";
+            echo "<p>First few projects:</p>\n<ul>";
+            $count = 0;
+            foreach ($data['projects'] as $project) {
+                if ($count++ < 5) { // Show only first 5
+                    echo "<li>{$project['name']} (ID: {$project['id']}, Identifier: {$project['identifier']})</li>\n";
+                }
+            }
+            echo "</ul>\n";
+        }
+    } else {
+        echo "<p style='color:red'><strong>Connection failed!</strong></p>\n";
+        echo "<p>Response: " . htmlspecialchars(substr($response, 0, 1000)) . "</p>\n";
+    }
+    
+    curl_close($ch);
+}
+
+// Output HTML header
+echo "<!DOCTYPE html>\n<html>\n<head>\n";
+echo "<title>Redmine Connection Test</title>\n";
+echo "<style>\nbody { font-family: Arial, sans-serif; margin: 20px; }\n";
+echo "h1, h2, h3 { color: #1a73e8; }\n";
+echo "pre { background: #f5f5f5; padding: 10px; overflow: auto; }\n";
+echo "</style>\n";
+echo "</head>\n<body>\n";
+
+echo "<h1>Redmine Connection Test</h1>\n";
+
+// Test the connection
+testRedmineConnection($redmineUrl, $apiKey);
+
+// Show next steps
+echo "<h2>What to do next:</h2>\n";
+echo "<p>1. If connection succeeds, copy both this script and the corrected interface files to the web server directory:</p>\n";
+echo "<pre>C:\\xampp\\htdocs\\testlink\\lib\\issuetrackerintegration\\</pre>\n";
+echo "<p>2. Update your TestLink configuration in the Admin interface to use the correct path and project identifier.</p>\n";
+
+echo "</body>\n</html>";
+?>

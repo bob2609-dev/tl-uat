@@ -1,0 +1,44 @@
+2025-04-15 20:49:06 [tl_67feaa221648e] - addIssue called with summary: API INTEGRATION TEST
+2025-04-15 20:49:06 [tl_67feaa221648e] - Creating Redmine issue with summary: API INTEGRATION TEST
+2025-04-15 20:49:06 [tl_67feaa221648e] - Using API URL: redminerestInterface
+2025-04-15 20:49:06 [tl_67feaa221648e] - Current user: Mwaimu Mtingele
+2025-04-15 20:49:06 [tl_67feaa221648e] - No pattern matched, using original summary
+2025-04-15 20:49:06 [tl_67feaa221648e] - Using assignee ID: 2366
+2025-04-15 20:49:06 [tl_67feaa221648e] - Using dummy API: NO
+2025-04-15 20:49:06 [tl_67feaa221648e] - Using real Redmine API at: redminerestInterface/issues.json
+2025-04-15 20:49:06 [tl_67feaa221648e] - Making API request to: redminerestInterface/issues.json
+2025-04-15 20:49:06 [tl_67feaa221648e] - API response: {"error":"cURL error: Could not resolve host: redminerestInterface"}
+2025-04-15 20:49:06 [tl_67feaa221648e] - Failed to create issue in Redmine: cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:02:56 [tl_67fead6070288] - addIssue called with summary: API INTEGRATION TEST
+2025-04-15 21:02:56 [tl_67fead6070288] - Creating Redmine issue with summary: API INTEGRATION TEST
+2025-04-15 21:02:56 [tl_67fead6070288] - Using API URL: redminerestInterface
+2025-04-15 21:02:56 [tl_67fead6070288] - Current user: Mwaimu Mtingele
+2025-04-15 21:02:56 [tl_67fead6070288] - No pattern matched, using original summary
+2025-04-15 21:02:56 [tl_67fead6070288] - Using assignee ID: 2366
+2025-04-15 21:02:56 [tl_67fead6070288] - Using dummy API: NO
+2025-04-15 21:02:56 [tl_67fead6070288] - Using real Redmine API at: https://redminerestInterface/issues.json
+2025-04-15 21:02:56 [tl_67fead6070288] - Making API request to: https://redminerestInterface/issues.json
+2025-04-15 21:02:56 [tl_67fead6070288] - API response: {"error":"cURL error: Could not resolve host: redminerestInterface"}
+2025-04-15 21:02:56 [tl_67fead6070288] - Failed to create issue in Redmine: cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:04:52 [tl_67feadd4102ac] - addIssue called with summary: API INTEGRATION TEST
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Creating Redmine issue with summary: API INTEGRATION TEST
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Using API URL: https://redminerestInterface
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Current user: Mwaimu Mtingele
+2025-04-15 21:04:52 [tl_67feadd4102ac] - No pattern matched, using original summary
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Using assignee ID: 2366
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Using dummy API: NO
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Using real Redmine API at: https://redminerestInterface/issues.json
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Making API request to: https://redminerestInterface/issues.json
+2025-04-15 21:04:52 [tl_67feadd4102ac] - API response: {"error":"cURL error: Could not resolve host: redminerestInterface"}
+2025-04-15 21:04:52 [tl_67feadd4102ac] - Failed to create issue in Redmine: cURL error: Could not resolve host: redminerestInterface
+2025-04-15 21:07:30 [tl_67feae72ed10c] - addIssue called with summary: API INTEGRATION TEST
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Creating Redmine issue with summary: API INTEGRATION TEST
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Using API URL: https://redminerestInterface
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Current user: Mwaimu Mtingele
+2025-04-15 21:07:30 [tl_67feae72ed10c] - No pattern matched, using original summary
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Using assignee ID: 2635
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Using dummy API: NO
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Using real Redmine API at: https://redminerestInterface/issues.json
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Making API request to: https://redminerestInterface/issues.json
+2025-04-15 21:07:30 [tl_67feae72ed10c] - API response: {"error":"cURL error: Could not resolve host: redminerestInterface"}
+2025-04-15 21:07:30 [tl_67feae72ed10c] - Failed to create issue in Redmine: cURL error: Could not resolve host: redminerestInterface

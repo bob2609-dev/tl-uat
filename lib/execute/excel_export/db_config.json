@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "user": "root",
+  "password": "tl_nmb25",
+  "database": "testlink_db",
+  "port": 3306
+}

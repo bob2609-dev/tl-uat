@@ -1,0 +1,250 @@
+<?php
+/**
+ * TestLink Redmine Integration Diagnostic Tool
+ *
+ * This script helps diagnose issues with Redmine integration
+ */
+
+// Set error reporting to show all errors
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Include paths - try multiple options to ensure it works
+$paths = array(
+  __DIR__,
+  __DIR__ . '/lib',
+  __DIR__ . '/lib/functions',
+  __DIR__ . '/lib/issuetrackerintegration'
+);
+set_include_path(implode(PATH_SEPARATOR, $paths) . PATH_SEPARATOR . get_include_path());
+
+// Define some constants that TestLink expects
+if (!defined('TESTLINK_API_CALL')) {
+    define('TESTLINK_API_CALL', 1);
+}
+
+if (!defined('TL_ABS_PATH')) {
+    define('TL_ABS_PATH', __DIR__);
+}
+
+// Helper functions
+function tLog($msg, $level = 'INFO') {
+    echo "<div style='margin:5px; padding:5px; border:1px solid #ccc; border-radius:5px;'>"
+       . "<strong>LOG [$level]:</strong> $msg</div>";
+}
+
+function runTest($name, $function) {
+    echo "<div style='margin:10px 0; padding:10px; border:1px solid #ddd; border-radius:5px;'>";
+    echo "<h3>🔍 Testing: $name</h3>";
+    try {
+        call_user_func($function);
+        echo "<p style='color:green'>✅ Test completed</p>";
+    } catch (Exception $e) {
+        echo "<p style='color:red'>❌ Error: " . $e->getMessage() . "</p>";
+    }
+    echo "</div>";
+}
+
+// HTML Page start
+echo "<!DOCTYPE html>\n<html>\n<head>\n";
+echo "<title>TestLink Redmine Integration Diagnostic</title>\n";
+echo "<style>\n";
+echo "body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }\n";
+echo "h1, h2, h3 { color: #333; }\n";
+echo "pre { background: #f5f5f5; padding: 10px; overflow: auto; }\n";
+echo "</style>\n";
+echo "</head>\n<body>\n";
+
+echo "<h1>TestLink Redmine Integration Diagnostic</h1>\n";
+
+// Test 1: PHP Version and Extensions
+runTest('PHP Environment', function() {
+    echo "<p>PHP Version: " . phpversion() . "</p>";
+    
+    $requiredExtensions = array('curl', 'json', 'simplexml');
+    echo "<p><strong>Required Extensions:</strong></p><ul>";
+    
+    foreach ($requiredExtensions as $ext) {
+        $loaded = extension_loaded($ext);
+        echo "<li style='color:" . ($loaded ? 'green' : 'red') . "'>$ext: " 
+             . ($loaded ? 'Loaded ✓' : 'NOT LOADED ✗') . "</li>";
+    }
+    
+    echo "</ul>";
+});
+
+// Test 2: File Existence and Permissions
+runTest('File System', function() {
+    $files = array(
+        '/lib/issuetrackerintegration/redmineminimal.class.php',
+        '/lib/issuetrackerintegration/interface.php',
+        '/lib/issuetrackerintegration/issueTrackerInterface.class.php',
+        '/custom_config.inc.php',
+        '/redmine_direct.php'
+    );
+    
+    echo "<p><strong>Critical Files:</strong></p><ul>";
+    
+    foreach ($files as $file) {
+        $path = __DIR__ . $file;
+        $exists = file_exists($path);
+        $readable = $exists ? is_readable($path) : false;
+        
+        echo "<li style='color:" . ($exists && $readable ? 'green' : 'red') . "'>$file: " 
+             . ($exists ? 'Exists' : 'MISSING') . ($readable ? ', Readable' : ', NOT Readable')
+             . " » " . fileperms($path) . "</li>";
+    }
+    
+    echo "</ul>";
+});
+
+// Test 3: Minimal Redmine Request
+runTest('Redmine API Connection', function() {
+    // Default Redmine settings - should match your custom_config.inc.php
+    $redmineUrl = 'https://support.profinch.com';
+    $apiKey = 'a597e200f8923a85484e81ca81d731827b8dbf3d';
+    
+    echo "<p>Testing connection to: $redmineUrl</p>";
+    
+    // Initialize curl
+    $ch = curl_init($redmineUrl . '/projects.json?limit=1');
+    
+    // Disable SSL verification for self-signed certificates
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'X-Redmine-API-Key: ' . $apiKey
+    ));
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    
+    curl_close($ch);
+    
+    echo "<p>Response code: $httpCode</p>";
+    
+    if ($error) {
+        echo "<p style='color:red'>cURL Error: $error</p>";
+    }
+    
+    if ($httpCode >= 200 && $httpCode < 300) {
+        echo "<p style='color:green'>Connection successful!</p>";
+        $data = json_decode($response, true);
+        if (isset($data['projects'])) {
+            echo "<p>Found " . count($data['projects']) . " projects</p>";
+            echo "<pre>" . htmlspecialchars(json_encode($data, JSON_PRETTY_PRINT)) . "</pre>";
+        } else {
+            echo "<p style='color:orange'>Warning: Connected but didn't get expected projects data</p>";
+        }
+    } else {
+        echo "<p style='color:red'>Connection failed with HTTP code $httpCode</p>";
+        echo "<p>Response: " . htmlspecialchars($response) . "</p>";
+    }
+});
+
+// Test 4: Test loading the RedmineMinimal class
+runTest('Redmine Minimal Class', function() {
+    echo "<p>Attempting to load the redmineminimal class...</p>";
+    
+    if (!file_exists(__DIR__ . '/lib/issuetrackerintegration/redmineminimal.class.php')) {
+        throw new Exception("redmineminimal.class.php file not found!");
+    }
+    
+    include_once(__DIR__ . '/lib/issuetrackerintegration/interface.php');
+    include_once(__DIR__ . '/lib/issuetrackerintegration/issueTrackerInterface.class.php');
+    include_once(__DIR__ . '/lib/issuetrackerintegration/redmineminimal.class.php');
+    
+    if (!class_exists('redmineminimal')) {
+        throw new Exception("redmineminimal class not found after including the file!");
+    }
+    
+    echo "<p style='color:green'>Successfully loaded the redmineminimal class</p>";
+    
+    $xmlConfig = "<issuetracker>\n"
+               . "<apikey>a597e200f8923a85484e81ca81d731827b8dbf3d</apikey>\n"
+               . "<uribase>https://support.profinch.com</uribase>\n"
+               . "<projectidentifier>nmb-fcubs-14-7-uat2</projectidentifier>\n"
+               . "<skipsslverification>true</skipsslverification>\n"
+               . "</issuetracker>";
+    
+    try {
+        echo "<p>Attempting to create an instance...</p>";
+        $tracker = new redmineminimal('REDMINE', $xmlConfig, 'Redmine Test');
+        echo "<p style='color:green'>Successfully created redmineminimal instance</p>";
+        
+        echo "<p>Testing connection method...</p>";
+        $tracker->connect();
+        
+        if ($tracker->isConnected()) {
+            echo "<p style='color:green'>Connection successful!</p>";
+        } else {
+            echo "<p style='color:red'>Connection failed</p>";
+        }
+    } catch (Exception $e) {
+        throw new Exception("Error creating redmineminimal instance: " . $e->getMessage());
+    }
+});
+
+// Test 5: Check custom_config.inc.php settings
+runTest('Configuration Settings', function() {
+    if (!file_exists(__DIR__ . '/custom_config.inc.php')) {
+        throw new Exception("custom_config.inc.php file not found!");
+    }
+    
+    // Create a backup of the current globals
+    $oldGlobals = $GLOBALS;
+    
+    // Include the config file
+    include(__DIR__ . '/custom_config.inc.php');
+    
+    echo "<p><strong>Issue Tracker Configuration:</strong></p>";
+    
+    // Check important variables
+    $vars = array(
+        'tlCfg->issueTracker->enabled' => isset($tlCfg) && isset($tlCfg->issueTracker) && isset($tlCfg->issueTracker->enabled) ? $tlCfg->issueTracker->enabled : 'not set',
+        'tlCfg->issueTrackerIntegration->enabled' => isset($tlCfg) && isset($tlCfg->issueTrackerIntegration) && isset($tlCfg->issueTrackerIntegration->enabled) ? $tlCfg->issueTrackerIntegration->enabled : 'not set',
+        'g_interface_bugs_map' => isset($g_interface_bugs_map) ? var_export($g_interface_bugs_map, true) : 'not set',
+        'g_interface_bugs_format' => isset($g_interface_bugs_format) ? var_export($g_interface_bugs_format, true) : 'not set',
+    );
+    
+    echo "<ul>";
+    foreach ($vars as $name => $value) {
+        echo "<li><strong>$name:</strong> $value</li>";
+    }
+    echo "</ul>";
+    
+    // Restore the old globals to prevent conflicts
+    $GLOBALS = $oldGlobals;
+});
+
+// Additional Information
+echo "<h2>Browser and Server Information</h2>";
+echo "<p><strong>User Agent:</strong> " . htmlspecialchars($_SERVER['HTTP_USER_AGENT']) . "</p>";
+echo "<p><strong>Server Software:</strong> " . htmlspecialchars($_SERVER['SERVER_SOFTWARE']) . "</p>";
+echo "<p><strong>Script Path:</strong> " . htmlspecialchars(__FILE__) . "</p>";
+
+// Check if interface.php was successfully created
+echo "<h2>Interface Stub File Check</h2>";
+$interfacePath = __DIR__ . '/lib/issuetrackerintegration/interface.php';
+if (file_exists($interfacePath)) {
+    echo "<p style='color:green'>✅ interface.php exists at: $interfacePath</p>";
+    echo "<p>Content:</p>";
+    echo "<pre>" . htmlspecialchars(file_get_contents($interfacePath)) . "</pre>";
+} else {
+    echo "<p style='color:red'>❌ interface.php does not exist at: $interfacePath</p>";
+}
+
+echo "<h2>Recommendations</h2>";
+echo "<ol>";
+echo "<li>Try using our standalone Redmine integration: <a href='redmine_direct.php' target='_blank'>redmine_direct.php</a></li>";
+echo "<li>Check that all required files have been copied to the correct locations</li>";
+echo "<li>Verify the API key is correct</li>";
+echo "<li>If SSL issues persist, try accessing Redmine in your browser and accepting any certificate warnings</li>";
+echo "<li>Check your web server's PHP error log for additional errors</li>";
+echo "</ol>";
+
+echo "</body>\n</html>";
+?>

@@ -1,0 +1,44 @@
+# Allow export files to bypass security headers for CSV downloads
+<Files "export_traceability_minimal.php">
+    # Disable security headers that interfere with CSV downloads
+    Header unset X-Content-Type-Options
+    Header unset X-Frame-Options
+    Header unset Content-Security-Policy
+    Header unset Referrer-Policy
+    Header unset Permissions-Policy
+    Header unset Strict-Transport-Security
+    # Let PHP handle Content-Type and Content-Disposition headers
+</Files>
+
+<Files "export_traceability.php">
+    # Disable security headers that interfere with CSV downloads
+    Header unset X-Content-Type-Options
+    Header unset X-Frame-Options
+    Header unset Content-Security-Policy
+    Header unset Referrer-Policy
+    Header unset Permissions-Policy
+    Header unset Strict-Transport-Security
+    # Let PHP handle Content-Type and Content-Disposition headers
+</Files>
+
+<Files "export_failed_no_defect.php">
+    # Disable security headers that interfere with CSV downloads
+    Header unset X-Content-Type-Options
+    Header unset X-Frame-Options
+    Header unset Content-Security-Policy
+    Header unset Referrer-Policy
+    Header unset Permissions-Policy
+    Header unset Strict-Transport-Security
+    # Let PHP handle Content-Type and Content-Disposition headers
+</Files>
+
+# Allow access to Select2 library files
+<Files "select2.min.js">
+    Header set Content-Type "application/javascript"
+    Header set Access-Control-Allow-Origin "*"
+</Files>
+
+<Files "select2.min.css">
+    Header set Content-Type "text/css"
+    Header set Access-Control-Allow-Origin "*"
+</Files>

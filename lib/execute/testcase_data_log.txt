@@ -1,0 +1,2700 @@
+
+-------- SCRIPT START: 2025-08-08 10:51:18 --------
+Received tcversion_id: 83390
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 83390
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 10:51:26 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 83390
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-08 10:51:26
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 11:09:38 --------
+Received tcversion_id: 83390
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 83390
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 11:09:46 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 83390
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-08 11:09:46
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 11:14:53 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 11:15:01 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 11:15:01
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 11:23:31 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 11:23:39 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 11:23:39
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 11:27:38 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 11:27:45 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 11:27:45
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 11:59:57 --------
+Received tcversion_id: 60210
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 60210
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 60210
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDCIFAD
+sub_scenario: New 
+test_script: Open a joint  account for  SA02 EUR 
+expected_results: Successfully Account Opening upon checker Authorization.
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC238
+primary_module: Quick Customer Addition
+test_type: Positive
+test_execution_path: Customer Accounts > Operations > Customer Accounts Input
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:00:05 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDCIFAD
+            [sub_scenario] => New 
+            [test_script] => Open a joint  account for  SA02 EUR 
+            [expected_results] => Successfully Account Opening upon checker Authorization.
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC238
+            [primary_module] => Quick Customer Addition
+            [test_type] => Positive
+            [test_execution_path] => Customer Accounts > Operations > Customer Accounts Input
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 60210
+            [timestamp] => 2025-08-08 12:00:05
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 12:00:30 --------
+Received tcversion_id: 60210
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 60210
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 60210
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDCIFAD
+sub_scenario: New 
+test_script: Open a joint  account for  SA02 EUR 
+expected_results: Successfully Account Opening upon checker Authorization.
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC238
+primary_module: Quick Customer Addition
+test_type: Positive
+test_execution_path: Customer Accounts > Operations > Customer Accounts Input
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:00:38 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDCIFAD
+            [sub_scenario] => New 
+            [test_script] => Open a joint  account for  SA02 EUR 
+            [expected_results] => Successfully Account Opening upon checker Authorization.
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC238
+            [primary_module] => Quick Customer Addition
+            [test_type] => Positive
+            [test_execution_path] => Customer Accounts > Operations > Customer Accounts Input
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 60210
+            [timestamp] => 2025-08-08 12:00:38
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 12:25:12 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:25:20 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 12:25:20
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 12:43:29 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:43:36 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 12:43:36
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 12:46:47 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:46:55 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 12:46:55
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 12:51:48 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:51:56 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 12:51:56
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 12:53:26 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:53:34 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 12:53:34
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 12:55:41 --------
+Received tcversion_id: 58348
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 58348
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 58348
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 12:55:49 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 58348
+    [debug] => Array
+        (
+            [received_id] => 58348
+            [timestamp] => 2025-08-08 12:55:49
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 13:37:27 --------
+Received tcversion_id: 59746
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59746
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59746
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Financial Customer
+test_script: To verify that KYC details for a financial Customer can be captured correctly
+expected_results: The system should save the financial customer KYC details successfully.
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC6
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 13:37:34 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Financial Customer
+            [test_script] => To verify that KYC details for a financial Customer can be captured correctly
+            [expected_results] => The system should save the financial customer KYC details successfully.
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC6
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59746
+            [timestamp] => 2025-08-08 13:37:34
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 13:41:51 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 13:41:59 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 13:41:59
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 13:51:26 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 13:51:33 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 13:51:33
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 13:52:05 --------
+Received tcversion_id: 52909
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 52909
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 52909
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDCRDMS
+sub_scenario: New
+test_script: 1. Select account type: NMB MWANACHUO ACCOUNT.(TZS)
+2. Select Card Type .
+3. Attempt to issue Business Card.
+expected_results: Business Card should not be issued. Error message: "Card type not allowed."
+er_process: TEMPLATE_EMPTY
+testcase_name: ATM-TC3
+primary_module: Card Master Maintenance
+test_type: Negative
+test_execution_path: Cards >  Maintenance > Card Master
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 13:52:13 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDCRDMS
+            [sub_scenario] => New
+            [test_script] => 1. Select account type: NMB MWANACHUO ACCOUNT.(TZS)
+2. Select Card Type .
+3. Attempt to issue Business Card.
+            [expected_results] => Business Card should not be issued. Error message: "Card type not allowed."
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => ATM-TC3
+            [primary_module] => Card Master Maintenance
+            [test_type] => Negative
+            [test_execution_path] => Cards >  Maintenance > Card Master
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 52909
+            [timestamp] => 2025-08-08 13:52:13
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 13:54:35 --------
+Received tcversion_id: 52907
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 52907
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 52907
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDCRDMS
+sub_scenario: New
+test_script: 1. Select account type: NMB STAFF ACCOUNT.(TZS)
+2. Select Card Type .
+3. Attempt to issue Business Card.
+expected_results: Business Card should not be issued. Error message: "Card type not allowed."
+er_process: TEMPLATE_EMPTY
+testcase_name: ATM-TC2
+primary_module: Card Master Maintenance
+test_type: Negative
+test_execution_path: Cards >  Maintenance > Card Master
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 13:54:43 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDCRDMS
+            [sub_scenario] => New
+            [test_script] => 1. Select account type: NMB STAFF ACCOUNT.(TZS)
+2. Select Card Type .
+3. Attempt to issue Business Card.
+            [expected_results] => Business Card should not be issued. Error message: "Card type not allowed."
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => ATM-TC2
+            [primary_module] => Card Master Maintenance
+            [test_type] => Negative
+            [test_execution_path] => Cards >  Maintenance > Card Master
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 52907
+            [timestamp] => 2025-08-08 13:54:43
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 15:53:26 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 15:53:34 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 15:53:34
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 16:07:42 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 16:07:50 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 16:07:50
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 16:22:12 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 16:22:20 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 16:22:20
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 16:32:53 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 16:33:01 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 16:33:01
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-08 16:40:51 --------
+Received tcversion_id: 59742
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 59742
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 59742
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: STDKYCMN
+sub_scenario: New - Retail Customer
+test_script: To verify that the user can enter and save Beneficiary Owner Information.
+expected_results: The system should save the Beneficiary Owner details successfully
+er_process: TEMPLATE_EMPTY
+testcase_name: CASA-TC4
+primary_module: KYC Maintenance
+test_type: Positive
+test_execution_path: Customers > Maintenance > KYC Details
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-08 16:40:59 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => STDKYCMN
+            [sub_scenario] => New - Retail Customer
+            [test_script] => To verify that the user can enter and save Beneficiary Owner Information.
+            [expected_results] => The system should save the Beneficiary Owner details successfully
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => CASA-TC4
+            [primary_module] => KYC Maintenance
+            [test_type] => Positive
+            [test_execution_path] => Customers > Maintenance > KYC Details
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 59742
+            [timestamp] => 2025-08-08 16:40:59
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:01:33 --------
+Received tcversion_id: 107564
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 107564
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 107564
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:01:41 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 107564
+    [debug] => Array
+        (
+            [received_id] => 107564
+            [timestamp] => 2025-08-11 18:01:41
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:04:46 --------
+Received tcversion_id: 107564
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 107564
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 107564
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:04:54 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 107564
+    [debug] => Array
+        (
+            [received_id] => 107564
+            [timestamp] => 2025-08-11 18:04:54
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:12:05 --------
+Received tcversion_id: 83390
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 83390
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:12:13 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 83390
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-11 18:12:13
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:13:19 --------
+Received tcversion_id: 83390
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 83390
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:13:27 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 83390
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-11 18:13:27
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:14:16 --------
+Received tcversion_id: 83390
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 83390
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:14:24 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 83390
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-11 18:14:24
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:21:07 --------
+Received tcversion_id: 83390
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 83390
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:21:15 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 83390
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-11 18:21:15
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:21:32 --------
+Received tcversion_id: 83390
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 83390
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:21:40 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 83390
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-11 18:21:40
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:47:04 --------
+Received tcversion_id: 58348
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 58348
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 58348
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:47:12 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 58348
+    [debug] => Array
+        (
+            [received_id] => 58348
+            [timestamp] => 2025-08-11 18:47:12
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:52:56 --------
+Received tcversion_id: 58348
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 58348
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 58348
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:53:04 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 58348
+    [debug] => Array
+        (
+            [received_id] => 58348
+            [timestamp] => 2025-08-11 18:53:04
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:55:13 --------
+Received tcversion_id: 58348
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 58348
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 58348
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:55:21 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 58348
+    [debug] => Array
+        (
+            [received_id] => 58348
+            [timestamp] => 2025-08-11 18:55:21
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 18:55:28 --------
+Received tcversion_id: 58348
+
+Database config loaded:
+Host: localhost
+User: root
+Database: testlink_db
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 58348
+    
+Query prepared successfully
+Parameter bound: tcversion_id = 58348
+Query executed successfully
+Got result set
+Number of rows found: 0
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 18:55:36 --------
+Array
+(
+    [success] => 
+    [data] => Array
+        (
+        )
+
+    [message] => No test case data found for ID: 58348
+    [debug] => Array
+        (
+            [received_id] => 58348
+            [timestamp] => 2025-08-11 18:55:36
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 19:05:34 --------
+Received tcversion_id: 83390
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+[DEBUG] Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 83390
+    
+[INFO] Query prepared successfully
+[DEBUG] Parameter bound: tcversion_id = 83390
+[DEBUG] Complete query to execute:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = '83390'
+    
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: OBBRN
+sub_scenario: New
+test_script: To verify that the system displays the correct Teller ID for the selected branch
+expected_results: The correct Teller IDs should be displayed based on the logged-in branch
+er_process: TEMPLATE_EMPTY
+testcase_name: 
+primary_module: Branch Total Position
+test_type: Positive
+test_execution_path: Teller --> Branch Operations --> Branch Total Position
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 19:05:40 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => OBBRN
+            [sub_scenario] => New
+            [test_script] => To verify that the system displays the correct Teller ID for the selected branch
+            [expected_results] => The correct Teller IDs should be displayed based on the logged-in branch
+            [er_process] => TEMPLATE_EMPTY
+            [testcase_name] => 
+            [primary_module] => Branch Total Position
+            [test_type] => Positive
+            [test_execution_path] => Teller --> Branch Operations --> Branch Total Position
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 83390
+            [timestamp] => 2025-08-11 19:05:40
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 19:11:04 --------
+Received tcversion_id: 58348
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+[DEBUG] Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 58348
+    
+[INFO] Query prepared successfully
+[DEBUG] Parameter bound: tcversion_id = 58348
+[DEBUG] Complete query to execute:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = '58348'
+    
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: 
+sub_scenario: Authorize
+test_script: 
+expected_results: 
+er_process: 
+testcase_name: 
+primary_module: 
+test_type: Postive
+test_execution_path: 
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 19:11:10 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => 
+            [sub_scenario] => Authorize
+            [test_script] => 
+            [expected_results] => 
+            [er_process] => 
+            [testcase_name] => 
+            [primary_module] => 
+            [test_type] => Postive
+            [test_execution_path] => 
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 58348
+            [timestamp] => 2025-08-11 19:11:10
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 19:11:58 --------
+Received tcversion_id: 6249
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+[DEBUG] Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 6249
+    
+[INFO] Query prepared successfully
+[DEBUG] Parameter bound: tcversion_id = 6249
+[DEBUG] Complete query to execute:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = '6249'
+    
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: OLDTRONL
+sub_scenario: New
+test_script: Create loan contract for a customer with default paramaters 
+expected_results: Successful loan contract created with reference number  with all default parameters from the product
+er_process: 
+testcase_name: LBL-TC1
+primary_module: Loan and Commitment contract input
+test_type: Positive
+test_execution_path: 
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 19:12:03 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => OLDTRONL
+            [sub_scenario] => New
+            [test_script] => Create loan contract for a customer with default paramaters 
+            [expected_results] => Successful loan contract created with reference number  with all default parameters from the product
+            [er_process] => 
+            [testcase_name] => LBL-TC1
+            [primary_module] => Loan and Commitment contract input
+            [test_type] => Positive
+            [test_execution_path] => 
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 6249
+            [timestamp] => 2025-08-11 19:12:03
+        )
+
+)
+
+-------- END OF REQUEST --------
+
+
+-------- SCRIPT START: 2025-08-11 19:12:16 --------
+Received tcversion_id: 6253
+Attempting database connection to localhost...
+Database connection SUCCESSFUL
+[DEBUG] Executing query:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = 6253
+    
+[INFO] Query prepared successfully
+[DEBUG] Parameter bound: tcversion_id = 6253
+[DEBUG] Complete query to execute:
+
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = '6253'
+    
+Query executed successfully
+Got result set
+Number of rows found: 1
+
+Formatted response data:
+scenario_id: OLDTRONL
+sub_scenario: New
+test_script: Create loan contract for a customer equal montly repayment instalments
+expected_results: System to succesfully generate monthly repayment schedule
+er_process: 
+testcase_name: LBL-TC3
+primary_module: Loan and Commitment contract input
+test_type: Positive
+test_execution_path: 
+test_data: 
+priority: 
+execution_status: 
+notes: 
+Database connection closed
+
+-------- FINAL RESPONSE: 2025-08-11 19:12:21 --------
+Array
+(
+    [success] => 1
+    [data] => Array
+        (
+            [scenario_id] => OLDTRONL
+            [sub_scenario] => New
+            [test_script] => Create loan contract for a customer equal montly repayment instalments
+            [expected_results] => System to succesfully generate monthly repayment schedule
+            [er_process] => 
+            [testcase_name] => LBL-TC3
+            [primary_module] => Loan and Commitment contract input
+            [test_type] => Positive
+            [test_execution_path] => 
+            [test_data] => 
+            [priority] => 
+            [execution_status] => 
+            [notes] => 
+        )
+
+    [message] => 
+    [debug] => Array
+        (
+            [received_id] => 6253
+            [timestamp] => 2025-08-11 19:12:21
+        )
+
+)
+
+-------- END OF REQUEST --------
+

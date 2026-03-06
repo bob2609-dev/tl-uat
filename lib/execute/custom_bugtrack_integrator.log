@@ -1,0 +1,168 @@
+[2026-03-05 21:23:03] === API Request Started ===
+[2026-03-05 21:23:03] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1772742183018
+[2026-03-05 21:23:03] Request method: GET
+[2026-03-05 21:23:03] POST data: []
+[2026-03-05 21:23:03] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1772742183018"}
+[2026-03-05 21:23:03] DEBUG: Script started at 2026-03-05 21:23:03
+[2026-03-05 21:23:03] DEBUG: Database initialized manually for API call
+[2026-03-05 21:23:03] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-05 21:23:03] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-05 21:23:03] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-05 21:23:03] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-05 21:23:03] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"Redmine1","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":3,"timestamp":"2026-03-05 21:23:03"}
+[2026-03-05 21:23:13] === API Request Started ===
+[2026-03-05 21:23:13] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-05 21:23:13] Request method: POST
+[2026-03-05 21:23:13] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431184","execution_id":81640,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-03-05CET21:21","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[2026-03-05 21:23:13] GET data: {"action":"create_issue"}
+[2026-03-05 21:23:13] Loading config.inc.php...
+[2026-03-05 21:23:13] Config loaded successfully
+[2026-03-05 21:23:13] Attempting database connection to tl_uat on localhost
+[2026-03-05 21:23:13] Database connection successful
+[2026-03-05 21:23:13] Action: create_issue
+[2026-03-05 21:23:13] Creating issue for project: 448287
+[2026-03-05 21:23:13] Requested integration_id: 9
+[2026-03-05 21:23:13] Original summary: 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21'
+[2026-03-05 21:23:13] Original description length: 226
+[2026-03-05 21:23:13] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-05 21:23:13] Found integration: Redmine2
+[2026-03-05 21:23:13] Integration type: REDMINE
+[2026-03-05 21:23:13] Integration URL: https://support.profinch.com
+[2026-03-05 21:23:13] Creating real Redmine issue...
+[2026-03-05 21:23:13] Added tester to description: mwaimu.mtingele
+[2026-03-05 21:23:13] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-03-05CET21:21","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2}}
+[2026-03-05 21:23:13] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-05 21:23:16] Redmine API HTTP Code: 201
+[2026-03-05 21:23:16] Redmine API Response: {"issue":{"id":87498,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":2366,"name":"Berry Nsanya"},"subject":"Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-05CET21:21","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master\r\nTest result: [\r\nTESTLINK CONNECTIVITY TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-05","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-05T20:22:51Z","updated_on":"2026-03-05T20:22:51Z"}}
+[2026-03-05 21:23:16] Redmine issue created successfully: ID 87498
+[2026-03-05 21:23:16] Real Redmine issue created: 87498
+[2026-03-06 20:29:22] === API Request Started ===
+[2026-03-06 20:29:22] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1772825362449
+[2026-03-06 20:29:22] Request method: GET
+[2026-03-06 20:29:22] POST data: []
+[2026-03-06 20:29:22] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1772825362449"}
+[2026-03-06 20:29:22] DEBUG: Script started at 2026-03-06 20:29:22
+[2026-03-06 20:29:22] DEBUG: Database initialized manually for API call
+[2026-03-06 20:29:22] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-06 20:29:22] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-06 20:29:22] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-06 20:29:22] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-06 20:29:22] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"Redmine1","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":3,"timestamp":"2026-03-06 20:29:22"}
+[2026-03-06 20:29:33] === API Request Started ===
+[2026-03-06 20:29:33] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-06 20:29:33] Request method: POST
+[2026-03-06 20:29:33] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431180","execution_id":81641,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:28","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[2026-03-06 20:29:33] GET data: {"action":"create_issue"}
+[2026-03-06 20:29:33] Loading config.inc.php...
+[2026-03-06 20:29:33] Config loaded successfully
+[2026-03-06 20:29:33] Attempting database connection to tl_uat on localhost
+[2026-03-06 20:29:33] Database connection successful
+[2026-03-06 20:29:33] Action: create_issue
+[2026-03-06 20:29:33] Creating issue for project: 448287
+[2026-03-06 20:29:33] Requested integration_id: 9
+[2026-03-06 20:29:33] Original summary: 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28'
+[2026-03-06 20:29:33] Original description length: 232
+[2026-03-06 20:29:33] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-06 20:29:33] Found integration: Redmine2
+[2026-03-06 20:29:33] Integration type: REDMINE
+[2026-03-06 20:29:33] Integration URL: https://support.profinch.com
+[2026-03-06 20:29:33] Creating real Redmine issue...
+[2026-03-06 20:29:33] Added tester to description: mwaimu.mtingele
+[2026-03-06 20:29:33] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:28","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2}}
+[2026-03-06 20:29:33] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-06 20:29:37] Redmine API HTTP Code: 201
+[2026-03-06 20:29:37] Redmine API Response: {"issue":{"id":87592,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":2366,"name":"Berry Nsanya"},"subject":"Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:28","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRAITON TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-06","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-06T19:29:09Z","updated_on":"2026-03-06T19:29:09Z"}}
+[2026-03-06 20:29:37] Redmine issue created successfully: ID 87592
+[2026-03-06 20:29:37] Real Redmine issue created: 87592
+[2026-03-06 20:47:18] === API Request Started ===
+[2026-03-06 20:47:18] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1772826438403
+[2026-03-06 20:47:18] Request method: GET
+[2026-03-06 20:47:18] POST data: []
+[2026-03-06 20:47:18] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1772826438403"}
+[2026-03-06 20:47:18] DEBUG: Script started at 2026-03-06 20:47:18
+[2026-03-06 20:47:18] DEBUG: Database initialized manually for API call
+[2026-03-06 20:47:18] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-06 20:47:18] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-06 20:47:18] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-06 20:47:18] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-06 20:47:18] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"Redmine1","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":3,"timestamp":"2026-03-06 20:47:18"}
+[2026-03-06 20:47:26] === API Request Started ===
+[2026-03-06 20:47:26] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-06 20:47:26] Request method: POST
+[2026-03-06 20:47:26] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431180","execution_id":81642,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:29","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[2026-03-06 20:47:26] GET data: {"action":"create_issue"}
+[2026-03-06 20:47:26] Loading config.inc.php...
+[2026-03-06 20:47:27] Config loaded successfully
+[2026-03-06 20:47:27] Attempting database connection to tl_uat on localhost
+[2026-03-06 20:47:27] Database connection successful
+[2026-03-06 20:47:27] Action: create_issue
+[2026-03-06 20:47:27] Creating issue for project: 448287
+[2026-03-06 20:47:27] Requested integration_id: 9
+[2026-03-06 20:47:27] Original summary: 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29'
+[2026-03-06 20:47:27] Original description length: 232
+[2026-03-06 20:47:27] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-06 20:47:27] Found integration: Redmine2
+[2026-03-06 20:47:27] Integration type: REDMINE
+[2026-03-06 20:47:27] Integration URL: https://support.profinch.com
+[2026-03-06 20:47:27] Creating real Redmine issue...
+[2026-03-06 20:47:27] Added tester to description: mwaimu.mtingele
+[2026-03-06 20:47:27] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:29","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2}}
+[2026-03-06 20:47:27] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-06 20:47:31] Redmine API HTTP Code: 201
+[2026-03-06 20:47:31] Redmine API Response: {"issue":{"id":87593,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":2366,"name":"Berry Nsanya"},"subject":"Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:29","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-06","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-06T19:47:02Z","updated_on":"2026-03-06T19:47:02Z"}}
+[2026-03-06 20:47:31] Redmine issue created successfully: ID 87593
+[2026-03-06 20:47:31] Real Redmine issue created: 87593
+[2026-03-06 21:08:09] === API Request Started ===
+[2026-03-06 21:08:09] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1772827689572
+[2026-03-06 21:08:09] Request method: GET
+[2026-03-06 21:08:09] POST data: []
+[2026-03-06 21:08:09] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1772827689572"}
+[2026-03-06 21:08:10] DEBUG: Script started at 2026-03-06 21:08:10
+[2026-03-06 21:08:10] DEBUG: Database initialized manually for API call
+[2026-03-06 21:08:10] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-06 21:08:10] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-06 21:08:10] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-06 21:08:10] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-06 21:08:10] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"Redmine1","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"Redmine2","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"11","name":"Redmine4","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":3,"timestamp":"2026-03-06 21:08:10"}
+[2026-03-06 21:08:19] === API Request Started ===
+[2026-03-06 21:08:19] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-06 21:08:20] Request method: POST
+[2026-03-06 21:08:20] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431180","execution_id":81643,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:47","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[2026-03-06 21:08:20] GET data: {"action":"create_issue"}
+[2026-03-06 21:08:20] Loading config.inc.php...
+[2026-03-06 21:08:20] Config loaded successfully
+[2026-03-06 21:08:20] Attempting database connection to tl_uat on localhost
+[2026-03-06 21:08:20] Database connection successful
+[2026-03-06 21:08:20] Action: create_issue
+[2026-03-06 21:08:20] Creating issue for project: 448287
+[2026-03-06 21:08:20] Requested integration_id: 9
+[2026-03-06 21:08:20] Original summary: 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47'
+[2026-03-06 21:08:20] Original description length: 232
+[2026-03-06 21:08:20] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-06 21:08:20] Found integration: Redmine2
+[2026-03-06 21:08:20] Integration type: REDMINE
+[2026-03-06 21:08:20] Integration URL: https://support.profinch.com
+[2026-03-06 21:08:20] Creating real Redmine issue...
+[2026-03-06 21:08:20] Added tester to description: mwaimu.mtingele
+[2026-03-06 21:08:20] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-992:ATM-TC108 -   2026-03-06CET20:47","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2}}
+[2026-03-06 21:08:20] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-06 21:08:24] Redmine API HTTP Code: 201
+[2026-03-06 21:08:24] Redmine API Response: {"issue":{"id":87594,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":2366,"name":"Berry Nsanya"},"subject":"Test Case: /ARCHIVE/WORKING D/TESTING/ARC-992:ATM-TC108 -   2026-03-06CET20:47","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-06","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-06T20:07:55Z","updated_on":"2026-03-06T20:07:55Z"}}
+[2026-03-06 21:08:24] Redmine issue created successfully: ID 87594
+[2026-03-06 21:08:24] Real Redmine issue created: 87594

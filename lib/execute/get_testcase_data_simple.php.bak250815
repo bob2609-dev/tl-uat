@@ -1,0 +1,199 @@
+<?php
+// Disable all error reporting and output
+error_reporting(0);
+ini_set('display_errors', 0);
+
+// Start output buffering to catch any unwanted output
+ob_start();
+
+// Get tcversion_id parameter
+$tcversion_id = isset($_REQUEST['tcversion_id']) ? intval($_REQUEST['tcversion_id']) : 0;
+
+// Log the received parameter for debugging
+error_log('Received tcversion_id: ' . $tcversion_id);
+
+// Initialize response array
+$response = array(
+    'success' => false,
+    'data' => array(),
+    'message' => 'No data found'
+);
+
+// Initialize log file path with date and time in the filename
+$log_filename = 'get_testcase_data_' . date('Y-m-d_His') . '.log';
+$log_file = __DIR__ . '/' . $log_filename;
+
+// Start logging - create file if it doesn't exist
+$initial_log = "\n-------- SCRIPT START: " . date('Y-m-d H:i:s') . " --------\n";
+$initial_log .= "Script: " . __FILE__ . "\n";
+$initial_log .= "Log file: " . $log_file . "\n";
+$initial_log .= "Received tcversion_id: " . var_export($tcversion_id, true) . "\n";
+$initial_log .= "Request method: " . $_SERVER['REQUEST_METHOD'] . "\n";
+$initial_log .= "Request parameters: " . print_r($_REQUEST, true) . "\n\n";
+file_put_contents($log_file, $initial_log, FILE_APPEND);
+
+// Include main TestLink database configuration file
+require_once(__DIR__ . '/../../config_db.inc.php');
+
+try {
+    // Log database connection attempt
+    file_put_contents($log_file, "Attempting database connection to " . DB_HOST . "...\n", FILE_APPEND);
+    
+    // Create database connection
+    $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    
+    // Check connection
+    if ($db->connect_error) {
+        file_put_contents($log_file, "Database connection FAILED: {$db->connect_error}\n", FILE_APPEND);
+        throw new Exception('Database connection failed: ' . $db->connect_error);
+    }
+    
+    // Log successful connection
+    file_put_contents($log_file, "Database connection SUCCESSFUL\n", FILE_APPEND);
+    
+    // Query to get test case data from the view
+    $query = "
+        SELECT 
+            tcversion_id,
+            testcase_name,
+            Scenario_ID,
+            Sub_Scenario,
+            Primary_Module,
+            Test_Type,
+            Test_Script,
+            Test_Execution_Path,
+            Expected_Results,
+            E_R_Process
+        FROM vw_testcase_summary
+        WHERE tcversion_id = ?
+    ";
+    
+    // Log the complete query for debugging
+    $debug_query = str_replace('?', $tcversion_id, $query);
+    $log_message = "[DEBUG] Executing query:\n$debug_query\n";
+    file_put_contents($log_file, $log_message, FILE_APPEND);
+    
+    // Prepare statement
+    $stmt = $db->prepare($query);
+    if (!$stmt) {
+        $error_msg = 'Prepare failed: ' . $db->error;
+        file_put_contents($log_file, "[ERROR] Query preparation FAILED: {$db->error}\n", FILE_APPEND);
+        throw new Exception($error_msg);
+    }
+    
+    file_put_contents($log_file, "[INFO] Query prepared successfully\n", FILE_APPEND);
+    
+    // Bind parameters and execute
+    $stmt->bind_param('i', $tcversion_id);
+    file_put_contents($log_file, "[DEBUG] Parameter bound: tcversion_id = $tcversion_id\n", FILE_APPEND);
+    
+    // Log the complete query with all parameters
+    $complete_query = str_replace('?', "'$tcversion_id'", $query);
+    file_put_contents($log_file, "[DEBUG] Complete query to execute:\n$complete_query\n", FILE_APPEND);
+    
+    // Execute the query
+    $execute_result = $stmt->execute();
+    if (!$execute_result) {
+        file_put_contents($log_file, "Query execution FAILED: {$stmt->error}\n", FILE_APPEND);
+        throw new Exception('Execute failed: ' . $stmt->error);
+    }
+    
+    file_put_contents($log_file, "Query executed successfully\n", FILE_APPEND);
+    
+    // Get result
+    $result = $stmt->get_result();
+    file_put_contents($log_file, "Got result set\n", FILE_APPEND);
+    
+    // Check if we found data
+    $num_rows = $result->num_rows;
+    file_put_contents($log_file, "Number of rows found: $num_rows\n", FILE_APPEND);
+    
+    if ($num_rows > 0) {
+        // Get data from result
+        $row = $result->fetch_assoc();
+        
+        // Set success response if we have data
+        if ($row) {
+            // Set success response
+            $response['success'] = true;
+            $response['message'] = '';
+            
+            // Map database fields to response fields
+            $response['data'] = array(
+                'scenario_id' => $row['Scenario_ID'] ?: '',
+                'sub_scenario' => $row['Sub_Scenario'] ?: '',
+                'test_script' => $row['Test_Script'] ?: '',
+                'expected_results' => $row['Expected_Results'] ?: '',
+                'er_process' => $row['E_R_Process'] ?: '',
+                'testcase_name' => $row['testcase_name'] ?: '',
+                'primary_module' => $row['Primary_Module'] ?: '',
+                'test_type' => $row['Test_Type'] ?: '',
+                'test_execution_path' => $row['Test_Execution_Path'] ?: '',
+                'test_data' => '', // This might come from another table
+                'priority' => '', // This might come from another table
+                'execution_status' => '', // This might come from another table
+                'notes' => '' // This will be filled in by the JavaScript from the form
+            );
+            
+            // Also log the formatted response data
+            $log_data = "\nFormatted response data:\n";
+            foreach ($response['data'] as $key => $value) {
+                $log_data .= "$key: " . print_r($value, true) . "\n";
+            }
+            file_put_contents($log_file, $log_data, FILE_APPEND);
+        }
+    } else {
+        // No data found for this ID
+        $response['message'] = 'No test case data found for ID: ' . $tcversion_id;
+    }
+    
+    // Close statement and connection
+    $stmt->close();
+    $db->close();
+    file_put_contents($log_file, "Database connection closed\n", FILE_APPEND);
+    
+} catch (Exception $e) {
+    // Log the error to both error_log and our custom log file
+    $error_message = 'Error in get_testcase_data_simple.php: ' . $e->getMessage();
+    error_log($error_message);
+    
+    // Log detailed error information to our log file
+    file_put_contents($log_file, "\nEXCEPTION OCCURRED: " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+    file_put_contents($log_file, "Error message: {$e->getMessage()}\n", FILE_APPEND);
+    file_put_contents($log_file, "Stack trace:\n{$e->getTraceAsString()}\n", FILE_APPEND);
+    
+    // Set error response
+    $response['success'] = false;
+    $response['message'] = 'Database error: ' . $e->getMessage();
+    
+    // For security, don't expose detailed error messages to the client in production
+    if (!defined('DEVMODE') || !DEVMODE) {
+        $response['message'] = 'An error occurred while fetching test case data';
+    }
+    
+    // Log the response we're sending back
+    file_put_contents($log_file, "Response being sent:\n" . print_r($response, true) . "\n", FILE_APPEND);
+}
+
+// Add debug info to the response for troubleshooting
+$response['debug'] = array(
+    'received_id' => $tcversion_id,
+    'timestamp' => date('Y-m-d H:i:s')
+);
+
+// Clear any output that might have been generated
+ob_end_clean();
+
+// Set content type to JSON
+header('Content-Type: application/json');
+
+// Log the final response being sent back to the client
+file_put_contents($log_file, "\n-------- FINAL RESPONSE: " . date('Y-m-d H:i:s') . " --------\n", FILE_APPEND);
+file_put_contents($log_file, print_r($response, true) . "\n", FILE_APPEND);
+file_put_contents($log_file, "-------- END OF REQUEST --------\n\n", FILE_APPEND);
+
+// Return JSON response
+echo json_encode($response);
+
+// End script execution to prevent any additional output
+exit;

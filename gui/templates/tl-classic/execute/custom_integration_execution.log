@@ -1,0 +1,112 @@
+[2026-02-24 18:16:45.6.2] [INFO] [CUSTOM_INTEGRATION] === EXECSETRESULTS SCRIPT START ===
+[2026-02-24 18:16:45.7.7] [INFO] [CUSTOM_INTEGRATION] REQUEST METHOD: GET
+[2026-02-24 18:16:45.8.8] [INFO] [CUSTOM_INTEGRATION] POST DATA: []
+[2026-02-24 18:16:45.9.9] [INFO] [CUSTOM_INTEGRATION] GET DATA: {"version_id":"431185","level":"testcase","id":"431184","form_token":"2049666645","setting_build":"7"}
+[2026-02-24 18:16:46.0.3] [INFO] [CUSTOM_INTEGRATION] Issue tracker enabled, checking for custom integration for project: 448287
+[2026-02-24 18:16:46.017] [INFO] [CUSTOM_INTEGRATION] Custom integration found: Redmine1 (ID: 7)
+[2026-02-24 18:16:46.165] [INFO] [CUSTOM_INTEGRATION] No bugs found in other_info, attempting to load from database
+[2026-02-24 18:16:46.7.3] [INFO] [CUSTOM_INTEGRATION] Looking for execution ID: NULL
+[2026-02-24 18:16:46.8.8] [INFO] [CUSTOM_INTEGRATION] Total other_execs count: 1
+[2026-02-24 18:16:46.0.3] [INFO] [CUSTOM_INTEGRATION] Checking exec key: 431185
+[2026-02-24 18:16:46.1.8] [INFO] [CUSTOM_INTEGRATION] Found array of executions, count: 1
+[2026-02-24 18:16:46.3.4] [INFO] [CUSTOM_INTEGRATION] Single exec structure: ["execution_id","status","execution_run_type","execution_duration","name","testcase_id","tsuite_id","id","tc_external_id","version","summary","preconditions","importance","author_id","creation_ts","updater_id","modification_ts","active","is_open","execution_type","estimated_exec_duration","wkfstatus","tester_login","tester_first_name","tester_last_name","tester_id","execution_notes","execution_ts","build_id","tcversion_number","build_name","build_is_active","build_is_open","platform_id","platform_name","steps"]
+[2026-02-24 18:16:46.5.1] [INFO] [CUSTOM_INTEGRATION] Found execution ID in field 'execution_id': 81604
+[2026-02-24 18:16:46.6.8] [INFO] [CUSTOM_INTEGRATION] Executing SQL: SELECT bug_id FROM execution_bugs WHERE execution_id = 81604
+[2026-02-24 18:16:46.8.2] [INFO] [CUSTOM_INTEGRATION] SQL execution result: DB connection OK
+[2026-02-24 18:16:46.0.5] [INFO] [CUSTOM_INTEGRATION] SQL query executed, result: SUCCESS
+[2026-02-24 18:16:46.1.4] [INFO] [CUSTOM_INTEGRATION] SQL returned 0 rows
+[2026-02-24 18:16:46.2.3] [INFO] [CUSTOM_INTEGRATION] No rows returned for execution 81604 - checking if this execution has bugs at all
+[2026-02-24 18:16:46.3.3] [INFO] [CUSTOM_INTEGRATION] DEBUG: Checking all bugs for this test case: SELECT * FROM execution_bugs WHERE execution_id IN (SELECT id FROM executions WHERE tcversion_id = 431185)
+[2026-02-24 18:16:46.5.4] [INFO] [CUSTOM_INTEGRATION] DEBUG: Found 0 bugs for this test case version
+[2026-02-24 18:16:46.6.4] [INFO] [CUSTOM_INTEGRATION] DEBUG: Using ultra-simple bug loading approach
+[2026-02-24 18:16:46.9.7] [INFO] [CUSTOM_INTEGRATION] DEBUG: Database connection OK, total bugs in system: 2764
+[2026-02-24 18:16:46.0.7] [INFO] [CUSTOM_INTEGRATION] DEBUG: Searching for bugs using execution ID: 81604
+[2026-02-24 18:16:46.1.6] [INFO] [CUSTOM_INTEGRATION] DEBUG: Ultra-simple bug query: SELECT DISTINCT bug_id FROM execution_bugs WHERE execution_id = 81604 LIMIT 10
+[2026-02-24 18:16:46.3.5] [INFO] [CUSTOM_INTEGRATION] DEBUG: No bugs found for execution 81604
+[2026-02-24 18:16:46.4.5] [INFO] [CUSTOM_INTEGRATION] DEBUG: Trying to find execution IDs for tcversion_id: 431185
+[2026-02-24 18:16:46.5.4] [INFO] [CUSTOM_INTEGRATION] DEBUG: Getting execution IDs: SELECT id FROM executions WHERE tcversion_id = 431185 LIMIT 10
+[2026-02-24 18:16:46.7.3] [INFO] [CUSTOM_INTEGRATION] DEBUG: Found execution IDs: 81604
+[2026-02-24 18:16:46.9.2] [INFO] [CUSTOM_INTEGRATION] === EXECSETRESULTS SCRIPT END ===
+[2026-02-24 18:16:46.0.2] [INFO] [CUSTOM_INTEGRATION] Template to display: execute/execSetResults.tpl
+[2026-02-24 18:21:28.8.9] [INFO] [CUSTOM_INTEGRATION] === EXECSETRESULTS SCRIPT START ===
+[2026-02-24 18:21:28.0.9] [INFO] [CUSTOM_INTEGRATION] REQUEST METHOD: POST
+[2026-02-24 18:21:28.2.6] [INFO] [CUSTOM_INTEGRATION] POST DATA: {"CSRFName":"CSRFGuard_1606345938","CSRFToken":"96d55d9b8b181e83d009fa12335a5637ea5717438cbda6bfbf714645b718889079b3ce49ec0a7fd2fd68d77b3b5a833ded9227e540380510b7761eee150a4491","save_button_clicked":"0","do_delete":"1","exec_to_delete":"81604","form_token":"2049666645","refresh_tree":"0","btn_history_on":"1","history_on":"","tpn_view_status":"0","bn_view_status":"0","tc_version":{"431185":"431184"},"version_number":{"431185":"1"},"tsdetails_view_status_431184":"0","notes":{"431185":""},"execution_duration":"","statusSingle":{"431185":""},"save_results":"0","save_and_next":"0","bug_summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-02-24CET18:16 ","bug_notes":"","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-24 18:21:28.4.4] [INFO] [CUSTOM_INTEGRATION] GET DATA: {"version_id":"431185","level":"testcase","id":"431184","form_token":"2049666645","setting_build":"7"}
+[2026-02-24 18:21:28.4.3] [INFO] [CUSTOM_INTEGRATION] Issue tracker enabled, checking for custom integration for project: 448287
+[2026-02-24 18:21:28.8.4] [INFO] [CUSTOM_INTEGRATION] Custom integration found: Redmine1 (ID: 7)
+[2026-02-24 18:21:29.151] [INFO] [CUSTOM_INTEGRATION] === EXECSETRESULTS SCRIPT END ===
+[2026-02-24 18:21:29.2.8] [INFO] [CUSTOM_INTEGRATION] Template to display: execute/execSetResults.tpl
+[2026-02-24 18:22:11.7.8] [INFO] [CUSTOM_INTEGRATION] === EXECSETRESULTS SCRIPT START ===
+[2026-02-24 18:22:11.9.1] [INFO] [CUSTOM_INTEGRATION] REQUEST METHOD: POST
+[2026-02-24 18:22:11.0.2] [INFO] [CUSTOM_INTEGRATION] POST DATA: {"CSRFName":"CSRFGuard_351811958","CSRFToken":"0ee97adbfdf5fca3a0fd80c6eb6e9f0ef5f197d17b69b25ea0efb446b542b6132e5a1d70ffb678bea1c2bf3eae8a81171241e9ca7606533f67d96439f78f333d","save_button_clicked":"431185","do_delete":"0","exec_to_delete":"0","form_token":"2049666645","refresh_tree":"0","btn_history_off":"1","history_on":"1","tpn_view_status":"0","bn_view_status":"0","tc_version":{"431185":"431184"},"version_number":{"431185":"1"},"tsdetails_view_status_431184":"0","notes":{"431185":"TESTING INTEGRATION"},"execution_duration":"","createIssue":"on","statusSingle":{"431185":"f"},"save_results":"1","save_and_next":"0","bug_summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-02-24CET18:21 ","bug_notes":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nN\/A\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTING INTEGRATION\r\n]\r\n\r\nTestLink URLs:\r\n- View Test Case: https:\/\/test-management.nmbtz.com:9443\/lib\/execute\/execSetResults.php?tcversion_id=431185\r\n- Test Case Print View: https:\/\/test-management.nmbtz.com:9443\/lib\/execute\/execSetResultsPrint.php?tcversion_id=431185\r\n","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-02-24 18:22:11.1.3] [INFO] [CUSTOM_INTEGRATION] GET DATA: {"version_id":"431185","level":"testcase","id":"431184","form_token":"2049666645","setting_build":"7"}
+[2026-02-24 18:22:11.3.1] [INFO] [CUSTOM_INTEGRATION] Issue tracker enabled, checking for custom integration for project: 448287
+[2026-02-24 18:22:11.6.7] [INFO] [CUSTOM_INTEGRATION] Custom integration found: Redmine1 (ID: 7)
+[2026-02-24 18:22:11.7.8] [INFO] [CUSTOM_INTEGRATION] Using custom integration for execution save
+[2026-02-24 18:22:11.0.6] [INFO] [CUSTOM_INTEGRATION] createIssue flag: true
+[2026-02-24 18:22:11.2.9] [INFO] [CUSTOM_INTEGRATION] USING CLEAN CUSTOM HANDLER WITH DATABASE URL
+[2026-02-24 18:22:11.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-02-24 18:22:11.9.1] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-02-24 18:22:11.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-02-24 18:22:11.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-02-24 18:22:11.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431184
+[2026-02-24 18:22:11.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-02-24 18:22:11.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-02-24 18:22:11.8.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: Redmine1
+[2026-02-24 18:22:11.280] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-02-24 18:22:11.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-02-24 18:22:11.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-02-24CET18:21'
+[2026-02-24 18:22:11.284] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+[2026-02-24 18:22:11.5.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-02-24CET18:21'
+[2026-02-24 18:22:11.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 425
+[2026-02-24 18:22:11.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-02-24 18:22:11.0.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+N/A
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTING INTEGRATION
+]
+
+TestLink URLs:
+- ...'
+[2026-02-24 18:22:11.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] Execution ID is 0, trying to get from request data
+[2026-02-24 18:22:11.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Request data keys: version_id, level, id, form_token, setting_build, CSRFName, CSRFToken, save_button_clicked, do_delete, exec_to_delete, refresh_tree, btn_history_off, history_on, tpn_view_status, bn_view_status, tc_version, version_number, tsdetails_view_status_431184, notes, execution_duration, createIssue, statusSingle, save_results, save_and_next, bug_summary, bug_notes, addLinkToTL, addLinkToTLPrintView
+[2026-02-24 18:22:11.294] [INFO] [CUSTOM_ISSUE_HANDLER] Checking tc_version array for execution data
+[2026-02-24 18:22:11.5.5] [INFO] [CUSTOM_ISSUE_HANDLER] Found tcversion_id: 431185, tc_id: 431184
+[2026-02-24 18:22:11.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] Found status for tcversion_id: 431185
+[2026-02-24 18:22:11.8.4] [INFO] [CUSTOM_ISSUE_HANDLER] WARNING: Could not find execution_id in any request field
+[2026-02-24 18:22:11.0.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-02-24CET18:21...
+[2026-02-24 18:22:11.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-02-24 18:22:11.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431184, Exec ID: 0
+[2026-02-24 18:22:11.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-02-24 18:22:14.0.2] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":86463,"issue_url":"https:\/\/support.profinch.com\/issues\/86463"}
+[2026-02-24 18:22:14.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-02-24 18:22:14.2.9] [INFO] [CUSTOM_INTEGRATION] Custom execution completed - addIssueOp: {"success":true,"issue_id":86463,"issue_url":"https:\/\/support.profinch.com\/issues\/86463","message":"Issue created successfully in Redmine"}
+[2026-02-24 18:22:14.3.4] [INFO] [CUSTOM_INTEGRATION] No bugs found in other_info, attempting to load from database
+[2026-02-24 18:22:14.5.6] [INFO] [CUSTOM_INTEGRATION] Looking for execution ID: NULL
+[2026-02-24 18:22:14.7.6] [INFO] [CUSTOM_INTEGRATION] Total other_execs count: 1
+[2026-02-24 18:22:14.9.2] [INFO] [CUSTOM_INTEGRATION] Checking exec key: 431185
+[2026-02-24 18:22:14.0.5] [INFO] [CUSTOM_INTEGRATION] Found array of executions, count: 1
+[2026-02-24 18:22:14.1.9] [INFO] [CUSTOM_INTEGRATION] Single exec structure: ["execution_id","status","execution_run_type","execution_duration","name","testcase_id","tsuite_id","id","tc_external_id","version","summary","preconditions","importance","author_id","creation_ts","updater_id","modification_ts","active","is_open","execution_type","estimated_exec_duration","wkfstatus","tester_login","tester_first_name","tester_last_name","tester_id","execution_notes","execution_ts","build_id","tcversion_number","build_name","build_is_active","build_is_open","platform_id","platform_name","steps"]
+[2026-02-24 18:22:14.3.6] [INFO] [CUSTOM_INTEGRATION] Found execution ID in field 'execution_id': 81605
+[2026-02-24 18:22:14.145] [INFO] [CUSTOM_INTEGRATION] Executing SQL: SELECT bug_id FROM execution_bugs WHERE execution_id = 81605
+[2026-02-24 18:22:14.8.6] [INFO] [CUSTOM_INTEGRATION] SQL execution result: DB connection OK
+[2026-02-24 18:22:14.1.4] [INFO] [CUSTOM_INTEGRATION] SQL query executed, result: SUCCESS
+[2026-02-24 18:22:14.2.8] [INFO] [CUSTOM_INTEGRATION] SQL returned 0 rows
+[2026-02-24 18:22:14.4.3] [INFO] [CUSTOM_INTEGRATION] No rows returned for execution 81605 - checking if this execution has bugs at all
+[2026-02-24 18:22:14.5.6] [INFO] [CUSTOM_INTEGRATION] DEBUG: Checking all bugs for this test case: SELECT * FROM execution_bugs WHERE execution_id IN (SELECT id FROM executions WHERE tcversion_id = 431185)
+[2026-02-24 18:22:14.8.4] [INFO] [CUSTOM_INTEGRATION] DEBUG: Found 0 bugs for this test case version
+[2026-02-24 18:22:14.161] [INFO] [CUSTOM_INTEGRATION] DEBUG: Using ultra-simple bug loading approach
+[2026-02-24 18:22:14.5.3] [INFO] [CUSTOM_INTEGRATION] DEBUG: Database connection OK, total bugs in system: 2764
+[2026-02-24 18:22:14.7.6] [INFO] [CUSTOM_INTEGRATION] DEBUG: Searching for bugs using execution ID: 81605
+[2026-02-24 18:22:14.170] [INFO] [CUSTOM_INTEGRATION] DEBUG: Ultra-simple bug query: SELECT DISTINCT bug_id FROM execution_bugs WHERE execution_id = 81605 LIMIT 10
+[2026-02-24 18:22:14.3.2] [INFO] [CUSTOM_INTEGRATION] DEBUG: No bugs found for execution 81605
+[2026-02-24 18:22:14.5.5] [INFO] [CUSTOM_INTEGRATION] DEBUG: Trying to find execution IDs for tcversion_id: 431185
+[2026-02-24 18:22:14.7.5] [INFO] [CUSTOM_INTEGRATION] DEBUG: Getting execution IDs: SELECT id FROM executions WHERE tcversion_id = 431185 LIMIT 10
+[2026-02-24 18:22:14.0.2] [INFO] [CUSTOM_INTEGRATION] DEBUG: Found execution IDs: 81605
+[2026-02-24 18:22:14.5.2] [INFO] [CUSTOM_INTEGRATION] === EXECSETRESULTS SCRIPT END ===
+[2026-02-24 18:22:14.7.4] [INFO] [CUSTOM_INTEGRATION] Template to display: execute/execSetResults.tpl

@@ -1,0 +1,8 @@
+[2025-04-15 15:11:50] Dummy Redmine API started
+[2025-04-15 15:11:51] [IP: 127.0.0.1] [UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0] DIRECT INCLUSION MODE: Using provided data
+[2025-04-15 15:11:51] [IP: 127.0.0.1] [UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0] POST request to /issues.json
+[2025-04-15 15:11:51] [IP: 127.0.0.1] [UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0] Request data: {"issue":{"subject":"Test Issue from Diagnostic Script","description":"This is a test issue created by the diagnostic script at 2025-04-15 15:11:50"}}
+[2025-04-15 15:11:51] [IP: 127.0.0.1] [UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0] Creating issue #10000
+2025-04-15 15:11:51 - Dummy API response: <br />
+<b>Warning</b>:  file_put_contents(C:\xampp\htdocs\tl-uat/C:/xampp/htdocs/tl-uat/dummy_redmine_issues.json): failed to open stream: No such file or directory in <b>C:\xampp\htdocs\tl-uat\dummy_redmine_api.php</b> on line <b>70</b><br />
+{"issue":{"id":10000,"subject":"Test Issue from Diagnostic Script","description":"This is a test issue created by the diagnostic script at 2025-04-15 15:11:50","status":{"id":1,"name":"New"},"created_on":"2025-04-15T15:11:51Z","updated_on":"2025-04-15T15:11:51Z"}}

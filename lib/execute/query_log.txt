@@ -1,0 +1,14 @@
+=== TestLink Query Log Session Started: 2026-02-16 13:37:40 ===
+
+[13:37:40.889] Query #1 - 0.0000s
+SQL: === DATABASE MONITORING STARTED ===
+
+
+=== Query Summary ===
+Total Queries: 1
+Total Query Time: 0.0000s
+Average Query Time: 0.0000s
+Total Script Time: 0.1818s
+Query Time Percentage: 0.0%
+=== Session Ended: 2026-02-16 13:37:40 ===
+

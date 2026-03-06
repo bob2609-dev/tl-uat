@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complete Fix Guide for Cumulative Progress Chart</title>
+    <style>
+        .issue { background: #ffe6e6; padding: 10px; margin: 10px 0; border-left: 4px solid #d32f2f; }
+        .fix { background: #e8f5e8; padding: 10px; margin: 10px 0; border-left: 4px solid #2e7d32; }
+        .code { background: #f4f4f4; padding: 15px; font-family: monospace; overflow-x: auto; }
+        .highlight { color: #d32f2f; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Complete Fix Guide for Cumulative Progress Chart Issues</h1>
+    
+    <div class="issue">
+        <h2>❌ Issue 1: Numbers Not Showing on Points</h2>
+        <p><strong>Cause:</strong> Missing <span class="highlight">datalabels</span> plugin in chart options</p>
+    </div>
+    
+    <div class="fix">
+        <h2>✅ Fix 1: Add Datalabels Plugin</h2>
+        <p><strong>Location:</strong> In the cumulative progress chart options, find the <span class="highlight">plugins</span> section and add <span class="highlight">datalabels</span> before <span class="highlight">scales</span>.</p>
+        
+        <h3>Find this pattern:</h3>
+        <div class="code">
+                    }
+                },
+                scales: {
+        </div>
+        
+        <h3>Replace with this:</h3>
+        <div class="code">
+                    }
+                },
+                datalabels: {
+                    display: true,
+                    color: '#333',
+                    font: {
+                        size: 10,
+                        weight: 'bold'
+                    },
+                    formatter: function(value, context) {
+                        return value;
+                    },
+                    anchor: 'end',
+                    align: 'top',
+                    offset: 4
+                },
+                scales: {
+        </div>
+    </div>
+    
+    <div class="issue">
+        <h2>❌ Issue 2: Tooltip Repeating Information</h2>
+        <p><strong>Cause:</strong> Complex tooltip logic showing all datasets instead of just hovered dataset</p>
+    </div>
+    
+    <div class="fix">
+        <h2>✅ Fix 2: Simplify Tooltip</h2>
+        <p><strong>Location:</strong> In the <span class="highlight">tooltip callbacks</span> section, replace the entire <span class="highlight">label function</span>.</p>
+        
+        <h3>Find this complex code (around lines 1817-1858):</h3>
+        <div class="code">
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    var value = context.parsed.y;
+                                    var deltaIndex = context.dataIndex;
+                                    
+                                    // Get both values for calculation
+                                    var executed = window.currentCumulativeExecuted[deltaIndex];
+                                    var passed = window.currentCumulativePassed[deltaIndex];
+                                    var assigned = window.currentAssignedData[deltaIndex];
+                                    
+                                    // Calculate delta percentage correctly
+                                    var deltaValue = executed - passed;
+                                    var deltaPercentage = ((deltaValue) / executed * 100).toFixed(1);
+                                    
+                                    if (label.includes('Executed')) {
+                                        return [
+                                            'Executed: ' + executed,
+                                            'Passed: ' + passed,
+                                            'Assigned: ' + assigned,
+                                            'Delta: ' + deltaValue,
+                                            'Delta %: ' + deltaPercentage + '%'
+                                        ];
+                                    } else if (label.includes('Passed')) {
+                                        return [
+                                            'Passed: ' + passed,
+                                            'Executed: ' + executed,
+                                            'Assigned: ' + assigned,
+                                            'Delta: ' + deltaValue,
+                                            'Delta %: ' + deltaPercentage + '%'
+                                        ];
+                                    } else if (label.includes('Assigned')) {
+                                        return [
+                                            'Assigned: ' + assigned,
+                                            'Executed: ' + executed,
+                                            'Passed: ' + passed,
+                                            'Remaining: ' + (assigned - executed),
+                                            'Completion %: ' + ((executed / assigned * 100).toFixed(1)) + '%'
+                                        ];
+                                    }
+                                    return label + ': ' + value;
+                                }
+        </div>
+        
+        <h3>Replace with this simple code:</h3>
+        <div class="code">
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    var value = context.parsed.y;
+                                    return label + ': ' + value;
+                                }
+        </div>
+    </div>
+    
+    <div class="fix">
+        <h2>🎯 Expected Result After Fixes</h2>
+        <ul>
+            <li>✅ <strong>Numbers on each point</strong> - datalabels plugin shows values</li>
+            <li>✅ <strong>Clean tooltips</strong> - only shows hovered dataset info</li>
+            <li>✅ <strong>No repetition</strong> - single line per tooltip</li>
+            <li>✅ <strong>Bold numbers</strong> - better visibility</li>
+        </ul>
+    </div>
+    
+    <div class="issue">
+        <h2>🔍 Troubleshooting</h2>
+        <p>If issues persist after applying fixes:</p>
+        <ol>
+            <li>Check browser console for JavaScript errors</li>
+            <li>Verify Chart.js version supports datalabels plugin</li>
+            <li>Ensure no syntax errors in the changes</li>
+            <li>Test with different browsers</li>
+        </ol>
+    </div>
+</body>
+</html>

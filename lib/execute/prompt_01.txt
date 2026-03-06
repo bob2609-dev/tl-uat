@@ -1,0 +1,36 @@
+I am managing a legacy TestLink instance (MySQL/MariaDB) that has performance issues. The application is generally responsive, but it becomes extremely slow specifically when loading the Test Case tree view or viewing Test Specifications.
+
+System Context:
+
+Symptom: Operations like login or saving are fast. The bottleneck is strictly read-heavy operations on the Test Specification / Tree View pages.
+
+Database Stats:
+
+events table: ~380 MB (I am planning to truncate this).
+
+cfield_design_values: ~121 MB (This is my main suspect).
+
+nodes_hierarchy: ~27 MB.
+
+executions: ~16 MB.
+
+My Constraints:
+
+I cannot easily upgrade the hardware or the TestLink version immediately.
+
+I have access to run SQL commands (indexes, truncates, deletes).
+
+My Questions for you:
+
+Given that cfield_design_values (Custom Fields) is my second largest table, how does TestLink query this during the tree view generation? Is it an N+1 query problem?
+
+Would converting cfield_design_values to use a different storage engine or row format (like DYNAMIC) help if it contains large text blobs?
+
+Aside from adding an index on node_id, are there any specific my.cnf (MySQL configuration) buffer pool settings I should tune specifically for a read-heavy workload involving text blobs?
+
+Here is a list of other tables that i suspect ; do any of these look like they would impact the Test Spec view?
+
+transactions
+cfield_design_values
+events
+executions
