@@ -14,3 +14,4 @@ define('DB_TABLE_PREFIX', '');
 // define('DB_HOST', '10.200.224.21:4050');
 // define('DB_NAME', 'testlink_db');
 // define('DB_TABLE_PREFIX', '');
+// --------------------------------------------------------------------------------
