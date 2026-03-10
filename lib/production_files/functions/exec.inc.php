@@ -826,7 +826,16 @@ function generateIssueText($dbHandler,$argsObj,$itsObj,$opt=null) {
                     sprintf($lbl['execution_ts_iso'],$exec['execution_ts']),
                     sprintf($lbl['issue_exec_result'],$exec['statusVerbose']),
                     $exec['execution_notes']);
- 
+    
+    // Add context if provided
+    if(property_exists($argsObj, 'bug_context') && !empty($argsObj->bug_context)) {
+        $contextText = "\n\nContext: " . $argsObj->bug_context;
+        $tags[] = '%%CONTEXT%%';
+        $values[] = $argsObj->bug_context;
+        $tags[] = '%%EXECNOTES%%';
+        $values[] = $exec['execution_notes'];
+    }
+    
     $ret->description = str_replace($tags,$values,$argsObj->bug_notes);
 
     // 20190426

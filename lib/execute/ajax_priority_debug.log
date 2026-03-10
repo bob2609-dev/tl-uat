@@ -440,3 +440,367 @@
 [2026-03-10 08:12:04] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431177,"action":"Priority check completed"}}
 [2026-03-10 08:12:04] === AJAX Priority Check Ended ===
 
+[2026-03-10 16:23:09] SCRIPT EXECUTED
+[2026-03-10 16:23:09] === AJAX Priority Check Started ===
+[2026-03-10 16:23:09] Request method: GET
+[2026-03-10 16:23:09] GET data: Array
+(
+    [tcvID] => 431171
+    [field_id] => 15
+    [_] => 1773156110017
+)
+
+[2026-03-10 16:23:09] Step 1: PHP working
+[2026-03-10 16:23:09] Step 2: Config file loaded successfully
+[2026-03-10 16:23:09] Parameters: tcvID=431171, field_id=15
+[2026-03-10 16:23:09] Step 3: GET data received and validated
+[2026-03-10 16:23:09] Step 4: Starting database operations
+[2026-03-10 16:23:09] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 16:23:09] Database connected successfully
+[2026-03-10 16:23:09] Using tcvID as node_id: 431171
+[2026-03-10 16:23:09] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431171
+[2026-03-10 16:23:09] Query result: 1 rows found
+[2026-03-10 16:23:09] Priority found: LOW
+[2026-03-10 16:23:09] Priority check completed successfully
+[2026-03-10 16:23:09] About to encode response - array size: 5
+[2026-03-10 16:23:09] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431171,"action":"Priority check completed"}}
+[2026-03-10 16:23:09] === AJAX Priority Check Ended ===
+
+[2026-03-10 19:55:33] SCRIPT EXECUTED
+[2026-03-10 19:55:33] === AJAX Priority Check Started ===
+[2026-03-10 19:55:33] Request method: GET
+[2026-03-10 19:55:33] GET data: Array
+(
+    [tcvID] => 431175
+    [field_id] => 15
+    [_] => 1773168797076
+)
+
+[2026-03-10 19:55:33] Step 1: PHP working
+[2026-03-10 19:55:33] Step 2: Config file loaded successfully
+[2026-03-10 19:55:33] Parameters: tcvID=431175, field_id=15
+[2026-03-10 19:55:33] Step 3: GET data received and validated
+[2026-03-10 19:55:33] Step 4: Starting database operations
+[2026-03-10 19:55:33] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 19:55:33] Database connected successfully
+[2026-03-10 19:55:33] Using tcvID as node_id: 431175
+[2026-03-10 19:55:33] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431175
+[2026-03-10 19:55:33] Query result: 1 rows found
+[2026-03-10 19:55:33] Priority found: LOW
+[2026-03-10 19:55:33] Priority check completed successfully
+[2026-03-10 19:55:33] About to encode response - array size: 5
+[2026-03-10 19:55:33] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431175,"action":"Priority check completed"}}
+[2026-03-10 19:55:33] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:00:44] SCRIPT EXECUTED
+[2026-03-10 20:00:44] === AJAX Priority Check Started ===
+[2026-03-10 20:00:44] Request method: GET
+[2026-03-10 20:00:44] GET data: Array
+(
+    [tcvID] => 431177
+    [field_id] => 15
+    [_] => 1773169173620
+)
+
+[2026-03-10 20:00:44] Step 1: PHP working
+[2026-03-10 20:00:44] Step 2: Config file loaded successfully
+[2026-03-10 20:00:44] Parameters: tcvID=431177, field_id=15
+[2026-03-10 20:00:44] Step 3: GET data received and validated
+[2026-03-10 20:00:44] Step 4: Starting database operations
+[2026-03-10 20:00:44] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:00:44] Database connected successfully
+[2026-03-10 20:00:44] Using tcvID as node_id: 431177
+[2026-03-10 20:00:44] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431177
+[2026-03-10 20:00:44] Query result: 1 rows found
+[2026-03-10 20:00:44] Priority found: LOW
+[2026-03-10 20:00:44] Priority check completed successfully
+[2026-03-10 20:00:44] About to encode response - array size: 5
+[2026-03-10 20:00:44] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431177,"action":"Priority check completed"}}
+[2026-03-10 20:00:44] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:05:24] SCRIPT EXECUTED
+[2026-03-10 20:05:24] === AJAX Priority Check Started ===
+[2026-03-10 20:05:24] Request method: GET
+[2026-03-10 20:05:24] GET data: Array
+(
+    [tcvID] => 431177
+    [field_id] => 15
+    [_] => 1773169454752
+)
+
+[2026-03-10 20:05:24] Step 1: PHP working
+[2026-03-10 20:05:24] Step 2: Config file loaded successfully
+[2026-03-10 20:05:24] Parameters: tcvID=431177, field_id=15
+[2026-03-10 20:05:24] Step 3: GET data received and validated
+[2026-03-10 20:05:24] Step 4: Starting database operations
+[2026-03-10 20:05:24] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:05:24] Database connected successfully
+[2026-03-10 20:05:24] Using tcvID as node_id: 431177
+[2026-03-10 20:05:24] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431177
+[2026-03-10 20:05:24] Query result: 1 rows found
+[2026-03-10 20:05:24] Priority found: LOW
+[2026-03-10 20:05:24] Priority check completed successfully
+[2026-03-10 20:05:24] About to encode response - array size: 5
+[2026-03-10 20:05:24] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431177,"action":"Priority check completed"}}
+[2026-03-10 20:05:24] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:11:16] SCRIPT EXECUTED
+[2026-03-10 20:11:16] === AJAX Priority Check Started ===
+[2026-03-10 20:11:16] Request method: GET
+[2026-03-10 20:11:16] GET data: Array
+(
+    [tcvID] => 431175
+    [field_id] => 15
+    [_] => 1773169808027
+)
+
+[2026-03-10 20:11:16] Step 1: PHP working
+[2026-03-10 20:11:16] Step 2: Config file loaded successfully
+[2026-03-10 20:11:16] Parameters: tcvID=431175, field_id=15
+[2026-03-10 20:11:16] Step 3: GET data received and validated
+[2026-03-10 20:11:16] Step 4: Starting database operations
+[2026-03-10 20:11:16] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:11:16] Database connected successfully
+[2026-03-10 20:11:16] Using tcvID as node_id: 431175
+[2026-03-10 20:11:16] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431175
+[2026-03-10 20:11:16] Query result: 1 rows found
+[2026-03-10 20:11:16] Priority found: LOW
+[2026-03-10 20:11:16] Priority check completed successfully
+[2026-03-10 20:11:16] About to encode response - array size: 5
+[2026-03-10 20:11:16] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431175,"action":"Priority check completed"}}
+[2026-03-10 20:11:16] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:25:12] SCRIPT EXECUTED
+[2026-03-10 20:25:12] === AJAX Priority Check Started ===
+[2026-03-10 20:25:12] Request method: GET
+[2026-03-10 20:25:12] GET data: Array
+(
+    [tcvID] => 431173
+    [field_id] => 15
+    [_] => 1773170629253
+)
+
+[2026-03-10 20:25:12] Step 1: PHP working
+[2026-03-10 20:25:12] Step 2: Config file loaded successfully
+[2026-03-10 20:25:12] Parameters: tcvID=431173, field_id=15
+[2026-03-10 20:25:12] Step 3: GET data received and validated
+[2026-03-10 20:25:12] Step 4: Starting database operations
+[2026-03-10 20:25:12] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:25:12] Database connected successfully
+[2026-03-10 20:25:12] Using tcvID as node_id: 431173
+[2026-03-10 20:25:12] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431173
+[2026-03-10 20:25:12] Query result: 1 rows found
+[2026-03-10 20:25:12] Priority found: LOW
+[2026-03-10 20:25:12] Priority check completed successfully
+[2026-03-10 20:25:12] About to encode response - array size: 5
+[2026-03-10 20:25:12] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431173,"action":"Priority check completed"}}
+[2026-03-10 20:25:12] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:31:28] SCRIPT EXECUTED
+[2026-03-10 20:31:28] === AJAX Priority Check Started ===
+[2026-03-10 20:31:28] Request method: GET
+[2026-03-10 20:31:28] GET data: Array
+(
+    [tcvID] => 257384
+    [field_id] => 15
+    [_] => 1773170987562
+)
+
+[2026-03-10 20:31:28] Step 1: PHP working
+[2026-03-10 20:31:28] Step 2: Config file loaded successfully
+[2026-03-10 20:31:28] Parameters: tcvID=257384, field_id=15
+[2026-03-10 20:31:28] Step 3: GET data received and validated
+[2026-03-10 20:31:28] Step 4: Starting database operations
+[2026-03-10 20:31:28] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:31:28] Database connected successfully
+[2026-03-10 20:31:28] Using tcvID as node_id: 257384
+[2026-03-10 20:31:28] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=257384
+[2026-03-10 20:31:28] Query result: 1 rows found
+[2026-03-10 20:31:28] Priority found: LOW
+[2026-03-10 20:31:28] Priority check completed successfully
+[2026-03-10 20:31:28] About to encode response - array size: 5
+[2026-03-10 20:31:28] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":257384,"action":"Priority check completed"}}
+[2026-03-10 20:31:28] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:33:46] SCRIPT EXECUTED
+[2026-03-10 20:33:46] === AJAX Priority Check Started ===
+[2026-03-10 20:33:46] Request method: GET
+[2026-03-10 20:33:46] GET data: Array
+(
+    [tcvID] => 257384
+    [field_id] => 15
+    [_] => 1773171093981
+)
+
+[2026-03-10 20:33:46] Step 1: PHP working
+[2026-03-10 20:33:46] Step 2: Config file loaded successfully
+[2026-03-10 20:33:46] Parameters: tcvID=257384, field_id=15
+[2026-03-10 20:33:46] Step 3: GET data received and validated
+[2026-03-10 20:33:46] Step 4: Starting database operations
+[2026-03-10 20:33:46] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:33:46] Database connected successfully
+[2026-03-10 20:33:46] Using tcvID as node_id: 257384
+[2026-03-10 20:33:46] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=257384
+[2026-03-10 20:33:46] Query result: 1 rows found
+[2026-03-10 20:33:46] Priority found: LOW
+[2026-03-10 20:33:46] Priority check completed successfully
+[2026-03-10 20:33:46] About to encode response - array size: 5
+[2026-03-10 20:33:46] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":257384,"action":"Priority check completed"}}
+[2026-03-10 20:33:46] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:39:36] SCRIPT EXECUTED
+[2026-03-10 20:39:36] === AJAX Priority Check Started ===
+[2026-03-10 20:39:36] Request method: GET
+[2026-03-10 20:39:36] GET data: Array
+(
+    [tcvID] => 414554
+    [field_id] => 15
+    [_] => 1773171491604
+)
+
+[2026-03-10 20:39:36] Step 1: PHP working
+[2026-03-10 20:39:36] Step 2: Config file loaded successfully
+[2026-03-10 20:39:36] Parameters: tcvID=414554, field_id=15
+[2026-03-10 20:39:36] Step 3: GET data received and validated
+[2026-03-10 20:39:36] Step 4: Starting database operations
+[2026-03-10 20:39:36] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:39:36] Database connected successfully
+[2026-03-10 20:39:36] Using tcvID as node_id: 414554
+[2026-03-10 20:39:36] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=414554
+[2026-03-10 20:39:36] Query result: 1 rows found
+[2026-03-10 20:39:36] Priority found: LOW
+[2026-03-10 20:39:36] Priority check completed successfully
+[2026-03-10 20:39:36] About to encode response - array size: 5
+[2026-03-10 20:39:36] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":414554,"action":"Priority check completed"}}
+[2026-03-10 20:39:36] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:43:47] SCRIPT EXECUTED
+[2026-03-10 20:43:47] === AJAX Priority Check Started ===
+[2026-03-10 20:43:47] Request method: GET
+[2026-03-10 20:43:47] GET data: Array
+(
+    [tcvID] => 414554
+    [field_id] => 15
+    [_] => 1773171759551
+)
+
+[2026-03-10 20:43:47] Step 1: PHP working
+[2026-03-10 20:43:47] Step 2: Config file loaded successfully
+[2026-03-10 20:43:47] Parameters: tcvID=414554, field_id=15
+[2026-03-10 20:43:47] Step 3: GET data received and validated
+[2026-03-10 20:43:47] Step 4: Starting database operations
+[2026-03-10 20:43:47] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:43:47] Database connected successfully
+[2026-03-10 20:43:47] Using tcvID as node_id: 414554
+[2026-03-10 20:43:47] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=414554
+[2026-03-10 20:43:47] Query result: 1 rows found
+[2026-03-10 20:43:47] Priority found: LOW
+[2026-03-10 20:43:47] Priority check completed successfully
+[2026-03-10 20:43:47] About to encode response - array size: 5
+[2026-03-10 20:43:47] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":414554,"action":"Priority check completed"}}
+[2026-03-10 20:43:47] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:47:40] SCRIPT EXECUTED
+[2026-03-10 20:47:40] === AJAX Priority Check Started ===
+[2026-03-10 20:47:40] Request method: GET
+[2026-03-10 20:47:40] GET data: Array
+(
+    [tcvID] => 257382
+    [field_id] => 15
+    [_] => 1773171987083
+)
+
+[2026-03-10 20:47:40] Step 1: PHP working
+[2026-03-10 20:47:40] Step 2: Config file loaded successfully
+[2026-03-10 20:47:40] Parameters: tcvID=257382, field_id=15
+[2026-03-10 20:47:40] Step 3: GET data received and validated
+[2026-03-10 20:47:40] Step 4: Starting database operations
+[2026-03-10 20:47:40] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:47:40] Database connected successfully
+[2026-03-10 20:47:40] Using tcvID as node_id: 257382
+[2026-03-10 20:47:40] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=257382
+[2026-03-10 20:47:40] Query result: 1 rows found
+[2026-03-10 20:47:40] Priority found: LOW
+[2026-03-10 20:47:40] Priority check completed successfully
+[2026-03-10 20:47:40] About to encode response - array size: 5
+[2026-03-10 20:47:40] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":257382,"action":"Priority check completed"}}
+[2026-03-10 20:47:40] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:52:06] SCRIPT EXECUTED
+[2026-03-10 20:52:06] === AJAX Priority Check Started ===
+[2026-03-10 20:52:06] Request method: GET
+[2026-03-10 20:52:06] GET data: Array
+(
+    [tcvID] => 431171
+    [field_id] => 15
+    [_] => 1773172251556
+)
+
+[2026-03-10 20:52:06] Step 1: PHP working
+[2026-03-10 20:52:06] Step 2: Config file loaded successfully
+[2026-03-10 20:52:06] Parameters: tcvID=431171, field_id=15
+[2026-03-10 20:52:06] Step 3: GET data received and validated
+[2026-03-10 20:52:06] Step 4: Starting database operations
+[2026-03-10 20:52:06] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:52:06] Database connected successfully
+[2026-03-10 20:52:06] Using tcvID as node_id: 431171
+[2026-03-10 20:52:06] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431171
+[2026-03-10 20:52:06] Query result: 1 rows found
+[2026-03-10 20:52:06] Priority found: LOW
+[2026-03-10 20:52:06] Priority check completed successfully
+[2026-03-10 20:52:06] About to encode response - array size: 5
+[2026-03-10 20:52:06] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431171,"action":"Priority check completed"}}
+[2026-03-10 20:52:06] === AJAX Priority Check Ended ===
+
+[2026-03-10 20:54:32] SCRIPT EXECUTED
+[2026-03-10 20:54:32] === AJAX Priority Check Started ===
+[2026-03-10 20:54:32] Request method: GET
+[2026-03-10 20:54:32] GET data: Array
+(
+    [tcvID] => 431165
+    [field_id] => 15
+    [_] => 1773172412580
+)
+
+[2026-03-10 20:54:32] Step 1: PHP working
+[2026-03-10 20:54:32] Step 2: Config file loaded successfully
+[2026-03-10 20:54:32] Parameters: tcvID=431165, field_id=15
+[2026-03-10 20:54:32] Step 3: GET data received and validated
+[2026-03-10 20:54:32] Step 4: Starting database operations
+[2026-03-10 20:54:32] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 20:54:32] Database connected successfully
+[2026-03-10 20:54:32] Using tcvID as node_id: 431165
+[2026-03-10 20:54:32] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431165
+[2026-03-10 20:54:32] Query result: 1 rows found
+[2026-03-10 20:54:32] Priority found: LOW
+[2026-03-10 20:54:32] Priority check completed successfully
+[2026-03-10 20:54:32] About to encode response - array size: 5
+[2026-03-10 20:54:32] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431165,"action":"Priority check completed"}}
+[2026-03-10 20:54:32] === AJAX Priority Check Ended ===
+
+[2026-03-10 21:00:34] SCRIPT EXECUTED
+[2026-03-10 21:00:34] === AJAX Priority Check Started ===
+[2026-03-10 21:00:34] Request method: GET
+[2026-03-10 21:00:34] GET data: Array
+(
+    [tcvID] => 431183
+    [field_id] => 15
+    [_] => 1773172765008
+)
+
+[2026-03-10 21:00:34] Step 1: PHP working
+[2026-03-10 21:00:34] Step 2: Config file loaded successfully
+[2026-03-10 21:00:34] Parameters: tcvID=431183, field_id=15
+[2026-03-10 21:00:34] Step 3: GET data received and validated
+[2026-03-10 21:00:34] Step 4: Starting database operations
+[2026-03-10 21:00:34] DB config - host=localhost, name=tl_uat, user=tl_uat
+[2026-03-10 21:00:34] Database connected successfully
+[2026-03-10 21:00:34] Using tcvID as node_id: 431183
+[2026-03-10 21:00:34] Executing SQL: SELECT value FROM cfield_design_values WHERE field_id = ? AND node_id = ? with field_id=15, node_id=431183
+[2026-03-10 21:00:34] Query result: 1 rows found
+[2026-03-10 21:00:34] Priority found: LOW
+[2026-03-10 21:00:34] Priority check completed successfully
+[2026-03-10 21:00:34] About to encode response - array size: 5
+[2026-03-10 21:00:34] Final response: {"success":true,"has_priority":true,"priority":"LOW","message":"Priority check completed successfully","debug":{"step1":"PHP working","step2":"Config file loaded successfully","step3":"GET data received and validated","step4":"Database connected successfully","node_id":431183,"action":"Priority check completed"}}
+[2026-03-10 21:00:34] === AJAX Priority Check Ended ===
+

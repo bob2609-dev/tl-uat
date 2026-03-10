@@ -38,12 +38,22 @@ window.syncIssueSummaryVisibility = function () {
   var shouldShow = createIssueCheckbox.is(":checked");
   var issueSummary = jQuery("#issue_summary");
   var bugSummary = jQuery("#bug_summary");
+  var bugContext = jQuery("#bug_context");
+
+  // Debug logging
+  console.log("syncIssueSummaryVisibility called:");
+  console.log("shouldShow:", shouldShow);
+  console.log("issueSummary length:", issueSummary.length);
+  console.log("bugSummary length:", bugSummary.length);
+  console.log("bugContext length:", bugContext.length);
 
   if (issueSummary.length > 0) {
     if (shouldShow) {
       issueSummary.css("display", "table");
+      console.log("Showing issue_summary table");
     } else {
       issueSummary.hide();
+      console.log("Hiding issue_summary table");
     }
   }
 
@@ -52,6 +62,37 @@ window.syncIssueSummaryVisibility = function () {
       bugSummary.show();
     } else {
       bugSummary.hide();
+    }
+  }
+
+  // Handle Context field visibility and dynamic creation
+  if (bugContext.length > 0) {
+    if (shouldShow) {
+      bugContext.show();
+      console.log("Showing bug_context field");
+    } else {
+      bugContext.hide();
+      console.log("Hiding bug_context field");
+    }
+  } else {
+    // Context field doesn't exist, add it dynamically
+    if (shouldShow) {
+      // Find the bug description row and add context field before it
+      var bugDescRow = jQuery("#bug_notes").closest("tr");
+      if (bugDescRow.length > 0) {
+        // Check if context field already exists
+        if (jQuery("#bug_context_dynamic").length === 0) {
+          console.log("Adding Context field dynamically");
+          var contextHtml = '<tr>' +
+            '<td colspan="2">' +
+              '<div class="label">Context</div>' +
+              '<input type="text" name="bug_context" id="bug_context_dynamic" style="width:100%" />' +
+            '</td>' +
+          '</tr>';
+          bugDescRow.before(contextHtml);
+          console.log("Context field added dynamically");
+        }
+      }
     }
   }
 };
@@ -844,12 +885,6 @@ console.log(
   "execSetResults.js loaded - integration picker functions available",
 );
 
-/**
- *
- */
-function doSubmitForHTML5() {
-  jQuery("#hidden-submit-button").click();
-}
 
 // Priority popup functions
 window.showPriorityPopup = function (tcvID, status) {
@@ -1123,6 +1158,12 @@ function saveExecutionStatus(tcvID, status, msg, goNext) {
     if (typeof disableTestExecButtons === "function") {
       disableTestExecButtons(true);
     }
+    
+    // Set up timeout to reset overlay in case of issues
+    window.bugSubmissionTimeout = setTimeout(function() {
+      console.warn("Bug submission timeout - resetting UI");
+      resetBugSubmissionState();
+    }, 30000); // 30 second timeout
   }
 
   if (goNext == undefined || goNext == 0) {
@@ -1137,27 +1178,88 @@ function saveExecutionStatus(tcvID, status, msg, goNext) {
 }
 
 /**
- * Handle bug submission completion - reset overlay and flags
+ * Reset bug submission state and UI
  */
-window.handleBugSubmissionComplete = function() {
-  console.log("Bug submission completed - resetting UI");
+function resetBugSubmissionState() {
   window.bugSubmissionInProgress = false;
+  if (window.bugSubmissionTimeout) {
+    clearTimeout(window.bugSubmissionTimeout);
+    window.bugSubmissionTimeout = null;
+  }
   if (typeof disableTestExecButtons === "function") {
     disableTestExecButtons(false);
   }
-};
+}
 
 /**
- * Handle bug submission error - reset overlay and flags
+ * Enhanced form submission with bug submission handling
  */
-window.handleBugSubmissionError = function() {
-  console.log("Bug submission failed - resetting UI");
-  window.bugSubmissionInProgress = false;
-  if (typeof disableTestExecButtons === "function") {
-    disableTestExecButtons(false);
+function doSubmitForHTML5() {
+  // Check if this is a bug submission and set up completion handling
+  var shouldCreateIssue = jQuery("#createIssue").length > 0 && jQuery("#createIssue").is(":checked");
+  
+  console.log("doSubmitForHTML5 called, shouldCreateIssue:", shouldCreateIssue);
+  
+  if (shouldCreateIssue) {
+    // Show overlay to prevent user interaction during bug submission
+    showOverlay();
+    
+    // Get context field value from both static and dynamic fields
+    var contextValue = jQuery("#bug_context").val() || jQuery("#bug_context_dynamic").val() || '';
+    console.log("Context value found:", contextValue);
+    
+    if (contextValue.trim() !== '') {
+      var bugSummaryField = jQuery("#bug_summary");
+      var currentSummary = bugSummaryField.val() || '';
+      
+      // Check if context already exists in summary to avoid duplication
+      if (currentSummary.indexOf(' | Context: ') === -1) {
+        // Append context at the end with pipe separator
+        bugSummaryField.val(currentSummary + ' | Context: ' + contextValue);
+        console.log("Appended context to summary with pipe separator");
+      } else {
+        // Context already exists, don't add again
+        console.log("Context already exists in summary");
+      }
+    }
+    
+    // Set up completion monitoring
+    var checkCompletion = function() {
+      // Check for success/error messages that indicate completion
+      var successMsg = jQuery(".message, .success, .alert-success, .msg_feedback").length > 0;
+      var errorMsg = jQuery(".error, .alert-danger, .alert-error, .msg_error").length > 0;
+      
+      console.log("Checking completion - successMsg:", successMsg, "errorMsg:", errorMsg);
+      console.log("Current page content:", jQuery("body").html().substring(0, 200));
+      
+      if (successMsg || errorMsg) {
+        console.log("Completion detected - resetting UI");
+        hideOverlay();
+        resetBugSubmissionState();
+      } else {
+        // Check again after a delay
+        setTimeout(checkCompletion, 1000);
+      }
+    };
+    
+    // Start checking after form submission
+    setTimeout(checkCompletion, 5000);
+    
+    // Submit the form normally to trigger the actual submission
+    console.log("Submitting form...");
+    jQuery("#execSetResults").submit();
+    
+    // Also check after a longer delay in case messages take time to appear
+    setTimeout(function() {
+      console.log("Extended check - page content after 5 seconds:");
+      console.log(jQuery("body").html().substring(0, 500));
+    }, 5000);
+  } else {
+    // Normal submission without bug creation
+    console.log("Normal submission without bug creation");
+    jQuery("#hidden-submit-button").click();
   }
-  alert("Bug submission failed. Please try again or check the logs for details.");
-};
+}
 
 /**
  * Check before save partial execution if notes or Status are not empty
@@ -1262,3 +1364,51 @@ saveStepsPartialExecClicked = false;
 $("#saveStepsPartialExec").click(function () {
   saveStepsPartialExecClicked = true;
 });
+
+/**
+ * Simple validation function to prevent errors
+ */
+function validateForm(form) {
+  // Basic validation - you can expand this as needed
+  return true;
+}
+
+/**
+ * Show overlay during bug submission
+ */
+function showOverlay() {
+  // Check if overlay already exists
+  if (jQuery("#bugSubmissionOverlay").length === 0) {
+    // Create overlay HTML
+    var overlayHtml = '<div id="bugSubmissionOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; display: flex; justify-content: center; align-items: center;">' +
+      '<div style="background: white; padding: 20px; border-radius: 5px; text-align: center;">' +
+      '<h3>Creating Issue...</h3>' +
+      '<p>Please wait while we create the issue in the external service.</p>' +
+      '<div style="margin-top: 10px;">' +
+      '<div style="display: inline-block; width: 20px; height: 20px; border: 2px solid #ccc; border-top: 2px solid #333; border-radius: 50%; animation: spin 1s linear infinite;"></div>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<style>' +
+      '@keyframes spin {' +
+      '0% { transform: rotate(0deg); }' +
+      '100% { transform: rotate(360deg); }' +
+      '}' +
+      '</style>';
+    
+    // Add overlay to body
+    jQuery("body").append(overlayHtml);
+  }
+  
+  // Show overlay
+  jQuery("#bugSubmissionOverlay").show();
+  console.log("Overlay shown during bug submission");
+}
+
+/**
+ * Hide overlay after bug submission
+ */
+function hideOverlay() {
+  jQuery("#bugSubmissionOverlay").hide();
+  console.log("Overlay hidden after bug submission");
+}

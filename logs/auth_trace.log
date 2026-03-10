@@ -2097,3 +2097,107 @@
     [status] => 1
 )
 
+[2026-03-10 16:19:45] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-10 16:20:08] ldap_api.php loaded; tlLDAP declared=yes
+[2026-03-10 16:20:09] doAuthorize() called Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-10 16:20:09] Set locale to en_GB
+[2026-03-10 16:20:09] Checking if login exists Array
+(
+    [login] => mwaimu.mtingele
+)
+
+[2026-03-10 16:20:09] Login exists check result Array
+(
+    [exists] => yes
+)
+
+[2026-03-10 16:20:09] Login exists and not expired
+[2026-03-10 16:20:09] Checking password match
+[2026-03-10 16:20:09] auth_does_password_match() called Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-10 16:20:09] Skipping direct custom config loading to avoid function redeclaration
+[2026-03-10 16:20:09] Authentication config from config_get Array
+(
+    [type] => array
+    [method] => LDAP,MD5
+    [has_default_role] => no
+)
+
+[2026-03-10 16:20:09] Authentication method Array
+(
+    [method] => LDAP,MD5
+)
+
+[2026-03-10 16:20:09] Checking if LDAP is in method Array
+(
+    [has_ldap] => yes
+)
+
+[2026-03-10 16:20:09] Attempting LDAP authentication
+[2026-03-10 16:20:09] Loading LDAP API with absolute path Array
+(
+    [path] => C:\xampp\htdocs\tl-uat\lib\functions/ldap_api.php
+    [exists] => yes
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+    [size] => 12766
+    [readable] => yes
+    [head_snippet] => <?php
+/**
+ * TestLink Open Source Project - http://testlink.sourceforge.net/
+
+)
+
+[2026-03-10 16:20:09] Post-include diagnostics Array
+(
+    [class_exists_tlLDAP] => yes
+    [included_count] => 73
+    [realpath] => C:\xampp\htdocs\tl-uat\lib\functions\ldap_api.php
+    [md5] => 56423c323e08adf1540f5a10ebbaf87a
+)
+
+[2026-03-10 16:20:09] Creating tlLDAP object
+[2026-03-10 16:20:09] Calling ldap->authenticate
+[2026-03-10 16:20:09] LDAP authentication result Array
+(
+    [success] => yes
+)
+
+[2026-03-10 16:20:09] LDAP authentication successful
+[2026-03-10 16:20:09] Password check result Array
+(
+    [status_ok] => yes
+    [msg] => ok
+)
+
+[2026-03-10 16:20:09] doLogin determined Array
+(
+    [doLogin] => yes
+    [isActive] => yes
+)
+
+[2026-03-10 16:20:09] doSessionSetUp enter Array
+(
+    [user] => mwaimu.mtingele
+)
+
+[2026-03-10 16:20:09] doSessionSetUp cookie about to set Array
+(
+    [name] => TESTLINK1920TESTLINK_USER_AUTH_COOKIE
+    [value_len] => 64
+    [expire] => 
+)
+
+[2026-03-10 16:20:09] doSessionSetUp cookie set invoked
+[2026-03-10 16:20:10] doSessionSetUp exit Array
+(
+    [status] => 1
+)
+

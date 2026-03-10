@@ -31,7 +31,7 @@ logBugAdd("POST DATA: " . json_encode($_POST));
 logBugAdd("GET DATA: " . json_encode($_GET));
 
 $templateCfg = templateConfiguration();
-list($args,$gui,$its,$issueT) = initEnv($db);
+list($args,$gui,$its) = initEnv($db);
 
 logBugAdd("Initialized - user_action: " . ($args->user_action ?? 'NULL'));
 logBugAdd("Exec ID: " . ($args->exec_id ?? 'NULL'));
@@ -372,7 +372,7 @@ function initEnv(&$dbHandler)
 
   // Second access to user input
   $bug_summary['minLengh'] = 1; 
-  $bug_summary['maxLengh'] = $itObj->getBugSummaryMaxLength(); 
+  $bug_summary['maxLengh'] = ($itObj && method_exists($itObj, 'getBugSummaryMaxLength')) ? $itObj->getBugSummaryMaxLength() : 100; 
 
   $inputCfg = array("bug_summary" => array("POST",tlInputParameter::STRING_N,
                                            $bug_summary['minLengh'],$bug_summary['maxLengh']));

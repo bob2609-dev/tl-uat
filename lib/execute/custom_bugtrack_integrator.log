@@ -2697,3 +2697,171 @@
 [2026-03-10 08:11:51] DEBUG: About to include custom_issue_integration_safe.php
 [2026-03-10 08:11:51] DEBUG: custom_issue_integration_safe.php included successfully
 [2026-03-10 08:11:51] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 08:11:51"}
+[2026-03-10 16:22:57] === API Request Started ===
+[2026-03-10 16:22:57] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773156177787
+[2026-03-10 16:22:57] Request method: GET
+[2026-03-10 16:22:57] POST data: []
+[2026-03-10 16:22:57] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773156177787"}
+[2026-03-10 16:22:58] DEBUG: Script started at 2026-03-10 16:22:58
+[2026-03-10 16:22:58] DEBUG: Database initialized manually for API call
+[2026-03-10 16:22:58] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 16:22:58] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 16:22:58] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 16:22:58] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 16:22:58] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 16:22:58"}
+[2026-03-10 19:55:30] === API Request Started ===
+[2026-03-10 19:55:30] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773168930787
+[2026-03-10 19:55:30] Request method: GET
+[2026-03-10 19:55:30] POST data: []
+[2026-03-10 19:55:30] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773168930787"}
+[2026-03-10 19:55:31] DEBUG: Script started at 2026-03-10 19:55:31
+[2026-03-10 19:55:31] DEBUG: Database initialized manually for API call
+[2026-03-10 19:55:31] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 19:55:31] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 19:55:31] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 19:55:31] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 19:55:31] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 19:55:31"}
+[2026-03-10 20:00:35] === API Request Started ===
+[2026-03-10 20:00:35] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773169235541
+[2026-03-10 20:00:35] Request method: GET
+[2026-03-10 20:00:35] POST data: []
+[2026-03-10 20:00:35] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773169235541"}
+[2026-03-10 20:00:35] DEBUG: Script started at 2026-03-10 20:00:35
+[2026-03-10 20:00:35] DEBUG: Database initialized manually for API call
+[2026-03-10 20:00:35] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:00:35] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:00:35] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:00:35] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:00:35] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:00:35"}
+[2026-03-10 20:05:20] === API Request Started ===
+[2026-03-10 20:05:20] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773169520567
+[2026-03-10 20:05:20] Request method: GET
+[2026-03-10 20:05:20] POST data: []
+[2026-03-10 20:05:20] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773169520567"}
+[2026-03-10 20:05:20] DEBUG: Script started at 2026-03-10 20:05:20
+[2026-03-10 20:05:20] DEBUG: Database initialized manually for API call
+[2026-03-10 20:05:20] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:05:20] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:05:20] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:05:20] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:05:20] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:05:20"}
+[2026-03-10 20:11:11] === API Request Started ===
+[2026-03-10 20:11:11] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773169871547
+[2026-03-10 20:11:11] Request method: GET
+[2026-03-10 20:11:11] POST data: []
+[2026-03-10 20:11:11] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773169871547"}
+[2026-03-10 20:11:11] DEBUG: Script started at 2026-03-10 20:11:11
+[2026-03-10 20:11:11] DEBUG: Database initialized manually for API call
+[2026-03-10 20:11:11] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:11:11] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:11:11] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:11:11] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:11:12] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:11:12"}
+[2026-03-10 20:25:08] === API Request Started ===
+[2026-03-10 20:25:08] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773170708529
+[2026-03-10 20:25:08] Request method: GET
+[2026-03-10 20:25:08] POST data: []
+[2026-03-10 20:25:08] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773170708529"}
+[2026-03-10 20:25:08] DEBUG: Script started at 2026-03-10 20:25:08
+[2026-03-10 20:25:08] DEBUG: Database initialized manually for API call
+[2026-03-10 20:25:08] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:25:08] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:25:08] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:25:08] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:25:08] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:25:08"}
+[2026-03-10 20:31:21] === API Request Started ===
+[2026-03-10 20:31:21] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773171081590
+[2026-03-10 20:31:21] Request method: GET
+[2026-03-10 20:31:21] POST data: []
+[2026-03-10 20:31:21] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773171081590"}
+[2026-03-10 20:31:22] DEBUG: Script started at 2026-03-10 20:31:22
+[2026-03-10 20:31:22] DEBUG: Database initialized manually for API call
+[2026-03-10 20:31:22] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:31:22] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:31:22] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:31:22] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:31:22] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:31:22"}
+[2026-03-10 20:33:41] === API Request Started ===
+[2026-03-10 20:33:41] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773171221104
+[2026-03-10 20:33:41] Request method: GET
+[2026-03-10 20:33:41] POST data: []
+[2026-03-10 20:33:41] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773171221104"}
+[2026-03-10 20:33:41] DEBUG: Script started at 2026-03-10 20:33:41
+[2026-03-10 20:33:41] DEBUG: Database initialized manually for API call
+[2026-03-10 20:33:41] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:33:41] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:33:41] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:33:41] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:33:41] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:33:41"}
+[2026-03-10 20:39:31] === API Request Started ===
+[2026-03-10 20:39:31] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773171571118
+[2026-03-10 20:39:31] Request method: GET
+[2026-03-10 20:39:31] POST data: []
+[2026-03-10 20:39:31] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773171571118"}
+[2026-03-10 20:39:31] DEBUG: Script started at 2026-03-10 20:39:31
+[2026-03-10 20:39:31] DEBUG: Database initialized manually for API call
+[2026-03-10 20:39:31] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:39:31] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:39:31] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:39:31] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:39:31] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:39:31"}
+[2026-03-10 20:43:38] === API Request Started ===
+[2026-03-10 20:43:38] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773171818506
+[2026-03-10 20:43:38] Request method: GET
+[2026-03-10 20:43:38] POST data: []
+[2026-03-10 20:43:38] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773171818506"}
+[2026-03-10 20:43:38] DEBUG: Script started at 2026-03-10 20:43:38
+[2026-03-10 20:43:38] DEBUG: Database initialized manually for API call
+[2026-03-10 20:43:38] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:43:38] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:43:38] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:43:38] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:43:38] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:43:38"}
+[2026-03-10 20:47:26] === API Request Started ===
+[2026-03-10 20:47:26] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773172046153
+[2026-03-10 20:47:26] Request method: GET
+[2026-03-10 20:47:26] POST data: []
+[2026-03-10 20:47:26] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773172046153"}
+[2026-03-10 20:47:26] DEBUG: Script started at 2026-03-10 20:47:26
+[2026-03-10 20:47:26] DEBUG: Database initialized manually for API call
+[2026-03-10 20:47:26] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:47:26] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:47:26] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:47:26] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:47:26] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:47:26"}
+[2026-03-10 20:52:03] === API Request Started ===
+[2026-03-10 20:52:03] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773172323865
+[2026-03-10 20:52:03] Request method: GET
+[2026-03-10 20:52:03] POST data: []
+[2026-03-10 20:52:03] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773172323865"}
+[2026-03-10 20:52:04] DEBUG: Script started at 2026-03-10 20:52:04
+[2026-03-10 20:52:04] DEBUG: Database initialized manually for API call
+[2026-03-10 20:52:04] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:52:04] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:52:04] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:52:04] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:52:04] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:52:04"}
+[2026-03-10 20:54:28] === API Request Started ===
+[2026-03-10 20:54:28] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773172468163
+[2026-03-10 20:54:28] Request method: GET
+[2026-03-10 20:54:28] POST data: []
+[2026-03-10 20:54:28] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773172468163"}
+[2026-03-10 20:54:28] DEBUG: Script started at 2026-03-10 20:54:28
+[2026-03-10 20:54:28] DEBUG: Database initialized manually for API call
+[2026-03-10 20:54:28] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 20:54:28] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 20:54:28] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 20:54:28] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 20:54:28] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:54:28"}
+[2026-03-10 21:00:27] === API Request Started ===
+[2026-03-10 21:00:27] Request URI: /lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=448287&_t=1773172827798
+[2026-03-10 21:00:27] Request method: GET
+[2026-03-10 21:00:27] POST data: []
+[2026-03-10 21:00:27] GET data: {"action":"list_integrations_for_project","tproject_id":"448287","_t":"1773172827798"}
+[2026-03-10 21:00:28] DEBUG: Script started at 2026-03-10 21:00:28
+[2026-03-10 21:00:28] DEBUG: Database initialized manually for API call
+[2026-03-10 21:00:28] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[2026-03-10 21:00:28] DEBUG: Entering handleListIntegrationsForProject
+[2026-03-10 21:00:28] DEBUG: About to include custom_issue_integration_safe.php
+[2026-03-10 21:00:28] DEBUG: custom_issue_integration_safe.php included successfully
+[2026-03-10 21:00:28] JSON Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 21:00:28"}

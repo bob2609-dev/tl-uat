@@ -2738,3 +2738,1501 @@ TESTLINK IN...'
 
 [10-Mar-2026 08:12:11 Europe/Berlin] [2026-03-10 08:12:11.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
 
+[10-Mar-2026 08:19:30 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:19:30 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 08:20:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:20:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 16:21:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 16:21:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 16:22:58 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 16:23:10 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 16:23:10 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431170
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81656
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.6.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.8.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.7.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21'
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.894] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21'
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.6.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 0
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = NO
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = '...'
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81656
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21...
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431170, Exec ID: 81656
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 16:23:10 Europe/Berlin] [2026-03-10 16:23:10.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 16:23:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 16:23:11 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 16:23:16 Europe/Berlin] [2026-03-10 16:23:16.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87856,"issue_url":"https:\/\/support.profinch.com\/issues\/87856"}
+
+[10-Mar-2026 16:23:16 Europe/Berlin] [2026-03-10 16:23:16.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 16:33:03 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 16:33:03 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:06:20 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:06:20 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:07:07 Europe/Berlin] [2026-03-10 18:07:07.2.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:07:07 Europe/Berlin] [2026-03-10 18:07:07.220] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:07:07 Europe/Berlin] [2026-03-10 18:07:07.2.8] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:07:07 Europe/Berlin] [2026-03-10 18:07:07.5.4] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+
+[10-Mar-2026 18:07:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:07:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:07:07 Europe/Berlin] [2026-03-10 18:07:07.8.9] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:07:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:07:42 Europe/Berlin] [2026-03-10 18:07:42.7.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:07:42 Europe/Berlin] [2026-03-10 18:07:42.1.2] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:07:42 Europe/Berlin] [2026-03-10 18:07:42.4.6] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:07:42 Europe/Berlin] [2026-03-10 18:07:42.7.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+
+[10-Mar-2026 18:07:42 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:07:42 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:07:42 Europe/Berlin] [2026-03-10 18:07:42.237] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:07:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:08:06 Europe/Berlin] [2026-03-10 18:08:06.3.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:08:06 Europe/Berlin] [2026-03-10 18:08:06.7.1] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:08:06 Europe/Berlin] [2026-03-10 18:08:06.1.7] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:08:06 Europe/Berlin] [2026-03-10 18:08:06.4.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+
+[10-Mar-2026 18:08:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:08:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:08:06 Europe/Berlin] [2026-03-10 18:08:06.4.5] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:08:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:08:12 Europe/Berlin] [2026-03-10 18:08:12.7.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:08:12 Europe/Berlin] [2026-03-10 18:08:12.2.8] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:08:12 Europe/Berlin] [2026-03-10 18:08:12.6.4] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:08:12 Europe/Berlin] [2026-03-10 18:08:12.0.6] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+
+[10-Mar-2026 18:08:12 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:08:12 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:08:12 Europe/Berlin] [2026-03-10 18:08:12.5.7] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:08:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:08:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:08:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:08:52 Europe/Berlin] [2026-03-10 18:08:52.6.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:08:52 Europe/Berlin] [2026-03-10 18:08:52.1.8] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:08:52 Europe/Berlin] [2026-03-10 18:08:52.5.5] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:08:52 Europe/Berlin] [2026-03-10 18:08:52.8.5] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:08:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:08:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:08:52 Europe/Berlin] [2026-03-10 18:08:52.5.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:08:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:08:58 Europe/Berlin] [2026-03-10 18:08:58.6.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:08:58 Europe/Berlin] [2026-03-10 18:08:58.0.8] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:08:58 Europe/Berlin] [2026-03-10 18:08:58.5.3] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:08:58 Europe/Berlin] [2026-03-10 18:08:58.9.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:08:58 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:08:58 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:08:58 Europe/Berlin] [2026-03-10 18:08:58.9.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:08:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:09:02 Europe/Berlin] [2026-03-10 18:09:02.6.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:09:02 Europe/Berlin] [2026-03-10 18:09:02.0.9] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:09:02 Europe/Berlin] [2026-03-10 18:09:02.4.1] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:09:02 Europe/Berlin] [2026-03-10 18:09:02.278] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:09:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:09:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:09:02 Europe/Berlin] [2026-03-10 18:09:02.8.6] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:09:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:09:16 Europe/Berlin] [2026-03-10 18:09:16.5.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:09:16 Europe/Berlin] [2026-03-10 18:09:16.8.2] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:09:16 Europe/Berlin] [2026-03-10 18:09:16.081] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:09:16 Europe/Berlin] [2026-03-10 18:09:16.4.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:09:16 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:09:16 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:09:16 Europe/Berlin] [2026-03-10 18:09:16.7.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:09:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:09:31 Europe/Berlin] [2026-03-10 18:09:31.1.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:09:31 Europe/Berlin] [2026-03-10 18:09:31.4.6] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:09:31 Europe/Berlin] [2026-03-10 18:09:31.6.8] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:09:31 Europe/Berlin] [2026-03-10 18:09:31.9.8] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:09:31 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:09:31 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:09:31 Europe/Berlin] [2026-03-10 18:09:31.2.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:09:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:09:37 Europe/Berlin] [2026-03-10 18:09:37.5.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:09:37 Europe/Berlin] [2026-03-10 18:09:37.8.4] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:09:37 Europe/Berlin] [2026-03-10 18:09:37.771] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:09:37 Europe/Berlin] [2026-03-10 18:09:37.4.2] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:09:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:09:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:09:37 Europe/Berlin] [2026-03-10 18:09:37.3.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:09:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:09:51 Europe/Berlin] [2026-03-10 18:09:51.7.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:09:51 Europe/Berlin] [2026-03-10 18:09:51.0.7] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:09:51 Europe/Berlin] [2026-03-10 18:09:51.3.5] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:09:51 Europe/Berlin] [2026-03-10 18:09:51.6.8] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:09:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:09:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:09:51 Europe/Berlin] [2026-03-10 18:09:51.7.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:09:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:14:51 Europe/Berlin] [2026-03-10 18:14:51.1.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:14:51 Europe/Berlin] [2026-03-10 18:14:51.7.9] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:14:51 Europe/Berlin] [2026-03-10 18:14:51.0.9] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:14:51 Europe/Berlin] [2026-03-10 18:14:51.3.5] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:14:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:14:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:14:51 Europe/Berlin] [2026-03-10 18:14:51.3.6] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:14:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:15:00 Europe/Berlin] [2026-03-10 18:15:00.1.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:15:01 Europe/Berlin] [2026-03-10 18:15:00.8.8] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:15:01 Europe/Berlin] [2026-03-10 18:15:01.3.6] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:15:01 Europe/Berlin] [2026-03-10 18:15:01.008] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+
+[10-Mar-2026 18:15:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:15:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:15:01 Europe/Berlin] [2026-03-10 18:15:01.1.7] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:15:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:19:59 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:19:59 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:20:26 Europe/Berlin] [2026-03-10 18:20:26.234] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:20:26 Europe/Berlin] [2026-03-10 18:20:26.8.1] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:20:26 Europe/Berlin] [2026-03-10 18:20:26.1.3] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:20:26 Europe/Berlin] [2026-03-10 18:20:26.4.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:20:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:20:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:20:26 Europe/Berlin] [2026-03-10 18:20:26.265] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:20:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:20:32 Europe/Berlin] [2026-03-10 18:20:32.6.5] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:20:32 Europe/Berlin] [2026-03-10 18:20:32.1.6] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:20:32 Europe/Berlin] [2026-03-10 18:20:32.4.8] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:20:32 Europe/Berlin] [2026-03-10 18:20:32.7.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:20:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:20:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:20:32 Europe/Berlin] [2026-03-10 18:20:32.4.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:20:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getBugSummaryMaxLength() on null in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php:375
+Stack trace:
+#0 C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php(34): initEnv(Object(database))
+#1 {main}
+  thrown in C:\xampp\htdocs\tl-uat\lib\execute\bugAdd.php on line 375
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.9.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.3.4] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.5.4] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.7.4] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:27:23 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.8.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.7.8] [INFO] [BUGADD] Initialized - user_action: link
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.890] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.1.6] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.4.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.6.2] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.7.6] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.8.8] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:27:23 Europe/Berlin] [2026-03-10 18:27:23.8.5] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:27:24 Europe/Berlin] [2026-03-10 18:27:24.9.3] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:27:34 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:27:34 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:27:37 Europe/Berlin] [2026-03-10 18:27:37.1.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:27:37 Europe/Berlin] [2026-03-10 18:27:37.6.4] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:27:37 Europe/Berlin] [2026-03-10 18:27:37.9.4] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:27:37 Europe/Berlin] [2026-03-10 18:27:37.1.7] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:27:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:27:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:27:37 Europe/Berlin] [2026-03-10 18:27:37.8.8] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.4.9] [INFO] [BUGADD] Initialized - user_action: create
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.7.2] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.9.6] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.1.6] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.3.1] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.4.2] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.0.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:27:38 Europe/Berlin] [2026-03-10 18:27:38.8.5] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:27:49 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:27:49 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:28:55 Europe/Berlin] [2026-03-10 18:28:55.4.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:28:55 Europe/Berlin] [2026-03-10 18:28:55.8.4] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:28:55 Europe/Berlin] [2026-03-10 18:28:55.0.6] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:28:55 Europe/Berlin] [2026-03-10 18:28:55.2.9] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:28:55 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:28:55 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:28:55 Europe/Berlin] [2026-03-10 18:28:55.7.8] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.1.9] [INFO] [BUGADD] Initialized - user_action: create
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.3.1] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.074] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.4.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.5.8] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.077] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.2.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:28:56 Europe/Berlin] [2026-03-10 18:28:56.1.5] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:29:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:29:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:30:05 Europe/Berlin] [2026-03-10 18:30:05.0.2] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:30:05 Europe/Berlin] [2026-03-10 18:30:05.448] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:30:05 Europe/Berlin] [2026-03-10 18:30:05.3.1] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:30:05 Europe/Berlin] [2026-03-10 18:30:05.457] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:30:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:30:05 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:30:05 Europe/Berlin] [2026-03-10 18:30:05.2.5] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.4.6] [INFO] [BUGADD] Initialized - user_action: create
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.6.5] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.588] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.9.4] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.0.7] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.2.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.1.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:30:06 Europe/Berlin] [2026-03-10 18:30:06.930] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:30:21 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:30:21 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.0.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.7.4] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.1.8] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.0.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:30:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.9.2] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.1.5] [INFO] [BUGADD] Initialized - user_action: link
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.5.9] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.0.1] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.4.3] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.9.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.3.4] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.207] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.3.6] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:30:26 Europe/Berlin] [2026-03-10 18:30:26.7.5] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:30:36 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:30:36 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:30:40 Europe/Berlin] [2026-03-10 18:30:40.4.5] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:30:40 Europe/Berlin] [2026-03-10 18:30:40.9.6] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:30:40 Europe/Berlin] [2026-03-10 18:30:40.2.1] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:30:40 Europe/Berlin] [2026-03-10 18:30:40.5.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:30:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:30:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:30:40 Europe/Berlin] [2026-03-10 18:30:40.0.6] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.6.3] [INFO] [BUGADD] Initialized - user_action: create
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.7.8] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.8.8] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.9.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.0.9] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.1.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.9.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:30:41 Europe/Berlin] [2026-03-10 18:30:41.8.3] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:30:50 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:30:50 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:33:46 Europe/Berlin] [2026-03-10 18:33:46.8.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:33:46 Europe/Berlin] [2026-03-10 18:33:46.3.4] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:33:46 Europe/Berlin] [2026-03-10 18:33:46.6.7] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:33:46 Europe/Berlin] [2026-03-10 18:33:46.9.8] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:33:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:33:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:33:46 Europe/Berlin] [2026-03-10 18:33:46.8.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.7.9] [INFO] [BUGADD] Initialized - user_action: create
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.9.7] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.1.7] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.3.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.4.3] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.5.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.2.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:33:47 Europe/Berlin] [2026-03-10 18:33:47.8.6] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.8.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.2.1] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.4.4] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.6.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:33:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.3.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.6.5] [INFO] [BUGADD] Initialized - user_action: link
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.0.3] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.3.6] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.6.3] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.8.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.1.4] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.4.4] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.0.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:33:48 Europe/Berlin] [2026-03-10 18:33:48.6.3] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:33:49 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:33:49 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:34:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:34:02 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:38:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:38:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:51:41 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:51:41 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:53:41 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:53:41 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:54:28 Europe/Berlin] [2026-03-10 18:54:28.1.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:54:28 Europe/Berlin] [2026-03-10 18:54:28.8.6] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:54:28 Europe/Berlin] [2026-03-10 18:54:28.1.8] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:54:28 Europe/Berlin] [2026-03-10 18:54:28.4.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:54:28 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:54:28 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:54:28 Europe/Berlin] [2026-03-10 18:54:28.1.1] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.0.6] [INFO] [BUGADD] Initialized - user_action: create
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.3.2] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.5.2] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.6.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.8.7] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.0.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.0.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:54:29 Europe/Berlin] [2026-03-10 18:54:29.2.3] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:54:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:54:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.9.2] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.2.1] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.5.1] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.7.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:54:36 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.3.9] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.2.4] [INFO] [BUGADD] Initialized - user_action: link
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.5.6] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.8.5] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.1.5] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.5.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.8.1] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.2.5] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.675] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 18:54:36 Europe/Berlin] [2026-03-10 18:54:36.7.8] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 18:54:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 18:54:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:23:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:23:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:23:40 Europe/Berlin] [2026-03-10 19:23:40.3.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 19:23:40 Europe/Berlin] [2026-03-10 19:23:40.9.5] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 19:23:40 Europe/Berlin] [2026-03-10 19:23:40.2.2] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 19:23:40 Europe/Berlin] [2026-03-10 19:23:40.5.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 19:23:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:23:40 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:23:40 Europe/Berlin] [2026-03-10 19:23:40.5.8] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.2.2] [INFO] [BUGADD] Initialized - user_action: create
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.3.7] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.4.8] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.5.7] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.6.9] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.7.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.6.1] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 19:23:41 Europe/Berlin] [2026-03-10 19:23:41.7.9] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 19:23:43 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:23:43 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.0.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.4.1] [INFO] [BUGADD] REQUEST METHOD: GET
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.6.8] [INFO] [BUGADD] POST DATA: []
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.9.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:23:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.6.5] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.2.6] [INFO] [BUGADD] Initialized - user_action: link
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.5.7] [INFO] [BUGADD] Exec ID: 81650
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.8.7] [INFO] [BUGADD] Bug ID: 
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.1.8] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.375] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.8.3] [INFO] [BUGADD] Final GUI message: 
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.0.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.4.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+
+[10-Mar-2026 19:23:47 Europe/Berlin] [2026-03-10 19:23:47.7.3] [INFO] [BUGADD] Template displayed
+
+[10-Mar-2026 19:23:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:23:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:31:22 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:31:23 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:34:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:34:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:44:19 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:44:19 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:53:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:53:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 19:55:31 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 19:59:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 19:59:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:00:35 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:04:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:04:14 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:05:20 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:10:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:10:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:11:11 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:11:16 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:11:16 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431174
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81657
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.4.9] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.270] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST'
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 113
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST'
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 235
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.2.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK IN...'
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81657
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.2.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INT...
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.312] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431174, Exec ID: 81657
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [2026-03-10 20:11:17.322] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 20:11:17 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:11:17 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:11:21 Europe/Berlin] [2026-03-10 20:11:21.080] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87875,"issue_url":"https:\/\/support.profinch.com\/issues\/87875"}
+
+[10-Mar-2026 20:11:21 Europe/Berlin] [2026-03-10 20:11:21.1.9] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 20:23:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:23:48 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:25:08 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:25:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:25:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.367] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.3.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.8.5] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431172
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81658
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.467] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.7.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.483] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20:23'
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 103
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20:23'
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.3.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 240
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Authorize
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION ERROR
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLIN...'
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81658
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20...
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.533] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431172, Exec ID: 81658
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [2026-03-10 20:25:13.8.1] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 20:25:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:25:13 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:25:39 Europe/Berlin] [2026-03-10 20:25:39.9.4] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87877,"issue_url":"https:\/\/support.profinch.com\/issues\/87877"}
+
+[10-Mar-2026 20:25:39 Europe/Berlin] [2026-03-10 20:25:39.3.7] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 20:29:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:29:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:31:22 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:31:28 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:31:28 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.0.8] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 257383
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.0.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81659
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.193] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST'
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 99
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.8.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST'
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.214] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 418
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.8.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: BI
+Action: List of cancelled TD
+Test scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled T...'
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81659
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST...
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.245] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 257383, Exec ID: 81659
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [2026-03-10 20:31:29.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 20:31:29 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:31:29 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:31:33 Europe/Berlin] [2026-03-10 20:31:33.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87878,"issue_url":"https:\/\/support.profinch.com\/issues\/87878"}
+
+[10-Mar-2026 20:31:33 Europe/Berlin] [2026-03-10 20:31:33.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 20:33:41 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:33:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:33:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.8.5] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.208] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 257383
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81660
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.2.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.287] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 53
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 418
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.328] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.3.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: BI
+Action: List of cancelled TD
+Test scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled T...'
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81660
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001...
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.0.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 257383, Exec ID: 81660
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [2026-03-10 20:33:47.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 20:33:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:33:47 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:33:51 Europe/Berlin] [2026-03-10 20:33:51.1.8] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87879,"issue_url":"https:\/\/support.profinch.com\/issues\/87879"}
+
+[10-Mar-2026 20:33:51 Europe/Berlin] [2026-03-10 20:33:51.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 20:38:10 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:38:10 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:39:31 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:39:36 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:39:36 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.057] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.071] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 414553
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81661
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.0.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG'
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 55
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG'
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.9.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 364
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: REGISTRATION VIABRANCH PORTAL
+Action: BRANCH PORTAL
+Test scenario: Initate NMB Mkononi Registration & activation via BRANCH PORTAL with account classNMB MWANACHUO ACCOUNTCA05
+Test Data...'
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81661
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG...
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 414553, Exec ID: 81661
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.8.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [2026-03-10 20:39:37.3.6] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 20:39:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:39:37 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:39:41 Europe/Berlin] [2026-03-10 20:39:41.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87880,"issue_url":"https:\/\/support.profinch.com\/issues\/87880"}
+
+[10-Mar-2026 20:39:41 Europe/Berlin] [2026-03-10 20:39:41.372] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 20:42:22 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:42:22 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:42:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:42:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:42:39 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:42:39 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:43:38 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:46:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:46:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:47:26 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:50:50 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:50:50 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:52:04 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:53:31 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:53:31 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:54:28 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 20:54:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:54:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.8.4] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431164
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81662
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.911] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.914] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.9.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 53
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.928] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 224
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.3.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK INTEGRATION T...'
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81662
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001...
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431164, Exec ID: 81662
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [2026-03-10 20:54:33.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 20:54:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:54:33 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 20:54:38 Europe/Berlin] [2026-03-10 20:54:38.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87881,"issue_url":"https:\/\/support.profinch.com\/issues\/87881"}
+
+[10-Mar-2026 20:54:38 Europe/Berlin] [2026-03-10 20:54:38.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 20:59:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 20:59:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 21:00:28 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 21:00:34 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 21:00:34 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 21:00:34 Europe/Berlin] [2026-03-10 21:00:34.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 21:00:34 Europe/Berlin] [2026-03-10 21:00:34.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 21:00:34 Europe/Berlin] [2026-03-10 21:00:34.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 21:00:34 Europe/Berlin] [2026-03-10 21:00:34.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 21:00:34 Europe/Berlin] [2026-03-10 21:00:34.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431182
+
+[10-Mar-2026 21:00:34 Europe/Berlin] [2026-03-10 21:00:34.956] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81663
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.8.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.2.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.051] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT'
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 53
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT'
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.0.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 224
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.6.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK INTEGRATION T...'
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81663
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT...
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.3.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431182, Exec ID: 81663
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.9.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [2026-03-10 21:00:35.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 21:00:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 21:00:35 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 21:00:38 Europe/Berlin] [2026-03-10 21:00:38.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87882,"issue_url":"https:\/\/support.profinch.com\/issues\/87882"}
+
+[10-Mar-2026 21:00:38 Europe/Berlin] [2026-03-10 21:00:38.786] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+

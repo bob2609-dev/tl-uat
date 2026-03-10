@@ -232,3 +232,185 @@
 [2026-03-10 08:11:51] [DEBUG] Found 2 integrations for project 448287
 [2026-03-10 08:11:51] [DEBUG] Found 2 integrations for project 448287
 [2026-03-10 08:11:51] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 08:11:51"}
+[2026-03-10 16:22:58] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 16:22:58] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 16:22:58] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 16:22:58] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 16:22:58] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 16:22:58] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 16:22:58] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 16:22:58"}
+[2026-03-10 19:55:31] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 19:55:31] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 19:55:31] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 19:55:31] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 19:55:31] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 19:55:31] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 19:55:31] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 19:55:31"}
+[2026-03-10 20:00:35] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:00:35] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:00:35] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:00:35] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:00:35] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:00:35] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:00:35] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:00:35"}
+[2026-03-10 20:05:20] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:05:20] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:05:20] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:05:20] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:05:20] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:05:20] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:05:20] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:05:20"}
+[2026-03-10 20:11:11] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:11:12] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:11:12] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:11:12] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:11:12] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:11:12] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:11:12] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:11:12"}
+[2026-03-10 20:25:08] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:25:08] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:25:08] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:25:08] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:25:08] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:25:08] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:25:08] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:25:08"}
+[2026-03-10 20:31:22] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:31:22] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:31:22] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:31:22] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:31:22] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:31:22] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:31:22] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:31:22"}
+[2026-03-10 20:33:41] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:33:41] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:33:41] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:33:41] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:33:41] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:33:41] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:33:41] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:33:41"}
+[2026-03-10 20:39:31] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:39:31] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:39:31] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:39:31] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:39:31] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:39:31] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:39:31] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:39:31"}
+[2026-03-10 20:43:38] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:43:38] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:43:38] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:43:38] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:43:38] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:43:38] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:43:38] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:43:38"}
+[2026-03-10 20:47:26] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:47:26] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:47:26] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:47:26] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:47:26] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:47:26] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:47:26] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:47:26"}
+[2026-03-10 20:52:04] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:52:04] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:52:04] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:52:04] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:52:04] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:52:04] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:52:04] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:52:04"}
+[2026-03-10 20:54:28] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 20:54:28] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 20:54:28] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 20:54:28] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 20:54:28] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:54:28] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 20:54:28] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 20:54:28"}
+[2026-03-10 21:00:28] [DEBUG] handleListIntegrationsForProject called
+[2026-03-10 21:00:28] [DEBUG] tproject_id from GET: 448287
+[2026-03-10 21:00:28] [DEBUG] getIntegrationsForProject called with tproject_id: 448287
+[2026-03-10 21:00:28] [DEBUG] SQL: SELECT i.id, i.name, i.type, i.url 
+                FROM custom_bugtrack_integrations i
+                INNER JOIN custom_bugtrack_project_mapping m ON m.integration_id = i.id
+                WHERE m.tproject_id = 448287
+                AND m.is_active = 1
+                AND i.is_active = 1
+                ORDER BY i.name ASC
+[2026-03-10 21:00:28] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 21:00:28] [DEBUG] Found 2 integrations for project 448287
+[2026-03-10 21:00:28] [DEBUG] Response: {"success":true,"message":"Integrations retrieved successfully","data":null,"debug":[],"status":"ok","tproject_id":448287,"integrations":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https:\/\/support.profinch.com"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com"}],"count":2,"timestamp":"2026-03-10 21:00:28"}

@@ -73,7 +73,13 @@ TestLink Open Source Project - http://testlink.sourceforge.net/
           {/if}
         {/if}
         <input type="text" id="bug_summary" name="bug_summary" required value="{$formattedSummary}"
-               size="{#BUGSUMMARY_SIZE#}" maxlength="{$gui->issueTrackerCfg->bugSummaryMaxLength}" 
+               size="{#BUGSUMMARY_SIZE#}" maxlength="{$gui->issueTrackerCfg->bugSummaryMaxLength}" />
+        {* add context field *}
+        <br\>
+        <hr\>
+        <label >Context</label>
+        <input type ="text" name="bug_context" id="bug_context" value="{$gui->context}" style="width:100%" />
+        
       </p>
 
      {$itMetaData = $gui->issueTrackerMetaData}

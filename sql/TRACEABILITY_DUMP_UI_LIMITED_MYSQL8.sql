@@ -69,7 +69,7 @@ SELECT
     
     -- Additional columns for traceability
     E.id AS 'Execution ID',
-    '' AS 'Bug ID',
+    COALESCE(bug_list.bug_ids, '') AS 'Bug ID',
     CASE 
         WHEN E.id IS NULL THEN 'N/A'
         WHEN EXISTS (
@@ -128,6 +128,15 @@ LEFT JOIN cfield_design_values cfdv ON cfdv.node_id = NHTCV.id
 LEFT JOIN cfield_design_values cf_module ON cf_module.node_id = NHTCV.id AND cf_module.field_id = 1  -- Primary Module/Function Name
 LEFT JOIN cfield_design_values cf_scenario ON cf_scenario.node_id = NHTCV.id AND cf_scenario.field_id = 2  -- Scenario ID
 LEFT JOIN cfield_design_values cf_action ON cf_action.node_id = NHTCV.id AND cf_action.field_id = 3  -- Sub-Scenario/Action
+
+-- Get bug IDs associated with executions
+LEFT JOIN (
+    SELECT 
+        execution_id,
+        GROUP_CONCAT(bug_id ORDER BY bug_id SEPARATOR ', ') AS bug_ids
+    FROM execution_bugs
+    GROUP BY execution_id
+) bug_list ON bug_list.execution_id = E.id
 
 -- Filter by test plan and limit results
 WHERE TPTCV.testplan_id = @testplan_id

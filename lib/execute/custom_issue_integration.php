@@ -18,28 +18,6 @@ if (!defined('CUSTOM_INTEGRATION_LOG')) {
 }
 
 /**
- * Generate TestLink URLs for test case and execution
- */
-function generateTestLinkUrls($tproject_id, $tplan_id, $tc_id, $execution_id) {
-    $baseUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
-    $urls = array();
-    
-    // Test Case URL
-    $urls['test_case'] = $baseUrl . '/lib/testcases/archiveData.php?tcase_id=' . $tc_id;
-    
-    // Execution URL  
-    $urls['execution'] = $baseUrl . '/lib/execute/execSetResults.php?level=testsuite&id=' . $tplan_id . '&tcase_id=' . $tc_id;
-    
-    // Test Plan URL
-    $urls['test_plan'] = $baseUrl . '/lib/plan/planView.php?plan_id=' . $tplan_id;
-    
-    // Project URL
-    $urls['project'] = $baseUrl . '/lib/projects/projectView.php?project_id=' . $tproject_id;
-    
-    return $urls;
-}
-
-/**
  * Log message to custom_integration.log file
  */
 function logCustomIntegration($message, $level = 'DEBUG') {
@@ -105,6 +83,15 @@ function hasCustomIntegration($db, $tproject_id) {
  * Create issue using custom integration
  */
 function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, $summary, $description, $priority = 'Normal', $user = null, $selected_integration_id = null) {
+    // Get context from POST data
+    $context = isset($_POST['bug_context']) ? trim($_POST['bug_context']) : '';
+    
+    // Add context to summary if provided
+    if (!empty($context)) {
+        $summary =  $summary;
+        $description = "Context: " . $context . "\n\n" . $description;
+    }
+    
     // ENABLE REAL REDMINE API CALLS
     $integration = getCustomIntegrationForProject($db, $tproject_id, $selected_integration_id);
     if (!$integration && !is_null($selected_integration_id)) {
@@ -124,6 +111,7 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
     logCustomIntegration("Test Case ID: $tc_id, Execution ID: $execution_id");
     logCustomIntegration("Summary: " . substr($summary, 0, 100) . "...");
     logCustomIntegration("Priority: $priority");
+    logCustomIntegration("Context: " . $context);
     
     // Prepare data for API call
     $data = array(
@@ -134,8 +122,7 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
         'summary' => $summary,
         'description' => $description,
         'priority' => $priority,
-        'assigned_to' => 2635, // Hardcoded for testing
-        'testlink_urls' => generateTestLinkUrls($tproject_id, $tplan_id, $tc_id, $execution_id)
+        'assigned_to' => 2635 // Hardcoded for testing
     );
 
     if (!is_null($selected_integration_id) && intval($selected_integration_id) > 0) {
@@ -148,12 +135,42 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
         logCustomIntegration("Added tester to data: " . $user->login);
     }
     
-    // Call the custom integrator API
-    // Use web URL instead of file system path
-    $baseUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
-    $url = $baseUrl . '/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue';
+    // Generate TestLink URLs
+    try {
+        // Get base href from session or construct it
+        $httpBaseUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
+        $baseHref = isset($_SESSION['basehref']) ? $_SESSION['basehref'] : $httpBaseUrl . '/';
+        
+        // Generate Test Case URL
+        require_once(TL_ABS_PATH . 'lib/functions/testcase.class.php');
+        $testCaseObj = new testcase($db);
+        $testCaseUrl = $testCaseObj->buildDirectWebLink($baseHref, $tc_id, $tproject_id);
+        
+        // Generate Test Plan URL
+        $testPlanUrl = $baseHref . 'lib/general/frmWorkArea.php?feature=executeTest&tplan_id=' . $tplan_id . '&tproject_id=' . $tproject_id;
+        
+        // Add URLs to data
+        $data['testlink_url'] = $testCaseUrl;
+        $data['testplan_url'] = $testPlanUrl;
+        
+        logCustomIntegration("Generated Test Case URL: $testCaseUrl");
+        logCustomIntegration("Generated Test Plan URL: $testPlanUrl");
+        
+    } catch (Exception $e) {
+        logCustomIntegration("Error generating TestLink URLs: " . $e->getMessage());
+        // Fallback URLs - ensure httpBaseUrl is defined
+        if (!isset($httpBaseUrl)) {
+            $httpBaseUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
+        }
+        $data['testlink_url'] = $httpBaseUrl . '/linkto.php?item=testcase&id=' . $tc_id;
+        $data['testplan_url'] = $httpBaseUrl . '/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=' . $tplan_id;
+    }
     
-    logCustomIntegration("Base URL: $baseUrl");
+    // Call custom integrator API
+    // Use web URL instead of file system path
+    $url = $httpBaseUrl . '/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue';
+    
+    logCustomIntegration("Base URL: $httpBaseUrl");
     logCustomIntegration("TL_ABS_PATH: " . TL_ABS_PATH);
     logCustomIntegration("Calling API: $url");
     logCustomIntegration("Data: " . json_encode($data));

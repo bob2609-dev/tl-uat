@@ -1,26 +1,24 @@
-custom_bugtrack_integration.html:330 [INTEGRATION] editMapping called with id: 7
-custom_bugtrack_integration.html:857 [DEBUG] editMapping called with id: 7
-custom_bugtrack_integration.html:861 [DEBUG] About to fetch list_project_mappings
-custom_bugtrack_integration.html:866 [DEBUG] list_project_mappings response received: 200
-custom_bugtrack_integration.html:870 [DEBUG] list_project_mappings data: {success: true, message: '', data: Array(6), debug: Array(0)}
-custom_bugtrack_integration.html:873 [DEBUG] Found mapping: {id: '7', tproject_id: '359527', is_active: '1', project_name: 'OBDX', integration_name: 'OBDX - REDMINE', …}
-custom_bugtrack_integration.html:877 [DEBUG] About to load dropdowns
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping called
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping calling API: custom_bugtrack_integrator.php?action=list_projects
-custom_bugtrack_integration.html:330 [INTEGRATION] loadIntegrationsForMapping calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator.php?action=list_integrations&_t=1773044911024
-custom_bugtrack_integration.html:330 [INTEGRATION] loadIntegrationsForMapping response received: {"success":true,"message":"","data":[{"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https://support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","created_on":"2026-02-23 11:03:55","updated_on":"2026-03-09 11:08:23"},{"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https://support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb
-custom_bugtrack_integration.html:330 [INTEGRATION] loadIntegrationsForMapping integrations count: 3
-custom_bugtrack_integration.html:330 [INTEGRATION] loadIntegrationsForMapping adding integration: {"id":"7","name":"FCUBS - REDMINE TEST","type":"REDMINE","url":"https://support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f39","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","created_on":"2026-02-23 11:03:55","updated_on":"2026-03-09 11:08:23"}
-custom_bugtrack_integration.html:330 [INTEGRATION] loadIntegrationsForMapping adding integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https://support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","created_on":"2026-03-02 01:33:20","updated_on":"2026-03-09 11:08:53"}
-custom_bugtrack_integration.html:330 [INTEGRATION] loadIntegrationsForMapping adding integration: {"id":"10","name":"Redmine3","type":"REDMINE","url":"https://support.profinch.com","api_key":"c16548f2503932a9ef6d6d8f9a59393436e67f","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","created_on":"2026-03-02 02:07:39","updated_on":null}
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping response received, status: 200
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping raw response text: {"success":true,"message":"","data":{"359529":{"id":359529,"name":"AG_BANKING","notes":"Agency Banking end to end Testing.","prefix":"AG","active":"1","tc_counter":0,"is_public":"1"},"448287":{"id":44
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping JSON parsed successfully, projects count: 5
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping processing project: FCUBS_UAT2, notes: Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping processing project: OBDX, notes: OBDX Upgrade test executions
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping processing project: AG_BANKING, notes: Agency Banking end to end Testing.
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping processing project: ARCHIVE, notes: ARCHIVE
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping processing project: TEST_PROJECT, notes: 
-custom_bugtrack_integration.html:330 [INTEGRATION] loadProjectsForMapping projects loaded successfully
-custom_bugtrack_integration.html:883 [DEBUG] Dropdowns loaded, setting values
-custom_bugtrack_integration.html:888 [DEBUG] Values set, showing modal
+execSetResults.js?v=1773171759&cachebust=20260303:1201 doSubmitForHTML5 called, shouldCreateIssue: true
+execSetResults.js?v=1773171759&cachebust=20260303:1206 Bug submission already in progress, ignoring duplicate call
+execSetResults.js?v=1773171759&cachebust=20260303:1164  Bug submission timeout - resetting UI
+(anonymous) @ execSetResults.js?v=1773171759&cachebust=20260303:1164
+setTimeout
+saveExecutionStatus @ execSetResults.js?v=1773171759&cachebust=20260303:1163
+success @ execSetResults.js?v=1773171759&cachebust=20260303:911
+i @ jquery-2.2.4.min.js:2
+fireWith @ jquery-2.2.4.min.js:2
+z @ jquery-2.2.4.min.js:4
+(anonymous) @ jquery-2.2.4.min.js:4
+XMLHttpRequest.send
+send @ jquery-2.2.4.min.js:4
+ajax @ jquery-2.2.4.min.js:4
+window.showPriorityPopup @ execSetResults.js?v=1773171759&cachebust=20260303:898
+saveExecStatus @ execSetResults.js?v=1773171759&cachebust=20260303:1098
+window.resumePendingExecutionAction @ execSetResults.js?v=1773171759&cachebust=20260303:116
+window.confirmIntegrationSelection @ execSetResults.js?v=1773171759&cachebust=20260303:409
+onclick @ execSetResults.php?version_id=414554&level=testcase&id=414553&form_token=1449777425&setting_build=7:1029
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again

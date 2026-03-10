@@ -689,3 +689,239 @@
 [2026-02-06 13:55:54.0.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
 [2026-02-06 13:55:54.4.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
 [2026-02-06 13:55:54.3.7] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:07:07.2.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:07:07.220] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:07:07.2.8] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:07:07.5.4] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+[2026-03-10 18:07:07.8.9] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:07:42.7.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:07:42.1.2] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:07:42.4.6] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:07:42.7.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+[2026-03-10 18:07:42.237] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:08:06.3.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:08:06.7.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:08:06.1.7] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:08:06.4.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+[2026-03-10 18:08:06.4.5] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:08:12.7.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:08:12.2.8] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:08:12.6.4] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:08:12.0.6] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81648","tcstep_id":"0"}
+[2026-03-10 18:08:12.5.7] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:08:52.6.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:08:52.1.8] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:08:52.5.5] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:08:52.8.5] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:08:52.5.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:08:58.6.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:08:58.0.8] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:08:58.5.3] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:08:58.9.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:08:58.9.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:09:02.6.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:09:02.0.9] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:09:02.4.1] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:09:02.278] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:09:02.8.6] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:09:16.5.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:09:16.8.2] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:09:16.081] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:09:16.4.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:09:16.7.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:09:31.1.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:09:31.4.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:09:31.6.8] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:09:31.9.8] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:09:31.2.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:09:37.5.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:09:37.8.4] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:09:37.771] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:09:37.4.2] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:09:37.3.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:09:51.7.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:09:51.0.7] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:09:51.3.5] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:09:51.6.8] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:09:51.7.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:14:51.1.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:14:51.7.9] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:14:51.0.9] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:14:51.3.5] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:14:51.3.6] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:15:00.1.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:15:00.8.8] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:15:01.3.6] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:15:01.008] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"414554","tproject_id":"448287","tplan_id":"448288","exec_id":"81593","tcstep_id":"0"}
+[2026-03-10 18:15:01.1.7] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:20:26.234] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:20:26.8.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:20:26.1.3] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:20:26.4.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:20:26.265] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:20:32.6.5] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:20:32.1.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:20:32.4.8] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:20:32.7.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:20:32.4.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:27:23.9.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:27:23.3.4] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:27:23.5.4] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:27:23.7.4] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:27:23.8.3] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:27:23.7.8] [INFO] [BUGADD] Initialized - user_action: link
+[2026-03-10 18:27:23.890] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:27:23.1.6] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:27:23.4.7] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-03-10 18:27:23.6.2] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:27:23.7.6] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:27:23.8.8] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:27:23.8.5] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:27:24.9.3] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:27:37.1.7] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:27:37.6.4] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:27:37.9.4] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:27:37.1.7] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:27:37.8.8] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:27:38.4.9] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 18:27:38.7.2] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:27:38.9.6] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:27:38.1.6] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:27:38.3.1] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:27:38.4.2] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:27:38.0.8] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:27:38.8.5] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:28:55.4.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:28:55.8.4] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:28:55.0.6] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:28:55.2.9] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:28:55.7.8] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:28:56.1.9] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 18:28:56.3.1] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:28:56.074] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:28:56.4.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:28:56.5.8] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:28:56.077] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:28:56.2.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:28:56.1.5] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:30:05.0.2] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:30:05.448] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:30:05.3.1] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:30:05.457] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:30:05.2.5] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:30:06.4.6] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 18:30:06.6.5] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:30:06.588] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:30:06.9.4] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:30:06.0.7] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:30:06.2.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:30:06.1.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:30:06.930] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:30:26.0.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:30:26.7.4] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:30:26.1.8] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:30:26.0.7] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:30:26.9.2] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:30:26.1.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-03-10 18:30:26.5.9] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:30:26.0.1] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:30:26.4.3] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-03-10 18:30:26.9.5] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:30:26.3.4] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:30:26.207] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:30:26.3.6] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:30:26.7.5] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:30:40.4.5] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:30:40.9.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:30:40.2.1] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:30:40.5.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:30:40.0.6] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:30:41.6.3] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 18:30:41.7.8] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:30:41.8.8] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:30:41.9.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:30:41.0.9] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:30:41.1.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:30:41.9.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:30:41.8.3] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:33:46.8.3] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:33:46.3.4] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:33:46.6.7] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:33:46.9.8] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:33:46.8.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:33:47.7.9] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 18:33:47.9.7] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:33:47.1.7] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:33:47.3.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:33:47.4.3] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:33:47.5.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:33:47.2.2] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:33:47.8.6] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:33:48.8.9] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:33:48.2.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:33:48.4.4] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:33:48.6.1] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:33:48.3.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:33:48.6.5] [INFO] [BUGADD] Initialized - user_action: link
+[2026-03-10 18:33:48.0.3] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:33:48.3.6] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:33:48.6.3] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-03-10 18:33:48.8.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:33:48.1.4] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:33:48.4.4] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:33:48.0.3] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:33:48.6.3] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:54:28.1.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:54:28.8.6] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:54:28.1.8] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:54:28.4.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:54:28.1.1] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:54:29.0.6] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 18:54:29.3.2] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:54:29.5.2] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:54:29.6.9] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:54:29.8.7] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:54:29.0.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:54:29.0.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:54:29.2.3] [INFO] [BUGADD] Template displayed
+[2026-03-10 18:54:36.9.2] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 18:54:36.2.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 18:54:36.5.1] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 18:54:36.7.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 18:54:36.3.9] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 18:54:36.2.4] [INFO] [BUGADD] Initialized - user_action: link
+[2026-03-10 18:54:36.5.6] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 18:54:36.8.5] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 18:54:36.1.5] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-03-10 18:54:36.5.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 18:54:36.8.1] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 18:54:36.2.5] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 18:54:36.675] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 18:54:36.7.8] [INFO] [BUGADD] Template displayed
+[2026-03-10 19:23:40.3.4] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 19:23:40.9.5] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 19:23:40.2.2] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 19:23:40.5.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 19:23:40.5.8] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 19:23:41.2.2] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 19:23:41.3.7] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 19:23:41.4.8] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 19:23:41.5.7] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 19:23:41.6.9] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 19:23:41.7.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 19:23:41.6.1] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 19:23:41.7.9] [INFO] [BUGADD] Template displayed
+[2026-03-10 19:23:47.0.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 19:23:47.4.1] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 19:23:47.6.8] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 19:23:47.9.6] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431175","tproject_id":"448287","tplan_id":"448288","exec_id":"81650","tcstep_id":"0"}
+[2026-03-10 19:23:47.6.5] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 19:23:47.2.6] [INFO] [BUGADD] Initialized - user_action: link
+[2026-03-10 19:23:47.5.7] [INFO] [BUGADD] Exec ID: 81650
+[2026-03-10 19:23:47.8.7] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 19:23:47.1.8] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-03-10 19:23:47.375] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 19:23:47.8.3] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 19:23:47.0.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 19:23:47.4.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 19:23:47.7.3] [INFO] [BUGADD] Template displayed

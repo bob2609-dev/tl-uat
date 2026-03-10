@@ -56,40 +56,6 @@ if (!empty($jsonInput)) {
 
 writeLog("GET data: " . json_encode($_GET));
 
-/**
- * Extract TestLink URLs from input data (supports both old and new formats)
- */
-function extractTestLinkUrls() {
-    $urls = array();
-    
-    // New format: testlink_urls array
-    if (isset($_POST['testlink_urls']) && is_array($_POST['testlink_urls'])) {
-        $urls = $_POST['testlink_urls'];
-    } 
-    // Old format: individual URL fields
-    else {
-        $urls['test_case'] = isset($_POST['testlink_url']) ? $_POST['testlink_url'] : 'N/A';
-        $urls['test_plan'] = isset($_POST['testplan_url']) ? $_POST['testplan_url'] : 'N/A';
-        $urls['execution'] = 'N/A';
-        $urls['project'] = 'N/A';
-    }
-    
-    return $urls;
-}
-
-/**
- * Format TestLink URLs for description
- */
-function formatTestLinkUrlsForDescription($urls) {
-    $testlinkUrls = "\r\n\r\n--- TestLink URLs ---\r\n";
-    $testlinkUrls .= "Test Case: " . (isset($urls['test_case']) ? $urls['test_case'] : 'N/A') . "\r\n";
-    $testlinkUrls .= "Execution: " . (isset($urls['execution']) ? $urls['execution'] : 'N/A') . "\r\n";
-    $testlinkUrls .= "Test Plan: " . (isset($urls['test_plan']) ? $urls['test_plan'] : 'N/A') . "\r\n";
-    $testlinkUrls .= "Project: " . (isset($urls['project']) ? $urls['project'] : 'N/A') . "\r\n";
-    
-    return $testlinkUrls;
-}
-
 // Initialize response
 $response = array(
     'success' => false,
@@ -148,12 +114,16 @@ function handleCreateIssue($db) {
     $priority = $_POST['priority'] ?? 'Normal';
     $tester = $_POST['tester'] ?? null;
     $assigned_to = intval($_POST['assigned_to'] ?? 0); // Assignee ID
+    $testlink_url = $_POST['testlink_url'] ?? '';
+    $testplan_url = $_POST['testplan_url'] ?? '';
     
     writeLog("Creating issue for project: $tproject_id");
     writeLog("Requested integration_id: $integration_id");
     writeLog("Original summary: '$summary'");
     writeLog("Original description length: " . strlen($description));
     writeLog("Assigned to ID: $assigned_to");
+    writeLog("Test Case URL: '$testlink_url'");
+    writeLog("Test Plan URL: '$testplan_url'");
     
     if ($tproject_id <= 0 || empty($summary)) {
         $response['message'] = 'Project ID and summary are required';
@@ -195,11 +165,11 @@ function handleCreateIssue($db) {
     
     // Create real issue based on integration type
     if ($integration['type'] === 'REDMINE') {
-        $result = createRedmineIssue($integration, $summary, $description, $priority, $tester, $assigned_to);
+        $result = createRedmineIssue($integration, $summary, $description, $priority, $tester, $assigned_to, $testlink_url, $testplan_url);
     } elseif ($integration['type'] === 'JIRA') {
-        $result = createJiraIssue($integration, $summary, $description, $priority, $tester, $assigned_to);
+        $result = createJiraIssue($integration, $summary, $description, $priority, $tester, $assigned_to, $testlink_url, $testplan_url);
     } elseif ($integration['type'] === 'BUGZILLA') {
-        $result = createBugzillaIssue($integration, $summary, $description, $priority, $tester);
+        $result = createBugzillaIssue($integration, $summary, $description, $priority, $tester, $testlink_url, $testplan_url);
     } else {
         $result = array('success' => false, 'message' => 'Unsupported integration type: ' . $integration['type']);
     }
@@ -221,7 +191,7 @@ function handleCreateIssue($db) {
     outputJson($response);
 }
 
-function createRedmineIssue($integration, $summary, $description, $priority, $tester = null, $assigned_to = 0) {
+function createRedmineIssue($integration, $summary, $description, $priority, $tester = null, $assigned_to = 0, $testlink_url = '', $testplan_url = '') {
     writeLog("Creating real Redmine issue...");
     writeLog("Assigned to ID: $assigned_to");
     
@@ -234,9 +204,10 @@ function createRedmineIssue($integration, $summary, $description, $priority, $te
     );
     $redminePriority = $priorityMap[$priority] ?? 2;
     
-    // Extract and format TestLink URLs
-    $testlinkUrlsArray = extractTestLinkUrls();
-    $testlinkUrls = formatTestLinkUrlsForDescription($testlinkUrlsArray);
+    // Add TestLink URLs to description if they're missing
+    $testlinkUrls = "\r\n\r\n--- TestLink URLs ---\r\n";
+    $testlinkUrls .= "Test Case: " . (!empty($testlink_url) ? $testlink_url : 'N/A') . "\r\n";
+    $testlinkUrls .= "Test Plan: " . (!empty($testplan_url) ? $testplan_url : 'N/A') . "\r\n";
     
     // Ensure TestLink URLs are included in description
     if (strpos($description, 'TestLink URLs') === false) {
@@ -321,7 +292,7 @@ function createRedmineIssue($integration, $summary, $description, $priority, $te
     );
 }
 
-function createJiraIssue($integration, $summary, $description, $priority, $tester = null, $assigned_to = '') {
+function createJiraIssue($integration, $summary, $description, $priority, $tester = null, $assigned_to = '', $testlink_url = '', $testplan_url = '') {
     writeLog("Creating real Jira issue...");
     writeLog("Assigned to: $assigned_to");
     
@@ -334,9 +305,10 @@ function createJiraIssue($integration, $summary, $description, $priority, $teste
     );
     $jiraPriority = $priorityMap[$priority] ?? 'Medium';
     
-    // Extract and format TestLink URLs
-    $testlinkUrlsArray = extractTestLinkUrls();
-    $testlinkUrls = formatTestLinkUrlsForDescription($testlinkUrlsArray);
+    // Add TestLink URLs to description if they're missing
+    $testlinkUrls = "\r\n\r\n--- TestLink URLs ---\r\n";
+    $testlinkUrls .= "Test Case: " . (!empty($testlink_url) ? $testlink_url : 'N/A') . "\r\n";
+    $testlinkUrls .= "Test Plan: " . (!empty($testplan_url) ? $testplan_url : 'N/A') . "\r\n";
     
     // Ensure TestLink URLs are included in description
     if (strpos($description, 'TestLink URLs') === false) {
@@ -422,7 +394,7 @@ function createJiraIssue($integration, $summary, $description, $priority, $teste
     );
 }
 
-function createBugzillaIssue($integration, $summary, $description, $priority, $tester = null) {
+function createBugzillaIssue($integration, $summary, $description, $priority, $tester = null, $testlink_url = '', $testplan_url = '') {
     writeLog("Creating real Bugzilla issue...");
     
     // Map TestLink priority to Bugzilla priority
@@ -434,9 +406,10 @@ function createBugzillaIssue($integration, $summary, $description, $priority, $t
     );
     $bugzillaPriority = $priorityMap[$priority] ?? 'Normal';
     
-    // Extract and format TestLink URLs
-    $testlinkUrlsArray = extractTestLinkUrls();
-    $testlinkUrls = formatTestLinkUrlsForDescription($testlinkUrlsArray);
+    // Add TestLink URLs to description if they're missing
+    $testlinkUrls = "\r\n\r\n--- TestLink URLs ---\r\n";
+    $testlinkUrls .= "Test Case: " . (!empty($testlink_url) ? $testlink_url : 'N/A') . "\r\n";
+    $testlinkUrls .= "Test Plan: " . (!empty($testplan_url) ? $testplan_url : 'N/A') . "\r\n";
     
     // Ensure TestLink URLs are included in description
     if (strpos($description, 'TestLink URLs') === false) {

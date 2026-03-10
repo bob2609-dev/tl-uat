@@ -154,3 +154,242 @@ TESTLINK IN...'
 [2026-03-10 08:12:07.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
 [2026-03-10 08:12:11.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87763,"issue_url":"https:\/\/support.profinch.com\/issues\/87763"}
 [2026-03-10 08:12:11.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 16:23:10.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 16:23:10.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 16:23:10.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 16:23:10.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 16:23:10.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431170
+[2026-03-10 16:23:10.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 16:23:10.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81656
+[2026-03-10 16:23:10.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 16:23:10.6.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 16:23:10.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 16:23:10.8.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 16:23:10.7.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21'
+[2026-03-10 16:23:10.894] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+[2026-03-10 16:23:10.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21'
+[2026-03-10 16:23:10.6.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 0
+[2026-03-10 16:23:10.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = NO
+[2026-03-10 16:23:10.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = '...'
+[2026-03-10 16:23:10.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81656
+[2026-03-10 16:23:10.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21...
+[2026-03-10 16:23:10.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 16:23:10.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431170, Exec ID: 81656
+[2026-03-10 16:23:10.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 16:23:10.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 16:23:16.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87856,"issue_url":"https:\/\/support.profinch.com\/issues\/87856"}
+[2026-03-10 16:23:16.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 20:11:17.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 20:11:17.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 20:11:17.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 20:11:17.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 20:11:17.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431174
+[2026-03-10 20:11:17.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 20:11:17.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81657
+[2026-03-10 20:11:17.4.9] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 20:11:17.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 20:11:17.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 20:11:17.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 20:11:17.270] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST'
+[2026-03-10 20:11:17.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 113
+[2026-03-10 20:11:17.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST'
+[2026-03-10 20:11:17.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 235
+[2026-03-10 20:11:17.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-10 20:11:17.2.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK IN...'
+[2026-03-10 20:11:17.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81657
+[2026-03-10 20:11:17.2.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INT...
+[2026-03-10 20:11:17.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 20:11:17.312] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431174, Exec ID: 81657
+[2026-03-10 20:11:17.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 20:11:17.322] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 20:11:21.080] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87875,"issue_url":"https:\/\/support.profinch.com\/issues\/87875"}
+[2026-03-10 20:11:21.1.9] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 20:25:13.367] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 20:25:13.3.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 20:25:13.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 20:25:13.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 20:25:13.8.5] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431172
+[2026-03-10 20:25:13.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 20:25:13.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81658
+[2026-03-10 20:25:13.467] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 20:25:13.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 20:25:13.7.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 20:25:13.483] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 20:25:13.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20:23'
+[2026-03-10 20:25:13.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 103
+[2026-03-10 20:25:13.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20:23'
+[2026-03-10 20:25:13.3.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 240
+[2026-03-10 20:25:13.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-10 20:25:13.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Authorize
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION ERROR
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLIN...'
+[2026-03-10 20:25:13.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81658
+[2026-03-10 20:25:13.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20...
+[2026-03-10 20:25:13.533] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 20:25:13.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431172, Exec ID: 81658
+[2026-03-10 20:25:13.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 20:25:13.8.1] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 20:25:39.9.4] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87877,"issue_url":"https:\/\/support.profinch.com\/issues\/87877"}
+[2026-03-10 20:25:39.3.7] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 20:31:29.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 20:31:29.0.8] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 20:31:29.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 20:31:29.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 20:31:29.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 257383
+[2026-03-10 20:31:29.0.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 20:31:29.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81659
+[2026-03-10 20:31:29.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 20:31:29.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 20:31:29.193] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 20:31:29.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 20:31:29.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST'
+[2026-03-10 20:31:29.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 99
+[2026-03-10 20:31:29.8.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST'
+[2026-03-10 20:31:29.214] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 418
+[2026-03-10 20:31:29.8.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-10 20:31:29.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: BI
+Action: List of cancelled TD
+Test scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled T...'
+[2026-03-10 20:31:29.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81659
+[2026-03-10 20:31:29.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST...
+[2026-03-10 20:31:29.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 20:31:29.245] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 257383, Exec ID: 81659
+[2026-03-10 20:31:29.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 20:31:29.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 20:31:33.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87878,"issue_url":"https:\/\/support.profinch.com\/issues\/87878"}
+[2026-03-10 20:31:33.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 20:33:47.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 20:33:47.8.5] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 20:33:47.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 20:33:47.208] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 20:33:47.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 257383
+[2026-03-10 20:33:47.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 20:33:47.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81660
+[2026-03-10 20:33:47.2.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 20:33:47.287] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 20:33:47.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 20:33:47.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 20:33:47.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+[2026-03-10 20:33:47.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 53
+[2026-03-10 20:33:47.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+[2026-03-10 20:33:47.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 418
+[2026-03-10 20:33:47.328] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-10 20:33:47.3.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: BI
+Action: List of cancelled TD
+Test scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled T...'
+[2026-03-10 20:33:47.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81660
+[2026-03-10 20:33:47.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001...
+[2026-03-10 20:33:47.0.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 20:33:47.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 257383, Exec ID: 81660
+[2026-03-10 20:33:47.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 20:33:47.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 20:33:51.1.8] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87879,"issue_url":"https:\/\/support.profinch.com\/issues\/87879"}
+[2026-03-10 20:33:51.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 20:39:37.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 20:39:37.057] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 20:39:37.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 20:39:37.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 20:39:37.071] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 414553
+[2026-03-10 20:39:37.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 20:39:37.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81661
+[2026-03-10 20:39:37.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 20:39:37.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 20:39:37.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 20:39:37.0.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 20:39:37.6.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG'
+[2026-03-10 20:39:37.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 55
+[2026-03-10 20:39:37.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG'
+[2026-03-10 20:39:37.9.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 364
+[2026-03-10 20:39:37.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-10 20:39:37.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: REGISTRATION VIABRANCH PORTAL
+Action: BRANCH PORTAL
+Test scenario: Initate NMB Mkononi Registration & activation via BRANCH PORTAL with account classNMB MWANACHUO ACCOUNTCA05
+Test Data...'
+[2026-03-10 20:39:37.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81661
+[2026-03-10 20:39:37.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG...
+[2026-03-10 20:39:37.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 20:39:37.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 414553, Exec ID: 81661
+[2026-03-10 20:39:37.8.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 20:39:37.3.6] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 20:39:41.7.7] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87880,"issue_url":"https:\/\/support.profinch.com\/issues\/87880"}
+[2026-03-10 20:39:41.372] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 20:54:33.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 20:54:33.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 20:54:33.0.5] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 20:54:33.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 20:54:33.8.4] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431164
+[2026-03-10 20:54:33.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 20:54:33.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81662
+[2026-03-10 20:54:33.911] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 20:54:33.914] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 20:54:33.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 20:54:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 20:54:33.9.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+[2026-03-10 20:54:33.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 53
+[2026-03-10 20:54:33.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+[2026-03-10 20:54:33.928] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 224
+[2026-03-10 20:54:33.3.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-10 20:54:33.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK INTEGRATION T...'
+[2026-03-10 20:54:33.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81662
+[2026-03-10 20:54:33.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001...
+[2026-03-10 20:54:33.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 20:54:33.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431164, Exec ID: 81662
+[2026-03-10 20:54:33.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 20:54:33.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 20:54:38.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87881,"issue_url":"https:\/\/support.profinch.com\/issues\/87881"}
+[2026-03-10 20:54:38.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+[2026-03-10 21:00:34.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+[2026-03-10 21:00:34.3.1] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+[2026-03-10 21:00:34.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+[2026-03-10 21:00:34.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+[2026-03-10 21:00:34.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431182
+[2026-03-10 21:00:34.956] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+[2026-03-10 21:00:35.5.4] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81663
+[2026-03-10 21:00:35.8.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+[2026-03-10 21:00:35.2.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+[2026-03-10 21:00:35.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+[2026-03-10 21:00:35.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+[2026-03-10 21:00:35.051] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT'
+[2026-03-10 21:00:35.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 53
+[2026-03-10 21:00:35.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT'
+[2026-03-10 21:00:35.0.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 224
+[2026-03-10 21:00:35.3.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+[2026-03-10 21:00:35.6.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK INTEGRATION T...'
+[2026-03-10 21:00:35.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81663
+[2026-03-10 21:00:35.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT...
+[2026-03-10 21:00:35.3.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+[2026-03-10 21:00:35.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431182, Exec ID: 81663
+[2026-03-10 21:00:35.9.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+[2026-03-10 21:00:35.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+[2026-03-10 21:00:38.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87882,"issue_url":"https:\/\/support.profinch.com\/issues\/87882"}
+[2026-03-10 21:00:38.786] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===

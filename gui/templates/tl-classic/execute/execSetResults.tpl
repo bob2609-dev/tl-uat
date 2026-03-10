@@ -368,23 +368,17 @@ IMPORTANT: if you change value, you need to chang init_args() logic on execSetRe
     <script>
       var uplMsg = "{$labels.file_upload_ko}<br>";
       var doAlert = false;
-      {if $gui->uploadOp->tcLevel != null 
-      &&
-      $gui->uploadOp->tcLevel->statusOK == false
-      }
-      uplMsg += "{$gui->uploadOp->tcLevel->msg}<br>";
-      doAlert = true;
-    {/if}
-
-    {if $gui->uploadOp->stepLevel != null 
-    &&
-    $gui->uploadOp->stepLevel->statusOK == false
-    }
-    uplMsg += "{$gui->uploadOp->stepLevel->msg}<br>";
-    if (doAlert == false) {
-      doAlert = true;
-    }
-    {/if}
+      {if $gui->uploadOp->tcLevel != null && $gui->uploadOp->tcLevel->statusOK == false}
+        uplMsg += "{$gui->uploadOp->tcLevel->msg}<br>";
+        {assign var="doAlert" value=true}
+      {/if}
+      {if $gui->uploadOp->stepLevel != null && $gui->uploadOp->stepLevel->statusOK == false}
+        uplMsg += "{$gui->uploadOp->stepLevel->msg}<br>";
+        {assign var="doAlert" value=true}
+      {/if}
+      {if $doAlert == false}
+        {assign var="doAlert" value=true}
+      {/if}
     if (doAlert) {
       bootbox.alert(uplMsg);
     }
@@ -605,34 +599,86 @@ IMPORTANT: if you change value, you need to chang init_args() logic on execSetRe
     jQuery(document).ready(function() {
       clipboard = new Clipboard('.clip');
 
-      // Add an overlay div for the processing message
+      // Add an overlay div for processing message
       jQuery('body').append(
-        '<div id="bugSubmissionOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:9999; text-align:center;"><div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background-color:white; padding:20px; border-radius:5px;"><h3>Submitting to Bug Tracker...</h3><p>Please wait while your bug is being submitted.</p></div></div>'
+        '<div id="bugSubmissionOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.7); z-index:9999; text-align:center; cursor:wait;">' +
+        '<div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background-color:white; padding:30px; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.3); max-width:400px;">' +
+        '<div style="text-align:center; margin-bottom:20px;">' +
+        '<div style="display:inline-block; width:40px; height:40px; border:4px solid #f3f3f3; border-top:4px solid #007bff; border-radius:50%; animation:spin 1s linear infinite;"></div>' +
+        '</div>' +
+        '<h3 style="margin:0 0 15px 0; color:#333; font-size:18px;">Submitting to Bug Tracker</h3>' +
+        '<p style="margin:0 0 10px 0; color:#666; line-height:1.5;">Please wait while your bug is being submitted to the external tracking system.</p>' +
+        '<p style="margin:0; color:#999; font-size:14px;">This may take a few seconds...</p>' +
+        '</div>' +
+        '</div>'
       );
+
+      // Add CSS for spinner animation
+      jQuery('<style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>').appendTo('head');
 
       // Function to disable/enable test execution buttons
       window.disableTestExecButtons = function(disable) {
-        // Disable/enable the status buttons (green checkmark, red X, etc.)
+        // Disable/enable: status buttons (green checkmark, red X, etc.), save buttons, and all interactive elements
         var $execButtons = jQuery('img[id^="fastExec"]');
         var $nextButtons = jQuery('img[id^="fastExecNext"]');
         var $moveNextButton = jQuery('input[name^="move2next"]');
+        var $saveButtons = jQuery('input[id^="save_results"], input[id^="save_and_next"]');
+        var $allButtons = jQuery('input[type="button"], input[type="submit"], button');
+        var $checkboxes = jQuery('input[type="checkbox"]:not(#createIssue)');
+        var $selects = jQuery('select');
+        var $textareas = jQuery('textarea');
 
         if (disable) {
-          // Add semi-transparent overlay to indicate buttons are disabled
-          $execButtons.css('opacity', '0.5');
-          $nextButtons.css('opacity', '0.5');
+          // Disable all interactive elements except createIssue checkbox
+          $execButtons.css({
+            'opacity': '0.3',
+            'pointer-events': 'none',
+            'cursor': 'not-allowed'
+          });
+          $nextButtons.css({
+            'opacity': '0.3',
+            'pointer-events': 'none',
+            'cursor': 'not-allowed'
+          });
           $moveNextButton.prop('disabled', true);
-
-          // Show the overlay with the processing message
+          $saveButtons.prop('disabled', true);
+          $checkboxes.prop('disabled', true);
+          $selects.prop('disabled', true);
+          $textareas.prop('readonly', true);
+          
+          // Show overlay with the processing message
           jQuery('#bugSubmissionOverlay').show();
+          
+          // Prevent form submission with Enter key
+          jQuery('#execSetResults').on('submit.bugSubmission', function(e) {
+            if (window.bugSubmissionInProgress) {
+              e.preventDefault();
+              return false;
+            }
+          });
         } else {
-          // Restore opacity
-          $execButtons.css('opacity', '1');
-          $nextButtons.css('opacity', '1');
+          // Restore all interactive elements
+          $execButtons.css({
+            'opacity': '1',
+            'pointer-events': 'auto',
+            'cursor': 'pointer'
+          });
+          $nextButtons.css({
+            'opacity': '1',
+            'pointer-events': 'auto',
+            'cursor': 'pointer'
+          });
           $moveNextButton.prop('disabled', false);
-
-          // Hide the overlay
+          $saveButtons.prop('disabled', false);
+          $checkboxes.prop('disabled', false);
+          $selects.prop('disabled', false);
+          $textareas.prop('readonly', false);
+          
+          // Hide overlay
           jQuery('#bugSubmissionOverlay').hide();
+          
+          // Remove form submission prevention
+          jQuery('#execSetResults').off('submit.bugSubmission');
         }
       };
 

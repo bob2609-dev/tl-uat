@@ -1838,3 +1838,95 @@
     [error] => Success
 )
 
+[2026-03-10 16:20:09] Initializing LDAP with config Array
+(
+    [domain] => Array
+        (
+            [DB] => Array
+                (
+                    [description] => DB
+                    [allowPasswordManagement] => 1
+                )
+
+            [LDAP] => Array
+                (
+                    [description] => LDAP
+                    [allowPasswordManagement] => 
+                )
+
+        )
+
+    [method] => LDAP,MD5
+    [SSO_enabled] => 
+    [SSO_logout_destination] => YOUR LOGOUT DESTINATION
+    [ldap] => Array
+        (
+            [0] => Array
+                (
+                    [ldap_server] => ldap://10.200.221.11
+                    [ldap_port] => 389
+                    [ldap_version] => 3
+                    [ldap_start_tls] => 
+                    [ldap_tls] => 
+                    [ldap_timeout] => 5
+                    [ldap_bind_dn] => CN=Service.testauto,OU=Service Accounts,DC=nmbtz,DC=com
+                    [ldap_bind_passwd] => p@ssw0rd
+                    [ldap_organization] => (objectClass=user)
+                    [ldap_root_dn] => dc=nmbtz,dc=com
+                    [ldap_uid_field] => sAMAccountName
+                    [ldap_automatic_user_creation] => 1
+                    [ldap_email_field] => mail
+                    [ldap_firstname_field] => givenname
+                    [ldap_surname_field] => sn
+                    [ldap_user_dn_format] => 
+                    [ldap_default_role_id] => 8
+                )
+
+        )
+
+    [ldap_automatic_user_creation] => 
+)
+
+[2026-03-10 16:20:09] Using array-based LDAP config
+[2026-03-10 16:20:09] Authentication attempt Array
+(
+    [username] => mwaimu.mtingele
+)
+
+[2026-03-10 16:20:09] Disabling TLS certificate verification
+[2026-03-10 16:20:09] Connecting to LDAP Array
+(
+    [server] => ldap://10.200.221.11
+    [port] => 389
+)
+
+[2026-03-10 16:20:09] Setting LDAP protocol version to 3
+[2026-03-10 16:20:09] Binding with service account Array
+(
+    [bindDN] => CN=Service.testauto,OU=Service Accounts,DC=nmbtz,DC=com
+)
+
+[2026-03-10 16:20:09] Service account bind result Array
+(
+    [success] => yes
+    [error] => Success
+)
+
+[2026-03-10 16:20:09] Performing LDAP search Array
+(
+    [baseDN] => dc=nmbtz,dc=com
+    [filter] => (&(objectClass=user)(sAMAccountName=mwaimu.mtingele))
+)
+
+[2026-03-10 16:20:09] LDAP search succeeded
+[2026-03-10 16:20:09] Binding with DN from search Array
+(
+    [bindDN] => CN=Mwaimu.Mtingele,OU=Technology & Digital Transformation,OU=HQ,OU=USERS,OU=NMB RESOURCES,DC=nmbtz,DC=com
+)
+
+[2026-03-10 16:20:09] Bind result Array
+(
+    [success] => yes
+    [error] => Success
+)
+

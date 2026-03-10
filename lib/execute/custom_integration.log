@@ -171,3 +171,577 @@
 [2026-03-10 08:12:11] [DEBUG] REAL SUCCESS - Issue created: 87763
 [2026-03-10 08:12:11] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87763, Execution ID: 81655
 [2026-03-10 08:12:11] [DEBUG] SUCCESS: Bug ID 87763 linked to execution 81655 using write_execution_bug
+[2026-03-10 08:19:30] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 08:20:05] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 16:21:48] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 16:23:10] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 16:23:10] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 16:23:11] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 16:23:11] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 16:23:11] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 16:23:11] [DEBUG] Test Case ID: 431170, Execution ID: 81656
+[2026-03-10 16:23:11] [DEBUG] Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21...
+[2026-03-10 16:23:11] [DEBUG] Priority: Normal
+[2026-03-10 16:23:11] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 16:23:11] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 16:23:11] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 16:23:11] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 16:23:11] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 16:23:11] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431170","execution_id":81656,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-987:ATM-TC102 -   2026-03-10CET16:21","description":"","priority":"Normal","assigned_to":2635,"testlink_urls":{"test_case":"http:\/\/localhost:8086\/lib\/testcases\/archiveData.php?tcase_id=431170","execution":"http:\/\/localhost:8086\/lib\/execute\/execSetResults.php?level=testsuite&id=448288&tcase_id=431170","test_plan":"http:\/\/localhost:8086\/lib\/plan\/planView.php?plan_id=448288","project":"http:\/\/localhost:8086\/lib\/projects\/projectView.php?project_id=448287"},"integration_id":9,"tester":"mwaimu.mtingele"}
+[2026-03-10 16:23:11] [DEBUG] Executing cURL request...
+[2026-03-10 16:23:11] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 16:23:11] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431170","execution_id":81656,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-987:ATM-TC102 -   2026-03-10CET16:21","description":"","priority":"Normal","assigned_to":2635,"testlink_urls":{"test_case":"http:\/\/localhost:8086\/lib\/testcases\/archiveData.php?tcase_id=431170","execution":"http:\/\/localhost:8086\/lib\/execute\/execSetResults.php?level=testsuite&id=448288&tcase_id=431170","test_plan":"http:\/\/localhost:8086\/lib\/plan\/planView.php?plan_id=448288","project":"http:\/\/localhost:8086\/lib\/projects\/projectView.php?project_id=448287"},"integration_id":9,"tester":"mwaimu.mtingele"}
+[2026-03-10 16:23:11] === API Request Started ===
+[2026-03-10 16:23:11] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 16:23:11] Request method: POST
+[2026-03-10 16:23:11] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431170","execution_id":81656,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-987:ATM-TC102 -   2026-03-10CET16:21","description":"","priority":"Normal","assigned_to":2635,"testlink_urls":{"test_case":"http:\/\/localhost:8086\/lib\/testcases\/archiveData.php?tcase_id=431170","execution":"http:\/\/localhost:8086\/lib\/execute\/execSetResults.php?level=testsuite&id=448288&tcase_id=431170","test_plan":"http:\/\/localhost:8086\/lib\/plan\/planView.php?plan_id=448288","project":"http:\/\/localhost:8086\/lib\/projects\/projectView.php?project_id=448287"},"integration_id":9,"tester":"mwaimu.mtingele"}
+[2026-03-10 16:23:11] GET data: {"action":"create_issue"}
+[2026-03-10 16:23:11] Loading config.inc.php...
+[2026-03-10 16:23:11] Config loaded successfully
+[2026-03-10 16:23:11] Attempting database connection to tl_uat on localhost
+[2026-03-10 16:23:11] Database connection successful
+[2026-03-10 16:23:11] Action: create_issue
+[2026-03-10 16:23:11] Creating issue for project: 448287
+[2026-03-10 16:23:11] Requested integration_id: 9
+[2026-03-10 16:23:11] Original summary: 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21'
+[2026-03-10 16:23:11] Original description length: 0
+[2026-03-10 16:23:11] Assigned to ID: 2635
+[2026-03-10 16:23:11] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 16:23:11] Found integration: OBDX - REDMINE
+[2026-03-10 16:23:11] Integration type: REDMINE
+[2026-03-10 16:23:11] Integration URL: https://support.profinch.com
+[2026-03-10 16:23:11] Creating real Redmine issue...
+[2026-03-10 16:23:11] Assigned to ID: 2635
+[2026-03-10 16:23:11] Added tester to description: mwaimu.mtingele
+[2026-03-10 16:23:11] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 16:23:11] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-987:ATM-TC102 -   2026-03-10CET16:21","description":"\r\n\r\n--- TestLink URLs ---\r\nTest Case: http:\/\/localhost:8086\/lib\/testcases\/archiveData.php?tcase_id=431170\r\nExecution: http:\/\/localhost:8086\/lib\/execute\/execSetResults.php?level=testsuite&id=448288&tcase_id=431170\r\nTest Plan: http:\/\/localhost:8086\/lib\/plan\/planView.php?plan_id=448288\r\nProject: http:\/\/localhost:8086\/lib\/projects\/projectView.php?project_id=448287\r\n\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 16:23:11] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 16:23:16] Redmine API HTTP Code: 201
+[2026-03-10 16:23:16] Redmine API Response: {"issue":{"id":87856,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"Test Case: /ARCHIVE/WORKING D/TESTING/ARC-987:ATM-TC102 -   2026-03-10CET16:21","description":"\r\n\r\n--- TestLink URLs ---\r\nTest Case: http://localhost:8086/lib/testcases/archiveData.php?tcase_id=431170\r\nExecution: http://localhost:8086/lib/execute/execSetResults.php?level=testsuite\u0026id=448288\u0026tcase_id=431170\r\nTest Plan: http://localhost:8086/lib/plan/planView.php?plan_id=448288\r\nProject: http://localhost:8086/lib/projects/projectView.php?project_id=448287\r\n\r\nTester: mwaimu.mtingele","start_date":"2026-03-10","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T15:22:39Z","updated_on":"2026-03-10T15:22:39Z"}}
+[2026-03-10 16:23:16] Redmine issue created successfully: ID 87856
+[2026-03-10 16:23:16] Real REDMINE issue created: 87856
+[2026-03-10 16:23:16] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 16:23:16] [DEBUG] HTTP Code: 200
+[2026-03-10 16:23:16] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87856,"issue_url":"https:\/\/support.profinch.com\/issues\/87856"}
+[2026-03-10 16:23:16] [DEBUG] REAL SUCCESS - Issue created: 87856
+[2026-03-10 16:23:16] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87856, Execution ID: 81656
+[2026-03-10 16:23:16] [DEBUG] SUCCESS: Bug ID 87856 linked to execution 81656 using write_execution_bug
+[2026-03-10 16:33:03] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:06:20] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:07:07] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:07:42] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:08:06] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:08:12] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:08:48] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:08:52] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:08:58] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:09:02] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:09:16] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:09:31] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:09:37] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:09:51] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:14:51] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:15:01] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:19:59] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:20:26] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:20:32] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:27:23] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:27:34] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:27:37] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:27:49] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:28:55] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:29:01] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:30:05] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:30:21] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:30:26] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:30:36] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:30:40] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:30:50] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:33:46] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:33:48] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:33:49] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:34:02] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:38:51] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:51:41] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:53:41] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:54:28] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:54:33] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:54:36] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 18:54:40] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:23:35] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:23:40] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:23:43] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:23:47] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:23:52] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:31:22] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:34:24] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:44:19] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:53:14] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 19:59:32] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:04:14] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:10:07] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:11:16] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:11:17] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:11:17] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 20:11:17] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 20:11:17] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 20:11:17] [DEBUG] Test Case ID: 431174, Execution ID: 81657
+[2026-03-10 20:11:17] [DEBUG] Summary: Context: TESTLINK INTEGRATION TEST
+
+Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026...
+[2026-03-10 20:11:17] [DEBUG] Priority: Normal
+[2026-03-10 20:11:17] [DEBUG] Context: TESTLINK INTEGRATION TEST
+[2026-03-10 20:11:17] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 20:11:17] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 20:11:17] [DEBUG] Generated Test Case URL: http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-989
+[2026-03-10 20:11:17] [DEBUG] Generated Test Plan URL: http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287
+[2026-03-10 20:11:17] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 20:11:17] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 20:11:17] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:11:17] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431174","execution_id":81657,"summary":"Context: TESTLINK INTEGRATION TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST","description":"Context: TESTLINK INTEGRATION TEST\n\nFunction ID: STSCRDMS\r\nAction: Search\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-989","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:11:17] [DEBUG] Executing cURL request...
+[2026-03-10 20:11:17] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:11:17] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431174","execution_id":81657,"summary":"Context: TESTLINK INTEGRATION TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST","description":"Context: TESTLINK INTEGRATION TEST\n\nFunction ID: STSCRDMS\r\nAction: Search\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-989","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:11:17] === API Request Started ===
+[2026-03-10 20:11:17] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:11:17] Request method: POST
+[2026-03-10 20:11:17] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431174","execution_id":81657,"summary":"Context: TESTLINK INTEGRATION TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST","description":"Context: TESTLINK INTEGRATION TEST\n\nFunction ID: STSCRDMS\r\nAction: Search\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-989","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:11:17] GET data: {"action":"create_issue"}
+[2026-03-10 20:11:17] Loading config.inc.php...
+[2026-03-10 20:11:17] Config loaded successfully
+[2026-03-10 20:11:17] Attempting database connection to tl_uat on localhost
+[2026-03-10 20:11:17] Database connection successful
+[2026-03-10 20:11:17] Action: create_issue
+[2026-03-10 20:11:17] Creating issue for project: 448287
+[2026-03-10 20:11:17] Requested integration_id: 9
+[2026-03-10 20:11:17] Original summary: 'Context: TESTLINK INTEGRATION TEST
+
+Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST'
+[2026-03-10 20:11:17] Original description length: 271
+[2026-03-10 20:11:17] Assigned to ID: 2635
+[2026-03-10 20:11:17] Test Case URL: 'http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-989'
+[2026-03-10 20:11:17] Test Plan URL: 'http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287'
+[2026-03-10 20:11:17] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 20:11:17] Found integration: OBDX - REDMINE
+[2026-03-10 20:11:17] Integration type: REDMINE
+[2026-03-10 20:11:17] Integration URL: https://support.profinch.com
+[2026-03-10 20:11:17] Creating real Redmine issue...
+[2026-03-10 20:11:17] Assigned to ID: 2635
+[2026-03-10 20:11:17] Added tester to description: mwaimu.mtingele
+[2026-03-10 20:11:17] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 20:11:17] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Context: TESTLINK INTEGRATION TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST","description":"Context: TESTLINK INTEGRATION TEST\n\nFunction ID: STSCRDMS\r\nAction: Search\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 20:11:17] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 20:11:21] Redmine API HTTP Code: 201
+[2026-03-10 20:11:21] Redmine API Response: {"issue":{"id":87875,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"Context: TESTLINK INTEGRATION TEST\n\nTest Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET20:10 Context: TESTLINK INTEGRATION TEST","description":"Context: TESTLINK INTEGRATION TEST\r\n\r\nFunction ID: STSCRDMS\r\nAction: Search\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-11","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T19:10:43Z","updated_on":"2026-03-10T19:10:43Z"}}
+[2026-03-10 20:11:21] Redmine issue created successfully: ID 87875
+[2026-03-10 20:11:21] Real REDMINE issue created: 87875
+[2026-03-10 20:11:21] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 20:11:21] [DEBUG] HTTP Code: 200
+[2026-03-10 20:11:21] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87875,"issue_url":"https:\/\/support.profinch.com\/issues\/87875"}
+[2026-03-10 20:11:21] [DEBUG] REAL SUCCESS - Issue created: 87875
+[2026-03-10 20:11:21] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87875, Execution ID: 81657
+[2026-03-10 20:11:21] [DEBUG] SUCCESS: Bug ID 87875 linked to execution 81657 using write_execution_bug
+[2026-03-10 20:23:48] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:25:13] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:25:13] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:25:13] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 20:25:13] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 20:25:13] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 20:25:13] [DEBUG] Test Case ID: 431172, Execution ID: 81658
+[2026-03-10 20:25:13] [DEBUG] Summary: Context: 111 TEST-CONTEXT
+
+Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:AT...
+[2026-03-10 20:25:13] [DEBUG] Priority: Normal
+[2026-03-10 20:25:13] [DEBUG] Context: 111 TEST-CONTEXT
+[2026-03-10 20:25:13] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 20:25:13] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 20:25:13] [DEBUG] Generated Test Case URL: http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-988
+[2026-03-10 20:25:13] [DEBUG] Generated Test Plan URL: http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287
+[2026-03-10 20:25:13] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 20:25:13] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 20:25:13] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:25:13] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431172","execution_id":81658,"summary":"Context: 111 TEST-CONTEXT\n\nContext: 111 TEST-CONTEXTTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-988:ATM-TC103 -   2026-03-10CET20:23","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STSCRDMS\r\nAction: Authorize\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-988","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:25:13] [DEBUG] Executing cURL request...
+[2026-03-10 20:25:13] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:25:13] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431172","execution_id":81658,"summary":"Context: 111 TEST-CONTEXT\n\nContext: 111 TEST-CONTEXTTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-988:ATM-TC103 -   2026-03-10CET20:23","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STSCRDMS\r\nAction: Authorize\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-988","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:25:13] === API Request Started ===
+[2026-03-10 20:25:13] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:25:13] Request method: POST
+[2026-03-10 20:25:13] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431172","execution_id":81658,"summary":"Context: 111 TEST-CONTEXT\n\nContext: 111 TEST-CONTEXTTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-988:ATM-TC103 -   2026-03-10CET20:23","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STSCRDMS\r\nAction: Authorize\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-988","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:25:13] GET data: {"action":"create_issue"}
+[2026-03-10 20:25:13] Loading config.inc.php...
+[2026-03-10 20:25:13] Config loaded successfully
+[2026-03-10 20:25:13] Attempting database connection to tl_uat on localhost
+[2026-03-10 20:25:13] Database connection successful
+[2026-03-10 20:25:13] Action: create_issue
+[2026-03-10 20:25:13] Creating issue for project: 448287
+[2026-03-10 20:25:13] Requested integration_id: 9
+[2026-03-10 20:25:13] Original summary: 'Context: 111 TEST-CONTEXT
+
+Context: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20:23'
+[2026-03-10 20:25:13] Original description length: 267
+[2026-03-10 20:25:13] Assigned to ID: 2635
+[2026-03-10 20:25:13] Test Case URL: 'http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-988'
+[2026-03-10 20:25:13] Test Plan URL: 'http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287'
+[2026-03-10 20:25:13] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 20:25:13] Found integration: OBDX - REDMINE
+[2026-03-10 20:25:13] Integration type: REDMINE
+[2026-03-10 20:25:13] Integration URL: https://support.profinch.com
+[2026-03-10 20:25:13] Creating real Redmine issue...
+[2026-03-10 20:25:13] Assigned to ID: 2635
+[2026-03-10 20:25:13] Added tester to description: mwaimu.mtingele
+[2026-03-10 20:25:13] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 20:25:13] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Context: 111 TEST-CONTEXT\n\nContext: 111 TEST-CONTEXTTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-988:ATM-TC103 -   2026-03-10CET20:23","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STSCRDMS\r\nAction: Authorize\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\nExpected result: Cards > Maintenance > Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 20:25:13] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 20:25:39] Redmine API HTTP Code: 201
+[2026-03-10 20:25:39] Redmine API Response: {"issue":{"id":87877,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"Context: 111 TEST-CONTEXT\n\nContext: 111 TEST-CONTEXTTest Case: /ARCHIVE/WORKING D/TESTING/ARC-988:ATM-TC103 -   2026-03-10CET20:23","description":"Context: 111 TEST-CONTEXT\r\n\r\nFunction ID: STSCRDMS\r\nAction: Authorize\r\nTest scenario: Positive test\r\nTest Data: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master Summary\r\nTest result: [\r\nTESTLINK INTEGRATION ERROR\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-11","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T19:25:02Z","updated_on":"2026-03-10T19:25:02Z"}}
+[2026-03-10 20:25:39] Redmine issue created successfully: ID 87877
+[2026-03-10 20:25:39] Real REDMINE issue created: 87877
+[2026-03-10 20:25:39] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 20:25:39] [DEBUG] HTTP Code: 200
+[2026-03-10 20:25:39] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87877,"issue_url":"https:\/\/support.profinch.com\/issues\/87877"}
+[2026-03-10 20:25:39] [DEBUG] REAL SUCCESS - Issue created: 87877
+[2026-03-10 20:25:39] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87877, Execution ID: 81658
+[2026-03-10 20:25:39] [DEBUG] SUCCESS: Bug ID 87877 linked to execution 81658 using write_execution_bug
+[2026-03-10 20:29:46] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:31:28] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:31:29] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:31:29] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 20:31:29] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 20:31:29] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 20:31:29] [DEBUG] Test Case ID: 257383, Execution ID: 81659
+[2026-03-10 20:31:29] [DEBUG] Summary: Context: MY TEST
+
+Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  |...
+[2026-03-10 20:31:29] [DEBUG] Priority: Normal
+[2026-03-10 20:31:29] [DEBUG] Context: MY TEST
+[2026-03-10 20:31:29] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 20:31:29] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 20:31:29] [DEBUG] Generated Test Case URL: http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3
+[2026-03-10 20:31:29] [DEBUG] Generated Test Plan URL: http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287
+[2026-03-10 20:31:29] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 20:31:29] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 20:31:29] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:31:29] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"257383","execution_id":81659,"summary":"Context: MY TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST","description":"Context: MY TEST\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:31:29] [DEBUG] Executing cURL request...
+[2026-03-10 20:31:29] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:31:29] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"257383","execution_id":81659,"summary":"Context: MY TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST","description":"Context: MY TEST\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:31:29] === API Request Started ===
+[2026-03-10 20:31:29] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:31:29] Request method: POST
+[2026-03-10 20:31:29] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"257383","execution_id":81659,"summary":"Context: MY TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST","description":"Context: MY TEST\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:31:29] GET data: {"action":"create_issue"}
+[2026-03-10 20:31:29] Loading config.inc.php...
+[2026-03-10 20:31:29] Config loaded successfully
+[2026-03-10 20:31:29] Attempting database connection to tl_uat on localhost
+[2026-03-10 20:31:29] Database connection successful
+[2026-03-10 20:31:29] Action: create_issue
+[2026-03-10 20:31:29] Creating issue for project: 448287
+[2026-03-10 20:31:29] Requested integration_id: 9
+[2026-03-10 20:31:29] Original summary: 'Context: MY TEST
+
+Test Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST'
+[2026-03-10 20:31:29] Original description length: 436
+[2026-03-10 20:31:29] Assigned to ID: 2635
+[2026-03-10 20:31:29] Test Case URL: 'http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3'
+[2026-03-10 20:31:29] Test Plan URL: 'http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287'
+[2026-03-10 20:31:29] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 20:31:29] Found integration: OBDX - REDMINE
+[2026-03-10 20:31:29] Integration type: REDMINE
+[2026-03-10 20:31:29] Integration URL: https://support.profinch.com
+[2026-03-10 20:31:29] Creating real Redmine issue...
+[2026-03-10 20:31:29] Assigned to ID: 2635
+[2026-03-10 20:31:29] Added tester to description: mwaimu.mtingele
+[2026-03-10 20:31:29] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 20:31:29] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Context: MY TEST\n\nTest Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST","description":"Context: MY TEST\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 20:31:29] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 20:31:33] Redmine API HTTP Code: 201
+[2026-03-10 20:31:33] Redmine API Response: {"issue":{"id":87878,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"Context: MY TEST\n\nTest Case: /ARCHIVE/WORKING D/TESTING/ARC-3:CASA-RPBI-25 -   2026-03-10CET20:29  | Context: MY TEST","description":"Context: MY TEST\r\n\r\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-11","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T19:30:56Z","updated_on":"2026-03-10T19:30:56Z"}}
+[2026-03-10 20:31:33] Redmine issue created successfully: ID 87878
+[2026-03-10 20:31:33] Real REDMINE issue created: 87878
+[2026-03-10 20:31:33] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 20:31:33] [DEBUG] HTTP Code: 200
+[2026-03-10 20:31:33] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87878,"issue_url":"https:\/\/support.profinch.com\/issues\/87878"}
+[2026-03-10 20:31:33] [DEBUG] REAL SUCCESS - Issue created: 87878
+[2026-03-10 20:31:33] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87878, Execution ID: 81659
+[2026-03-10 20:31:33] [DEBUG] SUCCESS: Bug ID 87878 linked to execution 81659 using write_execution_bug
+[2026-03-10 20:33:46] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:33:47] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:33:47] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 20:33:47] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 20:33:47] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 20:33:47] [DEBUG] Test Case ID: 257383, Execution ID: 81660
+[2026-03-10 20:33:47] [DEBUG] Summary: Context: TEST-CONTEXT0001
+
+TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001...
+[2026-03-10 20:33:47] [DEBUG] Priority: Normal
+[2026-03-10 20:33:47] [DEBUG] Context: TEST-CONTEXT0001
+[2026-03-10 20:33:47] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 20:33:47] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 20:33:47] [DEBUG] Generated Test Case URL: http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3
+[2026-03-10 20:33:47] [DEBUG] Generated Test Plan URL: http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287
+[2026-03-10 20:33:47] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 20:33:47] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 20:33:47] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:33:47] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"257383","execution_id":81660,"summary":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:33:47] [DEBUG] Executing cURL request...
+[2026-03-10 20:33:47] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:33:47] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"257383","execution_id":81660,"summary":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:33:47] === API Request Started ===
+[2026-03-10 20:33:47] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:33:47] Request method: POST
+[2026-03-10 20:33:47] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"257383","execution_id":81660,"summary":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:33:47] GET data: {"action":"create_issue"}
+[2026-03-10 20:33:47] Loading config.inc.php...
+[2026-03-10 20:33:47] Config loaded successfully
+[2026-03-10 20:33:47] Attempting database connection to tl_uat on localhost
+[2026-03-10 20:33:47] Database connection successful
+[2026-03-10 20:33:47] Action: create_issue
+[2026-03-10 20:33:47] Creating issue for project: 448287
+[2026-03-10 20:33:47] Requested integration_id: 9
+[2026-03-10 20:33:47] Original summary: 'Context: TEST-CONTEXT0001
+
+TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+[2026-03-10 20:33:47] Original description length: 445
+[2026-03-10 20:33:47] Assigned to ID: 2635
+[2026-03-10 20:33:47] Test Case URL: 'http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-3'
+[2026-03-10 20:33:47] Test Plan URL: 'http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287'
+[2026-03-10 20:33:47] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 20:33:47] Found integration: OBDX - REDMINE
+[2026-03-10 20:33:47] Integration type: REDMINE
+[2026-03-10 20:33:47] Integration URL: https://support.profinch.com
+[2026-03-10 20:33:47] Creating real Redmine issue...
+[2026-03-10 20:33:47] Assigned to ID: 2635
+[2026-03-10 20:33:47] Added tester to description: mwaimu.mtingele
+[2026-03-10 20:33:47] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 20:33:47] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 20:33:47] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 20:33:51] Redmine API HTTP Code: 201
+[2026-03-10 20:33:51] Redmine API Response: {"issue":{"id":87879,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\r\n\r\nFunction ID: BI\r\nAction: List of cancelled TD\r\nTest scenario: Log in to the BI system by entering valid credentials and accessing the dashboard. Navigate to the banking operation TD report Cancelled TD\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: User should be able to view the report and be able to spool in both PDF and Excel format .\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-11","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T19:33:13Z","updated_on":"2026-03-10T19:33:13Z"}}
+[2026-03-10 20:33:51] Redmine issue created successfully: ID 87879
+[2026-03-10 20:33:51] Real REDMINE issue created: 87879
+[2026-03-10 20:33:51] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 20:33:51] [DEBUG] HTTP Code: 200
+[2026-03-10 20:33:51] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87879,"issue_url":"https:\/\/support.profinch.com\/issues\/87879"}
+[2026-03-10 20:33:51] [DEBUG] REAL SUCCESS - Issue created: 87879
+[2026-03-10 20:33:51] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87879, Execution ID: 81660
+[2026-03-10 20:33:51] [DEBUG] SUCCESS: Bug ID 87879 linked to execution 81660 using write_execution_bug
+[2026-03-10 20:38:10] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:39:36] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:39:37] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:39:37] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 20:39:37] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 20:39:37] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 20:39:37] [DEBUG] Test Case ID: 414553, Execution ID: 81661
+[2026-03-10 20:39:37] [DEBUG] Summary: Context: THIS IS A TEST BUG
+
+TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG...
+[2026-03-10 20:39:37] [DEBUG] Priority: Normal
+[2026-03-10 20:39:37] [DEBUG] Context: THIS IS A TEST BUG
+[2026-03-10 20:39:37] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 20:39:37] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 20:39:37] [DEBUG] Generated Test Case URL: http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-982
+[2026-03-10 20:39:37] [DEBUG] Generated Test Plan URL: http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287
+[2026-03-10 20:39:37] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 20:39:37] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 20:39:37] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:39:37] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"414553","execution_id":81661,"summary":"Context: THIS IS A TEST BUG\n\nTESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG","description":"Context: THIS IS A TEST BUG\n\nFunction ID: REGISTRATION VIABRANCH PORTAL\r\nAction: BRANCH PORTAL\r\nTest scenario: Initate NMB Mkononi Registration & activation via BRANCH PORTAL with account classNMB MWANACHUO ACCOUNTCA05\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: NMB Mkononi Registration should be successfully.\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-982","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:39:37] [DEBUG] Executing cURL request...
+[2026-03-10 20:39:37] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:39:37] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"414553","execution_id":81661,"summary":"Context: THIS IS A TEST BUG\n\nTESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG","description":"Context: THIS IS A TEST BUG\n\nFunction ID: REGISTRATION VIABRANCH PORTAL\r\nAction: BRANCH PORTAL\r\nTest scenario: Initate NMB Mkononi Registration & activation via BRANCH PORTAL with account classNMB MWANACHUO ACCOUNTCA05\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: NMB Mkononi Registration should be successfully.\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-982","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:39:37] === API Request Started ===
+[2026-03-10 20:39:37] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:39:37] Request method: POST
+[2026-03-10 20:39:37] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"414553","execution_id":81661,"summary":"Context: THIS IS A TEST BUG\n\nTESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG","description":"Context: THIS IS A TEST BUG\n\nFunction ID: REGISTRATION VIABRANCH PORTAL\r\nAction: BRANCH PORTAL\r\nTest scenario: Initate NMB Mkononi Registration & activation via BRANCH PORTAL with account classNMB MWANACHUO ACCOUNTCA05\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: NMB Mkononi Registration should be successfully.\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-982","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:39:37] GET data: {"action":"create_issue"}
+[2026-03-10 20:39:37] Loading config.inc.php...
+[2026-03-10 20:39:37] Config loaded successfully
+[2026-03-10 20:39:37] Attempting database connection to tl_uat on localhost
+[2026-03-10 20:39:37] Database connection successful
+[2026-03-10 20:39:37] Action: create_issue
+[2026-03-10 20:39:37] Creating issue for project: 448287
+[2026-03-10 20:39:37] Requested integration_id: 9
+[2026-03-10 20:39:37] Original summary: 'Context: THIS IS A TEST BUG
+
+TESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG'
+[2026-03-10 20:39:37] Original description length: 393
+[2026-03-10 20:39:37] Assigned to ID: 2635
+[2026-03-10 20:39:37] Test Case URL: 'http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-982'
+[2026-03-10 20:39:37] Test Plan URL: 'http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287'
+[2026-03-10 20:39:37] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 20:39:37] Found integration: OBDX - REDMINE
+[2026-03-10 20:39:37] Integration type: REDMINE
+[2026-03-10 20:39:37] Integration URL: https://support.profinch.com
+[2026-03-10 20:39:37] Creating real Redmine issue...
+[2026-03-10 20:39:37] Assigned to ID: 2635
+[2026-03-10 20:39:37] Added tester to description: mwaimu.mtingele
+[2026-03-10 20:39:37] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 20:39:37] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Context: THIS IS A TEST BUG\n\nTESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG","description":"Context: THIS IS A TEST BUG\n\nFunction ID: REGISTRATION VIABRANCH PORTAL\r\nAction: BRANCH PORTAL\r\nTest scenario: Initate NMB Mkononi Registration & activation via BRANCH PORTAL with account classNMB MWANACHUO ACCOUNTCA05\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: NMB Mkononi Registration should be successfully.\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 20:39:37] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 20:39:41] Redmine API HTTP Code: 201
+[2026-03-10 20:39:41] Redmine API Response: {"issue":{"id":87880,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"Context: THIS IS A TEST BUG\n\nTESTLINK INTEGRATION TEST | Context: THIS IS A TEST BUG","description":"Context: THIS IS A TEST BUG\r\n\r\nFunction ID: REGISTRATION VIABRANCH PORTAL\r\nAction: BRANCH PORTAL\r\nTest scenario: Initate NMB Mkononi Registration \u0026 activation via BRANCH PORTAL with account classNMB MWANACHUO ACCOUNTCA05\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: NMB Mkononi Registration should be successfully.\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-11","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T19:39:03Z","updated_on":"2026-03-10T19:39:03Z"}}
+[2026-03-10 20:39:41] Redmine issue created successfully: ID 87880
+[2026-03-10 20:39:41] Real REDMINE issue created: 87880
+[2026-03-10 20:39:41] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 20:39:41] [DEBUG] HTTP Code: 200
+[2026-03-10 20:39:41] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87880,"issue_url":"https:\/\/support.profinch.com\/issues\/87880"}
+[2026-03-10 20:39:41] [DEBUG] REAL SUCCESS - Issue created: 87880
+[2026-03-10 20:39:41] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87880, Execution ID: 81661
+[2026-03-10 20:39:41] [DEBUG] SUCCESS: Bug ID 87880 linked to execution 81661 using write_execution_bug
+[2026-03-10 20:42:22] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:42:35] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:42:38] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:46:26] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:50:50] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:53:31] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 20:54:33] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:54:33] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 20:54:33] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 20:54:33] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 20:54:33] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 20:54:33] [DEBUG] Test Case ID: 431164, Execution ID: 81662
+[2026-03-10 20:54:33] [DEBUG] Summary: Context: TEST-CONTEXT0001
+
+TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001...
+[2026-03-10 20:54:33] [DEBUG] Priority: Normal
+[2026-03-10 20:54:33] [DEBUG] Context: TEST-CONTEXT0001
+[2026-03-10 20:54:33] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 20:54:33] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 20:54:34] [DEBUG] Generated Test Case URL: http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-984
+[2026-03-10 20:54:34] [DEBUG] Generated Test Plan URL: http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287
+[2026-03-10 20:54:34] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 20:54:34] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 20:54:34] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:54:34] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431164","execution_id":81662,"summary":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-984","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:54:34] [DEBUG] Executing cURL request...
+[2026-03-10 20:54:34] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:54:34] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431164","execution_id":81662,"summary":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-984","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:54:34] === API Request Started ===
+[2026-03-10 20:54:34] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 20:54:34] Request method: POST
+[2026-03-10 20:54:34] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431164","execution_id":81662,"summary":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-984","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 20:54:34] GET data: {"action":"create_issue"}
+[2026-03-10 20:54:34] Loading config.inc.php...
+[2026-03-10 20:54:34] Config loaded successfully
+[2026-03-10 20:54:34] Attempting database connection to tl_uat on localhost
+[2026-03-10 20:54:34] Database connection successful
+[2026-03-10 20:54:34] Action: create_issue
+[2026-03-10 20:54:34] Creating issue for project: 448287
+[2026-03-10 20:54:34] Requested integration_id: 9
+[2026-03-10 20:54:34] Original summary: 'Context: TEST-CONTEXT0001
+
+TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
+[2026-03-10 20:54:34] Original description length: 251
+[2026-03-10 20:54:34] Assigned to ID: 2635
+[2026-03-10 20:54:34] Test Case URL: 'http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-984'
+[2026-03-10 20:54:34] Test Plan URL: 'http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287'
+[2026-03-10 20:54:34] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 20:54:34] Found integration: OBDX - REDMINE
+[2026-03-10 20:54:34] Integration type: REDMINE
+[2026-03-10 20:54:34] Integration URL: https://support.profinch.com
+[2026-03-10 20:54:34] Creating real Redmine issue...
+[2026-03-10 20:54:34] Assigned to ID: 2635
+[2026-03-10 20:54:34] Added tester to description: mwaimu.mtingele
+[2026-03-10 20:54:34] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 20:54:34] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 20:54:34] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 20:54:37] Redmine API HTTP Code: 201
+[2026-03-10 20:54:37] Redmine API Response: {"issue":{"id":87881,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"Context: TEST-CONTEXT0001\n\nTESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001","description":"Context: TEST-CONTEXT0001\r\n\r\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-11","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T19:54:00Z","updated_on":"2026-03-10T19:54:00Z"}}
+[2026-03-10 20:54:37] Redmine issue created successfully: ID 87881
+[2026-03-10 20:54:37] Real REDMINE issue created: 87881
+[2026-03-10 20:54:37] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 20:54:37] [DEBUG] HTTP Code: 200
+[2026-03-10 20:54:38] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87881,"issue_url":"https:\/\/support.profinch.com\/issues\/87881"}
+[2026-03-10 20:54:38] [DEBUG] REAL SUCCESS - Issue created: 87881
+[2026-03-10 20:54:38] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87881, Execution ID: 81662
+[2026-03-10 20:54:38] [DEBUG] SUCCESS: Bug ID 87881 linked to execution 81662 using write_execution_bug
+[2026-03-10 20:59:24] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:00:34] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 21:00:35] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[2026-03-10 21:00:35] [DEBUG] REAL ISSUE CREATION ATTEMPT:
+[2026-03-10 21:00:35] [DEBUG] Integration: OBDX - REDMINE (ID: 9)
+[2026-03-10 21:00:35] [DEBUG] Project ID: 448287, Test Plan ID: 448288
+[2026-03-10 21:00:35] [DEBUG] Test Case ID: 431182, Execution ID: 81663
+[2026-03-10 21:00:35] [DEBUG] Summary: TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT...
+[2026-03-10 21:00:35] [DEBUG] Priority: Normal
+[2026-03-10 21:00:35] [DEBUG] Context: 111 TEST-CONTEXT
+[2026-03-10 21:00:35] [DEBUG] Passing selected integration_id to API: 9
+[2026-03-10 21:00:35] [DEBUG] Added tester to data: mwaimu.mtingele
+[2026-03-10 21:00:35] [DEBUG] Generated Test Case URL: http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-993
+[2026-03-10 21:00:35] [DEBUG] Generated Test Plan URL: http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287
+[2026-03-10 21:00:35] [DEBUG] Base URL: http://localhost:8086
+[2026-03-10 21:00:35] [DEBUG] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[2026-03-10 21:00:35] [DEBUG] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 21:00:35] [DEBUG] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431182","execution_id":81663,"summary":"TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-993","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 21:00:35] [DEBUG] Executing cURL request...
+[2026-03-10 21:00:35] [DEBUG] cURL URL: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 21:00:35] [DEBUG] cURL POST data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431182","execution_id":81663,"summary":"TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-993","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 21:00:35] === API Request Started ===
+[2026-03-10 21:00:35] Request URI: /lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[2026-03-10 21:00:35] Request method: POST
+[2026-03-10 21:00:35] JSON input data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431182","execution_id":81663,"summary":"TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","assigned_to":2635,"integration_id":9,"tester":"mwaimu.mtingele","testlink_url":"http:\/\/localhost:8086\/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-993","testplan_url":"http:\/\/localhost:8086\/lib\/general\/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287"}
+[2026-03-10 21:00:35] GET data: {"action":"create_issue"}
+[2026-03-10 21:00:35] Loading config.inc.php...
+[2026-03-10 21:00:35] Config loaded successfully
+[2026-03-10 21:00:35] Attempting database connection to tl_uat on localhost
+[2026-03-10 21:00:35] Database connection successful
+[2026-03-10 21:00:35] Action: create_issue
+[2026-03-10 21:00:35] Creating issue for project: 448287
+[2026-03-10 21:00:35] Requested integration_id: 9
+[2026-03-10 21:00:35] Original summary: 'TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT'
+[2026-03-10 21:00:35] Original description length: 251
+[2026-03-10 21:00:35] Assigned to ID: 2635
+[2026-03-10 21:00:35] Test Case URL: 'http://localhost:8086/linkto.php?tprojectPrefix=ARC&item=testcase&id=ARC-993'
+[2026-03-10 21:00:35] Test Plan URL: 'http://localhost:8086/lib/general/frmWorkArea.php?feature=executeTest&tplan_id=448288&tproject_id=448287'
+[2026-03-10 21:00:35] Executing SQL: SELECT i.* FROM custom_bugtrack_integrations i
+                JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+                WHERE m.tproject_id = 448287 AND m.integration_id = 9
+                AND m.is_active = 1 AND i.is_active = 1
+                LIMIT 1
+[2026-03-10 21:00:35] Found integration: OBDX - REDMINE
+[2026-03-10 21:00:35] Integration type: REDMINE
+[2026-03-10 21:00:35] Integration URL: https://support.profinch.com
+[2026-03-10 21:00:35] Creating real Redmine issue...
+[2026-03-10 21:00:35] Assigned to ID: 2635
+[2026-03-10 21:00:35] Added tester to description: mwaimu.mtingele
+[2026-03-10 21:00:35] Adding assignee_id: 2635 to Redmine issue
+[2026-03-10 21:00:35] Redmine API data: {"issue":{"project_id":"nmb-fcubs-14-7-uat2","subject":"TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT","description":"Context: 111 TEST-CONTEXT\n\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","priority_id":2,"assigned_to_id":2635}}
+[2026-03-10 21:00:35] Calling Redmine API: https://support.profinch.com/issues.json
+[2026-03-10 21:00:38] Redmine API HTTP Code: 201
+[2026-03-10 21:00:38] Redmine API Response: {"issue":{"id":87882,"project":{"id":634,"name":"NMB FCUBS 14.7 UAT2"},"tracker":{"id":1,"name":"Bug"},"status":{"id":8,"name":"Open"},"priority":{"id":2,"name":"Normal"},"author":{"id":3319,"name":"Mwaimu Mtingele"},"assigned_to":{"id":2635,"name":"NMBBANK ICT"},"subject":"TESTLINK INTEGRATION TEST | Context: 111 TEST-CONTEXT","description":"Context: 111 TEST-CONTEXT\r\n\r\nFunction ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards \u003e Maintenance \u003e Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:\r\nTester: mwaimu.mtingele","start_date":"2026-03-11","done_ratio":0,"custom_fields":[{"id":16,"name":"Reminders #","value":""},{"id":141,"name":"Module_NMB","value":""},{"id":142,"name":"Dependent test case count","value":""},{"id":143,"name":"Issue Classification","value":""},{"id":145,"name":"PendingOn","value":""},{"id":170,"name":"Critical for Live","value":""},{"id":181,"name":"MOS Ticket Number","value":""},{"id":182,"name":"MOS CFL","value":""}],"created_on":"2026-03-10T20:00:01Z","updated_on":"2026-03-10T20:00:01Z"}}
+[2026-03-10 21:00:38] Redmine issue created successfully: ID 87882
+[2026-03-10 21:00:38] Real REDMINE issue created: 87882
+[2026-03-10 21:00:38] [DEBUG] cURL Error:  (errno: 0)
+[2026-03-10 21:00:38] [DEBUG] HTTP Code: 200
+[2026-03-10 21:00:38] [DEBUG] Raw Response: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87882,"issue_url":"https:\/\/support.profinch.com\/issues\/87882"}
+[2026-03-10 21:00:38] [DEBUG] REAL SUCCESS - Issue created: 87882
+[2026-03-10 21:00:38] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87882, Execution ID: 81663
+[2026-03-10 21:00:38] [DEBUG] SUCCESS: Bug ID 87882 linked to execution 81663 using write_execution_bug

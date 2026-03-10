@@ -1,2 +1,6 @@
 # ReCode local database
 .recode
+gui/templates_c/*
+lib/execute/logs/*
+logs/*
+upload_area/*
