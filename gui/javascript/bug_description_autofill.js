@@ -79,19 +79,14 @@ function hideLoadingOverlay() {
 
 // Wait for document to be ready
 jQuery(document).ready(function() {
-    console.log('bug_description_autofill.js loaded');
-    
     // Add event listener for the createIssue checkbox
     jQuery(document).on('change', '#createIssue', function() {
-        console.log('createIssue checkbox changed, checked:', jQuery(this).is(':checked'));
         populateBugDescription();
     });
     
     // Also check if the checkbox is already checked when the page loads
     var createIssueCheckbox = jQuery('#createIssue');
-    console.log('createIssue checkbox exists:', createIssueCheckbox.length > 0);
     if(createIssueCheckbox.length > 0 && createIssueCheckbox.is(':checked')) {
-        console.log('createIssue checkbox is already checked, populating description');
         populateBugDescription();
     }
     
@@ -104,16 +99,6 @@ jQuery(document).ready(function() {
         // Show loading overlay
         showLoadingOverlay('Fetching test case data...');
         
-        // Log the request details
-        console.log('===== FETCH TEST CASE DATA =====');
-        console.log('Request URL:', requestUrl);
-        console.log('tcversion_id:', tcversionId);
-        console.log('Exec ID:', execId);
-        
-        // Log current URL and form data for debugging
-        console.log('Current URL:', window.location.href);
-        console.log('Form data:', jQuery('form').serialize());
-        
         // Create a timestamp for this request
         var requestTimestamp = new Date().toISOString();
         
@@ -123,26 +108,18 @@ jQuery(document).ready(function() {
                 type: 'GET',
                 data: { 
                     tcversion_id: tcversionId,
-                    // Do not enable server debug logging by default; pass timestamp only as cache buster
                     _timestamp: requestTimestamp
                 },
-                dataType: 'text', // Change to text to avoid JSON parsing issues
-                timeout: 300000, // 5 minutes timeout in milliseconds
+                dataType: 'text',
+                timeout: 300000,
                 success: function(responseText, status, xhr) {
-                    console.log('===== API RESPONSE =====');
-                    console.log('Status:', status);
-                    console.log('Raw response text:', responseText);
-                    
                     hideLoadingOverlay();
                     
                     // Try to parse JSON manually
                     try {
                         var response = JSON.parse(responseText);
-                        console.log('Parsed response:', response);
                         resolve(response);
                     } catch (e) {
-                        console.error('JSON parse error:', e);
-                        console.error('Response text that failed to parse:', responseText);
                         // Fall back to page scraping
                         resolve({
                             success: false,
@@ -151,21 +128,14 @@ jQuery(document).ready(function() {
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('===== API ERROR =====');
-                    console.error('Status:', status);
-                    console.error('Error:', error);
-                    console.error('Response text:', xhr.responseText);
-                    
                     hideLoadingOverlay();
                     
                     if (status === 'timeout') {
-                        console.error('Request timed out - falling back to page scraping');
                         resolve({
                             success: false,
                             message: 'API request timed out, using page scraping fallback'
                         });
                     } else {
-                        console.error('API request failed - falling back to page scraping');
                         resolve({
                             success: false,
                             message: 'API request failed, using page scraping fallback'
@@ -218,18 +188,12 @@ window.onload = function() {
  * Populate bug description with test case details
  */
 function populateBugDescription() {
-    console.log('populateBugDescription function called');
-    
     // Only populate if checkbox is checked
     if (jQuery('#createIssue').is(':checked')) {
-        console.log('Create Issue checkbox is checked');
-        
         // Get tcversion_id from the page
         var tcversionId = getTcversionIdFromPage();
-        console.log('Test Case Version ID:', tcversionId);
         
         if (!tcversionId) {
-            console.error('Could not find tcversion_id');
             // Fall back to page scraping even without a tcversion_id
             populateTemplateFromPage();
             return;
@@ -237,7 +201,6 @@ function populateBugDescription() {
         
         // Make sure we have a valid ID before proceeding
         if (tcversionId.trim() === '') {
-            console.error('Empty tcversion_id, falling back to page scraping');
             populateTemplateFromPage();
             return;
         }
@@ -245,20 +208,15 @@ function populateBugDescription() {
         // Fetch test case data from the server
         window.fetchTestCaseData(tcversionId).then(function(response) {
             if (response.success && response.data) {
-                console.log('Successfully fetched test case data:', response.data);
                 populateTemplateWithData(response);
             } else {
-                console.error('Failed to fetch test case data:', response.message);
                 // Fall back to the old method if API call fails
                 populateTemplateFromPage();
             }
         }).catch(function(error) {
-            console.error('Error fetching test case data:', error);
             // Fall back to the old method if API call fails
             populateTemplateFromPage();
         });
-    } else {
-        console.log('Create Issue checkbox is NOT checked');
     }
 }
 
@@ -296,7 +254,6 @@ function getTcversionIdFromPage() {
         var nameAttr = tcVersionField.attr('name');
         tcIdMatch = nameAttr.match(/tc_version\[(\d+)\]/);
         if (tcIdMatch && tcIdMatch[1]) {
-            console.log('Found TC ID from hidden field:', tcIdMatch[1]);
             return tcIdMatch[1];
         }
     }
@@ -305,20 +262,17 @@ function getTcversionIdFromPage() {
     var urlParams = new URLSearchParams(window.location.search);
     var tcversionId = urlParams.get('tcversion_id');
     if (tcversionId) {
-        console.log('Found TC ID from URL:', tcversionId);
         return tcversionId;
     }
     
     // If still not found, try to find it in other common fields
     var tcversionMatch = jQuery('.exec_tc_title').text().match(/version\s*[:-]\s*(\d+)/i);
     if (tcversionMatch && tcversionMatch[1]) {
-        console.log('Found TC ID from title text:', tcversionMatch[1]);
         return tcversionMatch[1];
     }
     
-    // If still not found, log an error but don't use a default value
-    console.error('ERROR: Could not find a valid test case ID');
-    return ''; // Return empty string instead of a default value
+    // Return empty string instead of a default value
+    return '';
 }
 
 /**
@@ -757,29 +711,20 @@ function populateTemplateWithData(data) {
  * Fall back method to populate the template from the page if API fails
  */
 function populateTemplateFromPage() {
-    console.log('Falling back to populating template from page elements');
-    
     // Get test case details from the page
     var testCaseDetails = {};
     
     // Get test case ID and name
-    console.log('Attempting to get test case title');
     var tcTitleElement = jQuery('.exec_tc_title').last();
-    console.log('tcTitleElement found:', tcTitleElement.length > 0);
     var tcTitleText = tcTitleElement.text();
-    console.log('tcTitleText:', tcTitleText);
     testCaseDetails.title = jQuery.trim(tcTitleText);
     
     // Get test case description - use notes field as requested
-    console.log('Attempting to get test case description from notes field');
     var notesElement = jQuery('#notes');
-    console.log('notesElement found:', notesElement.length > 0);
     testCaseDetails.description = notesElement.val() || '';
     
     // Get expected results
-    console.log('Attempting to get expected results');
     var expectedResultsElement = jQuery('.exec_test_spec_title:contains("Expected Results")').next();
-    console.log('expectedResultsElement found:', expectedResultsElement.length > 0);
     
     // Get expected results from the page without hardcoded values
     var cleanExpectedResults = "";
@@ -792,68 +737,40 @@ function populateTemplateFromPage() {
     testCaseDetails.expected_results = cleanExpectedResults;
     
     // Get actual results/notes - using the dynamic ID pattern notes[ID]
-    console.log('Attempting to get notes with dynamic ID pattern');
-    
     // Get the test case ID using the same approach as in getTcversionIdFromPage
     var tcId = getTcversionIdFromPage();
-    console.log('Looking for notes element with ID pattern: notes[' + tcId + ']');
     
     // Try to find the notes field with the exact dynamic ID pattern
     var notesElement = jQuery('textarea[id="notes[' + tcId + ']"]');
-    console.log('Notes element with exact dynamic ID found:', notesElement.length > 0);
     
     // If not found, try with a more flexible selector
     if (notesElement.length === 0) {
         notesElement = jQuery('textarea[id^="notes["]');
-        console.log('Notes element with flexible ID pattern found:', notesElement.length > 0);
     }
     
     // If still not found, fall back to the simple #notes selector
     if (notesElement.length === 0) {
-        console.log('Falling back to simple #notes selector');
         notesElement = jQuery('#notes');
-        console.log('Simple notes element found:', notesElement.length > 0);
     }
     
     // Make sure we actually get the value from the notes field
     var notesValue = "";
     if (notesElement.length > 0) {
-        // Log the actual ID to help with debugging
-        console.log('Found notes element with ID:', notesElement.attr('id'));
-        
         notesValue = notesElement.val() || "";
-        console.log('Raw notes value:', notesValue);
         
         // If the notes field is empty, try getting the text content instead
         if (!notesValue || !notesValue.trim()) {
             notesValue = notesElement.text() || "";
-            console.log('Notes text content:', notesValue);
         }
         
         // Trim the value to remove any leading/trailing whitespace
         notesValue = notesValue.trim();
-    } else {
-        // If we still can't find it, try a more general approach
-        console.log('Trying more general textarea selector');
-        var allTextareas = jQuery('textarea');
-        console.log('Found', allTextareas.length, 'textareas on the page');
-        
-        // Log all textareas for debugging
-        allTextareas.each(function(index) {
-            console.log('Textarea', index, 'ID:', jQuery(this).attr('id'), 
-                        'Name:', jQuery(this).attr('name'),
-                        'Value length:', (jQuery(this).val() || '').length);
-        });
-        
-        console.log('Notes element not found with specific selectors, using empty string');
     }
     
     testCaseDetails.notes = notesValue;
     
     // Get execution status from custom field as requested
-    console.log('Attempting to get execution status from custom field');
     var statusField = jQuery('select[id^="custom_field_6_13_"]');
-    console.log('statusField found:', statusField.length > 0);
     var statusText = "";
     
     if (statusField.length > 0) {
@@ -865,7 +782,6 @@ function populateTemplateFromPage() {
     } else {
         // Fallback to the original status select if custom field not found
         var statusSelect = jQuery('select[id^="statusSingle_"]');
-        console.log('Fallback statusSelect found:', statusSelect.length > 0);
         
         if (statusSelect.length > 0) {
             statusText = statusSelect.find('option:selected').text();
@@ -877,13 +793,10 @@ function populateTemplateFromPage() {
         }
     }
     
-    console.log('statusText:', statusText);
     testCaseDetails.execution_status = statusText;
     
     // Get test execution path
-    console.log('Attempting to get test execution path');
     var testSuiteTitle = jQuery('.exec_additional_info .exec_testsuite_details').text();
-    console.log('testSuiteTitle:', testSuiteTitle);
     
     // Clean up the test execution path
     var cleanPath = "Customers > Operations> Customer Input";
@@ -899,9 +812,7 @@ function populateTemplateFromPage() {
     testCaseDetails.test_execution_path = cleanPath;
     
     // Create formatted template matching bugAdd.php format
-    console.log('Creating template with gathered data');
     var template = "\n";
-    //  template+= "\n=========================\n";
     
     // Extract test case ID from the title
     var testCaseId = '';
@@ -916,12 +827,8 @@ function populateTemplateFromPage() {
         testCaseId = "RP-TC1";
     }
     
-    // template += "Test Case: " + testCaseId + "\n\n";
-    
     // Get priority from custom field as requested
-    console.log('Attempting to get priority from custom field');
     var priorityField = jQuery('select[id^="custom_field_6_11_"]');
-    console.log('priorityField found:', priorityField.length > 0);
     var priorityValue = "P0";
     
     if (priorityField.length > 0) {
@@ -931,7 +838,6 @@ function populateTemplateFromPage() {
         }
     }
     testCaseDetails.priority = priorityValue;
-    console.log('Priority value:', priorityValue);
     
     // Add standard sections with empty strings if data not available
     // New template format without section titles
@@ -942,15 +848,10 @@ function populateTemplateFromPage() {
     template += "Test scenario: " + (testCaseDetails.test_script || "") + "\n";
     
     // Get test data from custom field with ID pattern custom_field_20_10_
-    console.log('Attempting to get test data from custom field');
     var testDataElement = jQuery('[id^="custom_field_20_10_"]');
-    console.log('Test data element found:', testDataElement.length > 0);
     
     var testDataValue = "";  // Empty string as default, no hardcoded values
     if (testDataElement.length > 0) {
-        // Log the actual ID to help with debugging
-        console.log('Found test data element with ID:', testDataElement.attr('id'));
-        
         // Check if it's a textarea, input, or select
         if (testDataElement.is('textarea') || testDataElement.is('input:text')) {
             testDataValue = testDataElement.val() || "";
@@ -959,8 +860,6 @@ function populateTemplateFromPage() {
         } else {
             testDataValue = testDataElement.text() || "";
         }
-        
-        console.log('Raw test data value:', testDataValue);
         
         // Trim the value and use default if empty
         testDataValue = testDataValue.trim();
@@ -980,12 +879,7 @@ function populateTemplateFromPage() {
     var formattedNotes = "[\n" + notesValue.trim() + "\n]";
     template += "Test result: " + formattedNotes + "\n";
     
-    console.log('Template created:', template);
-    
     // Set the bug description field value
-    console.log('Attempting to set bug_notes field');
     var bugNotesField = jQuery('#bug_notes');
-    console.log('bugNotesField found:', bugNotesField.length > 0);
     bugNotesField.val(template);
-    console.log('Template set to bug_notes field');
 }

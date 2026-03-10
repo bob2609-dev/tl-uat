@@ -58,6 +58,15 @@ SELECT
         ELSE 'Not Configured'
     END AS 'Execution Type',
     
+    -- Test Case S. No.
+    NHTC.name AS 'Test Case S. No.',
+    
+    -- Custom Fields for test case design
+    COALESCE(cf_module.value, '') AS 'Primary Module / Function Name',
+    COALESCE(cf_scenario.value, '') AS 'Scenario ID',
+    COALESCE(cf_action.value, '') AS 'Sub-Scenario / Action',
+    COALESCE(TCV.summary, '') AS 'Test Case Description',
+    
     -- Additional columns for traceability
     E.id AS 'Execution ID',
     '' AS 'Bug ID',
@@ -114,6 +123,11 @@ LEFT JOIN cfield_design_values cev ON cev.node_id = NHTCV.id
     AND cev.field_id = 3
 LEFT JOIN cfield_design_values cfdv ON cfdv.node_id = NHTCV.id 
     AND cfdv.field_id = 5
+
+-- Get custom fields for Scenario ID, Module/Function Name, and Sub-Scenario/Action
+LEFT JOIN cfield_design_values cf_module ON cf_module.node_id = NHTCV.id AND cf_module.field_id = 1  -- Primary Module/Function Name
+LEFT JOIN cfield_design_values cf_scenario ON cf_scenario.node_id = NHTCV.id AND cf_scenario.field_id = 2  -- Scenario ID
+LEFT JOIN cfield_design_values cf_action ON cf_action.node_id = NHTCV.id AND cf_action.field_id = 3  -- Sub-Scenario/Action
 
 -- Filter by test plan (NO LIMIT for full export)
 WHERE TPTCV.testplan_id = @testplan_id

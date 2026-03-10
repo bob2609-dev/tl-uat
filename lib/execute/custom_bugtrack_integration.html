@@ -201,13 +201,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="integrationName" placeholder="Integration Name" required>
+                                    <input type="text" class="form-control" id="integrationName" placeholder="Integration Name">
                                     <label for="integrationName">Integration Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <select class="form-select" id="integrationType" required>
+                                    <select class="form-select" id="integrationType">
                                         <option value="REDMINE">Redmine</option>
                                         <option value="JIRA">Jira</option>
                                         <option value="BUGZILLA">Bugzilla</option>
@@ -218,7 +218,7 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="url" class="form-control" id="integrationUrl" placeholder="Base URL" required>
+                            <input type="url" class="form-control" id="integrationUrl" placeholder="Base URL">
                             <label for="integrationUrl">Base URL</label>
                         </div>
 
@@ -277,7 +277,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add Project Mapping</h5>
+                    <h5 class="modal-title" id="mappingModalTitle">Add Project Mapping</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -533,7 +533,7 @@
         function editIntegration(id) {
             logAction('editIntegration', 'called with id: ' + id);
             console.log('EDIT INTEGRATION CALLED with id:', id);
-            alert('editIntegration called with id: ' + id); // Temporary debug alert
+            // alert('editIntegration called with id: ' + id); // Temporary debug alert
             
             currentEditId = id;
             document.getElementById('integrationModalTitle').textContent = 'Edit Integration';
@@ -618,9 +618,26 @@
             logAction('saveIntegration', 'called');
             
             const form = document.getElementById('integrationForm');
-            if (!form.checkValidity()) {
-                logError('saveIntegration', 'Form validation failed');
-                form.reportValidity();
+            
+            // Manual validation with detailed logging
+            const requiredFields = [
+                { id: 'integrationName', label: 'Integration Name' },
+                { id: 'integrationType', label: 'Integration Type' },
+                { id: 'integrationUrl', label: 'Base URL' }
+            ];
+            
+            let invalidFields = [];
+            for (const field of requiredFields) {
+                const element = document.getElementById(field.id);
+                if (!element || !element.value.trim()) {
+                    invalidFields.push(field.label);
+                    logError('saveIntegration', 'Validation failed for: ' + field.label + ' (id: ' + field.id + ')');
+                }
+            }
+            
+            if (invalidFields.length > 0) {
+                logError('saveIntegration', 'Form validation failed for fields: ' + invalidFields.join(', '));
+                showError('Please fill in required fields: ' + invalidFields.join(', '));
                 return;
             }
 
@@ -811,9 +828,14 @@
                                 ${mapping.is_active === '1' || mapping.is_active === 1 ? 'Active' : 'Inactive'}
                             </span>
                         </div>
-                        <button class="btn btn-outline-danger btn-sm" onclick="removeMapping(${mapping.id})" title="Remove Mapping">
-                            <span>🔗</span>
-                        </button>
+                        <div class="btn-group-actions" role="group">
+                            <button class="btn btn-outline-warning btn-sm" onclick="editMapping(${mapping.id})" title="Edit Mapping">
+                                <span>✏️</span>
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="deleteMapping(${mapping.id})" title="Delete Mapping">
+                                    <span>🗑️</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -821,119 +843,80 @@
 
         // Show add mapping modal
         function showAddMappingModal() {
+            currentMappingEditId = null;
+            document.getElementById('mappingModalTitle').textContent = 'Add Project Mapping';
+            document.getElementById('mappingForm').reset();
             loadProjectsForMapping();
             loadIntegrationsForMapping();
             new bootstrap.Modal(document.getElementById('mappingModal')).show();
         }
 
-        // Load projects for mapping
-        function loadProjectsForMapping() {
-            logAction('loadProjectsForMapping', 'called');
-            const projectSelect = document.getElementById('mappingProject');
-            projectSelect.innerHTML = '<option value="">Loading projects...</option>';
+        // Edit mapping
+        function editMapping(id) {
+            logAction('editMapping', 'called with id: ' + id);
+            console.log('[DEBUG] editMapping called with id:', id);
+            currentMappingEditId = id;
             
-            const apiUrl = 'custom_bugtrack_integrator.php?action=list_projects';
-            logAction('loadProjectsForMapping', 'calling API: ' + apiUrl);
-            
-            fetch(apiUrl, {
+            // Fetch current mapping data
+            console.log('[DEBUG] About to fetch list_project_mappings');
+            fetch(getApiUrl('list_project_mappings'), {
                 credentials: 'include'
             })
-                .then(response => {
-                    logAction('loadProjectsForMapping', 'response received, status: ' + response.status);
-                    return response.text(); // Get raw text first
-                })
-                .then(text => {
-                    logAction('loadProjectsForMapping', 'raw response text: ' + text.substring(0, 200));
-                    try {
-                        const data = JSON.parse(text);
-                        logAction('loadProjectsForMapping', 'JSON parsed successfully, projects count: ' + (data.data ? Object.keys(data.data).length : 0));
-                        console.log(data)
-                        if (data.success && data.data) {
-                            let options = '<option value="">Select TestLink Project</option>';
+            .then(response => {
+                console.log('[DEBUG] list_project_mappings response received:', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('[DEBUG] list_project_mappings data:', data);
+                if (data.success) {
+                    const mapping = data.data.find(m => m.id == id);
+                    console.log('[DEBUG] Found mapping:', mapping);
+                    if (mapping) {
+                        document.getElementById('mappingModalTitle').textContent = 'Edit Project Mapping';
+                        
+                        console.log('[DEBUG] About to load dropdowns');
+                        // Load dropdowns first, then set values
+                        Promise.all([
+                            loadProjectsForMapping(),
+                            loadIntegrationsForMapping()
+                        ]).then(() => {
+                            console.log('[DEBUG] Dropdowns loaded, setting values');
+                            // Set values after dropdowns are loaded
+                            document.getElementById('mappingProject').value = mapping.tproject_id;
+                            document.getElementById('mappingIntegration').value = mapping.integration_id;
                             
-                            // Handle object structure (project IDs as keys)
-                            const projects = Object.values(data.data);
-                            projects.forEach(project => {
-                                const projectName = project.name || project.prefix || 'Project ' + project.id;
-                                const projectNotes = project.notes || '';
-                                logAction('loadProjectsForMapping', 'processing project: ' + projectName + ', notes: ' + projectNotes);
-                                options += `<option value="${project.id}">${projectName}</option>`;
-                            });
-                            projectSelect.innerHTML = options;
-                            logAction('loadProjectsForMapping', 'projects loaded successfully');
-                        } else {
-                            projectSelect.innerHTML = '<option value="">Error loading projects</option>';
-                            logError('loadProjectsForMapping', data.message || 'Invalid data structure');
-                        }
-                    } catch (e) {
-                        projectSelect.innerHTML = '<option value="">Error loading projects</option>';
-                        logError('loadProjectsForMapping', 'JSON parse error: ' + e.message);
-                        logError('loadProjectsForMapping', 'text that failed: ' + text);
-                    }
-                })
-                .catch(error => {
-                    projectSelect.innerHTML = '<option value="">Error loading projects</option>';
-                    logError('loadProjectsForMapping', error.message);
-                });
-        }
-
-        // Load integrations for mapping
-        function loadIntegrationsForMapping() {
-            const apiUrl = getApiUrl('list_integrations');
-            
-            fetch(apiUrl, {
-                credentials: 'include'
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        const integrationSelect = document.getElementById('mappingIntegration');
-                        integrationSelect.innerHTML = '<option value="">Select Integration</option>';
-                        data.data.forEach(integration => {
-                            if (integration.is_active) {
-                                integrationSelect.innerHTML += `<option value="${integration.id}">${integration.name} (${integration.type})</option>`;
+                            console.log('[DEBUG] Values set, showing modal');
+                            // Show modal after values are set
+                            const modal = document.getElementById('mappingModal');
+                            if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                                new bootstrap.Modal(modal).show();
+                            } else {
+                                modal.style.display = 'block';
+                                modal.classList.add('show');
+                                document.body.classList.add('modal-open');
+                                const backdrop = document.createElement('div');
+                                backdrop.className = 'modal-backdrop fade show';
+                                backdrop.id = 'modal-backdrop';
+                                document.body.appendChild(backdrop);
                             }
                         });
+                    } else {
+                        showError('Mapping not found');
                     }
-                });
-        }
-
-        // Save mapping
-        function saveMapping() {
-            const projectId = document.getElementById('mappingProject').value;
-            const integrationId = document.getElementById('mappingIntegration').value;
-
-            if (!projectId || !integrationId) {
-                showError('Please select both project and integration');
-                return;
-            }
-
-            fetch(getApiUrl('add_project_mapping'), {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                credentials: 'include',
-                body: `tproject_id=${projectId}&integration_id=${integrationId}`
-            })
-            .then(response => response.json())
-            .then(result => {
-                if (result.success) {
-                    bootstrap.Modal.getInstance(document.getElementById('mappingModal')).hide();
-                    showSuccess(result.message);
-                    loadMappings();
                 } else {
-                    showError(result.message);
+                    showError('Failed to load mapping data');
                 }
             })
             .catch(error => {
-                showError('Error saving mapping: ' + error.message);
+                console.error('[DEBUG] editMapping error:', error);
+                logError('editMapping', error.message);
+                showError('Error loading mapping: ' + error.message);
             });
         }
 
-        // Remove mapping
-        function removeMapping(id) {
-            if (!confirm('Are you sure you want to remove this project mapping?')) {
+        // Delete mapping
+        function deleteMapping(id) {
+            if (!confirm('Are you sure you want to delete this project mapping?')) {
                 return;
             }
 
@@ -956,8 +939,141 @@
                 }
             })
             .catch(error => {
-                showError('Error removing mapping: ' + error.message);
+                showError('Error deleting mapping: ' + error.message);
             });
+        }
+
+        // Load projects for mapping
+        function loadProjectsForMapping() {
+            return new Promise((resolve) => {
+                logAction('loadProjectsForMapping', 'called');
+                const projectSelect = document.getElementById('mappingProject');
+                projectSelect.innerHTML = '<option value="">Loading projects...</option>';
+                
+                const apiUrl = 'custom_bugtrack_integrator.php?action=list_projects';
+                logAction('loadProjectsForMapping', 'calling API: ' + apiUrl);
+                
+                fetch(apiUrl, {
+                    credentials: 'include'
+                })
+                    .then(response => {
+                        logAction('loadProjectsForMapping', 'response received, status: ' + response.status);
+                        return response.text();
+                    })
+                    .then(text => {
+                        logAction('loadProjectsForMapping', 'raw response text: ' + text.substring(0, 200));
+                        try {
+                            const data = JSON.parse(text);
+                            logAction('loadProjectsForMapping', 'JSON parsed successfully, projects count: ' + (data.data ? Object.keys(data.data).length : 0));
+                            if (data.success && data.data) {
+                                let options = '<option value="">Select TestLink Project</option>';
+                                
+                                const projects = Object.values(data.data);
+                                projects.forEach(project => {
+                                    const projectName = project.name || project.prefix || 'Project ' + project.id;
+                                    const projectNotes = project.notes || '';
+                                    logAction('loadProjectsForMapping', 'processing project: ' + projectName + ', notes: ' + projectNotes);
+                                    options += `<option value="${project.id}">${projectName}</option>`;
+                                });
+                                projectSelect.innerHTML = options;
+                                logAction('loadProjectsForMapping', 'projects loaded successfully');
+                            } else {
+                                projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+                                logError('loadProjectsForMapping', data.message || 'Invalid data structure');
+                            }
+                            resolve();
+                        } catch (e) {
+                            projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+                            logError('loadProjectsForMapping', 'JSON parse error: ' + e.message);
+                            resolve();
+                        }
+                    })
+                    .catch(error => {
+                        projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+                        logError('loadProjectsForMapping', error.message);
+                        resolve();
+                    });
+            });
+        }
+
+        // Load integrations for mapping
+        function loadIntegrationsForMapping() {
+            return new Promise((resolve) => {
+                const apiUrl = getApiUrl('list_integrations');
+                logAction('loadIntegrationsForMapping', 'calling API: ' + apiUrl);
+                
+                fetch(apiUrl, {
+                    credentials: 'include'
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        logAction('loadIntegrationsForMapping', 'response received: ' + JSON.stringify(data).substring(0, 500));
+                        if (data.success) {
+                            const integrationSelect = document.getElementById('mappingIntegration');
+                            integrationSelect.innerHTML = '<option value="">Select Integration</option>';
+                            
+                            // Handle both data structures
+                            const integrations = data.data || data.integrations || [];
+                            logAction('loadIntegrationsForMapping', 'integrations count: ' + integrations.length);
+                            
+                            integrations.forEach(integration => {
+                                logAction('loadIntegrationsForMapping', 'adding integration: ' + JSON.stringify(integration));
+                                integrationSelect.innerHTML += `<option value="${integration.id}">${integration.name} (${integration.type})</option>`;
+                            });
+                        } else {
+                            logError('loadIntegrationsForMapping', 'API returned error: ' + data.message);
+                        }
+                        resolve();
+                    })
+                    .catch((error) => {
+                        logError('loadIntegrationsForMapping', 'fetch error: ' + error.message);
+                        resolve();
+                    });
+            });
+        }
+
+        // Save mapping
+        function saveMapping() {
+            const projectId = document.getElementById('mappingProject').value;
+            const integrationId = document.getElementById('mappingIntegration').value;
+
+            if (!projectId || !integrationId) {
+                showError('Please select both project and integration');
+                return;
+            }
+
+            // Determine if this is an add or update
+            const action = currentMappingEditId ? 'update_project_mapping' : 'add_project_mapping';
+            const body = currentMappingEditId 
+                ? `id=${currentMappingEditId}&tproject_id=${projectId}&integration_id=${integrationId}`
+                : `tproject_id=${projectId}&integration_id=${integrationId}`;
+
+            fetch(getApiUrl(action), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                credentials: 'include',
+                body: body
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    bootstrap.Modal.getInstance(document.getElementById('mappingModal')).hide();
+                    showSuccess(result.message);
+                    loadMappings();
+                } else {
+                    showError(result.message);
+                }
+            })
+            .catch(error => {
+                showError('Error saving mapping: ' + error.message);
+            });
+        }
+
+        // Remove mapping (legacy function, now redirects to deleteMapping)
+        function removeMapping(id) {
+            deleteMapping(id);
         }
 
         // Show success message

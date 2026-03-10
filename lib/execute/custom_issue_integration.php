@@ -5,12 +5,55 @@
  * 
  * @filesource  custom_issue_integration.php
  * @author      TestLink Custom Integration
- * @version     1.0
- * @created     2025-02-23
+ * @version     1.1
+ * @updated     2026-03-09 - Added assignee support, file logging
  */
 
 require_once('../../config.inc.php');
 require_once('../functions/common.php');
+
+// Log file path
+if (!defined('CUSTOM_INTEGRATION_LOG')) {
+    define('CUSTOM_INTEGRATION_LOG', dirname(__FILE__) . '/custom_integration.log');
+}
+
+/**
+ * Generate TestLink URLs for test case and execution
+ */
+function generateTestLinkUrls($tproject_id, $tplan_id, $tc_id, $execution_id) {
+    $baseUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
+    $urls = array();
+    
+    // Test Case URL
+    $urls['test_case'] = $baseUrl . '/lib/testcases/archiveData.php?tcase_id=' . $tc_id;
+    
+    // Execution URL  
+    $urls['execution'] = $baseUrl . '/lib/execute/execSetResults.php?level=testsuite&id=' . $tplan_id . '&tcase_id=' . $tc_id;
+    
+    // Test Plan URL
+    $urls['test_plan'] = $baseUrl . '/lib/plan/planView.php?plan_id=' . $tplan_id;
+    
+    // Project URL
+    $urls['project'] = $baseUrl . '/lib/projects/projectView.php?project_id=' . $tproject_id;
+    
+    return $urls;
+}
+
+/**
+ * Log message to custom_integration.log file
+ */
+function logCustomIntegration($message, $level = 'DEBUG') {
+    $timestamp = date('Y-m-d H:i:s');
+    $logLine = "[$timestamp] [$level] $message" . PHP_EOL;
+    
+    // Ensure directory is writable
+    $logDir = dirname(CUSTOM_INTEGRATION_LOG);
+    if (!is_dir($logDir)) {
+        @mkdir($logDir, 0755, true);
+    }
+    
+    error_log($logLine, 3, CUSTOM_INTEGRATION_LOG);
+}
 
 /**
  * Get custom integration for a specific project
@@ -18,7 +61,7 @@ require_once('../functions/common.php');
 if (!function_exists('getCustomIntegrationForProject')) {
 function getCustomIntegrationForProject($db, $tproject_id, $integration_id = null) {
     // Debug logging
-    error_log("[CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: $tproject_id, integration_id: " . ($integration_id ?? 'null'));
+    logCustomIntegration("DEBUG: getCustomIntegrationForProject called with tproject_id: $tproject_id, integration_id: " . ($integration_id ?? 'null'));
 
     $whereIntegration = '';
     if (!is_null($integration_id) && intval($integration_id) > 0) {
@@ -65,22 +108,22 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
     // ENABLE REAL REDMINE API CALLS
     $integration = getCustomIntegrationForProject($db, $tproject_id, $selected_integration_id);
     if (!$integration && !is_null($selected_integration_id)) {
-        error_log("[CUSTOM_INTEGRATION] Selected integration ID $selected_integration_id not found/active for project $tproject_id - falling back");
+        logCustomIntegration("DEBUG: Selected integration ID $selected_integration_id not found/active for project $tproject_id - falling back");
         $integration = getCustomIntegrationForProject($db, $tproject_id);
     }
     
     if (!$integration) {
-        error_log("[CUSTOM_INTEGRATION] No integration configured for project: $tproject_id");
+        logCustomIntegration("[CUSTOM_INTEGRATION] No integration configured for project: $tproject_id");
         return array('success' => false, 'message' => 'No integration configured for this project');
     }
     
     // Log the issue creation attempt
-    error_log("[CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:");
-    error_log("[CUSTOM_INTEGRATION] Integration: " . $integration['name'] . " (ID: " . $integration['id'] . ")");
-    error_log("[CUSTOM_INTEGRATION] Project ID: $tproject_id, Test Plan ID: $tplan_id");
-    error_log("[CUSTOM_INTEGRATION] Test Case ID: $tc_id, Execution ID: $execution_id");
-    error_log("[CUSTOM_INTEGRATION] Summary: " . substr($summary, 0, 100) . "...");
-    error_log("[CUSTOM_INTEGRATION] Priority: $priority");
+    logCustomIntegration("REAL ISSUE CREATION ATTEMPT:");
+    logCustomIntegration("Integration: " . $integration['name'] . " (ID: " . $integration['id'] . ")");
+    logCustomIntegration("Project ID: $tproject_id, Test Plan ID: $tplan_id");
+    logCustomIntegration("Test Case ID: $tc_id, Execution ID: $execution_id");
+    logCustomIntegration("Summary: " . substr($summary, 0, 100) . "...");
+    logCustomIntegration("Priority: $priority");
     
     // Prepare data for API call
     $data = array(
@@ -90,17 +133,19 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
         'execution_id' => $execution_id,
         'summary' => $summary,
         'description' => $description,
-        'priority' => $priority
+        'priority' => $priority,
+        'assigned_to' => 2635, // Hardcoded for testing
+        'testlink_urls' => generateTestLinkUrls($tproject_id, $tplan_id, $tc_id, $execution_id)
     );
 
     if (!is_null($selected_integration_id) && intval($selected_integration_id) > 0) {
         $data['integration_id'] = intval($selected_integration_id);
-        error_log("[CUSTOM_INTEGRATION] Passing selected integration_id to API: " . intval($selected_integration_id));
+        logCustomIntegration("Passing selected integration_id to API: " . intval($selected_integration_id));
     }
 
     if ($user && isset($user->login)) {
         $data['tester'] = $user->login;
-        error_log("[CUSTOM_INTEGRATION] Added tester to data: " . $user->login);
+        logCustomIntegration("Added tester to data: " . $user->login);
     }
     
     // Call the custom integrator API
@@ -108,10 +153,10 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
     $baseUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
     $url = $baseUrl . '/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue';
     
-    error_log("[CUSTOM_INTEGRATION] Base URL: $baseUrl");
-    error_log("[CUSTOM_INTEGRATION] TL_ABS_PATH: " . TL_ABS_PATH);
-    error_log("[CUSTOM_INTEGRATION] Calling API: $url");
-    error_log("[CUSTOM_INTEGRATION] Data: " . json_encode($data));
+    logCustomIntegration("Base URL: $baseUrl");
+    logCustomIntegration("TL_ABS_PATH: " . TL_ABS_PATH);
+    logCustomIntegration("Calling API: $url");
+    logCustomIntegration("Data: " . json_encode($data));
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -125,52 +170,54 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
     
-    error_log("[CUSTOM_INTEGRATION] Executing cURL request...");
+    logCustomIntegration("Executing cURL request...");
+    logCustomIntegration("cURL URL: $url");
+    logCustomIntegration("cURL POST data: " . json_encode($data));
     
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $error = curl_error($ch);
     $errno = curl_errno($ch);
     
-    error_log("[CUSTOM_INTEGRATION] cURL Error: $error (errno: $errno)");
-    error_log("[CUSTOM_INTEGRATION] HTTP Code: $httpCode");
-    error_log("[CUSTOM_INTEGRATION] Raw Response: $response");
+    logCustomIntegration("cURL Error: $error (errno: $errno)");
+    logCustomIntegration("HTTP Code: $httpCode");
+    logCustomIntegration("Raw Response: $response");
     
     curl_close($ch);
     
     if ($error) {
-        error_log("[CUSTOM_INTEGRATION] CURL Error: $error");
+        logCustomIntegration("CURL Error: $error");
         return array('success' => false, 'message' => 'CURL Error: ' . $error);
     }
     
     if ($httpCode !== 200) {
-        error_log("[CUSTOM_INTEGRATION] HTTP Error: Code $httpCode, Response: $response");
+        logCustomIntegration("HTTP Error: Code $httpCode, Response: $response");
         // For 500 errors, let's also check the simple API log
         if ($httpCode == 500) {
-            error_log("[CUSTOM_INTEGRATION] 500 Error detected - check custom_bugtrack_integrator.log for details");
+            logCustomIntegration("500 Error detected - check custom_bugtrack_integrator.log for details");
         }
         return array('success' => false, 'message' => "HTTP Error: $httpCode");
     }
     
     if (empty($response)) {
-        error_log("[CUSTOM_INTEGRATION] Empty response from API");
+        logCustomIntegration("Empty response from API");
         return array('success' => false, 'message' => 'Empty response from API');
     }
     
     $result = json_decode($response, true);
     
     if (!$result) {
-        error_log("[CUSTOM_INTEGRATION] Invalid JSON response: $response");
+        logCustomIntegration("Invalid JSON response: $response");
         return array('success' => false, 'message' => 'Invalid JSON response');
     }
     
-    error_log("[CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: " . ($result['issue_id'] ?? 'unknown'));
+    logCustomIntegration("REAL SUCCESS - Issue created: " . ($result['issue_id'] ?? 'unknown'));
     
     // CRITICAL: Use TestLink's proper write_execution_bug function to link the bug
     if ($result['success'] && isset($result['issue_id'])) {
         $bug_id = $result['issue_id'];
         
-        error_log("[CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: $bug_id, Execution ID: $execution_id");
+        logCustomIntegration("LINKING BUG TO EXECUTION - Bug ID: $bug_id, Execution ID: $execution_id");
         
         // Use TestLink's proper write_execution_bug function
         require_once('../functions/exec.inc.php');
@@ -178,12 +225,12 @@ function createCustomIssue($db, $tproject_id, $tplan_id, $tc_id, $execution_id, 
         $linkResult = write_execution_bug($db, $execution_id, $bug_id, 0); // tcstep_id = 0 for test case level
         
         if ($linkResult) {
-            error_log("[CUSTOM_INTEGRATION] SUCCESS: Bug ID $bug_id linked to execution $execution_id using write_execution_bug");
+            logCustomIntegration("SUCCESS: Bug ID $bug_id linked to execution $execution_id using write_execution_bug");
         } else {
-            error_log("[CUSTOM_INTEGRATION] ERROR: Failed to link bug ID $bug_id to execution $execution_id using write_execution_bug");
+            logCustomIntegration("ERROR: Failed to link bug ID $bug_id to execution $execution_id using write_execution_bug");
         }
     } else {
-        error_log("[CUSTOM_INTEGRATION] WARNING: Not inserting into execution_bugs - success=" . ($result['success'] ?? 'false') . ", issue_id=" . ($result['issue_id'] ?? 'null') . ", execution_id=" . ($execution_id ?? 'null'));
+        logCustomIntegration("WARNING: Not inserting into execution_bugs - success=" . ($result['success'] ?? 'false') . ", issue_id=" . ($result['issue_id'] ?? 'null') . ", execution_id=" . ($execution_id ?? 'null'));
     }
     
     return $result;

@@ -315,6 +315,7 @@ function processAction(&$db, &$gui) {
             }
             break;
             
+            
         case 'export':
             if (isset($_REQUEST['reportId']) && $_REQUEST['reportId'] === 'traceability_dump') {
                 // Check if this is an AJAX request

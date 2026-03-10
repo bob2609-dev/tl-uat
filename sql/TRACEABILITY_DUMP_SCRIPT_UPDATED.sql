@@ -1,43 +1,25 @@
 -- =====================================================================================
--- TestLink Results TC Flat - Database Query (Updated to handle test suites)
+-- TestLink Results TC Flat - Database Query Equivalent (CORRECTED)
+-- =====================================================================================
+-- This query produces the same output as lib/results/resultsTCFlat.php
+-- It generates a flat spreadsheet format of test case execution results
 -- =====================================================================================
 use testlink_db;
 
-call refresh_node_hierarchy_paths_v4();
+
+
+ call refresh_node_hierarchy_paths_v4();
+
 
 -- Set your parameters here:
-SET @testplan_id = 242100;  -- Replace with your test plan ID
+SET @testplan_id = 242100;  -- Replace with your test plan ID (CORRECTED: was 1, now 2 based on diagnostic)
 
 -- =====================================================================================
--- MAIN QUERY - Updated to handle test cases in test suites
+-- MAIN QUERY - Matches the exact PHP UNION structure
 -- =====================================================================================
-
--- First, get all test case versions in the test plan (directly or via test suites)
-WITH TestCasesInPlan AS (
-    -- Direct test case versions in the test plan
-    SELECT DISTINCT 
-        ptcv.tcversion_id,
-        ptcv.testplan_id,
-        ptcv.platform_id
-    FROM testplan_tcversions ptcv
-    WHERE ptcv.testplan_id = @testplan_id
-    
-    UNION
-    
-    -- Test case versions that are in test suites which are in the test plan
-    SELECT DISTINCT
-        tc.id as tcversion_id,
-        ptcv.testplan_id,
-        ptcv.platform_id
-    FROM nodes_hierarchy tc
-    INNER JOIN nodes_hierarchy ts ON ts.id = tc.parent_id
-    INNER JOIN testplan_tcversions ptcv ON ptcv.tcversion_id = ts.id
-    WHERE ptcv.testplan_id = @testplan_id
-      AND tc.node_type_id = 3  -- Test case version
-),
 
 -- Get the complete path for each test suite (longest path = most complete)
-TestSuitePaths AS (
+WITH TestSuitePaths AS (
     SELECT 
         node_id as id,
         full_path,
@@ -45,7 +27,7 @@ TestSuitePaths AS (
     FROM node_hierarchy_paths_v4
 ),
 
--- Latest Executions By Build and Platform (LEBBP)
+-- Latest Executions By Build and Platform (LEBBP) - matches PHP subquery
 LEBBP AS (
     SELECT 
         E.tcversion_id,
@@ -59,8 +41,9 @@ LEBBP AS (
     GROUP BY E.tcversion_id, E.testplan_id, E.platform_id, E.build_id
 )
 
--- Main query
+-- UNION of executed and not-run test cases (matches PHP logic exactly)
 SELECT 
+    -- Test Suite and Test Case Information
     COALESCE(tsp.full_path, nhtc_parent.name) AS "Test Suite",
     CONCAT(
         COALESCE(TP.prefix, 'TC-'),
@@ -78,8 +61,12 @@ SELECT
         WHEN (TPTCV.urgency * TCV.importance) <= 4 THEN 'Low'
         ELSE 'Medium'
     END AS 'Priority',
+    
+    -- Execution Information
     COALESCE(ExecutedCases.build_name, 'Not Executed') AS 'Build',
     COALESCE(CONCAT(U1.first, ' ', U1.last), '') AS 'Assigned To',
+    
+    -- Status mapping
     CASE COALESCE(ExecutedCases.status, 'n')
         WHEN 'p' THEN 'Passed'
         WHEN 'f' THEN 'Failed'
@@ -89,15 +76,27 @@ SELECT
         WHEN 'w' THEN 'Warning'
         ELSE 'Unknown'
     END AS 'Execution Result',
+    
     ExecutedCases.execution_ts AS 'Execution Date',
     COALESCE(CONCAT(U2.first, ' ', U2.last), '') AS 'Tested By',
     COALESCE(ExecutedCases.execution_notes, '') AS 'Notes',
     ExecutedCases.execution_duration AS 'Duration',
+    
+    -- Execution Type mapping
     CASE COALESCE(ExecutedCases.exec_type, TCV.execution_type)
         WHEN 1 THEN 'Manual'
         WHEN 2 THEN 'Automated'
         ELSE 'Not Configured'
     END AS 'Execution Type',
+    
+    -- Test Case S. No.
+    NHTC.name AS 'Test Case S. No.',
+    
+    -- Custom Fields for test case design
+    COALESCE(cf1.value, '') AS 'Primary Module / Function Name',
+    COALESCE(cf2.value, '') AS 'Scenario ID',
+    COALESCE(cf3.value, '') AS 'Sub-Scenario / Action',
+    COALESCE(TCV.summary, '') AS 'Test Case Description',
     ExecutedCases.executions_id AS 'Execution ID',
     GROUP_CONCAT(EB.bug_id ORDER BY EB.bug_id SEPARATOR ', ') AS 'Bug ID',
     CASE 
@@ -113,22 +112,18 @@ SELECT
     COALESCE(cev.value, '') AS 'CEV Value',
     COALESCE(cfdv.value, 'Not Specified') AS 'Test Case Type'
 
--- Start with test cases in the plan (direct or via test suites)
-FROM TestCasesInPlan tcp
+FROM testplan_tcversions TPTCV
 
--- Get test case version details
-INNER JOIN tcversions TCV ON TCV.id = tcp.tcversion_id
-
--- Get test case hierarchy
-INNER JOIN nodes_hierarchy NHTCV ON NHTCV.id = tcp.tcversion_id
+-- Get test case hierarchy (always needed)
+INNER JOIN nodes_hierarchy NHTCV ON NHTCV.id = TPTCV.tcversion_id
 INNER JOIN nodes_hierarchy NHTC ON NHTC.id = NHTCV.parent_id
 INNER JOIN nodes_hierarchy NHTC_PARENT ON NHTC_PARENT.id = NHTC.parent_id
 INNER JOIN TestSuitePaths tsp ON tsp.id = NHTC_PARENT.id AND tsp.rn = 1
 
--- Get test plan and project info
-INNER JOIN testplan_tcversions TPTCV ON TPTCV.tcversion_id = tcp.tcversion_id 
-    AND TPTCV.testplan_id = tcp.testplan_id
-    AND (TPTCV.platform_id = tcp.platform_id OR (TPTCV.platform_id IS NULL AND tcp.platform_id IS NULL))
+-- Get test case version details
+INNER JOIN tcversions TCV ON TCV.id = TPTCV.tcversion_id
+
+-- Get test project info for prefix
 INNER JOIN testplans TPL ON TPL.id = TPTCV.testplan_id
 INNER JOIN testprojects TP ON TP.id = TPL.testproject_id
 
@@ -139,8 +134,14 @@ LEFT JOIN platforms P ON P.id = TPTCV.platform_id
 LEFT JOIN cfield_design_values cfdv ON cfdv.node_id = NHTCV.id 
     AND cfdv.field_id = 5  -- ID for Test Case Type custom field
 
--- Get latest execution data per test case
+-- Get custom fields for Scenario ID, Module/Function Name, and Sub-Scenario/Action
+LEFT JOIN cfield_design_values cf1 ON cf1.node_id = NHTCV.id AND cf1.field_id = 1  -- Primary Module/Function Name
+LEFT JOIN cfield_design_values cf2 ON cf2.node_id = NHTCV.id AND cf2.field_id = 2  -- Scenario ID
+LEFT JOIN cfield_design_values cf3 ON cf3.node_id = NHTCV.id AND cf3.field_id = 3  -- Sub-Scenario/Action
+
+-- LEFT JOIN to get latest execution data per test case
 LEFT JOIN (
+    -- This subquery gets the latest execution per test case
     SELECT 
         TPTCV_EXEC.testplan_id,
         TPTCV_EXEC.tcversion_id,
@@ -161,25 +162,34 @@ LEFT JOIN (
             ORDER BY E.execution_ts DESC, E.id DESC
         ) as rn
     FROM testplan_tcversions TPTCV_EXEC
+    
+    -- Join with latest executions (matches PHP LEBBP join)
     INNER JOIN LEBBP ON 
         LEBBP.testplan_id = TPTCV_EXEC.testplan_id 
         AND LEBBP.platform_id = TPTCV_EXEC.platform_id 
         AND LEBBP.tcversion_id = TPTCV_EXEC.tcversion_id
+        AND LEBBP.testplan_id = @testplan_id
+    
+    -- Get execution details (matches PHP execution join)
     INNER JOIN executions E ON 
         E.id = LEBBP.id 
         AND E.build_id = LEBBP.build_id
+    
+    -- Get build info for the execution
     INNER JOIN builds B ON B.id = E.build_id
+    
+    -- Get user assignment (optional)
     LEFT JOIN user_assignments UA ON 
         UA.feature_id = TPTCV_EXEC.id 
         AND UA.build_id = E.build_id
-        AND UA.type = 1 
-        AND UA.status = 1
+        AND UA.type = 1 AND UA.status = 1
+    
     WHERE TPTCV_EXEC.testplan_id = @testplan_id
 ) AS ExecutedCases ON 
     ExecutedCases.testplan_id = TPTCV.testplan_id
     AND ExecutedCases.tcversion_id = TPTCV.tcversion_id
-    AND (ExecutedCases.platform_id = TPTCV.platform_id OR (ExecutedCases.platform_id IS NULL AND TPTCV.platform_id IS NULL))
-    AND ExecutedCases.rn = 1
+    AND ExecutedCases.platform_id = TPTCV.platform_id
+    AND ExecutedCases.rn = 1  -- Only get the latest execution
 
 -- Get CEV custom field value from execution
 LEFT JOIN cfield_execution_values cev ON cev.execution_id = ExecutedCases.executions_id 
@@ -221,6 +231,7 @@ GROUP BY
     TCV.version,
     TCV.importance,
     TCV.execution_type,
+    TCV.summary,
     TPTCV.urgency,
     P.name,
     TP.prefix,
@@ -233,10 +244,15 @@ GROUP BY
     U1.first,
     U1.last,
     U2.first,
-    U2.last
+    U2.last,
+    cf1.value,
+    cf2.value,
+    cf3.value
 
 ORDER BY 
     COALESCE(tsp.full_path, nhtc_parent.name),
     NHTC.name,
     COALESCE(P.name, 'No Platform'),
     COALESCE(ExecutedCases.build_name, 'Not Executed');
+
+ 

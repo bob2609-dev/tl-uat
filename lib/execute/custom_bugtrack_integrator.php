@@ -1,13 +1,33 @@
 <?php
 /**
- * Custom Bug Tracking Integration System for TestLink
- * Supports multiple Redmine, Jira, Bugzilla integrations per project
+ * Custom Bug Tracker Integration for TestLink
  * 
  * @filesource  custom_bugtrack_integrator.php
  * @author      TestLink Custom Integration
- * @version     1.0
- * @created     2025-02-23
+ * @version     1.1
+ * @updated     2026-03-09 - Added assignee support, file logging
  */
+
+// Log file path
+if (!defined('CUSTOM_INTEGRATION_LOG')) {
+    define('CUSTOM_INTEGRATION_LOG', dirname(__FILE__) . '/custom_integration.log');
+}
+
+/**
+ * Log message to custom_integration.log file
+ */
+function logCustomIntegration($message, $level = 'DEBUG') {
+    $timestamp = date('Y-m-d H:i:s');
+    $logLine = "[$timestamp] [$level] $message" . PHP_EOL;
+    
+    // Ensure directory is writable
+    $logDir = dirname(CUSTOM_INTEGRATION_LOG);
+    if (!is_dir($logDir)) {
+        @mkdir($logDir, 0755, true);
+    }
+    
+    error_log($logLine, 3, CUSTOM_INTEGRATION_LOG);
+}
 
 // -----------------------------------------------------------------------
 // FIX: Start output buffering as the VERY FIRST THING.
@@ -207,6 +227,9 @@ try {
             break;
         case 'add_project_mapping':
             handleAddProjectMapping($db);
+            break;
+        case 'update_project_mapping':
+            handleUpdateProjectMapping($db);
             break;
         case 'remove_project_mapping':
             handleRemoveProjectMapping($db);
@@ -428,6 +451,12 @@ function handleUpdateIntegration($db) {
         return;
     }
     
+    // Get current user ID safely
+    $updated_by = 1; // Default to admin user if session not available
+    if (isset($_SESSION['currentUser']) && isset($_SESSION['currentUser']->dbID)) {
+        $updated_by = $_SESSION['currentUser']->dbID;
+    }
+    
     $sql = "UPDATE custom_bugtrack_integrations 
             SET name = " . $db->db->quote($name) . ", 
                 type = " . $db->db->quote($type) . ", 
@@ -437,7 +466,7 @@ function handleUpdateIntegration($db) {
                 password = " . $db->db->quote($password) . ", 
                 project_key = " . $db->db->quote($project_key) . ", 
                 default_priority = " . $db->db->quote($default_priority) . ", 
-                updated_by = " . $_SESSION['currentUser']->dbID . ",
+                updated_by = " . $updated_by . ",
                 updated_on = CURRENT_TIMESTAMP
             WHERE id = $id";
     
@@ -504,8 +533,14 @@ function handleToggleIntegration($db) {
         return;
     }
     
+    // Get current user ID safely
+    $updated_by = 1; // Default to admin user if session not available
+    if (isset($_SESSION['currentUser']) && isset($_SESSION['currentUser']->dbID)) {
+        $updated_by = $_SESSION['currentUser']->dbID;
+    }
+    
     $sql = "UPDATE custom_bugtrack_integrations 
-            SET is_active = NOT is_active, updated_by = " . $_SESSION['currentUser']->dbID . ",
+            SET is_active = NOT is_active, updated_by = " . $updated_by . ",
                 updated_on = CURRENT_TIMESTAMP
             WHERE id = $id";
     
@@ -700,7 +735,7 @@ function handleListProjectMappings($db) {
     global $response;
     
     // testprojects has no name column - name lives in nodes_hierarchy
-    $sql = "SELECT m.id, m.tproject_id, m.is_active, 
+    $sql = "SELECT m.id, m.tproject_id, m.integration_id, m.is_active, 
                    nh.name as project_name, i.name as integration_name, i.type
             FROM custom_bugtrack_project_mapping m
             JOIN testprojects tp ON m.tproject_id = tp.id
@@ -904,6 +939,75 @@ function handleAddProjectMapping($db) {
 }
 
 /**
+ * Update existing project mapping
+ */
+function handleUpdateProjectMapping($db) {
+    global $response;
+    
+    logDebug("handleUpdateProjectMapping called");
+    
+    $id = intval($_POST['id'] ?? 0);
+    $tproject_id = intval($_POST['tproject_id'] ?? 0);
+    $integration_id = intval($_POST['integration_id'] ?? 0);
+    
+    logDebug("POST data received - id: $id, tproject_id: $tproject_id, integration_id: $integration_id");
+    
+    if ($id <= 0 || $tproject_id <= 0 || $integration_id <= 0) {
+        $response['message'] = 'Valid mapping ID, project ID and integration ID are required';
+        outputJson($response);
+        return;
+    }
+    
+    // Get current user ID safely
+    $updated_by = 1; // Default to admin user if session not available
+    if (isset($_SESSION['currentUser']) && isset($_SESSION['currentUser']->dbID)) {
+        $updated_by = $_SESSION['currentUser']->dbID;
+        logDebug("Using session user ID: $updated_by");
+    } else {
+        logDebug("Session not available, using default user ID: $updated_by");
+    }
+    
+    // Check if another mapping with same project+integration already exists (different ID)
+    $checkSql = "SELECT id FROM custom_bugtrack_project_mapping 
+                 WHERE tproject_id = $tproject_id AND integration_id = $integration_id AND id != $id";
+    logDebug("Checking for existing mapping with SQL: $checkSql");
+    
+    $existing = $db->fetchFirstRow($checkSql);
+    
+    if ($existing) {
+        $response['message'] = 'This project-integration mapping already exists';
+        outputJson($response);
+        return;
+    }
+    
+    $sql = "UPDATE custom_bugtrack_project_mapping 
+            SET tproject_id = $tproject_id, 
+                integration_id = $integration_id,
+                updated_by = $updated_by
+            WHERE id = $id";
+    
+    logDebug("Update SQL: $sql");
+    
+    try {
+        $result = $db->exec_query($sql);
+        
+        if ($result) {
+            logDebug("Project mapping updated successfully");
+            $response['success'] = true;
+            $response['message'] = 'Project mapping updated successfully';
+        } else {
+            logDebug("Database query failed without exception");
+            $response['message'] = 'Failed to update project mapping: Database query failed';
+        }
+    } catch (Exception $e) {
+        logDebug("Exception in database query: " . $e->getMessage());
+        $response['message'] = 'Failed to update project mapping: ' . $e->getMessage();
+    }
+    
+    outputJson($response);
+}
+
+/**
  * Remove project mapping
  */
 function handleRemoveProjectMapping($db) {
@@ -970,6 +1074,9 @@ function handleCreateIssue($db) {
     $summary = $_POST['summary'] ?? '';
     $description = $_POST['description'] ?? '';
     $priority = $_POST['priority'] ?? 'Normal';
+    $assigned_to = intval($_POST['assignee'] ?? 0); // Assignee ID
+    
+    logCustomIntegration("handleCreateIssue called - tproject_id: $tproject_id, summary: $summary, assigned_to: $assigned_to");
     
     if ($tproject_id <= 0 || empty($summary)) {
         $response['message'] = 'Project ID and summary are required';
@@ -996,9 +1103,9 @@ function handleCreateIssue($db) {
     
     try {
         if ($integration['type'] === 'REDMINE') {
-            $result = createRedmineIssue($integration, $summary, $description, $priority);
+            $result = createRedmineIssue($integration, $summary, $description, $priority, $assigned_to);
         } elseif ($integration['type'] === 'JIRA') {
-            $result = createJiraIssue($integration, $summary, $description, $priority);
+            $result = createJiraIssue($integration, $summary, $description, $priority, $assigned_to);
         } elseif ($integration['type'] === 'BUGZILLA') {
             $result = createBugzillaIssue($integration, $summary, $description, $priority);
         } else {
@@ -1027,7 +1134,7 @@ function handleCreateIssue($db) {
 /**
  * Create Redmine issue via REST API
  */
-function createRedmineIssue($integration, $summary, $description, $priority) {
+function createRedmineIssue($integration, $summary, $description, $priority, $assigned_to = 0) {
     $url = rtrim($integration['url'], '/') . '/issues.json';
     
     // Map priority to Redmine priority IDs
@@ -1050,6 +1157,14 @@ function createRedmineIssue($integration, $summary, $description, $priority) {
         )
     );
     
+    // Add assignee if provided
+    if ($assigned_to > 0) {
+        $data['issue']['assigned_to_id'] = $assigned_to;
+        logCustomIntegration("createRedmineIssue: Adding assignee_id: $assigned_to");
+    }
+    
+    logCustomIntegration("createRedmineIssue: Creating issue with data: " . json_encode($data));
+    
     $headers = array(
         'Content-Type: application/json',
         'X-Redmine-API-Key: ' . $integration['api_key']
@@ -1069,6 +1184,8 @@ function createRedmineIssue($integration, $summary, $description, $priority) {
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $error = curl_error($ch);
     curl_close($ch);
+    
+    logCustomIntegration("createRedmineIssue: API response - HTTP $httpCode, Error: '$error', Response: " . substr($response, 0, 500));
     
     if ($error) {
         return array(
@@ -1107,7 +1224,7 @@ function createRedmineIssue($integration, $summary, $description, $priority) {
 /**
  * Create Jira issue via REST API
  */
-function createJiraIssue($integration, $summary, $description, $priority) {
+function createJiraIssue($integration, $summary, $description, $priority, $assigned_to = '') {
     $url = rtrim($integration['url'], '/') . '/rest/api/2/issue';
     
     // Map priority to Jira priority names
@@ -1129,6 +1246,12 @@ function createJiraIssue($integration, $summary, $description, $priority) {
             'issuetype' => array('name' => 'Bug')
         )
     );
+    
+    // Add assignee if provided (Jira uses username/accountId)
+    if (!empty($assigned_to)) {
+        $data['fields']['assignee'] = array('name' => $assigned_to);
+        logCustomIntegration("createJiraIssue: Adding assignee: $assigned_to");
+    }
     
     $headers = array(
         'Content-Type: application/json',

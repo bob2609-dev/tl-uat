@@ -813,3 +813,1928 @@ TESTLINK INTEG...'
 
 [06-Mar-2026 21:08:24 Europe/Berlin] [2026-03-06 21:08:24.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
 
+[09-Mar-2026 08:14:55 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:14:55 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:15:23 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:17:15 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:17:43 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:17:43 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:17:48 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:18:08 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 08:18:15 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 08:18:36 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:18:36 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:18:45 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:19:07 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 08:19:53 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 08:21:34 Europe/Berlin] DEBUG: About to enter switch statement with action: delete_integration
+[09-Mar-2026 08:21:35 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:21:36 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:23:20 Europe/Berlin] DEBUG: About to enter switch statement with action: delete_integration
+[09-Mar-2026 08:51:20 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:51:21 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:51:34 Europe/Berlin] DEBUG: About to enter switch statement with action: remove_project_mapping
+[09-Mar-2026 08:51:35 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 08:51:35 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 08:51:35 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 08:51:42 Europe/Berlin] DEBUG: About to enter switch statement with action: delete_integration
+[09-Mar-2026 08:51:54 Europe/Berlin] DEBUG: About to enter switch statement with action: remove_project_mapping
+[09-Mar-2026 08:51:54 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:51:54 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 08:51:54 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 08:52:02 Europe/Berlin] DEBUG: About to enter switch statement with action: delete_integration
+[09-Mar-2026 08:52:03 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:52:03 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:52:09 Europe/Berlin] DEBUG: About to enter switch statement with action: delete_integration
+[09-Mar-2026 08:52:12 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:52:25 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 08:52:27 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 08:52:40 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:56:09 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:56:09 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:56:35 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:56:41 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:58:05 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:58:49 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:58:49 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:58:52 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:59:06 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 08:59:44 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:59:44 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:59:50 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 08:59:50 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 08:59:50 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 08:59:50 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 08:59:58 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 08:59:58 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 08:59:58 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:00:05 Europe/Berlin] DEBUG: About to enter switch statement with action: add_project_mapping
+[09-Mar-2026 09:00:05 Europe/Berlin] [CustomBugTracker] handleAddProjectMapping called
+[09-Mar-2026 09:00:05 Europe/Berlin] [CustomBugTracker] POST data received - tproject_id: 448287, integration_id: 10
+[09-Mar-2026 09:00:05 Europe/Berlin] [CustomBugTracker] Session not available, using default user ID: 1
+[09-Mar-2026 09:00:05 Europe/Berlin] [CustomBugTracker] Checking for existing mapping with SQL: SELECT id FROM custom_bugtrack_project_mapping 
+                 WHERE tproject_id = 448287 AND integration_id = 10
+[09-Mar-2026 09:00:05 Europe/Berlin] [CustomBugTracker] Insert SQL: INSERT INTO custom_bugtrack_project_mapping 
+            (tproject_id, integration_id, created_by) 
+            VALUES (448287, 10, 1)
+[09-Mar-2026 09:00:05 Europe/Berlin] [CustomBugTracker] Project mapping added successfully with ID: 11
+[09-Mar-2026 09:00:06 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:00:29 Europe/Berlin] DEBUG: About to enter switch statement with action: remove_project_mapping
+[09-Mar-2026 09:00:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:00:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:00:29 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:00:36 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:00:37 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:00:38 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:00:38 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:00:45 Europe/Berlin] DEBUG: About to enter switch statement with action: update_project_mapping
+[09-Mar-2026 09:05:59 Europe/Berlin] DEBUG: About to enter switch statement with action: delete_integration
+[09-Mar-2026 09:06:06 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:06:17 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 09:06:48 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 09:07:03 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:07:05 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 09:08:16 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:08:23 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 09:08:23 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:08:23 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:08:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:08:53 Europe/Berlin] DEBUG: About to enter switch statement with action: update_integration
+[09-Mar-2026 09:08:54 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:08:54 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:09:03 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:09:04 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:09:04 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:09:04 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:09:22 Europe/Berlin] DEBUG: About to enter switch statement with action: update_project_mapping
+[09-Mar-2026 09:09:30 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:09:30 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:09:30 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:09:33 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:09:34 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:09:34 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:09:34 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:09:45 Europe/Berlin] DEBUG: About to enter switch statement with action: update_project_mapping
+[09-Mar-2026 09:10:59 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:10:59 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:10:59 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:11:05 Europe/Berlin] DEBUG: About to enter switch statement with action: add_project_mapping
+[09-Mar-2026 09:11:05 Europe/Berlin] [CustomBugTracker] handleAddProjectMapping called
+[09-Mar-2026 09:11:05 Europe/Berlin] [CustomBugTracker] POST data received - tproject_id: 448287, integration_id: 9
+[09-Mar-2026 09:11:05 Europe/Berlin] [CustomBugTracker] Session not available, using default user ID: 1
+[09-Mar-2026 09:11:05 Europe/Berlin] [CustomBugTracker] Checking for existing mapping with SQL: SELECT id FROM custom_bugtrack_project_mapping 
+                 WHERE tproject_id = 448287 AND integration_id = 9
+[09-Mar-2026 09:11:13 Europe/Berlin] DEBUG: About to enter switch statement with action: add_project_mapping
+[09-Mar-2026 09:11:13 Europe/Berlin] [CustomBugTracker] handleAddProjectMapping called
+[09-Mar-2026 09:11:13 Europe/Berlin] [CustomBugTracker] POST data received - tproject_id: 242099, integration_id: 10
+[09-Mar-2026 09:11:13 Europe/Berlin] [CustomBugTracker] Session not available, using default user ID: 1
+[09-Mar-2026 09:11:13 Europe/Berlin] [CustomBugTracker] Checking for existing mapping with SQL: SELECT id FROM custom_bugtrack_project_mapping 
+                 WHERE tproject_id = 242099 AND integration_id = 10
+[09-Mar-2026 09:11:13 Europe/Berlin] [CustomBugTracker] Insert SQL: INSERT INTO custom_bugtrack_project_mapping 
+            (tproject_id, integration_id, created_by) 
+            VALUES (242099, 10, 1)
+[09-Mar-2026 09:11:13 Europe/Berlin] [CustomBugTracker] Project mapping added successfully with ID: 12
+[09-Mar-2026 09:11:14 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:20:27 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:20:27 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:21:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:21:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:21:39 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:21:39 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:21:39 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:21:39 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:25:10 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:25:10 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:25:17 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:25:18 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:25:18 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:25:18 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:25:22 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:25:23 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:25:23 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:25:23 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:25:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:25:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:25:29 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:25:29 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:28:12 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:28:12 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:28:24 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:28:25 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:28:25 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:28:25 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:28:31 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:28:31 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:28:31 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:28:31 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:31:17 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:31:17 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:31:36 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:31:37 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:31:37 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:31:37 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:31:41 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:31:41 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:31:41 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:31:41 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:31:46 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:31:47 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:31:47 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:31:47 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:31:55 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 09:31:56 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:31:56 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 09:31:56 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 09:32:03 Europe/Berlin] DEBUG: About to enter switch statement with action: update_project_mapping
+[09-Mar-2026 09:32:03 Europe/Berlin] [CustomBugTracker] handleUpdateProjectMapping called
+[09-Mar-2026 09:32:03 Europe/Berlin] [CustomBugTracker] POST data received - id: 7, tproject_id: 448287, integration_id: 9
+[09-Mar-2026 09:32:03 Europe/Berlin] [CustomBugTracker] Session not available, using default user ID: 1
+[09-Mar-2026 09:32:03 Europe/Berlin] [CustomBugTracker] Checking for existing mapping with SQL: SELECT id FROM custom_bugtrack_project_mapping 
+                 WHERE tproject_id = 448287 AND integration_id = 9 AND id != 7
+[09-Mar-2026 09:32:16 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 09:33:00 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[09-Mar-2026 09:33:00 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 09:33:00 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 09:33:10 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[09-Mar-2026 09:33:10 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 09:33:10 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 09:34:52 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431184
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.2.1] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81644
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.878] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.5.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.2.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST'
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.7.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 25
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST'
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.9.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 224
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.930] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLINK INTEGRATION T...'
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81644
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST...
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.1.9] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431184, Exec ID: 81644
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [2026-03-09 09:35:01.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: OBDX - REDMINE (ID: 9)
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431184, Execution ID: 81644
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: TESTLINK INTEGRATION TEST...
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[09-Mar-2026 09:35:01 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[09-Mar-2026 09:35:02 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[09-Mar-2026 09:35:02 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431184","execution_id":81644,"summary":"TESTLINK INTEGRATION TEST","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[09-Mar-2026 09:35:02 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[09-Mar-2026 09:35:05 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[09-Mar-2026 09:35:05 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[09-Mar-2026 09:35:05 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87646,"issue_url":"https:\/\/support.profinch.com\/issues\/87646"}
+[09-Mar-2026 09:35:05 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87646
+[09-Mar-2026 09:35:05 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87646, Execution ID: 81644
+[09-Mar-2026 09:35:05 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87646 linked to execution 81644 using write_execution_bug
+[09-Mar-2026 09:35:05 Europe/Berlin] [2026-03-09 09:35:05.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87646,"issue_url":"https:\/\/support.profinch.com\/issues\/87646"}
+
+[09-Mar-2026 09:35:05 Europe/Berlin] [2026-03-09 09:35:05.3.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[09-Mar-2026 09:38:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[09-Mar-2026 09:38:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 09:38:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:37:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[09-Mar-2026 11:37:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:37:08 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:37:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[09-Mar-2026 11:37:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:37:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:38:41 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[09-Mar-2026 11:38:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 11:38:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:38:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.3.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.5.3] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431184
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.9.9] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81645
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.1.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.284] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.302] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLIINK INTEGRATION TEST'
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 26
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.3.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLIINK INTEGRATION TEST'
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 226
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.346] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLIINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLIINK INTEGRATION...'
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.370] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81645
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLIINK INTEGRATION TEST...
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431184, Exec ID: 81645
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.0.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [2026-03-09 11:38:46.9.5] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: OBDX - REDMINE (ID: 9)
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431184, Execution ID: 81645
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: TESTLIINK INTEGRATION TEST...
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431184","execution_id":81645,"summary":"TESTLIINK INTEGRATION TEST","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLIINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLIINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[09-Mar-2026 11:38:46 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[09-Mar-2026 11:38:49 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[09-Mar-2026 11:38:49 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[09-Mar-2026 11:38:49 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87662,"issue_url":"https:\/\/support.profinch.com\/issues\/87662"}
+[09-Mar-2026 11:38:49 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87662
+[09-Mar-2026 11:38:49 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87662, Execution ID: 81645
+[09-Mar-2026 11:38:50 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87662 linked to execution 81645 using write_execution_bug
+[09-Mar-2026 11:38:50 Europe/Berlin] [2026-03-09 11:38:50.001] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87662,"issue_url":"https:\/\/support.profinch.com\/issues\/87662"}
+
+[09-Mar-2026 11:38:50 Europe/Berlin] [2026-03-09 11:38:50.5.5] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[09-Mar-2026 11:46:22 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[09-Mar-2026 11:46:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 11:46:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:46:26 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:46:26 Europe/Berlin] [2026-03-09 11:46:26.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[09-Mar-2026 11:46:26 Europe/Berlin] [2026-03-09 11:46:26.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[09-Mar-2026 11:46:26 Europe/Berlin] [2026-03-09 11:46:26.3.9] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[09-Mar-2026 11:46:26 Europe/Berlin] [2026-03-09 11:46:26.3.6] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[09-Mar-2026 11:46:26 Europe/Berlin] [2026-03-09 11:46:26.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431184
+
+[09-Mar-2026 11:46:26 Europe/Berlin] [2026-03-09 11:46:26.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81646
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.1.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.9.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.6.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-09CET11:38'
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.9.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-09CET11:38'
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 226
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.3.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLIINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLIINK INTEGRATION...'
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.1.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81646
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.8.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-09CET11:38...
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.3.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.0.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431184, Exec ID: 81646
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.6.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [2026-03-09 11:46:27.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: OBDX - REDMINE (ID: 9)
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431184, Execution ID: 81646
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-994:ATM-TC110 -   2026-03-09CET11:38...
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431184","execution_id":81646,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-994:ATM-TC110 -   2026-03-09CET11:38","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLIINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLIINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[09-Mar-2026 11:46:27 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[09-Mar-2026 11:46:30 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[09-Mar-2026 11:46:30 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[09-Mar-2026 11:46:30 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87664,"issue_url":"https:\/\/support.profinch.com\/issues\/87664"}
+[09-Mar-2026 11:46:30 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87664
+[09-Mar-2026 11:46:30 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87664, Execution ID: 81646
+[09-Mar-2026 11:46:30 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87664 linked to execution 81646 using write_execution_bug
+[09-Mar-2026 11:46:30 Europe/Berlin] [2026-03-09 11:46:30.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87664,"issue_url":"https:\/\/support.profinch.com\/issues\/87664"}
+
+[09-Mar-2026 11:46:30 Europe/Berlin] [2026-03-09 11:46:30.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[09-Mar-2026 11:53:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[09-Mar-2026 11:53:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:53:45 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:56:50 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[09-Mar-2026 11:56:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 11:56:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:56:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.4.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.8.4] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431182
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.826] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.944] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81647
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.0.6] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[09-Mar-2026 11:56:53 Europe/Berlin] [2026-03-09 11:56:53.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-993:ATM-TC11 -   2026-03-09CET11:53'
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:53.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 77
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-993:ATM-TC11 -   2026-03-09CET11:53'
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.011] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 226
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLIINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLIINK INTEGRATION...'
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.2.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81647
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-993:ATM-TC11 -   2026-03-09CET11:53...
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.0.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.0.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431182, Exec ID: 81647
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.8.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [2026-03-09 11:56:54.6.7] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: 9
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] REAL ISSUE CREATION ATTEMPT:
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Integration: OBDX - REDMINE (ID: 9)
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Project ID: 448287, Test Plan ID: 448288
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Test Case ID: 431182, Execution ID: 81647
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-993:ATM-TC11 -   2026-03-09CET11:53...
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Priority: Normal
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Passing selected integration_id to API: 9
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Added tester to data: mwaimu.mtingele
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Base URL: http://localhost:8086
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] TL_ABS_PATH: C:\xampp\htdocs\tl-uat\
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Calling API: http://localhost:8086/lib/execute/custom_bugtrack_integrator_simple.php?action=create_issue
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Data: {"tproject_id":448287,"tplan_id":448288,"tc_id":"431182","execution_id":81647,"summary":"Test Case: \/ARCHIVE\/WORKING D\/TESTING\/ARC-993:ATM-TC11 -   2026-03-09CET11:53","description":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLIINK INTEGRATION TEST\r\n]\r\nExpected result: Cards > Maintenance > Card Master\r\nTest result: [\r\nTESTLIINK INTEGRATION TEST\r\n]\r\n\r\nTestLink URLs:","priority":"Normal","integration_id":9,"tester":"mwaimu.mtingele"}
+[09-Mar-2026 11:56:54 Europe/Berlin] [CUSTOM_INTEGRATION] Executing cURL request...
+[09-Mar-2026 11:56:58 Europe/Berlin] [CUSTOM_INTEGRATION] cURL Error:  (errno: 0)
+[09-Mar-2026 11:56:58 Europe/Berlin] [CUSTOM_INTEGRATION] HTTP Code: 200
+[09-Mar-2026 11:56:58 Europe/Berlin] [CUSTOM_INTEGRATION] Raw Response: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87666,"issue_url":"https:\/\/support.profinch.com\/issues\/87666"}
+[09-Mar-2026 11:56:58 Europe/Berlin] [CUSTOM_INTEGRATION] REAL SUCCESS - Issue created: 87666
+[09-Mar-2026 11:56:58 Europe/Berlin] [CUSTOM_INTEGRATION] LINKING BUG TO EXECUTION - Bug ID: 87666, Execution ID: 81647
+[09-Mar-2026 11:56:58 Europe/Berlin] [CUSTOM_INTEGRATION] SUCCESS: Bug ID 87666 linked to execution 81647 using write_execution_bug
+[09-Mar-2026 11:56:58 Europe/Berlin] [2026-03-09 11:56:58.3.6] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in Redmine","data":null,"debug":[],"issue_id":87666,"issue_url":"https:\/\/support.profinch.com\/issues\/87666"}
+
+[09-Mar-2026 11:56:58 Europe/Berlin] [2026-03-09 11:56:58.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[09-Mar-2026 13:01:33 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[09-Mar-2026 13:01:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 13:01:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.6.5] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.6.6] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.4.4] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431182
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.2.6] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81648
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.3.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.3.8] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.0.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLIINK INTEGRATION TEST'
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 26
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.4.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLIINK INTEGRATION TEST'
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 226
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.449] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STDCRDMS
+Action: New
+Test scenario: Negative test
+Test Data: [
+TESTLIINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master
+Test result: [
+TESTLIINK INTEGRATION...'
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.2.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81648
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.470] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLIINK INTEGRATION TEST...
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.8.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.5.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431182, Exec ID: 81648
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [2026-03-09 13:01:52.9.9] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[09-Mar-2026 13:01:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 13:01:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 13:01:56 Europe/Berlin] [2026-03-09 13:01:56.8.3] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87678,"issue_url":"https:\/\/support.profinch.com\/issues\/87678"}
+
+[09-Mar-2026 13:01:56 Europe/Berlin] [2026-03-09 13:01:56.3.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[09-Mar-2026 14:00:31 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 14:00:32 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 14:50:07 Europe/Berlin] DEBUG: About to enter switch statement with action: list_project_mappings
+[09-Mar-2026 14:50:08 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 14:50:17 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 14:50:43 Europe/Berlin] DEBUG: About to enter switch statement with action: list_projects
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] handleListProjects function called
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] Using direct query approach
+[09-Mar-2026 14:50:43 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] Safe SQL: SELECT tp.id, nh.name , tp.notes, tp.active, tp.prefix, tp.tc_counter, tp.is_public
+                FROM testprojects tp
+                INNER JOIN nodes_hierarchy nh ON nh.id = tp.id
+                WHERE tp.active = 1
+                ORDER BY nh.name
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] Direct query found 5 projects
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 359529
+    [name] => AG_BANKING
+    [notes] => Agency Banking end to end Testing.
+    [prefix] => AG
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 448287
+    [name] => ARCHIVE
+    [notes] => ARCHIVE
+    [prefix] => ARC
+    [active] => 1
+    [tc_counter] => 0
+    [is_public] => 1
+)
+
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] Project: Array
+(
+    [id] => 242099
+    [name] => FCUBS_UAT2
+    [notes] => Full execution of DCUBS Upgrade for&nbsp;UAT2 Phase
+    [prefix] => OE
+    [active] => 1
+    [tc_counter] => 994
+    [is_public] => 1
+)
+
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] Final projects object has 5 items
+[09-Mar-2026 14:50:43 Europe/Berlin] [CustomBugTracker] About to output JSON response
+[09-Mar-2026 14:51:17 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[09-Mar-2026 14:51:17 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[09-Mar-2026 14:52:36 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 05:53:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 05:53:32 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 05:57:18 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 05:57:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 05:57:24 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 05:57:24 Europe/Berlin] [2026-03-10 05:57:24.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 05:57:24 Europe/Berlin] [2026-03-10 05:57:24.9.4] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 05:57:24 Europe/Berlin] [2026-03-10 05:57:24.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 05:57:24 Europe/Berlin] [2026-03-10 05:57:24.8.7] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 05:57:24 Europe/Berlin] [2026-03-10 05:57:24.872] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431174
+
+[10-Mar-2026 05:57:24 Europe/Berlin] [2026-03-10 05:57:24.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81649
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.9.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.059] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET05:53'
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.7.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.075] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET05:53'
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.1.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 235
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.098] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK IN...'
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.7.2] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81649
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET05:53...
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431174, Exec ID: 81649
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.0.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.150] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 05:57:25 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":false,"message":"cURL Error: Could not resolve host: support.profinch.com","data":null,"debug":[]}
+
+[10-Mar-2026 05:57:25 Europe/Berlin] [2026-03-10 05:57:25.5.2] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 06:01:45 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 06:01:53 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 06:01:53 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.2.2] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.7.3] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431174
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.0.6] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81650
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.8.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.889] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.4.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.1.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET05:57'
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.9.8] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.4.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET05:57'
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.920] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 235
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.5.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.931] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK IN...'
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.936] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81650
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.1.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-989:ATM-TC105 -   2026-03-10CET05:57...
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.947] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.1.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431174, Exec ID: 81650
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [2026-03-10 06:01:53.2.9] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 06:01:53 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 06:01:53 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 06:02:11 Europe/Berlin] [2026-03-10 06:02:11.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87743,"issue_url":"https:\/\/support.profinch.com\/issues\/87743"}
+
+[10-Mar-2026 06:02:11 Europe/Berlin] [2026-03-10 06:02:11.7.1] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 07:13:51 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 07:13:52 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 07:17:11 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 07:18:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 07:18:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.192] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.4.2] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431176
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.9.2] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81651
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.0.6] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 07:18:08 Europe/Berlin] [2026-03-10 07:18:08.2.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'TESTLINK INTEGRATION TEST'
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 25
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.3.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'TESTLINK INTEGRATION TEST'
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.1.5] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 235
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.119] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.7.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK IN...'
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81651
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.5.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: TESTLINK INTEGRATION TEST...
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.6.2] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431176, Exec ID: 81651
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.0.9] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [2026-03-10 07:18:09.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 07:18:09 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 07:18:09 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 07:18:16 Europe/Berlin] [2026-03-10 07:18:16.0.4] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87752,"issue_url":"https:\/\/support.profinch.com\/issues\/87752"}
+
+[10-Mar-2026 07:18:16 Europe/Berlin] [2026-03-10 07:18:16.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 08:08:39 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:08:39 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.6.5] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.431] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: false
+
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.2.6] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431176
+
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.5.8] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.6.8] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81652
+
+[10-Mar-2026 08:08:40 Europe/Berlin] [2026-03-10 08:08:40.2.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 08:08:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:08:54 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 08:09:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:09:01 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.1.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.6.9] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.812] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: false
+
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.7.4] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.1.9] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431176
+
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.6.4] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81653
+
+[10-Mar-2026 08:09:01 Europe/Berlin] [2026-03-10 08:09:01.8.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:09:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.3.8] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.5.7] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.3.5] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: false
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.4.1] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.0.2] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431176
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.8.6] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.9.9] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81654
+
+[10-Mar-2026 08:09:07 Europe/Berlin] [2026-03-10 08:09:07.805] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+
+[10-Mar-2026 08:11:51 Europe/Berlin] DEBUG: About to enter switch statement with action: list_integrations_for_project
+[10-Mar-2026 08:12:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:12:06 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 08:12:06 Europe/Berlin] [2026-03-10 08:12:06.850] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION START ===
+
+[10-Mar-2026 08:12:06 Europe/Berlin] [2026-03-10 08:12:06.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] use_custom_integration: true
+
+[10-Mar-2026 08:12:06 Europe/Berlin] [2026-03-10 08:12:06.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] createIssue: true
+
+[10-Mar-2026 08:12:06 Europe/Berlin] [2026-03-10 08:12:06.877] [INFO] [CUSTOM_ISSUE_HANDLER] tproject_id: 448287
+
+[10-Mar-2026 08:12:06 Europe/Berlin] [2026-03-10 08:12:06.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] tcversion_id: 431176
+
+[10-Mar-2026 08:12:06 Europe/Berlin] [2026-03-10 08:12:06.1.7] [INFO] [CUSTOM_ISSUE_HANDLER] Calling write_execution to save test execution
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.1.8] [INFO] [CUSTOM_ISSUE_HANDLER] Found execution ID from write_execution result: 81655
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.4.3] [INFO] [CUSTOM_ISSUE_HANDLER] Issue creation requested - using custom integration
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.1.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration name: OBDX - REDMINE
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration type: REDMINE
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Integration URL: https://support.profinch.com
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.5.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: argsObj->bug_summary = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-990:ATM-TC106 -   2026-03-10CET08:09'
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.8.9] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary length = 78
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.3.3] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: summary content = 'Test Case: /ARCHIVE/WORKING D/TESTING/ARC-990:ATM-TC106 -   2026-03-10CET08:09'
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.0.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description length = 235
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.1.1] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description contains URLs = YES
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.191] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: description preview = 'Function ID: STSCRDMS
+Action: Search
+Test scenario: Positive test
+Test Data: [
+TESTLINK INTEGRATION TEST
+]
+Expected result: Cards > Maintenance > Card Master Summary
+Test result: [
+TESTLINK IN...'
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.5.6] [INFO] [CUSTOM_ISSUE_HANDLER] DEBUG: Re-checking execution ID before creating issue: 81655
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.2.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Summary: Test Case: /ARCHIVE/WORKING D/TESTING/ARC-990:ATM-TC106 -   2026-03-10CET08:09...
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.8.4] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Priority: Normal
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.4.5] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - TC ID: 431176, Exec ID: 81655
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.4.7] [INFO] [CUSTOM_ISSUE_HANDLER] Issue data - Selected Integration ID: 9
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [2026-03-10 08:12:07.8.2] [INFO] [CUSTOM_ISSUE_HANDLER] Creating real issue in REDMINE
+
+[10-Mar-2026 08:12:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: SQL: SELECT i.* FROM custom_bugtrack_integrations i
+            JOIN custom_bugtrack_project_mapping m ON i.id = m.integration_id
+            WHERE m.tproject_id = 448287 AND m.is_active = 1 AND i.is_active = 1 AND i.id = 9
+            ORDER BY m.created_on DESC
+            LIMIT 1
+[10-Mar-2026 08:12:07 Europe/Berlin] [CUSTOM_INTEGRATION] DEBUG: Found integration: {"id":"9","name":"OBDX - REDMINE","type":"REDMINE","url":"https:\/\/support.profinch.com","api_key":"22d8d2b283ed9497731fded031ccdc593a8cbb90","username":"","password":"","project_key":"nmb-fcubs-14-7-uat2","is_active":"1","default_priority":"Normal","default_tracker_id":null,"default_status_id":null,"custom_fields":null,"created_by":"1","created_on":"2026-03-02 01:33:20","updated_by":"1","updated_on":"2026-03-09 11:08:53"}
+[10-Mar-2026 08:12:11 Europe/Berlin] [2026-03-10 08:12:11.7.5] [INFO] [CUSTOM_ISSUE_HANDLER] createCustomIssue result: {"success":true,"message":"Issue created successfully in REDMINE","data":null,"debug":[],"issue_id":87763,"issue_url":"https:\/\/support.profinch.com\/issues\/87763"}
+
+[10-Mar-2026 08:12:11 Europe/Berlin] [2026-03-10 08:12:11.2.4] [INFO] [CUSTOM_ISSUE_HANDLER] === CUSTOM WRITE EXECUTION END ===
+

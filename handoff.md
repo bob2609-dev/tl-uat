@@ -282,3 +282,187 @@ The execution history properly displayed the custom Redmine bug information in a
 - **Removed lines 100–276** entirely from `inc_show_bug_table.tpl`.
 - The template now exclusively contains the clean "Single Row Bug Display" UI.
 - Cleared the Smarty cache.
+
+---
+
+## 2026-03-09 — Session 8: Console Log Cleanup (Heavy Debug Output Removal)
+
+### Context
+
+Following recent modifications to the bug description autofill and execution status features, heavy debug console logging was added throughout `execSetResults.js` and `bug_description_autofill.js`. These logs were useful during development but created excessive noise in production browser consoles.
+
+### Cleanup Strategy
+
+**Preserved:**
+- Error logs (`console.error`) for troubleshooting production issues
+- Key state change notifications (integration selection, modal show/hide)
+- Version identifier log at file load
+- Debug functions remain available for manual troubleshooting (`window.debugFunctions()`, `window.testModal()`, etc.)
+
+**Removed:**
+- Verbose data structure logging (logging entire objects/arrays)
+- Success path debug logs for routine operations
+- Redundant "function entered" logs
+- Detailed XHR response logging in success paths
+- DOM element discovery logs
+- Template generation step-by-step logs
+
+### Files Modified
+
+| File | Key Changes |
+|------|-------------|
+| `gui/javascript/execSetResults.js` | Removed ~100+ debug `console.log` statements from integration modal flow, priority popup functions, and execution status handling. Preserved error logs for API failures and critical state transitions. |
+| `gui/javascript/bug_description_autofill.js` | Removed debug logs from template population, DOM element search, and test case data fetching. Preserved error handling logs for API failures. |
+
+### Troubleshooting Reference
+
+For future debugging, these functions remain available in browser console:
+- `window.debugFunctions()` - Check function availability
+- `window.testModal()` - Manually trigger integration modal
+- `window.debugDropdownState()` - Debug modal state (now silent stub)
+- `window.testProjectIntegrations(projectId)` - Test integration API
+
+---
+
+## 2026-03-09 — Session 9: Custom Integration Logging and Assignee ID Support
+
+### Context
+
+The custom integration system needed two improvements:
+1. Logging was using `error_log()` which pollutes the main PHP error log - needed dedicated file logging
+2. Issue creation needs to support assigning issues to specific users via Redmine/Jira assignee ID
+
+### Changes Made
+
+#### 1. `custom_issue_integration_safe.php` - File Logging Implementation
+
+**Before:** All debug logging went to `error_log('[CUSTOM_INTEGRATION_SAFE] ...')` polluting the main PHP error log.
+
+**After:** 
+- Added `CUSTOM_INTEGRATION_LOG` constant pointing to `custom_integration.log`
+- Created `logCustomIntegration($message, $level)` helper function
+- All `error_log()` calls replaced with `logCustomIntegration()`
+- Log file location: `c:\xampp\htdocs\tl-uat\custom_integration.log`
+
+| Line | Change |
+|------|--------|
+| 16-35 | Added log constant and `logCustomIntegration()` function |
+| 42, 51, 58, 63, 67 | Replaced error_log with logCustomIntegration |
+| 85, 92, 97, 100, 107 | Replaced error_log with logCustomIntegration |
+| 121, 142, 156, 160, 163 | Replaced error_log with logCustomIntegration |
+| 180, 201, 215, 219, 222 | Replaced error_log with logCustomIntegration |
+
+#### 2. `lib/execute/custom_bugtrack_integrator.php` - Assignee ID Support
+
+**handleCreateIssue function:**
+- Added `$assigned_to = intval($_POST['assigned_to'] ?? 0);` to capture assignee ID
+- Added debug logging: `logDebug("handleCreateIssue called - tproject_id: $tproject_id, summary: $summary, assigned_to: $assigned_to");`
+- Pass `$assigned_to` to `createRedmineIssue()` and `createJiraIssue()` calls
+
+**createRedmineIssue function:**
+- Added `$assigned_to = 0` parameter
+- Added logic to include `assigned_to_id` in Redmine API payload when > 0:
+```php
+if ($assigned_to > 0) {
+    $data['issue']['assigned_to_id'] = $assigned_to;
+    logDebug("createRedmineIssue: Adding assignee_id: $assigned_to");
+}
+```
+- Added debug logging of full issue data before API call
+
+**createJiraIssue function:**
+- Added `$assigned_to = ''` parameter  
+- Added logic to include `assignee` field in Jira API payload when provided:
+```php
+if (!empty($assigned_to)) {
+    $data['fields']['assignee'] = array('name' => $assigned_to);
+    logDebug("createJiraIssue: Adding assignee: $assigned_to");
+}
+```
+
+### API Changes
+
+When creating issues via `custom_bugtrack_integrator.php?action=create_issue`, you can now optionally include:
+- `assigned_to` (integer for Redmine = user ID, string for Jira = username)
+
+Example POST data:
+```php
+tproject_id=123&tc_id=456&summary=Bug+Report&description=Details&priority=High&assigned_to=5
+```
+
+### Files Modified
+
+| File | Key Changes |
+|------|-------------|
+| `custom_issue_integration_safe.php` | File logging instead of error_log |
+| `lib/execute/custom_bugtrack_integrator.php` | Assignee ID support in issue creation |
+
+### Log File Location
+
+All custom integration logs now go to:
+```php
+c:\xampp\htdocs\tl-uat\custom_integration.log
+```
+
+Format: `[YYYY-MM-DD HH:MM:SS] [LEVEL] Message`
+
+### Next Steps (if needed)
+
+1. Frontend (execSetResults.js) needs to capture assignee selection from UI and send as `assigned_to` parameter
+2. UI needs an assignee dropdown for Redmine/Jira users
+3. Database may need to store assignee preferences per project or user
+
+---
+
+## 2026-03-09 — Session 10: Logging and Assignee ID Issues
+
+### Current Problems
+
+Despite implementing file logging and assignee ID support, two critical issues remain:
+
+1. **Logs are not being written to `custom_integration.log`**
+   - Updated `custom_issue_integration.php` to use `logCustomIntegration()`
+   - Updated `custom_bugtrack_integrator.php` to use `logCustomIntegration()`
+   - Added logging to `custom_bugtrack_integrator_simple.php`
+   - **Issue**: Log file remains empty during issue creation
+
+2. **`assigned_to_id` is not being sent in API payload**
+   - Hardcoded `assigned_to: 2635` in `custom_issue_integration.php`
+   - Added assignee support to `custom_bugtrack_integrator_simple.php`
+   - **Issue**: Redmine API calls do not include assignee
+
+### Root Cause Analysis
+
+The issue creation flow is:
+1. `execSetResults.php` → `custom_issue_handler.php` → `custom_issue_integration.php`
+2. `custom_issue_integration.php` makes cURL call to `custom_bugtrack_integrator_simple.php`
+3. `custom_bugtrack_integrator_simple.php` makes API call to bug tracker
+
+**Possible issues:**
+- The cURL call from `custom_issue_integration.php` to `custom_bugtrack_integrator_simple.php` might be failing
+- The `assigned_to` field might be lost in the cURL transmission
+- The logging functions might not be executing due to errors
+
+### Files Modified This Session
+
+| File | Changes |
+|------|---------|
+| `custom_issue_integration.php` | Replaced all `error_log()` with `logCustomIntegration()`, added `assigned_to: 2635` |
+| `custom_bugtrack_integrator.php` | Added file logging, assignee support for Redmine/Jira |
+| `custom_bugtrack_integrator_simple.php` | Added assignee support, Jira and Bugzilla API implementations |
+
+### Debugging Steps Needed
+
+1. **Check if cURL call is working**: Add logging before/after cURL in `custom_issue_integration.php`
+2. **Verify data transmission**: Log the exact JSON being sent to `custom_bugtrack_integrator_simple.php`
+3. **Check error logs**: Look for any PHP errors in `custom_integration_execution.log`
+4. **Test API directly**: Call `custom_bugtrack_integrator_simple.php` directly with test data
+
+### Proposed Fix
+
+Add comprehensive error handling and logging to identify where the flow is breaking:
+
+1. Add file logging to `custom_issue_integration.php` cURL section
+2. Add response logging to see what `custom_bugtrack_integrator_simple.php` returns
+3. Add error handling for cURL failures
+4. Test the API endpoint directly to isolate the issue

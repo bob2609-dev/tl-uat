@@ -49,37 +49,34 @@ function calculateSummaryStats($data) {
     );
     
     $uniqueTesters = array();
-    $userMaxExecuted = array(); // Track max executed per user to avoid duplication
+    $userTotalExecuted = array(); // Track total executed per user
     $userMaxAssigned = array(); // Track max assigned per user
     
     foreach ($data as $row) {
+        $testerId = $row['tester_id'];
+        
         // Count unique testers
-        if (!in_array($row['tester_id'], $uniqueTesters)) {
-            $uniqueTesters[] = $row['tester_id'];
+        if (!in_array($testerId, $uniqueTesters)) {
+            $uniqueTesters[] = $testerId;
         }
         
-        // Track maximum actual executed per user (passed + failed only, blocked excluded)
-        if (!isset($userMaxExecuted[$row['tester_id']]) || $row['actual_executed'] > $userMaxExecuted[$row['tester_id']]) {
-            $userMaxExecuted[$row['tester_id']] = $row['actual_executed'];
+        // Track total actual executed per user (passed + failed only, blocked excluded)
+        if (!isset($userTotalExecuted[$testerId])) {
+            $userTotalExecuted[$testerId] = 0;
         }
+        $userTotalExecuted[$testerId] += $row['actual_executed'];
         
         // Track maximum assigned per user
-        if (!isset($userMaxAssigned[$row['tester_id']]) || $row['assigned_testcases'] > $userMaxAssigned[$row['tester_id']]) {
-            $userMaxAssigned[$row['tester_id']] = $row['assigned_testcases'];
-        }
-        
-        // Track maximum not executed per user (most recent date)
-        if (!isset($userMaxNotExecuted[$row['tester_id']]) || $row['assigned_not_run'] > $userMaxNotExecuted[$row['tester_id']]) {
-            $userMaxNotExecuted[$row['tester_id']] = max(0, $row['assigned_not_run']); // Ensure non-negative
+        if (!isset($userMaxAssigned[$testerId]) || $row['assigned_testcases'] > $userMaxAssigned[$testerId]) {
+            $userMaxAssigned[$testerId] = $row['assigned_testcases'];
         }
     }
     
     $summary['total_testers'] = count($uniqueTesters);
     $summary['total_assigned'] = array_sum($userMaxAssigned);
-    $summary['total_executed'] = array_sum($userMaxExecuted);
-    $summary['total_not_executed'] = array_sum($userMaxNotExecuted);
+    $summary['total_executed'] = array_sum($userTotalExecuted);
     
-    // Calculate individual status totals from the most recent data per user
+    // Calculate individual status totals by accumulating across all dates per user
     $userStatusTotals = array();
     foreach ($data as $row) {
         $testerId = $row['tester_id'];
@@ -91,10 +88,10 @@ function calculateSummaryStats($data) {
             );
         }
         
-        // Use the maximum values per user (from most recent date)
-        $userStatusTotals[$testerId]['passed'] = max($userStatusTotals[$testerId]['passed'], $row['passed_testcases']);
-        $userStatusTotals[$testerId]['failed'] = max($userStatusTotals[$testerId]['failed'], $row['failed_testcases']);
-        $userStatusTotals[$testerId]['blocked'] = max($userStatusTotals[$testerId]['blocked'], $row['blocked_testcases']);
+        // Accumulate values instead of taking the maximum
+        $userStatusTotals[$testerId]['passed'] += $row['passed_testcases'];
+        $userStatusTotals[$testerId]['failed'] += $row['failed_testcases'];
+        $userStatusTotals[$testerId]['blocked'] += $row['blocked_testcases'];
     }
     
     foreach ($userStatusTotals as $totals) {
@@ -102,6 +99,9 @@ function calculateSummaryStats($data) {
         $summary['total_failed'] += $totals['failed'];
         $summary['total_blocked'] += $totals['blocked'];
     }
+    
+    // Total not executed is (Total Assigned - Total Executed), minimum to 0
+    $summary['total_not_executed'] = max(0, $summary['total_assigned'] - $summary['total_executed']);
     
     // Calculate overall pass rate: (Passed / (Passed + Failed)) * 100
     // Note: Blocked is considered part of executions, so pass rate only considers passed vs failed

@@ -1,0 +1,936 @@
+[2026-03-07 11:30:51] === SCRIPT START ===
+[2026-03-07 11:30:51] REQUEST_METHOD: GET
+[2026-03-07 11:30:51] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php?ajax=1&action=get_initial_data
+[2026-03-07 11:30:52] GET params: {"ajax":"1","action":"get_initial_data"}
+[2026-03-07 11:30:52] POST params: []
+[2026-03-07 11:30:52] Initializing session and checking permissions
+[2026-03-07 11:30:52] Session initialized successfully. User ID: 8
+[2026-03-07 11:30:52] Parsed parameters: project_id=0, user_id=0, start_date=, end_date=, include_non_assigned=
+[2026-03-07 11:30:52] Loading test projects for dropdown
+[2026-03-07 11:30:52] Loaded 6 projects
+[2026-03-07 11:30:52] Loading users for dropdown
+[2026-03-07 11:30:52] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:30:52] Loaded 151 users
+[2026-03-07 11:30:52] === AJAX REQUEST START ===
+[2026-03-07 11:30:52] AJAX action: get_initial_data
+[2026-03-07 11:30:52] Processing get_initial_data request
+[2026-03-07 11:30:52] get_initial_data response sent successfully
+[2026-03-07 11:30:52] === AJAX REQUEST END ===
+[2026-03-07 11:30:52] === SCRIPT START ===
+[2026-03-07 11:30:52] REQUEST_METHOD: GET
+[2026-03-07 11:30:52] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php?ajax=1&action=get_initial_data
+[2026-03-07 11:30:52] GET params: {"ajax":"1","action":"get_initial_data"}
+[2026-03-07 11:30:52] POST params: []
+[2026-03-07 11:30:52] Initializing session and checking permissions
+[2026-03-07 11:30:53] Session initialized successfully. User ID: 8
+[2026-03-07 11:30:53] Parsed parameters: project_id=0, user_id=0, start_date=, end_date=, include_non_assigned=
+[2026-03-07 11:30:53] Loading test projects for dropdown
+[2026-03-07 11:30:53] Loaded 6 projects
+[2026-03-07 11:30:53] Loading users for dropdown
+[2026-03-07 11:30:53] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:30:53] Loaded 151 users
+[2026-03-07 11:30:53] === AJAX REQUEST START ===
+[2026-03-07 11:30:53] AJAX action: get_initial_data
+[2026-03-07 11:30:53] Processing get_initial_data request
+[2026-03-07 11:30:53] get_initial_data response sent successfully
+[2026-03-07 11:30:53] === AJAX REQUEST END ===
+[2026-03-07 11:31:07] === SCRIPT START ===
+[2026-03-07 11:31:07] REQUEST_METHOD: POST
+[2026-03-07 11:31:07] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:31:07] GET params: []
+[2026-03-07 11:31:07] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2025-12-01","end_date":"","include_non_assigned":"true","_":"1772879466792"}
+[2026-03-07 11:31:07] Initializing session and checking permissions
+[2026-03-07 11:31:07] Session initialized successfully. User ID: 8
+[2026-03-07 11:31:07] Parsed parameters: project_id=242099, user_id=0, start_date=2025-12-01, end_date=, include_non_assigned=1
+[2026-03-07 11:31:07] Loading test projects for dropdown
+[2026-03-07 11:31:07] Loaded 6 projects
+[2026-03-07 11:31:07] Loading users for dropdown
+[2026-03-07 11:31:07] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:31:07] Loaded 151 users
+[2026-03-07 11:31:07] === AJAX REQUEST START ===
+[2026-03-07 11:31:07] AJAX action: run_report
+[2026-03-07 11:31:07] Processing run_report request
+[2026-03-07 11:31:07] Running breakdown report with parameters: Project=242099, User=0, Start=2025-12-01, End=, IncludeNonAssigned=1
+[2026-03-07 11:31:07] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:31:07] Filters: project_id=242099, user_id=0, start_date=2025-12-01, end_date=, include_non_assigned=1
+[2026-03-07 11:31:07] Using date range: 2025-12-01 to 2026-03-07
+[2026-03-07 11:31:07] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2025-12-01', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2025-12-01', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:31:25] Breakdown query returned 5532 rows
+[2026-03-07 11:31:25] === calculateSummaryStats START ===
+[2026-03-07 11:31:25] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":6401,"total_passed":4791,"total_failed":1610,"total_blocked":1153,"total_not_executed":22386,"overall_pass_rate":74.85}
+[2026-03-07 11:31:25] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:31:25] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:31:25] run_report response sent successfully
+[2026-03-07 11:31:25] === AJAX REQUEST END ===
+[2026-03-07 11:32:14] === SCRIPT START ===
+[2026-03-07 11:32:14] REQUEST_METHOD: POST
+[2026-03-07 11:32:14] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:32:14] GET params: []
+[2026-03-07 11:32:14] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2026-02-01","end_date":"","include_non_assigned":"true","_":"1772879534519"}
+[2026-03-07 11:32:14] Initializing session and checking permissions
+[2026-03-07 11:32:14] Session initialized successfully. User ID: 8
+[2026-03-07 11:32:14] Parsed parameters: project_id=242099, user_id=0, start_date=2026-02-01, end_date=, include_non_assigned=1
+[2026-03-07 11:32:14] Loading test projects for dropdown
+[2026-03-07 11:32:15] Loaded 6 projects
+[2026-03-07 11:32:15] Loading users for dropdown
+[2026-03-07 11:32:15] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:32:15] Loaded 151 users
+[2026-03-07 11:32:15] === AJAX REQUEST START ===
+[2026-03-07 11:32:15] AJAX action: run_report
+[2026-03-07 11:32:15] Processing run_report request
+[2026-03-07 11:32:15] Running breakdown report with parameters: Project=242099, User=0, Start=2026-02-01, End=, IncludeNonAssigned=1
+[2026-03-07 11:32:15] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:32:15] Filters: project_id=242099, user_id=0, start_date=2026-02-01, end_date=, include_non_assigned=1
+[2026-03-07 11:32:15] Using date range: 2026-02-01 to 2026-03-07
+[2026-03-07 11:32:15] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2026-02-01', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2026-02-01', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:32:23] Breakdown query returned 1995 rows
+[2026-03-07 11:32:23] === calculateSummaryStats START ===
+[2026-03-07 11:32:23] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":2383,"total_passed":1703,"total_failed":680,"total_blocked":276,"total_not_executed":26404,"overall_pass_rate":71.46}
+[2026-03-07 11:32:23] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:32:23] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:32:23] run_report response sent successfully
+[2026-03-07 11:32:23] === AJAX REQUEST END ===
+[2026-03-07 11:45:30] === SCRIPT START ===
+[2026-03-07 11:45:30] REQUEST_METHOD: GET
+[2026-03-07 11:45:30] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php?ajax=1&action=get_initial_data
+[2026-03-07 11:45:30] GET params: {"ajax":"1","action":"get_initial_data"}
+[2026-03-07 11:45:30] POST params: []
+[2026-03-07 11:45:30] Initializing session and checking permissions
+[2026-03-07 11:45:30] Session initialized successfully. User ID: 8
+[2026-03-07 11:45:30] Parsed parameters: project_id=0, user_id=0, start_date=, end_date=, include_non_assigned=
+[2026-03-07 11:45:30] Loading test projects for dropdown
+[2026-03-07 11:45:30] Loaded 6 projects
+[2026-03-07 11:45:30] Loading users for dropdown
+[2026-03-07 11:45:30] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:45:30] Loaded 151 users
+[2026-03-07 11:45:30] === AJAX REQUEST START ===
+[2026-03-07 11:45:30] AJAX action: get_initial_data
+[2026-03-07 11:45:30] Processing get_initial_data request
+[2026-03-07 11:45:30] get_initial_data response sent successfully
+[2026-03-07 11:45:30] === AJAX REQUEST END ===
+[2026-03-07 11:45:30] === SCRIPT START ===
+[2026-03-07 11:45:30] REQUEST_METHOD: GET
+[2026-03-07 11:45:30] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php?ajax=1&action=get_initial_data
+[2026-03-07 11:45:30] GET params: {"ajax":"1","action":"get_initial_data"}
+[2026-03-07 11:45:30] POST params: []
+[2026-03-07 11:45:30] Initializing session and checking permissions
+[2026-03-07 11:45:30] Session initialized successfully. User ID: 8
+[2026-03-07 11:45:30] Parsed parameters: project_id=0, user_id=0, start_date=, end_date=, include_non_assigned=
+[2026-03-07 11:45:30] Loading test projects for dropdown
+[2026-03-07 11:45:30] Loaded 6 projects
+[2026-03-07 11:45:30] Loading users for dropdown
+[2026-03-07 11:45:30] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:45:30] Loaded 151 users
+[2026-03-07 11:45:30] === AJAX REQUEST START ===
+[2026-03-07 11:45:31] AJAX action: get_initial_data
+[2026-03-07 11:45:31] Processing get_initial_data request
+[2026-03-07 11:45:31] get_initial_data response sent successfully
+[2026-03-07 11:45:31] === AJAX REQUEST END ===
+[2026-03-07 11:45:52] === SCRIPT START ===
+[2026-03-07 11:45:52] REQUEST_METHOD: POST
+[2026-03-07 11:45:52] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:45:52] GET params: []
+[2026-03-07 11:45:52] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2026-02-01","end_date":"","include_non_assigned":"true","_":"1772880352069"}
+[2026-03-07 11:45:52] Initializing session and checking permissions
+[2026-03-07 11:45:52] Session initialized successfully. User ID: 8
+[2026-03-07 11:45:52] Parsed parameters: project_id=242099, user_id=0, start_date=2026-02-01, end_date=, include_non_assigned=1
+[2026-03-07 11:45:52] Loading test projects for dropdown
+[2026-03-07 11:45:52] Loaded 6 projects
+[2026-03-07 11:45:52] Loading users for dropdown
+[2026-03-07 11:45:52] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:45:52] Loaded 151 users
+[2026-03-07 11:45:52] === AJAX REQUEST START ===
+[2026-03-07 11:45:52] AJAX action: run_report
+[2026-03-07 11:45:52] Processing run_report request
+[2026-03-07 11:45:52] Running breakdown report with parameters: Project=242099, User=0, Start=2026-02-01, End=, IncludeNonAssigned=1
+[2026-03-07 11:45:52] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:45:52] Filters: project_id=242099, user_id=0, start_date=2026-02-01, end_date=, include_non_assigned=1
+[2026-03-07 11:45:52] Using date range: 2026-02-01 to 2026-03-07
+[2026-03-07 11:45:52] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2026-02-01', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2026-02-01', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:45:59] Breakdown query returned 1995 rows
+[2026-03-07 11:45:59] === calculateSummaryStats START ===
+[2026-03-07 11:45:59] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":2383,"total_passed":1703,"total_failed":680,"total_blocked":276,"total_not_executed":26404,"overall_pass_rate":71.46}
+[2026-03-07 11:45:59] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:45:59] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:45:59] run_report response sent successfully
+[2026-03-07 11:45:59] === AJAX REQUEST END ===
+[2026-03-07 11:50:53] === SCRIPT START ===
+[2026-03-07 11:50:53] REQUEST_METHOD: POST
+[2026-03-07 11:50:53] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:50:53] GET params: []
+[2026-03-07 11:50:53] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2026-02-02","end_date":"","include_non_assigned":"true","_":"1772880653111"}
+[2026-03-07 11:50:53] Initializing session and checking permissions
+[2026-03-07 11:50:53] Session initialized successfully. User ID: 8
+[2026-03-07 11:50:53] Parsed parameters: project_id=242099, user_id=0, start_date=2026-02-02, end_date=, include_non_assigned=1
+[2026-03-07 11:50:53] Loading test projects for dropdown
+[2026-03-07 11:50:53] Loaded 6 projects
+[2026-03-07 11:50:53] Loading users for dropdown
+[2026-03-07 11:50:53] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:50:53] Loaded 151 users
+[2026-03-07 11:50:53] === AJAX REQUEST START ===
+[2026-03-07 11:50:53] AJAX action: run_report
+[2026-03-07 11:50:53] Processing run_report request
+[2026-03-07 11:50:53] Running breakdown report with parameters: Project=242099, User=0, Start=2026-02-02, End=, IncludeNonAssigned=1
+[2026-03-07 11:50:53] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:50:53] Filters: project_id=242099, user_id=0, start_date=2026-02-02, end_date=, include_non_assigned=1
+[2026-03-07 11:50:53] Using date range: 2026-02-02 to 2026-03-07
+[2026-03-07 11:50:53] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2026-02-02', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2026-02-02', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:51:00] Breakdown query returned 1938 rows
+[2026-03-07 11:51:00] === calculateSummaryStats START ===
+[2026-03-07 11:51:00] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":2382,"total_passed":1702,"total_failed":680,"total_blocked":275,"total_not_executed":26405,"overall_pass_rate":71.45}
+[2026-03-07 11:51:00] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:51:00] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:51:00] run_report response sent successfully
+[2026-03-07 11:51:00] === AJAX REQUEST END ===
+[2026-03-07 11:51:20] === SCRIPT START ===
+[2026-03-07 11:51:20] REQUEST_METHOD: POST
+[2026-03-07 11:51:20] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:51:20] GET params: []
+[2026-03-07 11:51:20] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2026-02-17","end_date":"","include_non_assigned":"true","_":"1772880680409"}
+[2026-03-07 11:51:20] Initializing session and checking permissions
+[2026-03-07 11:51:20] Session initialized successfully. User ID: 8
+[2026-03-07 11:51:20] Parsed parameters: project_id=242099, user_id=0, start_date=2026-02-17, end_date=, include_non_assigned=1
+[2026-03-07 11:51:20] Loading test projects for dropdown
+[2026-03-07 11:51:20] Loaded 6 projects
+[2026-03-07 11:51:21] Loading users for dropdown
+[2026-03-07 11:51:21] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:51:21] Loaded 151 users
+[2026-03-07 11:51:21] === AJAX REQUEST START ===
+[2026-03-07 11:51:21] AJAX action: run_report
+[2026-03-07 11:51:21] Processing run_report request
+[2026-03-07 11:51:21] Running breakdown report with parameters: Project=242099, User=0, Start=2026-02-17, End=, IncludeNonAssigned=1
+[2026-03-07 11:51:21] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:51:21] Filters: project_id=242099, user_id=0, start_date=2026-02-17, end_date=, include_non_assigned=1
+[2026-03-07 11:51:21] Using date range: 2026-02-17 to 2026-03-07
+[2026-03-07 11:51:21] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2026-02-17', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2026-02-17', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:51:24] Breakdown query returned 1083 rows
+[2026-03-07 11:51:24] === calculateSummaryStats START ===
+[2026-03-07 11:51:24] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":0,"total_passed":0,"total_failed":0,"total_blocked":0,"total_not_executed":28787,"overall_pass_rate":0}
+[2026-03-07 11:51:24] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:51:24] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:51:24] run_report response sent successfully
+[2026-03-07 11:51:24] === AJAX REQUEST END ===
+[2026-03-07 11:51:35] === SCRIPT START ===
+[2026-03-07 11:51:35] REQUEST_METHOD: POST
+[2026-03-07 11:51:35] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:51:35] GET params: []
+[2026-03-07 11:51:35] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2026-02-05","end_date":"","include_non_assigned":"true","_":"1772880695161"}
+[2026-03-07 11:51:35] Initializing session and checking permissions
+[2026-03-07 11:51:35] Session initialized successfully. User ID: 8
+[2026-03-07 11:51:35] Parsed parameters: project_id=242099, user_id=0, start_date=2026-02-05, end_date=, include_non_assigned=1
+[2026-03-07 11:51:35] Loading test projects for dropdown
+[2026-03-07 11:51:35] Loaded 6 projects
+[2026-03-07 11:51:35] Loading users for dropdown
+[2026-03-07 11:51:35] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:51:35] Loaded 151 users
+[2026-03-07 11:51:35] === AJAX REQUEST START ===
+[2026-03-07 11:51:35] AJAX action: run_report
+[2026-03-07 11:51:35] Processing run_report request
+[2026-03-07 11:51:35] Running breakdown report with parameters: Project=242099, User=0, Start=2026-02-05, End=, IncludeNonAssigned=1
+[2026-03-07 11:51:35] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:51:35] Filters: project_id=242099, user_id=0, start_date=2026-02-05, end_date=, include_non_assigned=1
+[2026-03-07 11:51:35] Using date range: 2026-02-05 to 2026-03-07
+[2026-03-07 11:51:35] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2026-02-05', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2026-02-05', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:51:42] Breakdown query returned 1767 rows
+[2026-03-07 11:51:42] === calculateSummaryStats START ===
+[2026-03-07 11:51:42] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":2135,"total_passed":1513,"total_failed":622,"total_blocked":228,"total_not_executed":26652,"overall_pass_rate":70.87}
+[2026-03-07 11:51:42] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:51:42] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:51:42] run_report response sent successfully
+[2026-03-07 11:51:42] === AJAX REQUEST END ===
+[2026-03-07 11:51:58] === SCRIPT START ===
+[2026-03-07 11:51:58] REQUEST_METHOD: POST
+[2026-03-07 11:51:58] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:51:58] GET params: []
+[2026-03-07 11:51:58] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2026-02-08","end_date":"","include_non_assigned":"true","_":"1772880718057"}
+[2026-03-07 11:51:58] Initializing session and checking permissions
+[2026-03-07 11:51:58] Session initialized successfully. User ID: 8
+[2026-03-07 11:51:58] Parsed parameters: project_id=242099, user_id=0, start_date=2026-02-08, end_date=, include_non_assigned=1
+[2026-03-07 11:51:58] Loading test projects for dropdown
+[2026-03-07 11:51:58] Loaded 6 projects
+[2026-03-07 11:51:58] Loading users for dropdown
+[2026-03-07 11:51:58] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:51:58] Loaded 151 users
+[2026-03-07 11:51:58] === AJAX REQUEST START ===
+[2026-03-07 11:51:58] AJAX action: run_report
+[2026-03-07 11:51:58] Processing run_report request
+[2026-03-07 11:51:58] Running breakdown report with parameters: Project=242099, User=0, Start=2026-02-08, End=, IncludeNonAssigned=1
+[2026-03-07 11:51:58] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:51:58] Filters: project_id=242099, user_id=0, start_date=2026-02-08, end_date=, include_non_assigned=1
+[2026-03-07 11:51:58] Using date range: 2026-02-08 to 2026-03-07
+[2026-03-07 11:51:58] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2026-02-08', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2026-02-08', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:52:04] Breakdown query returned 1596 rows
+[2026-03-07 11:52:04] === calculateSummaryStats START ===
+[2026-03-07 11:52:04] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":2072,"total_passed":1502,"total_failed":570,"total_blocked":180,"total_not_executed":26715,"overall_pass_rate":72.49}
+[2026-03-07 11:52:04] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:52:04] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:52:04] run_report response sent successfully
+[2026-03-07 11:52:04] === AJAX REQUEST END ===
+[2026-03-07 11:52:26] === SCRIPT START ===
+[2026-03-07 11:52:26] REQUEST_METHOD: POST
+[2026-03-07 11:52:26] REQUEST_URI: /lib/execute/tester_execution_report_breakdown_new.php
+[2026-03-07 11:52:26] GET params: []
+[2026-03-07 11:52:26] POST params: {"ajax":"1","action":"run_report","project_id":"242099","user_id":"","start_date":"2026-02-14","end_date":"","include_non_assigned":"true","_":"1772880746241"}
+[2026-03-07 11:52:26] Initializing session and checking permissions
+[2026-03-07 11:52:26] Session initialized successfully. User ID: 8
+[2026-03-07 11:52:26] Parsed parameters: project_id=242099, user_id=0, start_date=2026-02-14, end_date=, include_non_assigned=1
+[2026-03-07 11:52:26] Loading test projects for dropdown
+[2026-03-07 11:52:26] Loaded 6 projects
+[2026-03-07 11:52:26] Loading users for dropdown
+[2026-03-07 11:52:26] Users query: SELECT id, login, first, last FROM users WHERE active = 1 ORDER BY first, last
+[2026-03-07 11:52:26] Loaded 151 users
+[2026-03-07 11:52:26] === AJAX REQUEST START ===
+[2026-03-07 11:52:26] AJAX action: run_report
+[2026-03-07 11:52:26] Processing run_report request
+[2026-03-07 11:52:26] Running breakdown report with parameters: Project=242099, User=0, Start=2026-02-14, End=, IncludeNonAssigned=1
+[2026-03-07 11:52:26] === getTesterExecutionBreakdown START ===
+[2026-03-07 11:52:26] Filters: project_id=242099, user_id=0, start_date=2026-02-14, end_date=, include_non_assigned=1
+[2026-03-07 11:52:26] Using date range: 2026-02-14 to 2026-03-07
+[2026-03-07 11:52:26] Executing BREAKDOWN query: 
+            SELECT 
+                u.id AS tester_id,
+                CONCAT(u.first, ' ', u.last) AS tester_name,
+                date_range.date AS execution_date,
+                MAX(e.execution_ts) AS last_execution_time,
+                
+                -- Assignment counts (same for all dates per user)
+                IFNULL(a.assigned_cnt, 0) AS assigned_testcases,
+                
+                -- Unique test case execution counts per date (count each test case only once per day)
+                COUNT(DISTINCT e.tcversion_id) AS executed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'p' THEN e.tcversion_id ELSE NULL END) AS passed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'f' THEN e.tcversion_id ELSE NULL END) AS failed_testcases,
+                COUNT(DISTINCT CASE WHEN e.status = 'b' THEN e.tcversion_id ELSE NULL END) AS blocked_testcases,
+                
+                -- Calculated fields
+                0 AS assigned_not_run, -- Will be calculated in PHP
+                0 AS pass_rate_percent, -- Will be calculated in PHP
+                
+                -- Additional info (use default values for users with no executions)
+                COALESCE(tp.notes, 'No Test Plan') AS testplan_name,
+                COALESCE(b.name, 'N/A') AS build_name,
+                COALESCE(pl.name, 'N/A') AS platform_name
+                
+            FROM users u
+            
+            -- First get users with assignments
+            INNER JOIN (
+                SELECT DISTINCT ua.user_id
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+            ) assigned_users ON u.id = assigned_users.user_id
+            
+            -- Generate complete date range
+            CROSS JOIN (
+                SELECT DATE_ADD('2026-02-14', INTERVAL seq DAY) AS date
+                FROM (
+                    SELECT 0 AS seq UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION
+                    SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION
+                    SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION
+                    SELECT 30 UNION SELECT 31 UNION SELECT 32 UNION SELECT 33 UNION SELECT 34 UNION SELECT 35 UNION SELECT 36 UNION SELECT 37 UNION SELECT 38 UNION SELECT 39 UNION
+                    SELECT 40 UNION SELECT 41 UNION SELECT 42 UNION SELECT 43 UNION SELECT 44 UNION SELECT 45 UNION SELECT 46 UNION SELECT 47 UNION SELECT 48 UNION SELECT 49 UNION
+                    SELECT 50 UNION SELECT 51 UNION SELECT 52 UNION SELECT 53 UNION SELECT 54 UNION SELECT 55 UNION SELECT 56 UNION SELECT 57 UNION SELECT 58 UNION SELECT 59 UNION
+                    SELECT 60 UNION SELECT 61 UNION SELECT 62 UNION SELECT 63 UNION SELECT 64 UNION SELECT 65 UNION SELECT 66 UNION SELECT 67 UNION SELECT 68 UNION SELECT 69 UNION
+                    SELECT 70 UNION SELECT 71 UNION SELECT 72 UNION SELECT 73 UNION SELECT 74 UNION SELECT 75 UNION SELECT 76 UNION SELECT 77 UNION SELECT 78 UNION SELECT 79 UNION
+                    SELECT 80 UNION SELECT 81 UNION SELECT 82 UNION SELECT 83 UNION SELECT 84 UNION SELECT 85 UNION SELECT 86 UNION SELECT 87 UNION SELECT 88 UNION SELECT 89 UNION
+                    SELECT 90 UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95 UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99
+                ) numbers
+                WHERE DATE_ADD('2026-02-14', INTERVAL seq DAY) <= '2026-03-07'
+            ) date_range
+            
+            -- Then LEFT JOIN executions within date range
+            LEFT JOIN executions e ON u.id = e.tester_id AND DATE(e.execution_ts) = date_range.date
+            LEFT JOIN testplans tp ON e.testplan_id = tp.id
+            LEFT JOIN builds b ON e.build_id = b.id
+            LEFT JOIN platforms pl ON e.platform_id = pl.id
+            LEFT JOIN tcversions tptc ON e.tcversion_id = tptc.id
+            LEFT JOIN (
+                -- Get assigned test cases per user
+                SELECT 
+                    ua.user_id, 
+                    COUNT(DISTINCT ua.feature_id) AS assigned_cnt
+                FROM user_assignments ua
+                JOIN testplan_tcversions tptc_a ON ua.feature_id = tptc_a.id
+                JOIN testplans tp_a ON tptc_a.testplan_id = tp_a.id
+                WHERE ua.type IN (1, 2) AND ua.status = 1
+                    AND tp_a.testproject_id = 242099
+                GROUP BY ua.user_id
+            ) a ON a.user_id = u.id
+            
+            WHERE u.active = 1
+                
+                
+            
+            GROUP BY u.id, u.first, u.last, date_range.date, a.assigned_cnt, tp.notes, b.name, pl.name
+            ORDER BY u.first, u.last, execution_date DESC, last_execution_time DESC
+        
+[2026-03-07 11:52:30] Breakdown query returned 1254 rows
+[2026-03-07 11:52:30] === calculateSummaryStats START ===
+[2026-03-07 11:52:30] Summary calculated: {"total_testers":57,"total_assigned":28787,"total_executed":518,"total_passed":320,"total_failed":198,"total_blocked":40,"total_not_executed":28269,"overall_pass_rate":61.78}
+[2026-03-07 11:52:30] === calculateSummaryStats END SUCCESS ===
+[2026-03-07 11:52:30] === getTesterExecutionBreakdown END SUCCESS ===
+[2026-03-07 11:52:30] run_report response sent successfully
+[2026-03-07 11:52:30] === AJAX REQUEST END ===

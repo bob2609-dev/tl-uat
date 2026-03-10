@@ -13,7 +13,7 @@
  *
  */
 
-// Log that the file is loading with new functions
+// Log version for debugging purposes
 console.log(
   "execSetResults.js: LOADING VERSION SUBMISSION_LOCK_FIX - 20260303-4",
 );
@@ -23,12 +23,10 @@ window.pendingExecutionAction = null;
 
 window.setPendingExecutionAction = function (action) {
   window.pendingExecutionAction = action || null;
-  console.log("Pending execution action set:", window.pendingExecutionAction);
 };
 
 window.clearPendingExecutionAction = function () {
   window.pendingExecutionAction = null;
-  console.log("Pending execution action cleared");
 };
 
 window.syncIssueSummaryVisibility = function () {
@@ -70,11 +68,8 @@ window.resumePendingExecutionAction = function () {
   window.pendingExecutionAction = null;
 
   if (!action) {
-    console.log("No pending execution action to resume");
     return;
   }
-
-  console.log("Resuming pending execution action:", action);
 
   if (action.type === "saveExecStatus") {
     saveExecStatus(action.tcvID, action.status, action.msg, action.goNext);
@@ -90,53 +85,12 @@ window.resumePendingExecutionAction = function () {
     var btn = action.buttonId ? document.getElementById(action.buttonId) : null;
     if (btn) {
       btn.click();
-    } else {
-      console.warn("Could not find pending button to resume:", action.buttonId);
     }
   }
 };
 
 window.debugDropdownState = function () {
-  console.log("=== DEBUG MODAL STATE ===");
-  console.log("Modal visibility:", jQuery("#integrationModal").css("display"));
-  console.log("Modal exists:", jQuery("#integrationModal").length > 0);
-  console.log("Create issue checked:", jQuery("#createIssue").is(":checked"));
-  console.log("Selected integration:", window.selectedIntegrationId);
-
-  // Check if createIssue checkbox exists
-  console.log(
-    "CreateIssue checkbox exists:",
-    jQuery("#createIssue").length > 0,
-  );
-
-  // Try to find the modal with different selectors
-  console.log("Trying different selectors:");
-  console.log("  #integrationModal:", jQuery("#integrationModal").length);
-  console.log(
-    '  div[id="integrationModal"]:',
-    jQuery('div[id="integrationModal"]').length,
-  );
-  console.log(
-    '  [id="integrationModal"]:',
-    jQuery('[id="integrationModal"]').length,
-  );
-
-  // Check if there are any divs with similar names
-  console.log(
-    "All divs with integration in ID:",
-    jQuery('div[id*="integration"]').length,
-  );
-  jQuery('div[id*="integration"]').each(function () {
-    console.log(
-      "  Found:",
-      this.id,
-      "visibility:",
-      jQuery(this).css("display"),
-    );
-  });
-
-  console.log("=== END DEBUG MODAL STATE ===");
-  console.log("=== END DEBUG ===");
+  // Debug function - available for manual troubleshooting if needed
 };
 
 // Call debug on page load
@@ -145,34 +99,9 @@ jQuery(document).ready(function () {
   setTimeout(debugDropdownState, 2000);
   window.syncIssueSummaryVisibility();
 
-  // Debug execution buttons
-  console.log("=== EXECUTION BUTTON DEBUG ===");
-  console.log("Looking for execution buttons...");
-  console.log("save_results buttons:", jQuery('[id^="save_results"]').length);
-  console.log("save_and_next buttons:", jQuery('[id^="save_and_next"]').length);
-  console.log("move2next buttons:", jQuery('[id^="move2next"]').length);
-  console.log(
-    "All execution buttons:",
-    jQuery('[id^="save_results"], [id^="save_and_next"], [id^="move2next"]')
-      .length,
-  );
-  console.log("=== END EXECUTION BUTTON DEBUG ===");
-
   // Add click debugging to checkbox
   jQuery("#createIssue").on("click", function () {
     window.syncIssueSummaryVisibility();
-    console.log(
-      "Checkbox clicked, current state:",
-      jQuery(this).is(":checked"),
-    );
-    console.log(
-      "Modal visibility after checkbox click:",
-      jQuery("#integrationModal").css("display"),
-    );
-    console.log(
-      "Modal exists after click:",
-      jQuery("#integrationModal").length > 0,
-    );
   });
 
   jQuery(document).on("change", "#createIssue", function () {
@@ -183,33 +112,12 @@ jQuery(document).ready(function () {
   jQuery('[id^="save_results"], [id^="save_and_next"], [id^="move2next"]').on(
     "click",
     function (e) {
-      console.log("=== EXECUTION BUTTON CLICK DEBUG ===");
-      console.log("Execution button clicked");
-      console.log(
-        "Create issue checked:",
-        jQuery("#createIssue").is(":checked"),
-      );
-      console.log("Selected integration:", window.selectedIntegrationId);
-      console.log(
-        "Modal visibility before execution:",
-        jQuery("#integrationModal").css("display"),
-      );
-      console.log("Event type:", e.type);
-      console.log("Event target:", e.target);
-      console.log("=== END EXECUTION BUTTON DEBUG ===");
-
       // Check if we should show integration dropdown
       var createIssueChecked = jQuery("#createIssue").is(":checked");
       var hasSelectedIntegration =
         window.selectedIntegrationId && window.selectedIntegrationId !== "";
 
-      console.log(
-        "Should show dropdown?",
-        createIssueChecked && !hasSelectedIntegration,
-      );
-
       if (createIssueChecked && !hasSelectedIntegration) {
-        console.log("Showing integration modal for selection...");
         window.setPendingExecutionAction({
           type: "buttonClick",
           buttonId: this.id || null,
@@ -223,9 +131,6 @@ jQuery(document).ready(function () {
         e.stopPropagation();
         return false;
       } else if (createIssueChecked && hasSelectedIntegration) {
-        console.log(
-          "Integration already selected, proceeding with bug submission...",
-        );
         // Show bug submission overlay
         if (typeof window.disableTestExecButtons === "function") {
           window.disableTestExecButtons(true);
@@ -233,7 +138,6 @@ jQuery(document).ready(function () {
         // Allow form to proceed normally
         return true;
       } else {
-        console.log("No issue creation needed, proceeding normally...");
         // Allow form to proceed normally
         return true;
       }
@@ -243,70 +147,24 @@ jQuery(document).ready(function () {
 
 // Test function to manually trigger modal
 window.testModal = function () {
-  console.log("=== MANUAL MODAL TEST ===");
-  console.log("Testing modal manually...");
-
-  // Check if modal exists
-  var modal = jQuery("#integrationModal");
-  console.log("Modal found:", modal.length > 0);
-
-  // Check if modal functions exist
-  console.log(
-    "showIntegrationModal exists:",
-    typeof showIntegrationModal === "function",
-  );
-  console.log(
-    "hideIntegrationModal exists:",
-    typeof hideIntegrationModal === "function",
-  );
-  console.log(
-    "populateIntegrationModalDropdown exists:",
-    typeof populateIntegrationModalDropdown === "function",
-  );
-
-  // Try to show modal
   if (typeof showIntegrationModal === "function") {
-    console.log("Calling showIntegrationModal...");
     showIntegrationModal();
-  } else {
-    console.log("showIntegrationModal function not found");
   }
-
-  console.log("=== END MANUAL MODAL TEST ===");
 };
 
 // Simple test function
 window.simpleTest = function () {
-  console.log("Simple test function called!");
-  console.log("jQuery available:", typeof jQuery !== "undefined");
-  console.log("Modal exists:", jQuery("#integrationModal").length > 0);
+  // Test function - available for manual troubleshooting
 };
 
 // Debug function availability
 window.debugFunctions = function () {
-  console.log("=== FUNCTION AVAILABILITY DEBUG ===");
-  console.log("testModal exists:", typeof testModal === "function");
-  console.log("simpleTest exists:", typeof simpleTest === "function");
-  console.log(
-    "showIntegrationModal exists:",
-    typeof showIntegrationModal === "function",
-  );
-  console.log(
-    "hideIntegrationModal exists:",
-    typeof hideIntegrationModal === "function",
-  );
-  console.log(
-    "populateIntegrationModalDropdown exists:",
-    typeof populateIntegrationModalDropdown === "function",
-  );
-  console.log("=== END FUNCTION AVAILABILITY DEBUG ===");
+  // Debug function - available for manual troubleshooting if needed
 };
 
 // Test API for different projects
 window.testProjectIntegrations = function (projectId) {
-  console.log("=== TESTING PROJECT INTEGRATIONS ===");
   var testProjectId = projectId || window.getCurrentTProjectId();
-  console.log("Testing project ID:", testProjectId);
   if (!testProjectId) {
     console.error("No project ID available for integration test");
     return;
@@ -320,24 +178,7 @@ window.testProjectIntegrations = function (projectId) {
     type: "GET",
     dataType: "json",
     success: function (data) {
-      console.log("Project", testProjectId, "integrations:", data);
-      console.log(
-        "Number of integrations:",
-        data.integrations ? data.integrations.length : 0,
-      );
-      if (data.integrations) {
-        console.log("Integration details:");
-        data.integrations.forEach(function (integration, index) {
-          console.log(
-            "  ",
-            index + 1,
-            ":",
-            integration.id,
-            "-",
-            integration.name,
-          );
-        });
-      }
+      // Response handled silently in production
     },
     error: function (xhr, status, error) {
       console.error(
@@ -346,40 +187,47 @@ window.testProjectIntegrations = function (projectId) {
         ":",
         error,
       );
-      console.log("XHR status:", xhr.status);
-      console.log("XHR response:", xhr.responseText);
     },
   });
-
-  console.log("=== END PROJECT INTEGRATIONS TEST ===");
 };
 
-// Log that functions are available
-console.log("execSetResults.js: Test functions loaded");
-console.log(
-  "execSetResults.js: testModal available:",
-  typeof testModal === "function",
-);
-console.log(
-  "execSetResults.js: simpleTest available:",
-  typeof simpleTest === "function",
-);
-console.log(
-  "execSetResults.js: testProjectIntegrations available:",
-  typeof testProjectIntegrations === "function",
-);
+// Test API for different projects
+window.testProjectIntegrations = function (projectId) {
+  var testProjectId = projectId || window.getCurrentTProjectId();
+  if (!testProjectId) {
+    return;
+  }
+
+  jQuery.ajax({
+    url:
+      window.location.origin +
+      "/lib/execute/custom_bugtrack_integrator.php?action=list_integrations_for_project&tproject_id=" +
+      testProjectId,
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      // Response handled silently in production
+    },
+    error: function (xhr, status, error) {
+      console.error(
+        "Error fetching integrations for project",
+        testProjectId,
+        ":",
+        error,
+      );
+    },
+  });
+};
+
 window.myTest = function () {
   alert("MY TEST IS EXECUTED");
 };
+
 // Force function availability check
 if (typeof testProjectIntegrations !== "function") {
-  console.log("testProjectIntegrations not available, adding manually...");
   window.testProjectIntegrations = function (projectId) {
-    console.log("=== TESTING PROJECT INTEGRATIONS ===");
     var testProjectId = projectId || window.getCurrentTProjectId();
-    console.log("Testing project ID:", testProjectId);
     if (!testProjectId) {
-      console.error("No project ID available for integration test");
       return;
     }
 
@@ -391,24 +239,7 @@ if (typeof testProjectIntegrations !== "function") {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        console.log("Project", testProjectId, "integrations:", data);
-        console.log(
-          "Number of integrations:",
-          data.integrations ? data.integrations.length : 0,
-        );
-        if (data.integrations) {
-          console.log("Integration details:");
-          data.integrations.forEach(function (integration, index) {
-            console.log(
-              "  ",
-              index + 1,
-              ":",
-              integration.id,
-              "-",
-              integration.name,
-            );
-          });
-        }
+        // Response handled silently in production
       },
       error: function (xhr, status, error) {
         console.error(
@@ -417,14 +248,9 @@ if (typeof testProjectIntegrations !== "function") {
           ":",
           error,
         );
-        console.log("XHR status:", xhr.status);
-        console.log("XHR response:", xhr.responseText);
       },
     });
-
-    console.log("=== END PROJECT INTEGRATIONS TEST ===");
   };
-  console.log("testProjectIntegrations function added manually");
 }
 
 // Integration Modal Functions
@@ -475,31 +301,25 @@ window.getCurrentTProjectId = function () {
       var tprojectField = jQuery('input[name="tproject_id"]');
       if (tprojectField.length > 0) {
         tprojectId = tprojectField.val();
-        console.log("Found tproject_id from hidden field:", tprojectId);
       } else {
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has("tproject_id")) {
           tprojectId = urlParams.get("tproject_id");
-          console.log("Found tproject_id from URL param:", tprojectId);
         }
       }
     } catch (e) {
-      console.log("Error getting tproject_id:", e);
+      // Silent error handling
     }
   }
 
   if (!tprojectId) {
     tprojectId = window.getTProjectIdFromFrameContext();
-    if (tprojectId) {
-      console.log("Found tproject_id from frame context:", tprojectId);
-    }
   }
 
   if (!tprojectId && window.currentTProjectId) {
     // Server-rendered value from execSetResults.php ($gui->tproject_id),
     // which follows the same session-backed logic used in execHistory.php.
     tprojectId = window.currentTProjectId;
-    console.log("Found tproject_id from server-rendered value:", tprojectId);
   }
 
   if (!tprojectId) {
@@ -510,13 +330,12 @@ window.getCurrentTProjectId = function () {
         jQuery.each(formData, function (i, field) {
           if (field.name === "tproject_id") {
             tprojectId = field.value;
-            console.log("Found tproject_id from form:", tprojectId);
             return false;
           }
         });
       }
     } catch (e) {
-      console.log("Error getting tproject_id from form:", e);
+      // Silent error handling
     }
   }
 
@@ -524,10 +343,8 @@ window.getCurrentTProjectId = function () {
 };
 
 window.showIntegrationModal = function () {
-  console.log("Showing integration modal...");
   var modal = jQuery("#integrationModal");
   if (modal.length === 0) {
-    console.log("Modal not found, but should exist in template");
     return;
   }
 
@@ -539,7 +356,6 @@ window.showIntegrationModal = function () {
 };
 
 window.hideIntegrationModal = function () {
-  console.log("Hiding integration modal...");
   jQuery("#integrationModal").hide();
 };
 
@@ -548,7 +364,6 @@ window.confirmIntegrationSelection = function () {
   if (selectedIntegration) {
     window.selectedIntegrationId = selectedIntegration;
     window.syncSelectedIntegrationField();
-    console.log("Integration selected from modal:", selectedIntegration);
     hideIntegrationModal();
     window.resumePendingExecutionAction();
   } else {
@@ -557,7 +372,6 @@ window.confirmIntegrationSelection = function () {
 };
 
 window.cancelIntegrationSelection = function () {
-  console.log("Integration selection cancelled");
   window.selectedIntegrationId = "";
   window.syncSelectedIntegrationField();
   window.clearPendingExecutionAction();
@@ -565,10 +379,8 @@ window.cancelIntegrationSelection = function () {
 };
 
 window.populateIntegrationModalDropdown = function () {
-  console.log("Populating integration modal dropdown...");
   var dropdown = jQuery("#integrationModalDropdown");
   if (dropdown.length === 0) {
-    console.log("Modal dropdown not found");
     return;
   }
 
@@ -577,8 +389,6 @@ window.populateIntegrationModalDropdown = function () {
   dropdown.append('<option value="">-- Select Integration --</option>');
   var tprojectId = window.getCurrentTProjectId();
 
-  console.log("Using tproject_id:", tprojectId);
-
   if (!tprojectId) {
     console.error(
       "Could not determine tproject_id - cannot fetch integrations",
@@ -586,15 +396,6 @@ window.populateIntegrationModalDropdown = function () {
     dropdown.append('<option value="">No integrations available</option>');
     return;
   }
-
-  // Also check if we can find any hidden fields with project info
-  jQuery('input[type="hidden"]').each(function () {
-    var name = jQuery(this).attr("name");
-    var value = jQuery(this).val();
-    if (name && name.toLowerCase().indexOf("project") !== -1) {
-      console.log("Found project-related field:", name, "=", value);
-    }
-  });
 
   // Fetch integrations from API
   jQuery.ajax({
@@ -607,19 +408,15 @@ window.populateIntegrationModalDropdown = function () {
     type: "GET",
     dataType: "json",
     success: function (data) {
-      console.log("Integrations fetched:", data);
       var integrations = [];
       if (Array.isArray(data.integrations)) {
         integrations = data.integrations;
       } else if (Array.isArray(data.data)) {
         integrations = data.data;
       }
-      console.log("Number of integrations:", integrations.length);
-      console.log("Integration details:", integrations);
 
       if (data.success && integrations.length > 0) {
         jQuery.each(integrations, function (index, integration) {
-          console.log("Adding integration:", integration.id, integration.name);
           dropdown.append(
             '<option value="' +
               integration.id +
@@ -632,17 +429,8 @@ window.populateIntegrationModalDropdown = function () {
         // Auto-select if only one integration
         if (integrations.length === 1) {
           dropdown.val(integrations[0].id);
-          console.log("Auto-selecting single integration:", integrations[0].id);
-        } else {
-          console.log(
-            "Multiple integrations found, showing dropdown for user selection",
-          );
         }
       } else {
-        console.log(
-          "No integrations found for current project or API returned empty list:",
-          data,
-        );
         dropdown.append(
           '<option value="">No integrations available for project ' +
             tprojectId +
@@ -652,8 +440,6 @@ window.populateIntegrationModalDropdown = function () {
     },
     error: function (xhr, status, error) {
       console.error("Error fetching integrations:", error);
-      console.log("XHR status:", xhr.status);
-      console.log("XHR response:", xhr.responseText);
       dropdown.append('<option value="">Error loading integrations</option>');
     },
   });
@@ -661,18 +447,12 @@ window.populateIntegrationModalDropdown = function () {
 
 // Integration Dropdown Functions (Legacy - now redirects to modal)
 window.toggleIntegrationDropdown = function (show) {
-  console.log("toggleIntegrationDropdown called with show:", show);
-
   if (show) {
-    console.log("Redirecting to modal instead of old dropdown");
     // Redirect to modal instead of old dropdown
     if (typeof showIntegrationModal === "function") {
       showIntegrationModal();
-    } else {
-      console.log("Modal function not available");
     }
   } else {
-    console.log("Hiding modal instead of old dropdown");
     // Hide modal instead of old dropdown
     if (typeof hideIntegrationModal === "function") {
       hideIntegrationModal();
@@ -681,7 +461,6 @@ window.toggleIntegrationDropdown = function (show) {
 };
 
 window.populateIntegrationDropdown = function () {
-  console.log("populateIntegrationDropdown called");
   var tprojectId = window.getCurrentTProjectId();
 
   if (!tprojectId) {
@@ -690,8 +469,6 @@ window.populateIntegrationDropdown = function () {
     );
     return;
   }
-
-  console.log("Using tproject_id:", tprojectId);
 
   // Use correct base URL construction
   var pathname = window.location.pathname;
@@ -744,26 +521,13 @@ window.populateIntegrationDropdown = function () {
 
             // Auto-select if only one integration
             if (integrations.length === 1) {
-              console.log(
-                "Auto-selecting single integration:",
-                integrations[0].id,
-              );
               dropdown.val(integrations[0].id);
               handleIntegrationSelection(integrations[0].id);
 
               // Hide dropdown if only one integration (user doesn't need to choose)
               jQuery("#integration_dropdown_container").hide();
-            } else {
-              // Show dropdown for multiple integrations
-              console.log(
-                "Multiple integrations found, showing dropdown for user selection",
-              );
             }
           } else {
-            console.log(
-              "No integrations found for current project or API returned empty list:",
-              data,
-            );
             var emptyDropdown = jQuery("#integration_dropdown");
             emptyDropdown.empty();
             emptyDropdown.append(
@@ -787,8 +551,6 @@ window.populateIntegrationDropdown = function () {
 };
 
 window.handleIntegrationSelection = function (integrationId) {
-  console.log("Integration selected from dropdown:", integrationId);
-
   // Store selected integration globally for use during execution
   window.selectedIntegrationId = integrationId;
   window.syncSelectedIntegrationField();
@@ -809,13 +571,6 @@ window.handleIntegrationSelection = function (integrationId) {
 
 // Integration Picker Functions
 window.showIntegrationPicker = function (tproject_id, context) {
-  console.log(
-    "showIntegrationPicker called with tproject_id:",
-    tproject_id,
-    "context:",
-    context,
-  );
-
   // Reset modal state
   resetIntegrationPickerModal();
 
@@ -828,11 +583,6 @@ window.showIntegrationPicker = function (tproject_id, context) {
 
 // Load integrations from API
 window.loadIntegrationsForProject = function (tproject_id) {
-  console.log(
-    "loadIntegrationsForProject called with tproject_id:",
-    tproject_id,
-  );
-
   // Show loading state
   showIntegrationPickerLoading();
 
@@ -847,19 +597,14 @@ window.loadIntegrationsForProject = function (tproject_id) {
     "&_t=" +
     timestamp;
 
-  console.log("API URL:", apiUrl);
-
   // Use XMLHttpRequest for better compatibility
   var xhr = new XMLHttpRequest();
   xhr.open("GET", apiUrl, true);
   xhr.onreadystatechange = function () {
-    console.log("XHR readyState:", xhr.readyState, "status:", xhr.status);
-
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         try {
           var data = JSON.parse(xhr.responseText);
-          console.log("AJAX response data:", data);
 
           if (data.success) {
             showIntegrationPickerList(data.integrations);
@@ -986,12 +731,6 @@ window.selectIntegration = function (
   integrationName,
   integrationType,
 ) {
-  console.log("selectIntegration called with:", {
-    integrationId,
-    integrationName,
-    integrationType,
-  });
-
   // Store selected integration
   window.selectedIntegration = {
     id: integrationId,
@@ -1021,9 +760,6 @@ window.updateIntegrationSelectionUI = function () {
 
     // Enable confirm button
     confirmBtn.disabled = false;
-
-    // Log selection
-    console.log("Integration selected:", window.selectedIntegration);
 
     // If this is for bug creation, update the bug summary field
     if (window.integrationPickerContext === "bug_creation") {
@@ -1108,9 +844,6 @@ console.log(
   "execSetResults.js loaded - integration picker functions available",
 );
 
-// Test that saveExecStatus function is available
-console.log("saveExecStatus function exists:", typeof saveExecStatus);
-
 /**
  *
  */
@@ -1120,16 +853,11 @@ function doSubmitForHTML5() {
 
 // Priority popup functions
 window.showPriorityPopup = function (tcvID, status) {
-  console.log("showPriorityPopup called with tcvID:", tcvID, "status:", status);
-
   // Only show popup for Passed, Failed, or Blocked statuses
   if (status !== "p" && status !== "f" && status !== "b") {
-    console.log("Status not in p/f/b, calling direct save");
     saveExecutionStatus(tcvID, status, undefined, undefined);
     return;
   }
-
-  console.log("Checking if priority exists for tcvID:", tcvID);
 
   // First check if priority already exists in database
   jQuery.ajax({
@@ -1142,39 +870,20 @@ window.showPriorityPopup = function (tcvID, status) {
       _: new Date().getTime(), // Cache-busting parameter
     },
     success: function (response) {
-      console.log("Priority check response for tcvID", tcvID, ":", response);
-
       if (response.success) {
         if (response.has_priority) {
-          console.log(
-            "✓ Priority already exists (" + response.priority + ") for tcvID",
-            tcvID,
-            "- proceeding with execution save",
-          );
           // Priority exists, proceed directly with execution status save
           saveExecutionStatus(tcvID, status, undefined, undefined);
         } else {
-          console.log(
-            "✗ No priority found for tcvID",
-            tcvID,
-            "- showing priority popup",
-          );
           // No priority exists, show the popup
           showPriorityPopupInternal(tcvID, status);
         }
       } else {
-        console.log(
-          "✗ Priority check failed for tcvID",
-          tcvID,
-          "- showing popup as fallback",
-        );
         // If check fails, show popup as fallback
         showPriorityPopupInternal(tcvID, status);
       }
     },
     error: function (xhr, status, error) {
-      console.log("Priority check AJAX error:", error);
-      console.log("Response Text:", xhr.responseText);
       // If AJAX fails, show popup as fallback
       showPriorityPopupInternal(tcvID, status);
     },
@@ -1183,13 +892,6 @@ window.showPriorityPopup = function (tcvID, status) {
 
 // Internal function to show the actual popup
 window.showPriorityPopupInternal = function (tcvID, status) {
-  console.log(
-    "showPriorityPopupInternal called with tcvID:",
-    tcvID,
-    "status:",
-    status,
-  );
-
   // Get current priority value
   var currentPriority = "";
   var priorityField = jQuery("#case_priority_" + tcvID);
@@ -1275,9 +977,6 @@ window.savePriorityAndStatus = function (tcvID, status) {
     return;
   }
 
-  // Test with simple endpoint first
-  console.log("Testing with simple endpoint...");
-
   // Save priority via AJAX - using main endpoint
   jQuery.ajax({
     url: "lib/execute/ajax_update_priority.php",
@@ -1288,8 +987,6 @@ window.savePriorityAndStatus = function (tcvID, status) {
       field_id: 15, // Case_Priority field ID
     },
     success: function (response) {
-      console.log("AJAX Response:", response);
-
       if (response.success) {
         // Update the priority field on the page
         var priorityField = jQuery("#case_priority_" + tcvID);
@@ -1302,13 +999,10 @@ window.savePriorityAndStatus = function (tcvID, status) {
         saveExecStatusDirect(tcvID, status);
       } else {
         alert("Error updating priority: " + response.message);
-        console.log("Debug info:", response.debug);
       }
     },
     error: function (xhr, status, error) {
-      console.log("AJAX Error:", error);
-      console.log("Response Text:", xhr.responseText);
-      console.log("Status Code:", xhr.status);
+      console.error("AJAX Error:", error);
       alert("AJAX Error: " + error + " (Status: " + xhr.status + ")");
     },
   });
@@ -1325,17 +1019,6 @@ window.saveExecStatusDirect = function (tcvID, status) {
  *
  */
 function saveExecStatus(tcvID, status, msg, goNext) {
-  console.log(
-    "saveExecStatus called with tcvID:",
-    tcvID,
-    "status:",
-    status,
-    "msg:",
-    msg,
-    "goNext:",
-    goNext,
-  );
-
   // Check if bug submission is in progress
   if (window.bugSubmissionInProgress) {
     alert(
@@ -1355,7 +1038,6 @@ function saveExecStatus(tcvID, status, msg, goNext) {
 
     if (!selectedIntegration) {
       // No integration selected - show integration modal instead of overlay
-      console.log("No integration selected, showing modal");
       window.setPendingExecutionAction({
         type: "saveExecStatus",
         tcvID: tcvID,
@@ -1374,27 +1056,14 @@ function saveExecStatus(tcvID, status, msg, goNext) {
     }
 
     // Integration is selected - proceed with bug creation
-    console.log(
-      "Integration selected:",
-      selectedIntegration,
-      "proceeding with bug creation",
-    );
   }
 
   // Check if we should show priority popup
-  console.log(
-    "Checking if showPriorityPopup is function:",
-    typeof showPriorityPopup,
-  );
   if (typeof showPriorityPopup === "function") {
-    console.log("Calling showPriorityPopup");
     showPriorityPopup(tcvID, status);
     return false;
   }
 
-  console.log(
-    "showPriorityPopup not available, calling saveExecutionStatus directly",
-  );
   // Original logic continues if priority popup is not available
   saveExecutionStatus(tcvID, status, msg, goNext);
 }
@@ -1421,14 +1090,9 @@ function saveExecutionStatus(tcvID, status, msg, goNext) {
   if (shouldCreateIssue) {
     // Check if integration is selected when createIssue is checked
     var selectedIntegration = window.selectedIntegrationId;
-    console.log(
-      "Integration check - selectedIntegration:",
-      selectedIntegration,
-    );
 
     if (!selectedIntegration || selectedIntegration === "") {
       // No integration selected - show integration modal instead of alert
-      console.log("No integration selected, showing modal");
       window.setPendingExecutionAction({
         type: "saveExecutionStatus",
         tcvID: tcvID,
@@ -1471,6 +1135,29 @@ function saveExecutionStatus(tcvID, status, msg, goNext) {
 
   doSubmitForHTML5();
 }
+
+/**
+ * Handle bug submission completion - reset overlay and flags
+ */
+window.handleBugSubmissionComplete = function() {
+  console.log("Bug submission completed - resetting UI");
+  window.bugSubmissionInProgress = false;
+  if (typeof disableTestExecButtons === "function") {
+    disableTestExecButtons(false);
+  }
+};
+
+/**
+ * Handle bug submission error - reset overlay and flags
+ */
+window.handleBugSubmissionError = function() {
+  console.log("Bug submission failed - resetting UI");
+  window.bugSubmissionInProgress = false;
+  if (typeof disableTestExecButtons === "function") {
+    disableTestExecButtons(false);
+  }
+  alert("Bug submission failed. Please try again or check the logs for details.");
+};
 
 /**
  * Check before save partial execution if notes or Status are not empty

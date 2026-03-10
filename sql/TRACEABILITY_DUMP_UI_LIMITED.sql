@@ -83,6 +83,15 @@ SELECT
         ELSE 'Not Configured'
     END AS 'Execution Type',
     
+    -- Test Case S. No.
+    NHTC.name AS 'Test Case S. No.',
+    
+    -- Custom Fields for test case design
+    COALESCE(cf1.value, '') AS 'Primary Module / Function Name',
+    COALESCE(cf2.value, '') AS 'Scenario ID',
+    COALESCE(cf3.value, '') AS 'Sub-Scenario / Action',
+    COALESCE(TCV.summary, '') AS 'Test Case Description',
+    
     -- Additional columns for traceability
     ExecutedCases.executions_id AS 'Execution ID',
     GROUP_CONCAT(EB.bug_id ORDER BY EB.bug_id SEPARATOR ', ') AS 'Bug ID',
@@ -120,6 +129,11 @@ LEFT JOIN platforms P ON P.id = TPTCV.platform_id
 -- Get Test Case Type from custom field
 LEFT JOIN cfield_design_values cfdv ON cfdv.node_id = NHTCV.id 
     AND cfdv.field_id = 5  -- ID for Test Case Type custom field
+
+-- Get custom fields for Scenario ID, Module/Function Name, and Sub-Scenario/Action
+LEFT JOIN cfield_design_values cf1 ON cf1.node_id = NHTCV.id AND cf1.field_id = 1  -- Primary Module/Function Name
+LEFT JOIN cfield_design_values cf2 ON cf2.node_id = NHTCV.id AND cf2.field_id = 2  -- Scenario ID
+LEFT JOIN cfield_design_values cf3 ON cf3.node_id = NHTCV.id AND cf3.field_id = 3  -- Sub-Scenario/Action
 
 -- LEFT JOIN to get latest execution data per test case
 LEFT JOIN (
@@ -213,6 +227,7 @@ GROUP BY
     TCV.version,
     TCV.importance,
     TCV.execution_type,
+    TCV.summary,
     TPTCV.urgency,
     P.name,
     TP.prefix,
@@ -225,7 +240,10 @@ GROUP BY
     U1.first,
     U1.last,
     U2.first,
-    U2.last
+    U2.last,
+    cf1.value,
+    cf2.value,
+    cf3.value
 
 ORDER BY 
     COALESCE(tsp.full_path, nhtc_parent.name),

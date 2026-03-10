@@ -5,20 +5,41 @@
  * 
  * @filesource  custom_issue_integration_safe.php
  * @author      TestLink Custom Integration
- * @version     1.0
+ * @version     1.1
  * @created     2025-02-26
+ * @updated     2026-03-09 - Changed to file logging, added assignee support
  */
 
 require_once('../../config.inc.php');
 require_once('../functions/common.php');
+
+// Log file path
+if (!defined('CUSTOM_INTEGRATION_LOG')) {
+    define('CUSTOM_INTEGRATION_LOG', dirname(__FILE__) . '/custom_integration.log');
+}
+
+/**
+ * Log message to custom_integration.log file
+ */
+function logCustomIntegration($message, $level = 'DEBUG') {
+    $timestamp = date('Y-m-d H:i:s');
+    $logLine = "[$timestamp] [$level] $message" . PHP_EOL;
+    
+    // Ensure directory is writable
+    $logDir = dirname(CUSTOM_INTEGRATION_LOG);
+    if (!is_dir($logDir)) {
+        @mkdir($logDir, 0755, true);
+    }
+    
+    error_log($logLine, 3, CUSTOM_INTEGRATION_LOG);
+}
 
 /**
  * Get custom integration for a specific project
  * Uses safe database methods and working approach
  */
 function getCustomIntegrationForProject($db, $tproject_id) {
-    // Debug logging
-    error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: getCustomIntegrationForProject called with tproject_id: $tproject_id");
+    logCustomIntegration("DEBUG: getCustomIntegrationForProject called with tproject_id: $tproject_id");
     
     try {
         $sql = "SELECT i.* FROM custom_bugtrack_integrations i
@@ -27,23 +48,23 @@ function getCustomIntegrationForProject($db, $tproject_id) {
                 ORDER BY m.created_on DESC
                 LIMIT 1";
         
-        error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: SQL: $sql");
+        logCustomIntegration("DEBUG: SQL: $sql");
         
         $result = $db->exec_query($sql);
         
         if ($result) {
             $row = $db->fetch_array($result);
             if ($row) {
-                error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Found integration: " . json_encode($row));
+                logCustomIntegration("DEBUG: Found integration: " . json_encode($row));
                 return $row;
             }
         }
         
-        error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: No integration found for project $tproject_id");
+        logCustomIntegration("DEBUG: No integration found for project $tproject_id");
         return null;
         
     } catch (Exception $e) {
-        error_log("[CUSTOM_INTEGRATION_SAFE] ERROR: " . $e->getMessage());
+        logCustomIntegration("ERROR: " . $e->getMessage(), 'ERROR');
         return null;
     }
 }
@@ -61,29 +82,29 @@ function hasCustomIntegration($db, $tproject_id) {
  * Uses the working Redmine API approach as fallback
  */
 function getCustomIssueData($db, $tproject_id, $issue_id) {
-    error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: getCustomIssueData called with tproject_id: $tproject_id, issue_id: $issue_id");
+    logCustomIntegration("DEBUG: getCustomIssueData called with tproject_id: $tproject_id, issue_id: $issue_id");
     
     try {
         // Try custom integration first
         $integration = getCustomIntegrationForProject($db, $tproject_id);
         
         if ($integration) {
-            error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Using integration: " . $integration['name'] . " (Type: " . $integration['type'] . ")");
+            logCustomIntegration("DEBUG: Using integration: " . $integration['name'] . " (Type: " . $integration['type'] . ")");
             
             if ($integration['type'] === 'REDMINE') {
                 return getRedmineIssueDataSafe($integration, $issue_id);
             } else {
-                error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Unsupported integration type: " . $integration['type']);
+                logCustomIntegration("DEBUG: Unsupported integration type: " . $integration['type']);
             }
         } else {
-            error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: No custom integration found, using fallback");
+            logCustomIntegration("DEBUG: No custom integration found, using fallback");
         }
         
         // Fallback to hardcoded working solution
         return getRedmineIssueDataFallback($issue_id);
         
     } catch (Exception $e) {
-        error_log("[CUSTOM_INTEGRATION_SAFE] ERROR: " . $e->getMessage());
+        logCustomIntegration("ERROR: " . $e->getMessage(), 'ERROR');
         return getRedmineIssueDataFallback($issue_id);
     }
 }
@@ -97,7 +118,7 @@ function getRedmineIssueDataSafe($integration, $issue_id) {
     // Add cache-busting
     $url .= '?_t=' . time();
     
-    error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Calling Redmine API: $url");
+    logCustomIntegration("DEBUG: Calling Redmine API: $url");
     
     try {
         $ch = curl_init($url);
@@ -118,7 +139,7 @@ function getRedmineIssueDataSafe($integration, $issue_id) {
         $curlError = curl_error($ch);
         curl_close($ch);
         
-        error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Redmine API response: HTTP $httpCode, Error: '$curlError'");
+        logCustomIntegration("DEBUG: Redmine API response: HTTP $httpCode, Error: '$curlError'");
         
         if ($response !== false && $httpCode >= 200 && $httpCode < 300) {
             $data = json_decode($response, true);
@@ -132,14 +153,14 @@ function getRedmineIssueDataSafe($integration, $issue_id) {
                     'updated_on' => isset($data['issue']['updated_on']) ? $data['issue']['updated_on'] : null
                 );
                 
-                error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Successfully parsed issue $issue_id: " . json_encode($issue_data));
+                logCustomIntegration("DEBUG: Successfully parsed issue $issue_id: " . json_encode($issue_data));
                 return $issue_data;
             }
         } else {
-            error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Redmine API response body: $response");
+            logCustomIntegration("DEBUG: Redmine API response body: $response");
         }
     } catch (Exception $e) {
-        error_log("[CUSTOM_INTEGRATION_SAFE] ERROR: Exception fetching issue $issue_id: " . $e->getMessage());
+        logCustomIntegration("ERROR: Exception fetching issue $issue_id: " . $e->getMessage(), 'ERROR');
     }
     
     return null;
@@ -156,7 +177,7 @@ function getRedmineIssueDataFallback($issue_id) {
     // Add cache-busting
     $url .= '?_t=' . time();
     
-    error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Calling fallback Redmine API: $url");
+    logCustomIntegration("DEBUG: Calling fallback Redmine API: $url");
     
     try {
         $ch = curl_init($url);
@@ -177,7 +198,7 @@ function getRedmineIssueDataFallback($issue_id) {
         $curlError = curl_error($ch);
         curl_close($ch);
         
-        error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Fallback Redmine API response: HTTP $httpCode, Error: '$curlError'");
+        logCustomIntegration("DEBUG: Fallback Redmine API response: HTTP $httpCode, Error: '$curlError'");
         
         if ($response !== false && $httpCode >= 200 && $httpCode < 300) {
             $data = json_decode($response, true);
@@ -191,14 +212,14 @@ function getRedmineIssueDataFallback($issue_id) {
                     'updated_on' => isset($data['issue']['updated_on']) ? $data['issue']['updated_on'] : null
                 );
                 
-                error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Fallback successfully parsed issue $issue_id: " . json_encode($issue_data));
+                logCustomIntegration("DEBUG: Fallback successfully parsed issue $issue_id: " . json_encode($issue_data));
                 return $issue_data;
             }
         } else {
-            error_log("[CUSTOM_INTEGRATION_SAFE] DEBUG: Fallback Redmine API response body: $response");
+            logCustomIntegration("DEBUG: Fallback Redmine API response body: $response");
         }
     } catch (Exception $e) {
-        error_log("[CUSTOM_INTEGRATION_SAFE] ERROR: Fallback exception fetching issue $issue_id: " . $e->getMessage());
+        logCustomIntegration("ERROR: Fallback exception fetching issue $issue_id: " . $e->getMessage(), 'ERROR');
     }
     
     return null;
