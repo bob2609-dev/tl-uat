@@ -4,3 +4,5 @@ gui/templates_c/*
 lib/execute/logs/*
 logs/*
 upload_area/*
+lib/admin/SQL scripts/*
+lib\admin\SQL scripts\*
