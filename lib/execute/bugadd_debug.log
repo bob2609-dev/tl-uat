@@ -925,3 +925,69 @@
 [2026-03-10 19:23:47.0.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
 [2026-03-10 19:23:47.4.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
 [2026-03-10 19:23:47.7.3] [INFO] [BUGADD] Template displayed
+[2026-03-10 21:13:35.1.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 21:13:35.8.8] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 21:13:35.0.4] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 21:13:35.1.5] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81663","tcstep_id":"0"}
+[2026-03-10 21:13:35.1.7] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 21:13:36.0.4] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 21:13:36.1.9] [INFO] [BUGADD] Exec ID: 81663
+[2026-03-10 21:13:36.3.1] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 21:13:36.4.1] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 21:13:36.4.9] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 21:13:36.5.8] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 21:13:36.4.6] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 21:13:36.568] [INFO] [BUGADD] Template displayed
+[2026-03-10 21:14:01.6.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 21:14:01.9.6] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-03-10 21:14:01.3.4] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_836299810","CSRFToken":"4cf2166ac42260d780cda7585bcd7b6c8e65257379b258339f5aae6b321a4ce2be3d3467bf31ee579831303153c4eb86b5466e56215dc960a27c34a50cc1b68a","tproject_id":"448287","tplan_id":"448288","tcversion_id":"431183","user_action":"doCreate","tcstep_id":"0","bug_summary":"TESTLINK INTEGRATION TEST","bug_context":"TEST-CONTEXT0001999","bug_notes":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards >  Maintenance > Card Master Process & Business Rules: Chap Chap Machinga Card should not be issued. Error message: \"Card type not allowed.\"\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-03-10 21:14:01.6.9] [INFO] [BUGADD] GET DATA: []
+[2026-03-10 21:14:01.8.4] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 21:14:01.4.9] [INFO] [BUGADD] Initialized - user_action: doCreate
+[2026-03-10 21:14:01.7.6] [INFO] [BUGADD] Exec ID: 81663
+[2026-03-10 21:14:01.000] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 21:14:02.2.6] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 21:14:02.6.1] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 21:14:02.8.6] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 21:14:02.2.4] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 21:14:02.8.8] [INFO] [BUGADD] Template displayed
+[2026-03-10 21:15:04.7.6] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 21:15:04.1.9] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 21:15:04.4.4] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 21:15:04.6.5] [INFO] [BUGADD] GET DATA: {"user_action":"link","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81663","tcstep_id":"0"}
+[2026-03-10 21:15:04.3.6] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 21:15:04.2.9] [INFO] [BUGADD] Initialized - user_action: link
+[2026-03-10 21:15:04.4.8] [INFO] [BUGADD] Exec ID: 81663
+[2026-03-10 21:15:04.6.1] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 21:15:04.7.4] [INFO] [BUGADD] ENTERING LINK/ADD_NOTE SECTION
+[2026-03-10 21:15:04.8.3] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 21:15:04.9.2] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 21:15:04.0.3] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 21:15:04.5.5] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 21:15:04.9.9] [INFO] [BUGADD] Template displayed
+[2026-03-10 21:15:15.7.8] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 21:15:15.5.5] [INFO] [BUGADD] REQUEST METHOD: GET
+[2026-03-10 21:15:15.9.3] [INFO] [BUGADD] POST DATA: []
+[2026-03-10 21:15:15.2.1] [INFO] [BUGADD] GET DATA: {"user_action":"create","tcversion_id":"431183","tproject_id":"448287","tplan_id":"448288","exec_id":"81663","tcstep_id":"0"}
+[2026-03-10 21:15:15.6.9] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 21:15:15.7.7] [INFO] [BUGADD] Initialized - user_action: create
+[2026-03-10 21:15:15.9.6] [INFO] [BUGADD] Exec ID: 81663
+[2026-03-10 21:15:15.0.9] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 21:15:15.1.8] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 21:15:15.2.8] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 21:15:15.3.7] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 21:15:15.8.9] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 21:15:15.511] [INFO] [BUGADD] Template displayed
+[2026-03-10 21:15:52.1.1] [INFO] [BUGADD] === BUGADD SCRIPT START ===
+[2026-03-10 21:15:52.5.6] [INFO] [BUGADD] REQUEST METHOD: POST
+[2026-03-10 21:15:52.8.7] [INFO] [BUGADD] POST DATA: {"CSRFName":"CSRFGuard_10460955","CSRFToken":"0e289651d08db980e858f51b9e05312f23a69c75a57a0beac3c3412f35afeb33a2a4cf8af44c304a3c9653a592c97cac54488d6eec2a014686004577616f9836","tproject_id":"448287","tplan_id":"448288","tcversion_id":"431183","user_action":"doCreate","tcstep_id":"0","bug_summary":"TESTLINK INTEGRATION TEST","bug_context":"TEST-CONTEXT0001999","bug_notes":"Function ID: STDCRDMS\r\nAction: New\r\nTest scenario: Negative test\r\nTest Data: [\r\nTESTLINK INTEGRATION TEST\r\n]\r\nExpected result: Cards >  Maintenance > Card Master Process & Business Rules: Chap Chap Machinga Card should not be issued. Error message: \"Card type not allowed.\"\r\nTest result: [\r\nTESTLINK INTEGRATION TEST\r\n]","addLinkToTL":"on","addLinkToTLPrintView":"on"}
+[2026-03-10 21:15:52.1.8] [INFO] [BUGADD] GET DATA: []
+[2026-03-10 21:15:52.8.7] [INFO] [BUGADD] Using custom integration: OBDX - REDMINE
+[2026-03-10 21:15:52.8.3] [INFO] [BUGADD] Initialized - user_action: doCreate
+[2026-03-10 21:15:52.1.1] [INFO] [BUGADD] Exec ID: 81663
+[2026-03-10 21:15:52.3.4] [INFO] [BUGADD] Bug ID: 
+[2026-03-10 21:15:52.5.7] [INFO] [BUGADD] === PROCESSING COMPLETE ===
+[2026-03-10 21:15:52.7.8] [INFO] [BUGADD] Final GUI message: 
+[2026-03-10 21:15:52.9.9] [INFO] [BUGADD] === BUGADD SCRIPT END ===
+[2026-03-10 21:15:52.3.7] [INFO] [BUGADD] About to display template: execute/bugAdd.tpl
+[2026-03-10 21:15:52.1.6] [INFO] [BUGADD] Template displayed

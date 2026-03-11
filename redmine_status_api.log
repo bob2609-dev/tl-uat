@@ -3216,3 +3216,136 @@ d fallback
 [2026-03-10 21:00:41] Bug data: {"bug_id":"87882","status":"Open","priority":"Normal","assignee":"NMBBANK ICT","updated_on":"2026-03-10T20:00:01Z"}
 [2026-03-10 21:00:41] Found bug IDs in DB: 87882
 [2026-03-10 21:00:41] Successfully fetched from Redmine: 1 bugs
+[2026-03-10 21:14:07] API called with execution_id: 81663
+[2026-03-10 21:14:07] Execution ID request: 81663
+[2026-03-10 21:14:07] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:14:07] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:14:09] [CUSTOM_INTEGRATION] Successfully fetched bug 87882
+[2026-03-10 21:14:09] Successfully fetched bug 87882 using CUSTOM INTEGRATION
+[2026-03-10 21:14:09] Bug data: {"bug_id":"87882","status":"Closed","priority":"Normal","assignee":"NMBBANK ICT","updated_on":"2026-03-10T20:02:09Z"}
+[2026-03-10 21:14:09] Found bug IDs in DB: 87882
+[2026-03-10 21:14:09] Successfully fetched from Redmine: 1 bugs
+[2026-03-10 21:14:30] API called with execution_id: 81647
+[2026-03-10 21:14:30] Execution ID request: 81647
+[2026-03-10 21:14:30] API called with execution_id: 81648
+[2026-03-10 21:14:30] Execution ID request: 81648
+[2026-03-10 21:14:30] API called with execution_id: 81663
+[2026-03-10 21:14:30] Execution ID request: 81663
+[2026-03-10 21:14:30] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:14:30] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:14:30] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:14:30] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:14:30] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:14:32] [CUSTOM_INTEGRATION] API failed for bug 87666: HTTP 403
+[2026-03-10 21:14:32] Custom integration failed for bug 87666, trying FALLBACK
+[2026-03-10 21:14:32] [CUSTOM_INTEGRATION] API failed for bug 87678: HTTP 403
+[2026-03-10 21:14:32] Custom integration failed for bug 87678, trying FALLBACK
+[2026-03-10 21:14:32] [CUSTOM_INTEGRATION] Successfully fetched bug 87882
+[2026-03-10 21:14:32] Successfully fetched bug 87882 using CUSTOM INTEGRATION
+[2026-03-10 21:14:32] Bug data: {"bug_id":"87882","status":"Closed","priority":"Normal","assignee":"NMBBANK ICT","updated_on":"2026-03-10T20:02:09Z"}
+[2026-03-10 21:14:32] Found bug IDs in DB: 87882
+[2026-03-10 21:14:32] Successfully fetched from Redmine: 1 bugs
+[2026-03-10 21:14:34] [CUSTOM_INTEGRATION] Fallback failed for bug 87666: HTTP 401
+[2026-03-10 21:14:34] Failed to fetch bug 87666 from BOTH custom integration and fallback
+[2026-03-10 21:14:34] Found bug IDs in DB: 87666
+[2026-03-10 21:14:34] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:14:34] [CUSTOM_INTEGRATION] Fallback failed for bug 87678: HTTP 401
+[2026-03-10 21:14:34] Failed to fetch bug 87678 from BOTH custom integration and fallback
+[2026-03-10 21:14:34] Found bug IDs in DB: 87678
+[2026-03-10 21:14:34] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:15:07] API called with execution_id: 81663
+[2026-03-10 21:15:07] API called with execution_id: 81648
+[2026-03-10 21:15:07] Execution ID request: 81648
+[2026-03-10 21:15:07] API called with execution_id: 81647
+[2026-03-10 21:15:07] Execution ID request: 81647
+[2026-03-10 21:15:07] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:15:07] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:15:07] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:15:07] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:15:07] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:15:09] [CUSTOM_INTEGRATION] API failed for bug 87678: HTTP 403
+[2026-03-10 21:15:09] Custom integration failed for bug 87678, trying FALLBACK
+[2026-03-10 21:15:09] [CUSTOM_INTEGRATION] API failed for bug 87666: HTTP 403
+[2026-03-10 21:15:09] Custom integration failed for bug 87666, trying FALLBACK
+[2026-03-10 21:15:09] [CUSTOM_INTEGRATION] Successfully fetched bug 87882
+[2026-03-10 21:15:09] Successfully fetched bug 87882 using CUSTOM INTEGRATION
+[2026-03-10 21:15:09] Bug data: {"bug_id":"87882","status":"Closed","priority":"Normal","assignee":"NMBBANK ICT","updated_on":"2026-03-10T20:02:09Z"}
+[2026-03-10 21:15:09] Found bug IDs in DB: 87882
+[2026-03-10 21:15:09] Successfully fetched from Redmine: 1 bugs
+[2026-03-10 21:15:11] [CUSTOM_INTEGRATION] Fallback failed for bug 87678: HTTP 401
+[2026-03-10 21:15:11] Failed to fetch bug 87678 from BOTH custom integration and fallback
+[2026-03-10 21:15:11] Found bug IDs in DB: 87678
+[2026-03-10 21:15:11] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:15:11] [CUSTOM_INTEGRATION] Fallback failed for bug 87666: HTTP 401
+[2026-03-10 21:15:11] Failed to fetch bug 87666 from BOTH custom integration and fallback
+[2026-03-10 21:15:11] Found bug IDs in DB: 87666
+[2026-03-10 21:15:11] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:16:12] API called with execution_id: 81648
+[2026-03-10 21:16:12] Execution ID request: 81648
+[2026-03-10 21:16:12] API called with execution_id: 81663
+[2026-03-10 21:16:12] Execution ID request: 81663
+[2026-03-10 21:16:12] API called with execution_id: 81647
+[2026-03-10 21:16:12] Execution ID request: 81647
+[2026-03-10 21:16:12] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] API failed for bug 87678: HTTP 0
+[2026-03-10 21:16:12] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:16:12] Custom integration failed for bug 87678, trying FALLBACK
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] Fallback failed for bug 87678: HTTP 0
+[2026-03-10 21:16:12] Failed to fetch bug 87678 from BOTH custom integration and fallback
+[2026-03-10 21:16:12] Found bug IDs in DB: 87678
+[2026-03-10 21:16:12] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] API failed for bug 87666: HTTP 0
+[2026-03-10 21:16:12] Custom integration failed for bug 87666, trying FALLBACK
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] Fallback failed for bug 87666: HTTP 0
+[2026-03-10 21:16:12] Failed to fetch bug 87666 from BOTH custom integration and fallback
+[2026-03-10 21:16:12] Found bug IDs in DB: 87666
+[2026-03-10 21:16:12] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:16:12] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] API failed for bug 87882: HTTP 0
+[2026-03-10 21:16:12] Custom integration failed for bug 87882, trying FALLBACK
+[2026-03-10 21:16:12] [CUSTOM_INTEGRATION] Fallback failed for bug 87882: HTTP 0
+[2026-03-10 21:16:12] Failed to fetch bug 87882 from BOTH custom integration and fallback
+[2026-03-10 21:16:12] Found bug IDs in DB: 87882
+[2026-03-10 21:16:12] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:16:20] API called with execution_id: 81663
+[2026-03-10 21:16:20] Execution ID request: 81663
+[2026-03-10 21:16:20] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:16:20] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:16:20] [CUSTOM_INTEGRATION] API failed for bug 87882: HTTP 0
+[2026-03-10 21:16:20] Custom integration failed for bug 87882, trying FALLBACK
+[2026-03-10 21:16:20] [CUSTOM_INTEGRATION] Fallback failed for bug 87882: HTTP 0
+[2026-03-10 21:16:20] Failed to fetch bug 87882 from BOTH custom integration and fallback
+[2026-03-10 21:16:20] Found bug IDs in DB: 87882
+[2026-03-10 21:16:20] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:16:26] API called with execution_id: 81663
+[2026-03-10 21:16:26] Execution ID request: 81663
+[2026-03-10 21:16:26] API called with execution_id: 81648
+[2026-03-10 21:16:26] Execution ID request: 81648
+[2026-03-10 21:16:26] API called with execution_id: 81647
+[2026-03-10 21:16:26] Execution ID request: 81647
+[2026-03-10 21:16:26] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:16:26] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:16:26] CUSTOM INTEGRATION FILE LOADED SUCCESSFULLY
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] API failed for bug 87882: HTTP 0
+[2026-03-10 21:16:26] Custom integration failed for bug 87882, trying FALLBACK
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] Fallback failed for bug 87882: HTTP 0
+[2026-03-10 21:16:26] Failed to fetch bug 87882 from BOTH custom integration and fallback
+[2026-03-10 21:16:26] Found bug IDs in DB: 87882
+[2026-03-10 21:16:26] Successfully fetched from Redmine: 0 bugs
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] Using integration: FCUBS - REDMINE TEST (API key: c16548f2...)
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] API failed for bug 87666: HTTP 0
+[2026-03-10 21:16:26] Custom integration failed for bug 87666, trying FALLBACK
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] API failed for bug 87678: HTTP 0
+[2026-03-10 21:16:26] Custom integration failed for bug 87678, trying FALLBACK
+0
+[2026-03-10 21:16:26] Failed to fetch bug 87666 from BOTH custom integration and fallback
+[2026-03-10 21:16:26] Found bug IDs in DB: 87666
+[2026-03-10 21:16:26] [CUSTOM_INTEGRATION] Fallback failed for bug 87678: HTTP 0
+[2026-03-10 21:16:26] Failed to fetch bug 87678 from BOTH custom integration and fallback
+[2026-03-10 21:16:26] Found bug IDs in DB: 87678
+[2026-03-10 21:16:26] Successfully fetched from Redmine: 0 bugs

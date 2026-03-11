@@ -745,3 +745,14 @@ TESTLINK INTEGRATION TEST | Context: TEST-CONTEXT0001'
 [2026-03-10 21:00:38] [DEBUG] REAL SUCCESS - Issue created: 87882
 [2026-03-10 21:00:38] [DEBUG] LINKING BUG TO EXECUTION - Bug ID: 87882, Execution ID: 81663
 [2026-03-10 21:00:38] [DEBUG] SUCCESS: Bug ID 87882 linked to execution 81663 using write_execution_bug
+[2026-03-10 21:13:35] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:14:01] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:14:06] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:14:29] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:15:04] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:15:06] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:15:15] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:15:52] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:16:11] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:16:19] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
+[2026-03-10 21:16:25] [DEBUG] DEBUG: getCustomIntegrationForProject called with tproject_id: 448287, integration_id: null
